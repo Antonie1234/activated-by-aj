@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import AJLogo from './AJLogo';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -46,15 +46,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center group">
-          <div className="relative h-10 w-32">
-            <Image
-              src="/logo.png"
-              alt="Activated by AJ"
-              fill
-              className="object-contain object-left"
-              priority
-            />
-          </div>
+          <AJLogo height={36} />
         </Link>
 
         {/* Desktop Nav */}

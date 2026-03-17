@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import AJLogo from './AJLogo';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -23,13 +23,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <div className="relative h-10 w-32 mb-4">
-              <Image
-                src="/logo.png"
-                alt="Activated by AJ"
-                fill
-                className="object-contain object-left"
-              />
+            <div className="mb-4">
+              <AJLogo height={36} />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Turn your energy into purpose. Personal coaching for tennis, fitness,
