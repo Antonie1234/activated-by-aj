@@ -23,19 +23,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative w-10 h-10">
-                <Image
-                  src="/logo.png"
-                  alt="Activated by AJ"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <span className="font-black text-lg" style={{ letterSpacing: '-0.02em' }}>
-                <span style={{ color: 'var(--brand-gold)' }}>ACTIVATED</span>
-                <span className="text-white"> BY AJ</span>
-              </span>
+            <div className="relative h-10 w-32 mb-4">
+              <Image
+                src="/logo.png"
+                alt="Activated by AJ"
+                fill
+                className="object-contain object-left"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Turn your energy into purpose. Personal coaching for tennis, fitness,

@@ -45,23 +45,16 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-10 h-10">
+        <Link href="/" className="flex items-center group">
+          <div className="relative h-10 w-32">
             <Image
               src="/logo.png"
               alt="Activated by AJ"
               fill
-              className="object-contain"
+              className="object-contain object-left"
               priority
             />
           </div>
-          <span
-            className="font-black text-lg tracking-tight hidden sm:block"
-            style={{ letterSpacing: '-0.02em' }}
-          >
-            <span style={{ color: 'var(--brand-gold)' }}>ACTIVATED</span>
-            <span className="text-white"> BY AJ</span>
-          </span>
         </Link>
 
         {/* Desktop Nav */}
