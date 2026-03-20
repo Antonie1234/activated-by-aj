@@ -2,7 +2,7 @@ export default function AJLogo({ height = 40 }: { height?: number }) {
   return (
     <svg
       height={height}
-      viewBox="0 0 120 40"
+      viewBox="0 0 148 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Activated by AJ"

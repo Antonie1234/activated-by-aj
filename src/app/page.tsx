@@ -39,14 +39,19 @@ export default function Home() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{ background: 'var(--background)' }}
       >
-        {/* Background grid pattern */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(26,111,212,0.5) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(26,111,212,0.5) 80px)',
-          }}
-        />
+        {/* Background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          style={{ opacity: 0.5 }}
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay to keep text readable */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.6)' }} />
         {/* Blue glow */}
         <div
           className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
@@ -57,6 +62,18 @@ export default function Home() {
           className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-10 blur-3xl pointer-events-none"
           style={{ background: 'var(--brand-gold)' }}
         />
+
+        {/* Watermark "A" icon */}
+        <svg
+          viewBox="18 8 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute pointer-events-none"
+          style={{ width: '70vmin', height: '70vmin', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.30 }}
+          aria-hidden="true"
+        >
+          <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#D4A843" />
+          <polygon points="24,26 36,26 34,20 26,20" fill="#0a0a0a" />
+        </svg>
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-24 pb-20">
           <div
@@ -84,27 +101,9 @@ export default function Home() {
           </h1>
 
           <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            Tennis coaching, fitness &amp; strength training, and beach sports performance —
-            with AJ in Willoughby, Sydney.
+            Tennis coaching, fitness &amp; strength training, and beach sports performance. Your Vibe Activates Your Tribe.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-gold text-sm">
-              Book a Session
-            </Link>
-            <Link href="/services" className="btn-outline text-sm">
-              Explore Services
-            </Link>
-          </div>
-
-          {/* Scroll indicator */}
-          <div className="mt-20 flex flex-col items-center gap-2 opacity-40">
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
-            <div
-              className="w-px h-10 animate-pulse"
-              style={{ background: 'var(--brand-gold)' }}
-            />
-          </div>
         </div>
       </section>
 
