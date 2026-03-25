@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import AJLogo from './AJLogo';
+import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -12,6 +15,9 @@ const navLinks = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isAbout = pathname === '/about';
+
   return (
     <footer
       style={{
@@ -20,7 +26,7 @@ export default function Footer() {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {!isAbout && <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
             <div className="mb-4">
@@ -116,10 +122,10 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-        </div>
+        </div>}
 
         <div
-          className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-600"
+          className={`${isAbout ? '' : 'mt-12 '}pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-600`}
           style={{ borderTop: '1px solid var(--border)' }}
         >
           <p>© {new Date().getFullYear()} Activated by AJ. All rights reserved.</p>

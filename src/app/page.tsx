@@ -4,32 +4,35 @@ const services = [
   {
     icon: '🎾',
     title: 'Tennis Coaching',
-    description:
-      'One-on-one and group tennis sessions for all levels. Develop technique, strategy, and mental game.',
+    description: 'One-on-one and group tennis sessions for all levels. Technique, strategy, footwork and mental game.',
     href: '/services#tennis',
   },
   {
-    icon: '🏋️',
-    title: 'Fitness & Strength',
-    description:
-      'Personalised strength and conditioning programs designed to unlock your physical potential.',
+    icon: '🏓',
+    title: 'Padel & Pickleball',
+    description: 'Advanced coaching in both Padel and Pickleball. Technical skills, tactics and competitive play for all levels.',
+    href: '/services#padel',
+  },
+  {
+    icon: '💪',
+    title: 'Fitness & Conditioning',
+    description: 'Personalised strength, conditioning and bodyweight programs designed around your goals and lifestyle.',
     href: '/services#fitness',
   },
   {
     icon: '🌊',
     title: 'Movement & Beach Sports',
-    description:
-      'Dynamic outdoor training combining functional movement, agility, and beach sport performance.',
+    description: 'Dynamic outdoor training combining functional movement, beach tennis, volleyball and agility.',
     href: '/services#movement',
+  },
+  {
+    icon: '📋',
+    title: 'Programs & Plans',
+    description: 'Custom workout programs, recovery plans and nutrition guidance — designed to keep you progressing.',
+    href: '/services#programs',
   },
 ];
 
-const stats = [
-  { value: '100+', label: 'Clients Trained' },
-  { value: '5+', label: 'Years Experience' },
-  { value: '3', label: 'Disciplines' },
-  { value: 'Sydney', label: 'Based' },
-];
 
 export default function Home() {
   return (
@@ -107,25 +110,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS ── */}
-      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <p
-                  className="text-3xl sm:text-4xl font-black mb-1"
-                  style={{ color: 'var(--brand-gold)' }}
-                >
-                  {stat.value}
-                </p>
-                <p className="text-gray-400 text-sm uppercase tracking-wider">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── ABOUT TEASER ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -138,49 +122,19 @@ export default function Home() {
               <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6" style={{ letterSpacing: '-0.02em' }}>
                 COACHING THAT <span className="gold-text">ACTIVATES</span> YOU
               </h2>
-              <p className="text-gray-400 leading-relaxed mb-4">
-                AJ is a passionate personal coach based in Willoughby, Sydney. With a background
-                spanning tennis, strength &amp; conditioning, and outdoor movement — AJ brings an
-                energetic, results-driven approach to every session.
-              </p>
               <p className="text-gray-400 leading-relaxed mb-8">
-                Whether you&apos;re picking up a racket for the first time or training to peak performance,
-                AJ meets you where you are and pushes you further than you thought possible.
+                Activated by AJ is more than a fitness brand. It&apos;s a movement. We specialise in tennis, strength training and functional movement — activating each individual&apos;s full potential. This journey isn&apos;t just about training harder. It&apos;s about becoming disciplined, confident and aligned with your purpose. It&apos;s about transforming your body, mindset and energy, while building a tribe of warriors who lead with grit and drive.
               </p>
               <Link href="/about" className="btn-primary">
                 More About AJ
               </Link>
             </div>
 
-            {/* Placeholder image card */}
-            <div
-              className="relative rounded-lg overflow-hidden"
-              style={{
-                background: 'var(--surface-2)',
-                border: '1px solid var(--border)',
-                aspectRatio: '1 / 1',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              <div className="text-center p-8">
-                <div className="text-6xl mb-4">⚡</div>
-                <p className="text-gray-500 text-sm">AJ Photo Coming Soon</p>
-              </div>
-              <div
-                className="absolute top-0 left-0 w-16 h-16"
-                style={{
-                  background: 'linear-gradient(135deg, var(--brand-gold) 0%, transparent 70%)',
-                  opacity: 0.3,
-                }}
-              />
-              <div
-                className="absolute bottom-0 right-0 w-16 h-16"
-                style={{
-                  background: 'linear-gradient(315deg, var(--brand-blue) 0%, transparent 70%)',
-                  opacity: 0.3,
-                }}
+            <div className="relative rounded-lg overflow-hidden" style={{ aspectRatio: '1 / 1' }}>
+              <img
+                src="/aj-photo.jpg"
+                alt="AJ"
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
@@ -188,19 +142,27 @@ export default function Home() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section className="section-padding" style={{ background: 'var(--surface)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <section className="section-padding relative overflow-hidden" style={{ background: 'var(--surface)' }}>
+        {/* A power button watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 0 }}>
+          <svg width="800" height="800" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.07 }}>
+            <polygon points="30,2 6,58 14,58 20,42 40,42 46,58 54,58" fill="white" />
+            <polygon points="18,36 42,36 40,28 20,28" fill="black" />
+            <path d="M 36.2,12.8 A 9,9 0 1 1 23.8,12.8" stroke="black" strokeWidth="2.2" strokeLinecap="round" fill="none" />
+            <line x1="30" y1="10.5" x2="30" y2="18" stroke="black" strokeWidth="2.2" strokeLinecap="round" />
+          </svg>
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-14">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
               What I Offer
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
               SERVICES
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
               <Link key={service.title} href={service.href} className="block group">
                 <div
@@ -230,22 +192,6 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link href="/pricing" className="btn-primary">
               View Pricing
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIAL HIGHLIGHT ── */}
-      <section className="section-padding" style={{ background: 'var(--background)' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <div className="text-5xl mb-6" style={{ color: 'var(--brand-gold)' }}>&ldquo;</div>
-          <blockquote className="text-2xl sm:text-3xl font-bold text-white leading-tight mb-8" style={{ letterSpacing: '-0.02em' }}>
-            AJ doesn&apos;t just coach you — he activates something inside you that you didn&apos;t know was there.
-          </blockquote>
-          <p className="text-gray-500 text-sm uppercase tracking-widest">— Sydney Client</p>
-          <div className="mt-10">
-            <Link href="/testimonials" className="btn-outline">
-              Read More Testimonials
             </Link>
           </div>
         </div>
