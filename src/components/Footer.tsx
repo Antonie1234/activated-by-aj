@@ -51,6 +51,14 @@ export default function Footer() {
               >
                 Email
               </a>
+              <a
+                href="https://www.instagram.com/activatedbyaj_"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline text-xs px-4 py-2"
+              >
+                Instagram
+              </a>
             </div>
           </div>
 
@@ -103,6 +111,17 @@ export default function Footer() {
                   className="text-white text-sm hover:opacity-80 transition-opacity break-all"
                 >
                   activatedbookingsbyaj@gmail.com
+                </a>
+              </li>
+              <li>
+                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Instagram</p>
+                <a
+                  href="https://www.instagram.com/activatedbyaj_"
+                  className="text-white text-sm hover:opacity-80 transition-opacity"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  @activatedbyaj_
                 </a>
               </li>
               <li>

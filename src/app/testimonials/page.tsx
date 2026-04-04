@@ -19,12 +19,12 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: 'Lauren Beckage',
-    initials: 'LB',
+    name: 'Maria',
+    initials: 'M',
     photo: '/georgia-testimonial.jpg',
     service: 'Pickleball Coaching',
     quote:
-      "AJ is a wonderfully patient and encouraging coach. As someone with MS, I really appreciate how he breaks things down, repeats instructions without fuss, and respects mobility challenges. He makes learning fun, keeps us laughing, and creates a truly inclusive space. I'd highly recommend him to anyone with or without a disability wanting to give pickleball a go!",
+      "Pickleball looks easy but requires a lot of certain skills to be a good player. I worked with AJ Nortje as my private coach to improve my game faster and still do. Even though AJ is primarily an expert tennis coach he is an equally skilled Pickleball Coach. He brings discipline, expertise and a great atmosphere to every lesson. I dramatically improved my volleys, half volleys and deep serves. There is nothing that would stop me from highly recommending AJ to anyone that wants to learn or improve their game. Go take a lesson with AJ and have fun at the same time!!!",
     rating: 5,
   },
   {
@@ -33,7 +33,7 @@ const testimonials = [
     photo: '/paul-testimonial.jpg',
     service: 'Padel Coaching',
     quote:
-      "AJ is a truly outstanding tennis coach. His patient, thoughtful teaching style and ability to connect through clear, encouraging instruction have made every session something our son genuinely looks forward to. We've seen real progress — not just in his skills, but in his confidence and love for the game. After working with several coaches, we feel incredibly grateful to have found AJ and hope to continue with him for many years to come.",
+      "AJ is a truly outstanding Padel coach. His patient, thoughtful teaching style and ability to connect through clear, encouraging instruction have made every session something our son genuinely looks forward to. We've seen real progress — not just in his Padel skills, but in his confidence and love for the game. After working with several coaches, we feel incredibly grateful to have found AJ and hope to continue with him for many years to come.",
     rating: 5,
   },
   {
@@ -42,7 +42,7 @@ const testimonials = [
     photo: '/juan-testimonial.jpg',
     service: 'Beach Tennis',
     quote:
-      "I've had the opportunity to take both group and private tennis lessons with AJ, and I can confidently say he's one of the most insightful and detail-oriented coaches I've worked with. His experience clearly shows in the way he breaks down not just technique, but also the tactical side of the game. Thanks to his coaching, I've made real progress — who knows, maybe one day I'll finally beat him in his own Beat the Coach drill!",
+      "I've had the opportunity to take both group and private Beach Tennis lessons with AJ, and I can confidently say he's one of the most insightful and detail-oriented coaches I've worked with. His experience clearly shows in the way he breaks down not just technique, but also the tactical side of the game. What sets him apart is how he connects technical observations with tactical understanding — his feedback goes beyond just how to hit a shot, he explains why certain decisions on court matter. Who knows, maybe one day I'll finally beat him in his own Beat the Coach drill!",
     rating: 5,
   },
   {
@@ -108,7 +108,7 @@ export default function Testimonials() {
                       src={t.photo}
                       alt={t.name}
                       className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
-                      style={{ objectPosition: t.name === 'Lauren Beckage' ? 'top center' : 'center' }}
+                      style={{ objectPosition: t.name === 'Maria' ? 'top center' : 'center' }}
                     />
                   ) : (
                     <div
