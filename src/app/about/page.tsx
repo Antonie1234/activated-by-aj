@@ -141,6 +141,89 @@ export default function About() {
         </div>
       </section>
 
+      {/* ── COACHING PHILOSOPHY ── */}
+      <section className="section-padding" style={{ background: 'var(--surface)' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+              How I Coach
+            </p>
+            <div className="gold-divider mx-auto mb-6" />
+            <h2 className="text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+              MY COACHING PHILOSOPHY
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-8">
+            {/* Pillar 1 — Technique First */}
+            <div className="flex flex-col items-center text-center p-8 rounded-xl" style={{ background: 'var(--background)', border: '1px solid var(--border)' }}>
+              <div className="mb-6" style={{ color: 'var(--brand-gold)' }}>
+                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Target/bullseye */}
+                  <circle cx="26" cy="26" r="22" />
+                  <circle cx="26" cy="26" r="14" />
+                  <circle cx="26" cy="26" r="6" />
+                  {/* Crosshair lines */}
+                  <line x1="26" y1="2" x2="26" y2="10" />
+                  <line x1="26" y1="42" x2="26" y2="50" />
+                  <line x1="2" y1="26" x2="10" y2="26" />
+                  <line x1="42" y1="26" x2="50" y2="26" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-black text-white mb-3 uppercase tracking-tight">Technique First</h3>
+              <div className="w-8 h-0.5 mb-4 mx-auto" style={{ background: 'var(--brand-gold)' }} />
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Great results start with great foundations. Before speed, power or tactics — I build the technical base that everything else grows from. Solid technique is the shortcut to long-term improvement.
+              </p>
+            </div>
+
+            {/* Pillar 2 — Mindset Matters */}
+            <div className="flex flex-col items-center text-center p-8 rounded-xl" style={{ background: 'var(--background)', border: '1px solid var(--border)' }}>
+              <div className="mb-6" style={{ color: 'var(--brand-gold)' }}>
+                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Brain outline */}
+                  <path d="M26 44 C26 44 10 38 10 24 C10 16 16 10 22 10 C23.5 10 25 10.5 26 11.5 C27 10.5 28.5 10 30 10 C36 10 42 16 42 24 C42 38 26 44 26 44Z" />
+                  {/* Inner brain lines — folds */}
+                  <path d="M26 12 C26 12 20 18 20 24 C20 28 22 31 26 33" />
+                  <path d="M26 12 C26 12 32 18 32 24 C32 28 30 31 26 33" />
+                  <path d="M14 22 C16 20 18 21 18 24" />
+                  <path d="M38 22 C36 20 34 21 34 24" />
+                  {/* Lightbulb glow at top */}
+                  <line x1="22" y1="7" x2="22" y2="4" />
+                  <line x1="26" y1="6" x2="26" y2="3" />
+                  <line x1="30" y1="7" x2="30" y2="4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-black text-white mb-3 uppercase tracking-tight">Mindset Matters</h3>
+              <div className="w-8 h-0.5 mb-4 mx-auto" style={{ background: 'var(--brand-gold)' }} />
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Your body follows your mind. I coach the mental game as hard as the physical — confidence, focus and resilience are skills you can train. A strong mindset is what separates players when the score is close.
+              </p>
+            </div>
+
+            {/* Pillar 3 — Progress Over Perfection */}
+            <div className="flex flex-col items-center text-center p-8 rounded-xl" style={{ background: 'var(--background)', border: '1px solid var(--border)' }}>
+              <div className="mb-6" style={{ color: 'var(--brand-gold)' }}>
+                <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Rising bar chart */}
+                  <rect x="6" y="34" width="8" height="12" rx="1.5" />
+                  <rect x="20" y="24" width="8" height="22" rx="1.5" />
+                  <rect x="34" y="12" width="8" height="34" rx="1.5" />
+                  {/* Upward arrow */}
+                  <line x1="46" y1="20" x2="46" y2="6" />
+                  <polyline points="40,12 46,6 52,12" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-black text-white mb-3 uppercase tracking-tight">Progress Over Perfection</h3>
+              <div className="w-8 h-0.5 mb-4 mx-auto" style={{ background: 'var(--brand-gold)' }} />
+              <p className="text-gray-400 text-sm leading-relaxed">
+                I don&apos;t chase perfect. I chase better. Consistent forward movement beats waiting for the ideal moment every time. Every session, every rep, every rally — we are building something bigger than yesterday.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── VALUES ── */}
       <section className="relative overflow-hidden" style={{ background: '#000' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-0">
