@@ -20,12 +20,20 @@ const contactMethods = [
     color: 'var(--brand-blue-light)',
   },
   {
+    icon: '📷',
+    label: 'Instagram',
+    value: '@activatedbyaj_',
+    href: 'https://www.instagram.com/activatedbyaj_',
+    cta: 'Follow AJ',
+    color: 'var(--brand-gold)',
+  },
+  {
     icon: '📍',
     label: 'Location',
     value: 'Willoughby, Sydney, Australia',
     href: null,
     cta: null,
-    color: 'var(--brand-gold)',
+    color: 'var(--brand-blue-light)',
   },
 ];
 
@@ -207,8 +215,12 @@ export default function Contact() {
                       >
                         <option value="">Select a service</option>
                         <option value="tennis">Tennis Coaching</option>
-                        <option value="fitness">Fitness &amp; Strength</option>
-                        <option value="movement">Movement &amp; Beach Sports</option>
+                        <option value="padel">Padel Coaching</option>
+                        <option value="pickleball">Pickleball Coaching</option>
+                        <option value="beach">Beach Tennis</option>
+                        <option value="fitness">Fitness &amp; Conditioning</option>
+                        <option value="movement">Movement &amp; Outdoor</option>
+                        <option value="programs">Programs &amp; Plans</option>
                         <option value="mixed">Multiple / Not Sure</option>
                       </select>
                     </div>

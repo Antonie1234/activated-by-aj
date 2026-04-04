@@ -63,13 +63,12 @@ export default function Apparel() {
             className="text-5xl sm:text-7xl font-black leading-none mb-4 tracking-tight"
             style={{ letterSpacing: '-0.03em' }}
           >
-            <span className="block text-white">ACTIVATED</span>
-            <span className="block gold-text">APPAREL</span>
+            <span className="block text-white">ACTIVATED APPAREL</span>
+            <span className="block gold-text">COMING SOON</span>
           </h1>
 
           <p className="text-gray-400 text-lg sm:text-xl max-w-xl mx-auto mb-12 leading-relaxed">
-            The Activated by AJ apparel line is coming. Bold, athletic, built for people who move with purpose.
-            Be the first to know when it drops.
+            The Activated by AJ apparel range is dropping soon. Drop your email below to be first to know.
           </p>
 
           {/* Email sign-up */}

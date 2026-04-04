@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import HeroParallax from '@/components/HeroParallax';
 
 const services = [
   {
@@ -42,29 +43,8 @@ export default function Home() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{ background: 'var(--background)' }}
       >
-        {/* Background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          style={{ opacity: 0.5 }}
-        >
-          <source src="/hero-bg.mp4" type="video/mp4" />
-        </video>
-        {/* Dark overlay to keep text readable */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(0,0,0,0.6)' }} />
-        {/* Blue glow */}
-        <div
-          className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
-          style={{ background: 'var(--brand-blue)' }}
-        />
-        {/* Gold glow */}
-        <div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-10 blur-3xl pointer-events-none"
-          style={{ background: 'var(--brand-gold)' }}
-        />
+        {/* Parallax background with animated shapes */}
+        <HeroParallax />
 
         {/* Watermark "A" icon */}
         <svg
@@ -95,18 +75,42 @@ export default function Home() {
           </div>
 
           <h1
-            className="text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-6 tracking-tight"
+            className="text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-6"
             style={{ letterSpacing: '-0.03em' }}
           >
-            <span className="block text-white">TURN YOUR</span>
-            <span className="block gold-text">ENERGY INTO</span>
-            <span className="block text-white">PURPOSE</span>
+            <span className="text-white">TURN YOUR </span>
+            <span className="gold-text">ENERGY </span>
+            <span className="text-white">INTO PURPOSE</span>
           </h1>
 
           <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             Tennis coaching, fitness &amp; strength training, and beach sports performance. Your Vibe Activates Your Tribe.
           </p>
 
+        </div>
+      </section>
+
+      {/* Gold glow divider */}
+      <div className="glow-divider" />
+
+      {/* ── STATS BAR ── */}
+      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {[
+              { stat: '5+', label: 'Sports Coached' },
+              { stat: '10+', label: '5-Star Reviews' },
+              { stat: 'Sydney', label: 'Based In' },
+              { stat: 'All Levels', label: 'Welcome' },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-2xl sm:text-3xl font-black mb-1" style={{ color: 'var(--brand-gold)' }}>
+                  {item.stat}
+                </p>
+                <p className="text-white text-sm font-medium uppercase tracking-widest">{item.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -192,6 +196,85 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link href="/pricing" className="btn-primary">
               View Pricing
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS PREVIEW ── */}
+      <section className="section-padding" style={{ background: 'var(--background)' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+              Real Results
+            </p>
+            <div className="gold-divider mx-auto mb-6" />
+            <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+              WHAT CLIENTS SAY
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'Henry Leung',
+                initials: 'HL',
+                service: 'Tennis Coaching',
+                quote: "AJ doesn't settle for mediocrity — he challenges me to dig deeper, work harder, and play smarter. I've seen dramatic improvements in my technique, endurance, and mental toughness.",
+              },
+              {
+                name: 'Sharlene Robbins',
+                initials: 'SR',
+                service: 'Pickleball Coaching',
+                quote: "AJ is incredibly patient and explains things clearly. His drills are challenging but fun, and he always tailors the lesson to enhance my progress. I'm now addicted to Pickleball!",
+              },
+              {
+                name: 'Callum',
+                initials: 'C',
+                service: 'Fitness & Conditioning',
+                quote: "Over just one term, the progress has been nothing short of incredible. My strength, endurance and confidence have all improved dramatically. Highly recommend for anyone at any level.",
+              },
+            ].map((t) => (
+              <div
+                key={t.name}
+                className="card p-8 flex flex-col"
+                style={{ background: 'var(--surface)' }}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div
+                    className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center text-sm font-black"
+                    style={{ background: 'var(--brand-gold)', color: '#000' }}
+                  >
+                    {t.initials}
+                  </div>
+                  <div>
+                    <p className="font-bold text-white text-sm">{t.name}</p>
+                    <div
+                      className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
+                      style={{
+                        background: 'rgba(26,111,212,0.15)',
+                        color: 'var(--brand-blue-light)',
+                        border: '1px solid rgba(26,111,212,0.25)',
+                      }}
+                    >
+                      {t.service}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span key={i} style={{ color: 'var(--brand-gold)' }}>★</span>
+                  ))}
+                </div>
+                <div className="text-3xl mb-3" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>&ldquo;</div>
+                <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link href="/testimonials" className="btn-outline">
+              See All Reviews
             </Link>
           </div>
         </div>

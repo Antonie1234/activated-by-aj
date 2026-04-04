@@ -53,12 +53,8 @@ export default function Pricing() {
             </p>
           </div>
 
-          {/* Rate table */}
-          <div
-            className="rounded-lg overflow-hidden"
-            style={{ border: '1px solid var(--border)' }}
-          >
-            {/* Table header */}
+          {/* Rate table — desktop */}
+          <div className="hidden sm:block rounded-lg overflow-hidden" style={{ border: '1px solid var(--border)' }}>
             <div
               className="grid grid-cols-4 px-6 py-3 text-xs font-bold uppercase tracking-widest"
               style={{ background: 'var(--surface-2)', color: 'var(--brand-blue-light)' }}
@@ -68,8 +64,6 @@ export default function Pricing() {
               <span>Termly</span>
               <span>Pay As You Go</span>
             </div>
-
-            {/* Rows */}
             {lessonRates.map((row, i) => (
               <div
                 key={i}
@@ -83,6 +77,31 @@ export default function Pricing() {
                 <span className="text-gray-400 text-sm">{row.players}</span>
                 <span className="font-bold text-sm" style={{ color: 'var(--brand-gold)' }}>{row.termly}</span>
                 <span className="text-gray-300 text-sm">{row.payg}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Rate cards — mobile */}
+          <div className="sm:hidden space-y-3">
+            {lessonRates.map((row, i) => (
+              <div
+                key={i}
+                className="rounded-lg p-4"
+                style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-black text-white text-sm">{row.duration} · {row.players}</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Termly</p>
+                    <p className="font-bold text-sm" style={{ color: 'var(--brand-gold)' }}>{row.termly}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Pay As You Go</p>
+                    <p className="text-gray-300 text-sm">{row.payg}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

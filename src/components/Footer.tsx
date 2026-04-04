@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import AJLogo from './AJLogo';
-import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -10,14 +9,12 @@ const navLinks = [
   { href: '/services', label: 'Services' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/testimonials', label: 'Testimonials' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/apparel', label: 'Apparel' },
   { href: '/contact', label: "Let's Activate" },
 ];
 
 export default function Footer() {
-  const pathname = usePathname();
-  const isAbout = pathname === '/about';
-
   return (
     <footer
       style={{
@@ -26,7 +23,8 @@ export default function Footer() {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        {!isAbout && <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+
           {/* Brand */}
           <div>
             <div className="mb-4">
@@ -36,18 +34,18 @@ export default function Footer() {
               Turn your energy into purpose. Personal coaching for tennis, fitness,
               and movement — based in Willoughby, Sydney.
             </p>
-            <div className="mt-6 flex gap-3">
+            <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               <a
                 href="https://wa.me/61459575625"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gold text-xs px-4 py-2"
+                className="btn-gold text-xs px-4 py-2 text-center"
               >
                 WhatsApp
               </a>
               <a
                 href="mailto:activatedbookingsbyaj@gmail.com"
-                className="btn-outline text-xs px-4 py-2"
+                className="btn-outline text-xs px-4 py-2 text-center"
               >
                 Email
               </a>
@@ -55,14 +53,14 @@ export default function Footer() {
                 href="https://www.instagram.com/activatedbyaj_"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline text-xs px-4 py-2"
+                className="btn-outline text-xs px-4 py-2 text-center"
               >
                 Instagram
               </a>
             </div>
           </div>
 
-          {/* Links */}
+          {/* Navigate */}
           <div>
             <h3
               className="text-xs font-bold uppercase tracking-widest mb-6"
@@ -84,7 +82,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Get In Touch */}
           <div>
             <h3
               className="text-xs font-bold uppercase tracking-widest mb-6"
@@ -141,10 +139,11 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-        </div>}
+
+        </div>
 
         <div
-          className={`${isAbout ? '' : 'mt-12 '}pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-600`}
+          className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-600"
           style={{ borderTop: '1px solid var(--border)' }}
         >
           <p>© {new Date().getFullYear()} Activated by AJ. All rights reserved.</p>

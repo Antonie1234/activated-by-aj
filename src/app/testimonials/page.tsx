@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 
 const testimonials = [
@@ -5,8 +8,9 @@ const testimonials = [
     name: 'Henry Leung',
     initials: 'HL',
     service: 'Tennis Coaching',
+    filter: 'Tennis',
     quote:
-      "Training with AJ has been a game-changer for my tennis journey. From day one, he recognized my strengths and weaknesses and crafted a lesson plan tailored specifically to my goals. Every session is intense, focused, and designed to push me beyond what I thought I was capable of. AJ doesn't settle for mediocrity — he challenges me to dig deeper, work harder, and play smarter. Thanks to his dedication and personalized approach, I've seen dramatic improvements in my technique, endurance, and mental toughness. I couldn't ask for a better mentor on and off the court!",
+      "Training with AJ has been a game-changer for my tennis journey. From day one, he recognised my strengths and weaknesses and crafted a lesson plan tailored specifically to my goals. Every session is intense, focused, and designed to push me beyond what I thought I was capable of. AJ doesn't settle for mediocrity — he challenges me to dig deeper, work harder, and play smarter. Thanks to his dedication and personalised approach, I've seen dramatic improvements in my technique, endurance, and mental toughness. I couldn't ask for a better mentor on and off the court!",
     rating: 5,
   },
   {
@@ -14,6 +18,7 @@ const testimonials = [
     initials: 'SR',
     photo: '/sharlene-testimonial.jpg',
     service: 'Pickleball Coaching',
+    filter: 'Pickleball',
     quote:
       "AJ has been a perfect coach for me as someone who has never played Pickleball. He is incredibly patient and explains things clearly, making it easy to understand. His drills are challenging but fun, and they've helped me improve my game. I also appreciate how AJ takes the time to tailor the lesson to enhance my progress. He is always punctual, prepared, and communicative. I highly recommend AJ to anyone looking to improve their skills and have fun while doing it. I'm now addicted to Pickleball!",
     rating: 5,
@@ -23,6 +28,7 @@ const testimonials = [
     initials: 'M',
     photo: '/georgia-testimonial.jpg',
     service: 'Pickleball Coaching',
+    filter: 'Pickleball',
     quote:
       "Pickleball looks easy but requires a lot of certain skills to be a good player. I worked with AJ Nortje as my private coach to improve my game faster and still do. Even though AJ is primarily an expert tennis coach he is an equally skilled Pickleball Coach. He brings discipline, expertise and a great atmosphere to every lesson. I dramatically improved my volleys, half volleys and deep serves. There is nothing that would stop me from highly recommending AJ to anyone that wants to learn or improve their game. Go take a lesson with AJ and have fun at the same time!!!",
     rating: 5,
@@ -32,6 +38,7 @@ const testimonials = [
     initials: 'P',
     photo: '/paul-testimonial.jpg',
     service: 'Padel Coaching',
+    filter: 'Padel',
     quote:
       "AJ is a truly outstanding Padel coach. His patient, thoughtful teaching style and ability to connect through clear, encouraging instruction have made every session something our son genuinely looks forward to. We've seen real progress — not just in his Padel skills, but in his confidence and love for the game. After working with several coaches, we feel incredibly grateful to have found AJ and hope to continue with him for many years to come.",
     rating: 5,
@@ -39,8 +46,8 @@ const testimonials = [
   {
     name: 'Juan',
     initials: 'J',
-    photo: '/juan-testimonial.jpg',
     service: 'Beach Tennis',
+    filter: 'Beach Tennis',
     quote:
       "I've had the opportunity to take both group and private Beach Tennis lessons with AJ, and I can confidently say he's one of the most insightful and detail-oriented coaches I've worked with. His experience clearly shows in the way he breaks down not just technique, but also the tactical side of the game. What sets him apart is how he connects technical observations with tactical understanding — his feedback goes beyond just how to hit a shot, he explains why certain decisions on court matter. Who knows, maybe one day I'll finally beat him in his own Beat the Coach drill!",
     rating: 5,
@@ -49,11 +56,14 @@ const testimonials = [
     name: 'Callum',
     initials: 'C',
     service: 'Fitness & Conditioning',
+    filter: 'Fitness',
     quote:
       "I started training with AJ as a complete beginner with no real fitness base. Over just one term, the progress has been nothing short of incredible. AJ has a sharp eye for individual strengths and weaknesses and tailored every session to suit my specific goals and lifestyle. Thanks to his guidance, my strength, endurance and confidence have all improved dramatically. AJ is an exceptional coach who makes training both effective and enjoyable. Highly recommend for anyone at any level looking to see real results fast!",
     rating: 5,
   },
 ];
+
+const filters = ['All', 'Tennis', 'Pickleball', 'Padel', 'Beach Tennis', 'Fitness'];
 
 function StarRating({ count }: { count: number }) {
   return (
@@ -66,6 +76,13 @@ function StarRating({ count }: { count: number }) {
 }
 
 export default function Testimonials() {
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const filtered =
+    activeFilter === 'All'
+      ? testimonials
+      : testimonials.filter((t) => t.filter === activeFilter);
+
   return (
     <>
       {/* ── HERO ── */}
@@ -91,55 +108,83 @@ export default function Testimonials() {
         </div>
       </section>
 
+      {/* ── FILTER BAR ── */}
+      <section style={{ background: 'var(--background)', paddingBottom: '0' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-wrap gap-2 justify-center pb-2">
+            {filters.map((f) => (
+              <button
+                key={f}
+                onClick={() => setActiveFilter(f)}
+                className="px-4 py-2 rounded text-xs font-bold uppercase tracking-wider transition-all duration-200"
+                style={
+                  activeFilter === f
+                    ? { background: 'var(--brand-gold)', color: '#0a0a0a' }
+                    : {
+                        background: 'var(--surface)',
+                        color: 'var(--brand-blue-light)',
+                        border: '1px solid var(--border)',
+                      }
+                }
+              >
+                {f}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── TESTIMONIALS GRID ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="card p-8 flex flex-col"
-                style={{ background: 'var(--surface)' }}
-              >
-                {/* Name + avatar at top */}
-                <div className="flex items-center gap-4 mb-4">
-                  {t.photo ? (
-                    <img
-                      src={t.photo}
-                      alt={t.name}
-                      className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
-                      style={{ objectPosition: t.name === 'Maria' ? 'top center' : 'center' }}
-                    />
-                  ) : (
-                    <div
-                      className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center text-sm font-black"
-                      style={{ background: 'var(--brand-gold)', color: '#000' }}
-                    >
-                      {t.initials}
-                    </div>
-                  )}
-                  <div>
-                    <p className="font-bold text-white text-sm">{t.name}</p>
-                    <div
-                      className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
-                      style={{
-                        background: 'rgba(26,111,212,0.15)',
-                        color: 'var(--brand-blue-light)',
-                        border: '1px solid rgba(26,111,212,0.25)',
-                      }}
-                    >
-                      {t.service}
+          {filtered.length === 0 ? (
+            <p className="text-center text-gray-500 py-12">No testimonials for this filter yet.</p>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filtered.map((t) => (
+                <div
+                  key={t.name}
+                  className="card p-8 flex flex-col"
+                  style={{ background: 'var(--surface)' }}
+                >
+                  {/* Avatar + name */}
+                  <div className="flex items-center gap-4 mb-4">
+                    {t.photo ? (
+                      <img
+                        src={t.photo}
+                        alt={t.name}
+                        className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
+                        style={{ objectPosition: t.name === 'Maria' ? 'top center' : 'center' }}
+                      />
+                    ) : (
+                      <div
+                        className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center text-sm font-black"
+                        style={{ background: 'var(--brand-gold)', color: '#000' }}
+                      >
+                        {t.initials}
+                      </div>
+                    )}
+                    <div>
+                      <p className="font-bold text-white text-sm">{t.name}</p>
+                      <div
+                        className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
+                        style={{
+                          background: 'rgba(26,111,212,0.15)',
+                          color: 'var(--brand-blue-light)',
+                          border: '1px solid rgba(26,111,212,0.25)',
+                        }}
+                      >
+                        {t.service}
+                      </div>
                     </div>
                   </div>
+                  <StarRating count={t.rating} />
+                  <div className="text-3xl mt-4 mb-3" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>&ldquo;</div>
+                  <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
                 </div>
-                {/* Stars */}
-                <StarRating count={t.rating} />
-                {/* Quote */}
-                <div className="text-3xl mt-4 mb-3" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>&ldquo;</div>
-                <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 

@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+
 const faqs = [
   {
     q: 'What sports and activities do you coach?',
@@ -38,6 +42,8 @@ const faqs = [
 ];
 
 export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <>
       {/* ── HERO ── */}
@@ -63,28 +69,42 @@ export default function FAQ() {
         </div>
       </section>
 
-      {/* ── FAQ LIST ── */}
+      {/* ── ACCORDION ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
-          <div className="space-y-4">
+          <div className="space-y-3">
             {faqs.map((faq, i) => (
               <div
                 key={i}
-                className="p-6 rounded-lg"
-                style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
+                className="rounded-lg overflow-hidden"
+                style={{
+                  background: 'var(--surface)',
+                  border: `1px solid ${openIndex === i ? 'rgba(201,168,76,0.4)' : 'var(--border)'}`,
+                  transition: 'border-color 0.2s ease',
+                }}
               >
-                <div className="flex items-start gap-4">
+                <button
+                  className="w-full flex items-center justify-between px-6 py-5 text-left gap-4"
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                >
+                  <span className="font-bold text-white text-sm leading-snug">{faq.q}</span>
                   <span
-                    className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-black mt-0.5"
-                    style={{ background: 'rgba(201,168,76,0.15)', color: 'var(--brand-gold)' }}
+                    className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-black transition-transform duration-200"
+                    style={{
+                      background: openIndex === i ? 'var(--brand-gold)' : 'rgba(201,168,76,0.15)',
+                      color: openIndex === i ? '#000' : 'var(--brand-gold)',
+                      transform: openIndex === i ? 'rotate(45deg)' : 'rotate(0deg)',
+                    }}
                   >
-                    {i + 1}
+                    +
                   </span>
-                  <div>
-                    <h3 className="font-bold text-white mb-2 text-sm leading-snug">{faq.q}</h3>
+                </button>
+                {openIndex === i && (
+                  <div className="px-6 pb-6">
+                    <div className="h-px mb-4" style={{ background: 'var(--border)' }} />
                     <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
                   </div>
-                </div>
+                )}
               </div>
             ))}
           </div>
