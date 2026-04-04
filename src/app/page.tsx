@@ -1,33 +1,100 @@
 import Link from 'next/link';
 import HeroParallax from '@/components/HeroParallax';
 
+/* ── Shared gold SVG icons (match /services page) ── */
+const TennisIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <ellipse cx="19" cy="17" rx="12" ry="14" />
+    <line x1="14" y1="4" x2="14" y2="30" />
+    <line x1="19" y1="3" x2="19" y2="31" />
+    <line x1="24" y1="4" x2="24" y2="30" />
+    <line x1="8" y1="12" x2="30" y2="12" />
+    <line x1="7" y1="17" x2="31" y2="17" />
+    <line x1="8" y1="22" x2="30" y2="22" />
+    <line x1="19" y1="31" x2="35" y2="43" strokeWidth="3" />
+  </svg>
+);
+
+const PadelIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <ellipse cx="19" cy="17" rx="12" ry="14" />
+    <circle cx="15" cy="13" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="19" cy="13" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="23" cy="13" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="15" cy="18" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="19" cy="18" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="23" cy="18" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="15" cy="23" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="19" cy="23" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="23" cy="23" r="1.5" fill="currentColor" stroke="none" />
+    <line x1="19" y1="31" x2="35" y2="43" strokeWidth="3" />
+  </svg>
+);
+
+const FitnessIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="17" width="5" height="10" rx="1.5" />
+    <rect x="7" y="19" width="4" height="6" rx="1" />
+    <line x1="11" y1="22" x2="33" y2="22" />
+    <rect x="33" y="19" width="4" height="6" rx="1" />
+    <rect x="37" y="17" width="5" height="10" rx="1.5" />
+    <rect x="0" y="15" width="3" height="14" rx="1.5" />
+    <rect x="41" y="15" width="3" height="14" rx="1.5" />
+  </svg>
+);
+
+const MovementIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="28" cy="6" r="4" />
+    <line x1="28" y1="10" x2="24" y2="22" />
+    <line x1="26" y1="15" x2="16" y2="12" />
+    <line x1="26" y1="15" x2="34" y2="20" />
+    <line x1="24" y1="22" x2="14" y2="30" />
+    <line x1="24" y1="22" x2="30" y2="34" />
+    <line x1="14" y1="30" x2="8" y2="28" />
+    <line x1="30" y1="34" x2="36" y2="38" />
+    <line x1="4" y1="40" x2="40" y2="40" strokeWidth="1.5" />
+  </svg>
+);
+
+const ProgramsIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="8" y="8" width="28" height="34" rx="3" />
+    <rect x="16" y="4" width="12" height="8" rx="2" />
+    <line x1="14" y1="20" x2="30" y2="20" />
+    <line x1="14" y1="26" x2="30" y2="26" />
+    <line x1="14" y1="32" x2="24" y2="32" />
+    <polyline points="14,17 16,19 20,15" />
+  </svg>
+);
+
 const services = [
   {
-    icon: '🎾',
+    Icon: TennisIcon,
     title: 'Tennis Coaching',
     description: 'One-on-one and group tennis sessions for all levels. Technique, strategy, footwork and mental game.',
     href: '/services#tennis',
   },
   {
-    icon: '🏓',
+    Icon: PadelIcon,
     title: 'Padel & Pickleball',
     description: 'Advanced coaching in both Padel and Pickleball. Technical skills, tactics and competitive play for all levels.',
     href: '/services#padel',
   },
   {
-    icon: '💪',
+    Icon: FitnessIcon,
     title: 'Fitness & Conditioning',
     description: 'Personalised strength, conditioning and bodyweight programs designed around your goals and lifestyle.',
     href: '/services#fitness',
   },
   {
-    icon: '🌊',
+    Icon: MovementIcon,
     title: 'Movement & Beach Sports',
     description: 'Dynamic outdoor training combining functional movement, beach tennis, volleyball and agility.',
     href: '/services#movement',
   },
   {
-    icon: '📋',
+    Icon: ProgramsIcon,
     title: 'Programs & Plans',
     description: 'Custom workout programs, recovery plans and nutrition guidance — designed to keep you progressing.',
     href: '/services#programs',
@@ -78,9 +145,9 @@ export default function Home() {
             className="text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-6"
             style={{ letterSpacing: '-0.03em' }}
           >
-            <span className="text-white">TURN YOUR </span>
-            <span className="gold-text">ENERGY </span>
-            <span className="text-white">INTO PURPOSE</span>
+            <span className="text-white block">TURN YOUR</span>
+            <span className="gold-text block">ENERGY</span>
+            <span className="text-white block">INTO PURPOSE</span>
           </h1>
 
           <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -99,8 +166,8 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { stat: '5+', label: 'Sports Coached' },
-              { stat: '10+', label: '5-Star Reviews' },
-              { stat: 'Sydney', label: 'Based In' },
+              { stat: '10+', label: 'Five-Star Reviews' },
+              { stat: 'Based in', label: 'Sydney' },
               { stat: 'All Levels', label: 'Welcome' },
             ].map((item) => (
               <div key={item.label}>
@@ -127,7 +194,7 @@ export default function Home() {
                 COACHING THAT <span className="gold-text">ACTIVATES</span> YOU
               </h2>
               <p className="text-gray-400 leading-relaxed mb-8">
-                Activated by AJ is more than a fitness brand. It&apos;s a movement. We specialise in tennis, strength training and functional movement — activating each individual&apos;s full potential. This journey isn&apos;t just about training harder. It&apos;s about becoming disciplined, confident and aligned with your purpose. It&apos;s about transforming your body, mindset and energy, while building a tribe of warriors who lead with grit and drive.
+                Activated by AJ is more than a coaching brand — it&apos;s a movement. We activate your full potential across tennis, padel, pickleball, beach sports and fitness. Discipline. Energy. Purpose. Let&apos;s build something.
               </p>
               <Link href="/about" className="btn-primary">
                 More About AJ
@@ -170,10 +237,12 @@ export default function Home() {
             {services.map((service) => (
               <Link key={service.title} href={service.href} className="block group">
                 <div
-                  className="card p-8 h-full"
+                  className="card p-8 h-full flex flex-col"
                   style={{ background: 'var(--surface-2)' }}
                 >
-                  <div className="text-4xl mb-5">{service.icon}</div>
+                  <div className="mb-5" style={{ color: 'var(--brand-gold)' }}>
+                    <service.Icon />
+                  </div>
                   <h3
                     className="text-lg font-black uppercase mb-3 tracking-tight group-hover:text-yellow-400 transition-colors"
                     style={{ letterSpacing: '-0.01em', color: 'white' }}
@@ -181,7 +250,7 @@ export default function Home() {
                     {service.title}
                   </h3>
                   <div className="blue-divider mb-4" />
-                  <p className="text-gray-400 text-sm leading-relaxed">{service.description}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed flex-1">{service.description}</p>
                   <p
                     className="mt-6 text-xs font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-block"
                     style={{ color: 'var(--brand-blue-light)' }}

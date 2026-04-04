@@ -267,12 +267,12 @@ export default function Services() {
       {/* ── SERVICE CARDS GRID ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {services.map((service) => (
               <div
                 key={service.id}
                 id={service.id}
-                className="card p-8 flex flex-col"
+                className="card p-8 flex flex-col h-full"
                 style={{ background: 'var(--surface)' }}
               >
                 <div className="mb-4" style={{ color: service.color }}>
