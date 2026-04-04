@@ -1,9 +1,132 @@
 import Link from 'next/link';
 
+/* ── Gold SVG Icons ── */
+const TennisIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {/* Racquet head */}
+    <ellipse cx="19" cy="17" rx="12" ry="14" />
+    {/* Vertical strings */}
+    <line x1="14" y1="4" x2="14" y2="30" />
+    <line x1="19" y1="3" x2="19" y2="31" />
+    <line x1="24" y1="4" x2="24" y2="30" />
+    {/* Horizontal strings */}
+    <line x1="8" y1="12" x2="30" y2="12" />
+    <line x1="7" y1="17" x2="31" y2="17" />
+    <line x1="8" y1="22" x2="30" y2="22" />
+    {/* Handle */}
+    <line x1="19" y1="31" x2="35" y2="43" strokeWidth="3" />
+  </svg>
+);
+
+const PadelIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {/* Padel racquet head - solid oval with holes */}
+    <ellipse cx="19" cy="17" rx="12" ry="14" />
+    {/* Holes (3×3 grid) */}
+    <circle cx="15" cy="13" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="19" cy="13" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="23" cy="13" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="15" cy="18" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="19" cy="18" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="23" cy="18" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="15" cy="23" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="19" cy="23" r="1.5" fill="currentColor" stroke="none" />
+    <circle cx="23" cy="23" r="1.5" fill="currentColor" stroke="none" />
+    {/* Handle */}
+    <line x1="19" y1="31" x2="35" y2="43" strokeWidth="3" />
+  </svg>
+);
+
+const PickleballIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {/* Paddle head - wide rounded rectangle */}
+    <rect x="5" y="4" width="26" height="28" rx="13" />
+    {/* Holes */}
+    <circle cx="18" cy="12" r="2" fill="currentColor" stroke="none" />
+    <circle cx="11" cy="12" r="2" fill="currentColor" stroke="none" />
+    <circle cx="25" cy="12" r="2" fill="currentColor" stroke="none" />
+    <circle cx="11" cy="19" r="2" fill="currentColor" stroke="none" />
+    <circle cx="18" cy="19" r="2" fill="currentColor" stroke="none" />
+    <circle cx="25" cy="19" r="2" fill="currentColor" stroke="none" />
+    <circle cx="18" cy="26" r="2" fill="currentColor" stroke="none" />
+    {/* Handle */}
+    <line x1="18" y1="32" x2="18" y2="43" strokeWidth="4" strokeLinecap="round" />
+  </svg>
+);
+
+const BeachTennisIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {/* Sun */}
+    <circle cx="32" cy="10" r="5" />
+    <line x1="32" y1="2" x2="32" y2="4" />
+    <line x1="32" y1="16" x2="32" y2="18" />
+    <line x1="24" y1="10" x2="26" y2="10" />
+    <line x1="38" y1="10" x2="40" y2="10" />
+    {/* Wave 1 */}
+    <path d="M2 28 Q8 22 14 28 Q20 34 26 28 Q32 22 38 28 Q41 31 44 28" />
+    {/* Wave 2 */}
+    <path d="M2 36 Q8 30 14 36 Q20 42 26 36 Q32 30 38 36" />
+  </svg>
+);
+
+const FitnessIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {/* Left weight plate */}
+    <rect x="2" y="17" width="5" height="10" rx="1.5" />
+    {/* Left collar */}
+    <rect x="7" y="19" width="4" height="6" rx="1" />
+    {/* Bar */}
+    <line x1="11" y1="22" x2="33" y2="22" />
+    {/* Right collar */}
+    <rect x="33" y="19" width="4" height="6" rx="1" />
+    {/* Right weight plate */}
+    <rect x="37" y="17" width="5" height="10" rx="1.5" />
+    {/* Extra large plates on outside */}
+    <rect x="0" y="15" width="3" height="14" rx="1.5" />
+    <rect x="41" y="15" width="3" height="14" rx="1.5" />
+  </svg>
+);
+
+const MovementIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {/* Running figure */}
+    {/* Head */}
+    <circle cx="28" cy="6" r="4" />
+    {/* Body */}
+    <line x1="28" y1="10" x2="24" y2="22" />
+    {/* Arms */}
+    <line x1="26" y1="15" x2="16" y2="12" />
+    <line x1="26" y1="15" x2="34" y2="20" />
+    {/* Legs */}
+    <line x1="24" y1="22" x2="14" y2="30" />
+    <line x1="24" y1="22" x2="30" y2="34" />
+    {/* Feet */}
+    <line x1="14" y1="30" x2="8" y2="28" />
+    <line x1="30" y1="34" x2="36" y2="38" />
+    {/* Ground line */}
+    <line x1="4" y1="40" x2="40" y2="40" strokeWidth="1.5" />
+  </svg>
+);
+
+const ProgramsIcon = () => (
+  <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    {/* Clipboard body */}
+    <rect x="8" y="8" width="28" height="34" rx="3" />
+    {/* Clip at top */}
+    <rect x="16" y="4" width="12" height="8" rx="2" />
+    {/* Lines */}
+    <line x1="14" y1="20" x2="30" y2="20" />
+    <line x1="14" y1="26" x2="30" y2="26" />
+    <line x1="14" y1="32" x2="24" y2="32" />
+    {/* Check mark on first line */}
+    <polyline points="14,17 16,19 20,15" />
+  </svg>
+);
+
 const services = [
   {
     id: 'tennis',
-    icon: '🎾',
+    Icon: TennisIcon,
     title: 'Tennis Coaching',
     tagline: 'Master the court. Dominate the game.',
     description:
@@ -19,7 +142,7 @@ const services = [
   },
   {
     id: 'padel',
-    icon: '🏸',
+    Icon: PadelIcon,
     title: 'Padel Coaching',
     tagline: 'Two walls. One edge.',
     description:
@@ -35,7 +158,7 @@ const services = [
   },
   {
     id: 'pickleball',
-    icon: '🏓',
+    Icon: PickleballIcon,
     title: 'Pickleball Coaching',
     tagline: 'Fast-growing. Seriously fun.',
     description:
@@ -51,7 +174,7 @@ const services = [
   },
   {
     id: 'beach',
-    icon: '🏖️',
+    Icon: BeachTennisIcon,
     title: 'Beach Tennis',
     tagline: 'Train outdoors. Win on sand.',
     description:
@@ -67,7 +190,7 @@ const services = [
   },
   {
     id: 'fitness',
-    icon: '💪',
+    Icon: FitnessIcon,
     title: 'Fitness & Conditioning',
     tagline: 'Build strength. Move better. Live stronger.',
     description:
@@ -83,7 +206,7 @@ const services = [
   },
   {
     id: 'movement',
-    icon: '🌊',
+    Icon: MovementIcon,
     title: 'Movement & Outdoor',
     tagline: 'Functional. Dynamic. Outdoors.',
     description:
@@ -99,7 +222,7 @@ const services = [
   },
   {
     id: 'programs',
-    icon: '📋',
+    Icon: ProgramsIcon,
     title: 'Programs & Plans',
     tagline: 'Structure. Progression. Results.',
     description:
@@ -152,7 +275,9 @@ export default function Services() {
                 className="card p-8 flex flex-col"
                 style={{ background: 'var(--surface)' }}
               >
-                <div className="text-4xl mb-4">{service.icon}</div>
+                <div className="mb-4" style={{ color: service.color }}>
+                  <service.Icon />
+                </div>
                 <div className="w-10 h-0.5 mb-4" style={{ background: service.color }} />
                 <h2
                   className="text-xl font-black text-white mb-2"
