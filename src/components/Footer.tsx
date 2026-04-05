@@ -31,8 +31,7 @@ export default function Footer() {
               <AJLogo height={36} />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Turn your energy into purpose. Personal coaching for tennis, fitness,
-              and movement — based in Willoughby, Sydney.
+              Turn your energy into purpose. Premium coaching, padel, and lifestyle — activatedbyaj.co.za
             </p>
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               <a
@@ -123,18 +122,14 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Location</p>
-                <span className="text-white text-sm">Willoughby, Sydney</span>
-              </li>
-              <li>
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Website</p>
                 <a
-                  href="https://activatedbyaj.com"
+                  href="https://activatedbyaj.co.za"
                   className="text-white text-sm hover:opacity-80 transition-opacity"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  activatedbyaj.com
+                  activatedbyaj.co.za
                 </a>
               </li>
             </ul>
@@ -147,7 +142,6 @@ export default function Footer() {
           style={{ borderTop: '1px solid var(--border)' }}
         >
           <p>© {new Date().getFullYear()} Activated by AJ. All rights reserved.</p>
-          <p>Willoughby, Sydney, Australia</p>
         </div>
       </div>
     </footer>

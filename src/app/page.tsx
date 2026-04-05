@@ -138,7 +138,7 @@ export default function Home() {
               className="w-1.5 h-1.5 rounded-full animate-pulse"
               style={{ background: 'var(--brand-gold)' }}
             />
-            Personal Coaching · Sydney
+            Racquet Sport · Lifestyle · Performance
           </div>
 
           <h1
@@ -167,7 +167,7 @@ export default function Home() {
             {[
               { stat: '5+', label: 'Sports Coached' },
               { stat: '10+', label: 'Five-Star Reviews' },
-              { stat: 'Based in', label: 'Sydney' },
+              { stat: 'Global', label: 'Network' },
               { stat: 'All Levels', label: 'Welcome' },
             ].map((item) => (
               <div key={item.label}>
@@ -360,7 +360,7 @@ export default function Home() {
             READY TO GET ACTIVATED?
           </h2>
           <p className="text-blue-100 mb-8 text-lg">
-            Book your first session today — Willoughby, Sydney.
+            Book your first session today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-gold">
