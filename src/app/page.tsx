@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import HeroParallax from '@/components/HeroParallax';
+import GoldDivider from '@/components/GoldDivider';
 
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
@@ -157,8 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gold glow divider */}
-      <div className="glow-divider" />
+      <GoldDivider />
 
       {/* ── STATS BAR ── */}
       <section style={{ background: 'var(--surface)', borderTop: '2px solid rgba(240,180,41,0.2)', borderBottom: '1px solid var(--border)' }}>
@@ -186,6 +186,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── ABOUT TEASER ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
@@ -217,6 +219,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── SERVICES ── */}
       <section className="section-padding relative overflow-hidden" style={{ background: 'var(--surface)' }}>
@@ -275,6 +279,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── TESTIMONIALS PREVIEW ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
@@ -355,6 +361,8 @@ export default function Home() {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ── ACTIVATED PARTNERS ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -420,6 +428,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── CTA BANNER ── */}
       <section

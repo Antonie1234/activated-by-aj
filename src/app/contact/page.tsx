@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import GoldDivider from '@/components/GoldDivider';
 
 const contactMethods = [
   {
@@ -88,6 +89,8 @@ export default function Contact() {
           </p>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── MAIN CONTENT ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>

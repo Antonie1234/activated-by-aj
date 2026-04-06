@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import GoldDivider from '@/components/GoldDivider';
 
 const lessonRates = [
   { duration: '30 mins', players: '1 player',  termly: '$65',          payg: '$70' },
@@ -35,6 +36,8 @@ export default function Pricing() {
           </p>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── PRIVATE LESSON RATES ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
@@ -106,6 +109,8 @@ export default function Pricing() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── PROGRAMS & PACKAGES ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
@@ -197,6 +202,8 @@ export default function Pricing() {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ── WHAT'S COVERED ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -266,6 +273,8 @@ export default function Pricing() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── CTA ── */}
       <section style={{ background: 'linear-gradient(135deg, var(--brand-blue) 0%, #0d4fa8 100%)' }}>

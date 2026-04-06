@@ -1,3 +1,5 @@
+import GoldDivider from '@/components/GoldDivider';
+
 export const metadata = {
   title: 'Web Design Services | Activated by AJ',
   description:
@@ -148,6 +150,8 @@ export default function WebDesignPage() {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ── PACKAGES ── */}
       <section
         id="packages"
@@ -257,6 +261,8 @@ export default function WebDesignPage() {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ── HOW IT WORKS ── */}
       <section
         className="section-padding"
@@ -326,6 +332,8 @@ export default function WebDesignPage() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── CTA ── */}
       <section

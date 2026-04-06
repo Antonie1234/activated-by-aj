@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import GoldDivider from '@/components/GoldDivider';
 
 /* ── Gold SVG Icons ── */
 const TennisIcon = () => (
@@ -250,6 +251,8 @@ export default function Services() {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ── SERVICE SECTIONS ── */}
       {services.map((service, index) => {
         const imageLeft = index % 2 === 0;
@@ -349,6 +352,8 @@ export default function Services() {
           </section>
         );
       })}
+
+      <GoldDivider />
 
       {/* ── CTA ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>

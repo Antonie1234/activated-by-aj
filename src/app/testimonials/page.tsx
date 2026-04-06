@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import GoldDivider from '@/components/GoldDivider';
 
 const testimonials = [
   {
@@ -108,6 +109,8 @@ export default function Testimonials() {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ── FILTER BAR ── */}
       <section style={{ background: 'var(--background)', paddingBottom: '0' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -133,6 +136,8 @@ export default function Testimonials() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── TESTIMONIALS GRID ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
@@ -191,6 +196,8 @@ export default function Testimonials() {
           )}
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── CTA ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>

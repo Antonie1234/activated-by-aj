@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import GoldDivider from '@/components/GoldDivider';
 
 const credentials = [
   {
@@ -59,6 +60,8 @@ export default function About() {
           </p>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── MAIN BIO ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
@@ -152,6 +155,8 @@ export default function About() {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ── CREDENTIALS ── */}
       <section className="section-padding relative overflow-hidden" style={{ background: 'var(--background)' }}>
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 0 }}>
@@ -193,6 +198,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── COACHING PHILOSOPHY ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
@@ -257,6 +264,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── VALUES + VIDEO ── */}
       <section className="relative overflow-hidden" style={{ background: '#000' }}>

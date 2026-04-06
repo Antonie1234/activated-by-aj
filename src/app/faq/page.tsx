@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import GoldDivider from '@/components/GoldDivider';
 
 const faqs = [
   {
@@ -69,6 +70,8 @@ export default function FAQ() {
         </div>
       </section>
 
+      <GoldDivider />
+
       {/* ── ACCORDION ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
@@ -110,6 +113,8 @@ export default function FAQ() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
 
       {/* ── CTA ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
