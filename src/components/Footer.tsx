@@ -11,6 +11,7 @@ const navLinks = [
   { href: '/testimonials', label: 'Testimonials' },
   { href: '/faq', label: 'FAQ' },
   { href: '/apparel', label: 'Apparel' },
+  { href: '/web-design', label: 'Web Design' },
   { href: '/contact', label: "Let's Activate" },
 ];
 
