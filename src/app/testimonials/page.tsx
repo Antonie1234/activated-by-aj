@@ -157,21 +157,12 @@ export default function Testimonials() {
                   <div className="p-8 flex flex-col flex-1">
                   {/* Avatar + name */}
                   <div className="flex items-center gap-4 mb-4">
-                    {t.photo ? (
-                      <img
-                        src={t.photo}
-                        alt={t.name}
-                        className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
-                        style={{ objectPosition: t.name === 'Maria' ? 'top center' : 'center' }}
-                      />
-                    ) : (
-                      <div
-                        className="w-12 h-12 rounded-full flex-shrink-0 flex items-center justify-center text-sm font-black"
-                        style={{ background: 'var(--brand-gold)', color: '#000' }}
-                      >
-                        {t.initials}
-                      </div>
-                    )}
+                    <img
+                      src={t.photo ?? `https://ui-avatars.com/api/?background=0D1B2A&color=C9A84C&size=128&bold=true&name=${t.initials}`}
+                      alt={t.name}
+                      className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
+                      style={{ objectPosition: t.name === 'Maria' ? 'top center' : 'center' }}
+                    />
                     <div>
                       <p className="font-bold text-white text-sm">{t.name}</p>
                       <div
