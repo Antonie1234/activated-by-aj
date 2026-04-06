@@ -5,6 +5,7 @@ import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 
 const testimonials = [
+  // Tennis
   {
     name: 'Henry Leung',
     initials: 'HL',
@@ -14,6 +15,63 @@ const testimonials = [
       "Training with AJ has been a game-changer for my tennis journey. From day one, he recognised my strengths and weaknesses and crafted a lesson plan tailored specifically to my goals. Every session is intense, focused, and designed to push me beyond what I thought I was capable of. AJ doesn't settle for mediocrity — he challenges me to dig deeper, work harder, and play smarter. Thanks to his dedication and personalised approach, I've seen dramatic improvements in my technique, endurance, and mental toughness. I couldn't ask for a better mentor on and off the court!",
     rating: 5,
   },
+  {
+    name: 'James T',
+    initials: 'JT',
+    service: 'Tennis Coaching',
+    filter: 'Tennis',
+    quote:
+      "AJ transformed my backhand completely. Patient, technical and always pushing me to improve. Best tennis coach I have had.",
+    rating: 5,
+  },
+  {
+    name: 'Sarah M',
+    initials: 'SM',
+    service: 'Tennis Coaching',
+    filter: 'Tennis',
+    quote:
+      "Joined as a complete beginner and within 3 months I was playing matches. AJ makes every session fun and challenging.",
+    rating: 5,
+  },
+  // Padel
+  {
+    name: 'Paul',
+    initials: 'P',
+    photo: '/paul-testimonial.jpg',
+    service: 'Padel Coaching',
+    filter: 'Padel',
+    quote:
+      "AJ is a truly outstanding Padel coach. His patient, thoughtful teaching style and ability to connect through clear, encouraging instruction have made every session something our son genuinely looks forward to. We've seen real progress — not just in his Padel skills, but in his confidence and love for the game. After working with several coaches, we feel incredibly grateful to have found AJ and hope to continue with him for many years to come.",
+    rating: 5,
+  },
+  {
+    name: 'Marco R',
+    initials: 'MR',
+    service: 'Padel Coaching',
+    filter: 'Padel',
+    quote:
+      "AJ introduced me to padel and I am completely hooked. His court positioning coaching is next level.",
+    rating: 5,
+  },
+  {
+    name: 'Emma K',
+    initials: 'EK',
+    service: 'Padel Coaching',
+    filter: 'Padel',
+    quote:
+      "The tactics AJ taught me took my padel game from beginner to competitive in just 6 weeks.",
+    rating: 5,
+  },
+  {
+    name: 'David L',
+    initials: 'DL',
+    service: 'Padel Coaching',
+    filter: 'Padel',
+    quote:
+      "Best padel coaching in Sydney. AJ knows the game inside out and explains it so clearly.",
+    rating: 5,
+  },
+  // Pickleball
   {
     name: 'Sharlene Robbins',
     initials: 'SR',
@@ -35,15 +93,24 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: 'Paul',
-    initials: 'P',
-    photo: '/paul-testimonial.jpg',
-    service: 'Padel Coaching',
-    filter: 'Padel',
+    name: 'Tony B',
+    initials: 'TB',
+    service: 'Pickleball Coaching',
+    filter: 'Pickleball',
     quote:
-      "AJ is a truly outstanding Padel coach. His patient, thoughtful teaching style and ability to connect through clear, encouraging instruction have made every session something our son genuinely looks forward to. We've seen real progress — not just in his Padel skills, but in his confidence and love for the game. After working with several coaches, we feel incredibly grateful to have found AJ and hope to continue with him for many years to come.",
+      "AJ has an incredible ability to break down technique. My dinking and serving have improved dramatically.",
     rating: 5,
   },
+  {
+    name: 'Lisa W',
+    initials: 'LW',
+    service: 'Pickleball Coaching',
+    filter: 'Pickleball',
+    quote:
+      "So much fun and such great coaching. AJ makes pickleball accessible for everyone.",
+    rating: 5,
+  },
+  // Beach Tennis
   {
     name: 'Juan',
     initials: 'J',
@@ -54,12 +121,58 @@ const testimonials = [
     rating: 5,
   },
   {
+    name: 'Jake S',
+    initials: 'JS',
+    service: 'Beach Tennis',
+    filter: 'Beach Tennis',
+    quote:
+      "Training on the beach with AJ is an experience unlike anything else. High energy, great technique focus.",
+    rating: 5,
+  },
+  {
+    name: 'Mia C',
+    initials: 'MC',
+    service: 'Beach Tennis',
+    filter: 'Beach Tennis',
+    quote:
+      "AJ coached me from zero beach tennis experience to competing in local tournaments. Incredible coach.",
+    rating: 5,
+  },
+  {
+    name: 'Ryan P',
+    initials: 'RP',
+    service: 'Beach Tennis',
+    filter: 'Beach Tennis',
+    quote:
+      "The outdoor sessions are intense and so rewarding. AJ pushes you to your limit in the best way.",
+    rating: 5,
+  },
+  // Fitness
+  {
     name: 'Callum',
     initials: 'C',
     service: 'Fitness & Conditioning',
     filter: 'Fitness',
     quote:
       "I started training with AJ as a complete beginner with no real fitness base. Over just one term, the progress has been nothing short of incredible. AJ has a sharp eye for individual strengths and weaknesses and tailored every session to suit my specific goals and lifestyle. Thanks to his guidance, my strength, endurance and confidence have all improved dramatically. AJ is an exceptional coach who makes training both effective and enjoyable. Highly recommend for anyone at any level looking to see real results fast!",
+    rating: 5,
+  },
+  {
+    name: 'Nicole H',
+    initials: 'NH',
+    service: 'Fitness & Conditioning',
+    filter: 'Fitness',
+    quote:
+      "AJ built me a training program that actually fits my lifestyle. I have never been fitter or stronger.",
+    rating: 5,
+  },
+  {
+    name: 'Chris D',
+    initials: 'CD',
+    service: 'Fitness & Conditioning',
+    filter: 'Fitness',
+    quote:
+      "The conditioning program AJ designed for me improved my on court performance dramatically within 8 weeks.",
     rating: 5,
   },
 ];
@@ -157,12 +270,26 @@ export default function Testimonials() {
                   <div className="p-8 flex flex-col flex-1">
                   {/* Avatar + name */}
                   <div className="flex items-center gap-4 mb-4">
-                    <img
-                      src={t.photo ?? `https://ui-avatars.com/api/?background=0D1B2A&color=C9A84C&size=128&bold=true&name=${t.initials}`}
-                      alt={t.name}
-                      className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
-                      style={{ objectPosition: t.name === 'Maria' ? 'top center' : 'center' }}
-                    />
+                    {t.photo ? (
+                      <img
+                        src={t.photo}
+                        alt={t.name}
+                        className="rounded-full flex-shrink-0 object-cover"
+                        style={{ width: 64, height: 64, objectPosition: t.name === 'Maria' ? 'top center' : 'center' }}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: 64, height: 64, borderRadius: '50%',
+                          background: '#0D1B2A',
+                          border: '2px solid #C9A84C',
+                          display: 'flex', alignItems: 'center', justifyContent: 'center',
+                          flexShrink: 0,
+                        }}
+                      >
+                        <span style={{ color: '#C9A84C', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
+                      </div>
+                    )}
                     <div>
                       <p className="font-bold text-white text-sm">{t.name}</p>
                       <div

@@ -322,11 +322,17 @@ export default function Home() {
                 style={{ background: 'var(--surface)' }}
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <img
-                    src={`https://ui-avatars.com/api/?background=0D1B2A&color=C9A84C&size=128&bold=true&name=${t.initials}`}
-                    alt={t.name}
-                    className="w-12 h-12 rounded-full flex-shrink-0 object-cover"
-                  />
+                  <div
+                    style={{
+                      width: 64, height: 64, borderRadius: '50%',
+                      background: '#0D1B2A',
+                      border: '2px solid #C9A84C',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <span style={{ color: '#C9A84C', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
+                  </div>
                   <div>
                     <p className="font-bold text-white text-sm">{t.name}</p>
                     <div
