@@ -116,10 +116,10 @@ export default function Testimonials() {
               <button
                 key={f}
                 onClick={() => setActiveFilter(f)}
-                className="px-4 py-2 rounded text-xs font-bold uppercase tracking-wider transition-all duration-200"
+                className="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200"
                 style={
                   activeFilter === f
-                    ? { background: 'var(--brand-gold)', color: '#0a0a0a' }
+                    ? { background: 'var(--brand-gold)', color: '#0a0a0a', boxShadow: '0 4px 16px rgba(240,180,41,0.3)' }
                     : {
                         background: 'var(--surface)',
                         color: 'var(--brand-blue-light)',
@@ -144,9 +144,12 @@ export default function Testimonials() {
               {filtered.map((t) => (
                 <div
                   key={t.name}
-                  className="card p-8 flex flex-col"
+                  className="card card-gold flex flex-col overflow-hidden"
                   style={{ background: 'var(--surface)' }}
                 >
+                  {/* Gold top accent line */}
+                  <div style={{ height: 3, background: 'linear-gradient(90deg, var(--brand-gold), var(--brand-gold-light))', flexShrink: 0 }} />
+                  <div className="p-8 flex flex-col flex-1">
                   {/* Avatar + name */}
                   <div className="flex items-center gap-4 mb-4">
                     {t.photo ? (
@@ -181,6 +184,7 @@ export default function Testimonials() {
                   <StarRating count={t.rating} />
                   <div className="text-3xl mt-4 mb-3" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>&ldquo;</div>
                   <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
+                  </div>
                 </div>
               ))}
             </div>
