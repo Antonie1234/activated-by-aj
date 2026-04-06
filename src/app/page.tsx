@@ -349,6 +349,72 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── ACTIVATED PARTNERS ── */}
+      <section className="section-padding" style={{ background: 'var(--surface)' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-14">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+              Trusted Network
+            </p>
+            <div className="gold-divider mx-auto mb-6" />
+            <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+              ACTIVATED PARTNERS
+            </h2>
+            <p className="mt-4 text-gray-400 max-w-xl mx-auto">
+              People I trust and work alongside — extending the Activated network beyond sport.
+            </p>
+          </div>
+
+          <div className="flex justify-center">
+            <div
+              className="card max-w-lg w-full"
+              style={{
+                background: 'var(--surface-2)',
+                border: '1px solid rgba(240,180,41,0.25)',
+                padding: '2rem',
+              }}
+            >
+              {/* Partner tag */}
+              <div className="mb-4">
+                <span
+                  className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                  style={{
+                    background: 'rgba(240,180,41,0.12)',
+                    color: 'var(--brand-gold)',
+                    border: '1px solid rgba(240,180,41,0.25)',
+                  }}
+                >
+                  Partner
+                </span>
+              </div>
+
+              <h3 className="text-2xl font-black text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
+                Lauren IV
+              </h3>
+              <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--brand-gold)' }}>
+                Mobile IV Therapy · Austin, Texas
+              </p>
+
+              <div className="gold-divider mb-5" />
+
+              <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN — a registered nurse bringing wellness directly to your home, hotel or office.
+              </p>
+
+              <a
+                href="https://lauren-iv.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold text-sm"
+                style={{ display: 'inline-block' }}
+              >
+                Visit Lauren IV →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA BANNER ── */}
       <section
         style={{
