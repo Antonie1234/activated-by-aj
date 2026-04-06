@@ -161,20 +161,26 @@ export default function Home() {
       <div className="glow-divider" />
 
       {/* ── STATS BAR ── */}
-      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <section style={{ background: 'var(--surface)', borderTop: '2px solid rgba(240,180,41,0.2)', borderBottom: '1px solid var(--border)' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
             {[
               { stat: '5+', label: 'Sports Coached' },
               { stat: '10+', label: 'Five-Star Reviews' },
               { stat: 'Global', label: 'Network' },
               { stat: 'All Levels', label: 'Welcome' },
-            ].map((item) => (
-              <div key={item.label}>
-                <p className="text-2xl sm:text-3xl font-black mb-1" style={{ color: 'var(--brand-gold)' }}>
+            ].map((item, i, arr) => (
+              <div
+                key={item.label}
+                className="text-center py-4 px-4"
+                style={{
+                  borderRight: i < arr.length - 1 ? '1px solid var(--border)' : 'none',
+                }}
+              >
+                <p className="text-3xl sm:text-4xl font-black mb-2" style={{ color: 'var(--brand-gold)' }}>
                   {item.stat}
                 </p>
-                <p className="text-white text-sm font-medium uppercase tracking-widest">{item.label}</p>
+                <p className="text-gray-400 text-xs font-bold uppercase tracking-widest">{item.label}</p>
               </div>
             ))}
           </div>
@@ -237,7 +243,7 @@ export default function Home() {
             {services.map((service) => (
               <Link key={service.title} href={service.href} className="block group">
                 <div
-                  className="card p-8 h-full flex flex-col"
+                  className="card card-gold p-8 h-full flex flex-col"
                   style={{ background: 'var(--surface-2)' }}
                 >
                   <div className="mb-5" style={{ color: 'var(--brand-gold)' }}>
