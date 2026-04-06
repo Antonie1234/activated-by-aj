@@ -307,6 +307,7 @@ export default function About() {
                 }}
               >
                 <source src="/tennismontage.mp4" type="video/mp4" />
+                <source src="/tennis-montage.mov" type="video/mp4" />
               </video>
             </div>
           </div>
