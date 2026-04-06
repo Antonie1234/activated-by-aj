@@ -16,21 +16,39 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: 'James T',
-    initials: 'JT',
+    name: 'Callum',
+    initials: 'CA',
     service: 'Tennis Coaching',
     filter: 'Tennis',
     quote:
-      "AJ transformed my backhand completely. Patient, technical and always pushing me to improve. Best tennis coach I have had.",
+      "I started lessons with AJ as a complete beginner — barely able to hold a rally. Over just one term the progress has been nothing short of incredible. AJ has a sharp eye for individual strengths and weaknesses and tailored his coaching to my specific habits. I now rally consistently and with confidence. Highly recommend for players at any level.",
     rating: 5,
   },
   {
-    name: 'Sarah M',
-    initials: 'SM',
+    name: 'Amelia',
+    initials: 'AM',
     service: 'Tennis Coaching',
     filter: 'Tennis',
     quote:
-      "Joined as a complete beginner and within 3 months I was playing matches. AJ makes every session fun and challenging.",
+      "I have been doing tennis lessons with AJ for 10 months and he has been a fantastic encouraging coach. His thoughtful and creative approach to tailoring lessons to my learning style has seen my skills and confidence really grow. I look forward to our lessons every week and could not recommend him more highly.",
+    rating: 5,
+  },
+  {
+    name: 'Anete',
+    initials: 'AN',
+    service: 'Tennis Coaching',
+    filter: 'Tennis',
+    quote:
+      "AJ brings incredible energy and good vibes to every session making tennis both fun and rewarding. His positive personality creates a relaxed and supportive environment where I always feel encouraged to improve. He explains techniques clearly and tailors training to suit my level and goals. I leave every class smiling and motivated.",
+    rating: 5,
+  },
+  {
+    name: 'Hassan',
+    initials: 'HA',
+    service: 'Tennis Coaching',
+    filter: 'Tennis',
+    quote:
+      "I have been training with AJ for over a year and a half and our twice-weekly sessions are always a highlight. We start with a warm-up and ease into light games where I learn a lot while genuinely having fun. He brings great energy, knows how to make learning enjoyable and always keeps things engaging. Highly recommended!",
     rating: 5,
   },
   // Padel
@@ -83,8 +101,8 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: 'Maria',
-    initials: 'M',
+    name: 'Georgia',
+    initials: 'G',
     photo: '/georgia-testimonial.jpg',
     service: 'Pickleball Coaching',
     filter: 'Pickleball',
@@ -93,21 +111,21 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: 'Tony B',
-    initials: 'TB',
+    name: 'Sarah Hopkins',
+    initials: 'SH',
     service: 'Pickleball Coaching',
     filter: 'Pickleball',
     quote:
-      "AJ has an incredible ability to break down technique. My dinking and serving have improved dramatically.",
+      "I have had the pleasure of being coached by AJ in pickleball and I could not recommend him more highly. He is an incredibly patient coach who always provides clear and explicit instructions that make learning the game a joy. His drills are fun and his relaxed vibe creates a positive and supportive learning environment.",
     rating: 5,
   },
   {
-    name: 'Lisa W',
-    initials: 'LW',
+    name: 'Maria',
+    initials: 'MA',
     service: 'Pickleball Coaching',
     filter: 'Pickleball',
     quote:
-      "So much fun and such great coaching. AJ makes pickleball accessible for everyone.",
+      "I am a Pickleball addict and worked with AJ as my private coach to improve my game. Even though AJ is primarily an expert tennis coach he is an equally skilled Pickleball coach. He brings discipline, expertise and a great atmosphere to lessons. I dramatically improved my volleys, half volleys and deep serves. There is nothing that would stop me from highly recommending AJ to anyone wanting to improve their game.",
     rating: 5,
   },
   // Beach Tennis
@@ -148,15 +166,6 @@ const testimonials = [
     rating: 5,
   },
   // Fitness
-  {
-    name: 'Callum',
-    initials: 'C',
-    service: 'Fitness & Conditioning',
-    filter: 'Fitness',
-    quote:
-      "I started training with AJ as a complete beginner with no real fitness base. Over just one term, the progress has been nothing short of incredible. AJ has a sharp eye for individual strengths and weaknesses and tailored every session to suit my specific goals and lifestyle. Thanks to his guidance, my strength, endurance and confidence have all improved dramatically. AJ is an exceptional coach who makes training both effective and enjoyable. Highly recommend for anyone at any level looking to see real results fast!",
-    rating: 5,
-  },
   {
     name: 'Nicole H',
     initials: 'NH',
@@ -261,7 +270,7 @@ export default function Testimonials() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((t) => (
                 <div
-                  key={t.name}
+                  key={`${t.name}-${t.filter}`}
                   className="card card-gold flex flex-col overflow-hidden"
                   style={{ background: 'var(--surface)' }}
                 >
@@ -275,7 +284,7 @@ export default function Testimonials() {
                         src={t.photo}
                         alt={t.name}
                         className="rounded-full flex-shrink-0 object-cover"
-                        style={{ width: 64, height: 64, objectPosition: t.name === 'Maria' ? 'top center' : 'center' }}
+                        style={{ width: 64, height: 64, objectPosition: t.name === 'Georgia' ? 'top center' : 'center' }}
                       />
                     ) : (
                       <div
