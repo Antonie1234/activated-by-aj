@@ -3,26 +3,20 @@ import Link from 'next/link';
 /* ── Gold SVG Icons ── */
 const TennisIcon = () => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    {/* Racquet head */}
     <ellipse cx="19" cy="17" rx="12" ry="14" />
-    {/* Vertical strings */}
     <line x1="14" y1="4" x2="14" y2="30" />
     <line x1="19" y1="3" x2="19" y2="31" />
     <line x1="24" y1="4" x2="24" y2="30" />
-    {/* Horizontal strings */}
     <line x1="8" y1="12" x2="30" y2="12" />
     <line x1="7" y1="17" x2="31" y2="17" />
     <line x1="8" y1="22" x2="30" y2="22" />
-    {/* Handle */}
     <line x1="19" y1="31" x2="35" y2="43" strokeWidth="3" />
   </svg>
 );
 
 const PadelIcon = () => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    {/* Padel racquet head - solid oval with holes */}
     <ellipse cx="19" cy="17" rx="12" ry="14" />
-    {/* Holes (3×3 grid) */}
     <circle cx="15" cy="13" r="1.5" fill="currentColor" stroke="none" />
     <circle cx="19" cy="13" r="1.5" fill="currentColor" stroke="none" />
     <circle cx="23" cy="13" r="1.5" fill="currentColor" stroke="none" />
@@ -32,16 +26,13 @@ const PadelIcon = () => (
     <circle cx="15" cy="23" r="1.5" fill="currentColor" stroke="none" />
     <circle cx="19" cy="23" r="1.5" fill="currentColor" stroke="none" />
     <circle cx="23" cy="23" r="1.5" fill="currentColor" stroke="none" />
-    {/* Handle */}
     <line x1="19" y1="31" x2="35" y2="43" strokeWidth="3" />
   </svg>
 );
 
 const PickleballIcon = () => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    {/* Paddle head - wide rounded rectangle */}
     <rect x="5" y="4" width="26" height="28" rx="13" />
-    {/* Holes */}
     <circle cx="18" cy="12" r="2" fill="currentColor" stroke="none" />
     <circle cx="11" cy="12" r="2" fill="currentColor" stroke="none" />
     <circle cx="25" cy="12" r="2" fill="currentColor" stroke="none" />
@@ -49,39 +40,29 @@ const PickleballIcon = () => (
     <circle cx="18" cy="19" r="2" fill="currentColor" stroke="none" />
     <circle cx="25" cy="19" r="2" fill="currentColor" stroke="none" />
     <circle cx="18" cy="26" r="2" fill="currentColor" stroke="none" />
-    {/* Handle */}
     <line x1="18" y1="32" x2="18" y2="43" strokeWidth="4" strokeLinecap="round" />
   </svg>
 );
 
 const BeachTennisIcon = () => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    {/* Sun */}
     <circle cx="32" cy="10" r="5" />
     <line x1="32" y1="2" x2="32" y2="4" />
     <line x1="32" y1="16" x2="32" y2="18" />
     <line x1="24" y1="10" x2="26" y2="10" />
     <line x1="38" y1="10" x2="40" y2="10" />
-    {/* Wave 1 */}
     <path d="M2 28 Q8 22 14 28 Q20 34 26 28 Q32 22 38 28 Q41 31 44 28" />
-    {/* Wave 2 */}
     <path d="M2 36 Q8 30 14 36 Q20 42 26 36 Q32 30 38 36" />
   </svg>
 );
 
 const FitnessIcon = () => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    {/* Left weight plate */}
     <rect x="2" y="17" width="5" height="10" rx="1.5" />
-    {/* Left collar */}
     <rect x="7" y="19" width="4" height="6" rx="1" />
-    {/* Bar */}
     <line x1="11" y1="22" x2="33" y2="22" />
-    {/* Right collar */}
     <rect x="33" y="19" width="4" height="6" rx="1" />
-    {/* Right weight plate */}
     <rect x="37" y="17" width="5" height="10" rx="1.5" />
-    {/* Extra large plates on outside */}
     <rect x="0" y="15" width="3" height="14" rx="1.5" />
     <rect x="41" y="15" width="3" height="14" rx="1.5" />
   </svg>
@@ -89,36 +70,25 @@ const FitnessIcon = () => (
 
 const MovementIcon = () => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    {/* Running figure */}
-    {/* Head */}
     <circle cx="28" cy="6" r="4" />
-    {/* Body */}
     <line x1="28" y1="10" x2="24" y2="22" />
-    {/* Arms */}
     <line x1="26" y1="15" x2="16" y2="12" />
     <line x1="26" y1="15" x2="34" y2="20" />
-    {/* Legs */}
     <line x1="24" y1="22" x2="14" y2="30" />
     <line x1="24" y1="22" x2="30" y2="34" />
-    {/* Feet */}
     <line x1="14" y1="30" x2="8" y2="28" />
     <line x1="30" y1="34" x2="36" y2="38" />
-    {/* Ground line */}
     <line x1="4" y1="40" x2="40" y2="40" strokeWidth="1.5" />
   </svg>
 );
 
 const ProgramsIcon = () => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    {/* Clipboard body */}
     <rect x="8" y="8" width="28" height="34" rx="3" />
-    {/* Clip at top */}
     <rect x="16" y="4" width="12" height="8" rx="2" />
-    {/* Lines */}
     <line x1="14" y1="20" x2="30" y2="20" />
     <line x1="14" y1="26" x2="30" y2="26" />
     <line x1="14" y1="32" x2="24" y2="32" />
-    {/* Check mark on first line */}
     <polyline points="14,17 16,19 20,15" />
   </svg>
 );
@@ -138,7 +108,9 @@ const services = [
       'Match strategy & mental game',
       'Junior & adult programs',
     ],
-    color: 'var(--brand-gold)',
+    image: 'https://images.unsplash.com/photo-1595435742656-5272d0b3fa82?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Tennis court with racket',
+    accentColor: 'var(--brand-gold)',
   },
   {
     id: 'padel',
@@ -154,7 +126,9 @@ const services = [
       'Beginner to competitive levels',
       'Private & group sessions',
     ],
-    color: 'var(--brand-blue-light)',
+    image: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Padel court and racket',
+    accentColor: 'var(--brand-blue-light)',
   },
   {
     id: 'pickleball',
@@ -170,7 +144,9 @@ const services = [
       'Patient, clear instruction',
       'Private & group sessions',
     ],
-    color: 'var(--brand-gold)',
+    image: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Pickleball paddle and court',
+    accentColor: 'var(--brand-gold)',
   },
   {
     id: 'beach',
@@ -186,7 +162,9 @@ const services = [
       'Private & group sessions',
       'All levels welcome',
     ],
-    color: 'var(--brand-blue-light)',
+    image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Beach sport training',
+    accentColor: 'var(--brand-blue-light)',
   },
   {
     id: 'fitness',
@@ -202,7 +180,9 @@ const services = [
       'Mobility & injury prevention',
       'Progress tracking & accountability',
     ],
-    color: 'var(--brand-gold)',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Fitness and gym training',
+    accentColor: 'var(--brand-gold)',
   },
   {
     id: 'movement',
@@ -218,7 +198,9 @@ const services = [
       'Group sessions available',
       'All fitness levels welcome',
     ],
-    color: 'var(--brand-blue-light)',
+    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Outdoor movement training',
+    accentColor: 'var(--brand-blue-light)',
   },
   {
     id: 'programs',
@@ -234,7 +216,9 @@ const services = [
       'Remote & self-guided options',
       'Regular check-ins & plan updates',
     ],
-    color: 'var(--brand-gold)',
+    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Training plan and notebook',
+    accentColor: 'var(--brand-gold)',
   },
 ];
 
@@ -264,54 +248,105 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ── SERVICE CARDS GRID ── */}
-      <section className="section-padding" style={{ background: 'var(--background)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                id={service.id}
-                className="card p-8 flex flex-col h-full"
-                style={{ background: 'var(--surface)' }}
-              >
-                <div className="mb-4" style={{ color: service.color }}>
-                  <service.Icon />
+      {/* ── SERVICE SECTIONS ── */}
+      {services.map((service, index) => {
+        const imageLeft = index % 2 === 0;
+        const sectionBg = index % 2 === 0 ? 'var(--background)' : 'var(--surface)';
+
+        return (
+          <section
+            key={service.id}
+            id={service.id}
+            style={{ background: sectionBg, borderTop: '1px solid var(--border)' }}
+          >
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+              <div className={`grid md:grid-cols-2 gap-10 lg:gap-16 items-center ${!imageLeft ? 'md:[&>*:first-child]:order-2' : ''}`}>
+
+                {/* ── Image column ── */}
+                <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 320 }}>
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    className="w-full h-full object-cover"
+                    style={{ minHeight: 320, maxHeight: 440 }}
+                    loading="lazy"
+                  />
+                  {/* Dark overlay */}
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.2) 100%)',
+                    }}
+                  />
+                  {/* Icon badge in corner */}
+                  <div
+                    className="absolute top-5 left-5 w-14 h-14 rounded-xl flex items-center justify-center"
+                    style={{
+                      background: 'rgba(10,10,10,0.75)',
+                      backdropFilter: 'blur(8px)',
+                      border: '1px solid rgba(240,180,41,0.3)',
+                      color: 'var(--brand-gold)',
+                    }}
+                  >
+                    <service.Icon />
+                  </div>
                 </div>
-                <div className="w-10 h-0.5 mb-4" style={{ background: service.color }} />
-                <h2
-                  className="text-xl font-black text-white mb-2"
-                  style={{ letterSpacing: '-0.02em' }}
-                >
-                  {service.title}
-                </h2>
-                <p className="font-semibold text-sm mb-4" style={{ color: service.color }}>
-                  {service.tagline}
-                </p>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
-                  {service.description}
-                </p>
-                <ul className="space-y-2 mb-8">
-                  {service.details.map((detail) => (
-                    <li key={detail} className="flex items-start gap-2 text-sm text-gray-300">
-                      <span className="flex-shrink-0 font-bold" style={{ color: service.color }}>✓</span>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex gap-3 mt-auto">
-                  <Link href="/contact" className="btn-gold text-xs flex-1 text-center">
-                    Book Now
-                  </Link>
-                  <Link href="/pricing" className="btn-outline text-xs flex-1 text-center">
-                    Pricing
-                  </Link>
+
+                {/* ── Text column ── */}
+                <div>
+                  <p
+                    className="text-xs font-bold uppercase tracking-widest mb-3"
+                    style={{ color: service.accentColor }}
+                  >
+                    {service.tagline}
+                  </p>
+                  <div
+                    className="w-10 h-0.5 mb-5"
+                    style={{ background: service.accentColor }}
+                  />
+                  <h2
+                    className="text-3xl sm:text-4xl font-black text-white mb-4"
+                    style={{ letterSpacing: '-0.02em' }}
+                  >
+                    {service.title}
+                  </h2>
+                  <p className="text-gray-400 leading-relaxed mb-8">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-3 mb-10">
+                    {service.details.map((detail) => (
+                      <li key={detail} className="flex items-start gap-3 text-sm text-gray-300">
+                        <span
+                          className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                          style={{
+                            background: `rgba(240,180,41,0.12)`,
+                            color: 'var(--brand-gold)',
+                            border: '1px solid rgba(240,180,41,0.25)',
+                          }}
+                        >
+                          ✓
+                        </span>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-3">
+                    <Link href="/contact" className="btn-gold text-xs">
+                      Book Now
+                    </Link>
+                    <Link href="/pricing" className="btn-outline text-xs">
+                      View Pricing
+                    </Link>
+                  </div>
                 </div>
+
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
+        );
+      })}
 
       {/* ── CTA ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
