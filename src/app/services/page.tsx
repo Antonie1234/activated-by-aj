@@ -128,6 +128,7 @@ const services = [
     ],
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Padel_court.jpg/1280px-Padel_court.jpg',
     imageAlt: 'Padel court and racket',
+    imgStyle: { width: '100%', height: '400px', objectFit: 'cover' as const, borderRadius: '8px' },
     accentColor: 'var(--brand-blue-light)',
   },
   {
@@ -146,6 +147,7 @@ const services = [
     ],
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Pickleball_court.jpg/1280px-Pickleball_court.jpg',
     imageAlt: 'Pickleball paddle and court',
+    imgStyle: { width: '100%', height: '400px', objectFit: 'cover' as const, borderRadius: '8px' },
     accentColor: 'var(--brand-gold)',
   },
   {
@@ -268,7 +270,7 @@ export default function Services() {
                     src={service.image}
                     alt={service.imageAlt}
                     className="w-full h-full object-cover"
-                    style={{ minHeight: 320, maxHeight: 440 }}
+                    style={service.imgStyle ?? { minHeight: 320, maxHeight: 440 }}
                     loading="lazy"
                   />
                   {/* Dark overlay */}
