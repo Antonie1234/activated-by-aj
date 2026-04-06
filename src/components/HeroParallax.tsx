@@ -48,68 +48,6 @@ export default function HeroParallax() {
       {/* Grain texture */}
       <div className="grain-overlay" />
 
-      {/* Animated gold geometric shapes */}
-      {/* Large diamond — top left */}
-      <div
-        className="absolute animate-float-slow"
-        style={{
-          top: '18%', left: '7%',
-          width: 80, height: 80,
-          border: '1.5px solid rgba(240,180,41,0.18)',
-          transform: 'rotate(45deg)',
-          animationDelay: '0s',
-        }}
-      />
-      {/* Small diamond — top right */}
-      <div
-        className="absolute animate-float-medium"
-        style={{
-          top: '22%', right: '10%',
-          width: 44, height: 44,
-          border: '1px solid rgba(240,180,41,0.14)',
-          transform: 'rotate(45deg)',
-          animationDelay: '1.5s',
-        }}
-      />
-      {/* Horizontal line — middle left */}
-      <div
-        className="absolute animate-drift"
-        style={{
-          top: '52%', left: '4%',
-          width: 60, height: 1,
-          background: 'linear-gradient(90deg, transparent, rgba(240,180,41,0.2), transparent)',
-          animationDelay: '3s',
-        }}
-      />
-      {/* Tiny dot cluster — bottom right */}
-      <div
-        className="absolute animate-float-fast"
-        style={{ bottom: '28%', right: '8%', animationDelay: '0.8s' }}
-      >
-        {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            style={{
-              width: 4, height: 4,
-              borderRadius: '50%',
-              background: 'rgba(240,180,41,0.25)',
-              marginBottom: 6,
-            }}
-          />
-        ))}
-      </div>
-      {/* Medium diamond — bottom left */}
-      <div
-        className="absolute animate-float-slow"
-        style={{
-          bottom: '22%', left: '14%',
-          width: 32, height: 32,
-          border: '1px solid rgba(240,180,41,0.12)',
-          transform: 'rotate(45deg)',
-          animationDelay: '4s',
-        }}
-      />
-
       {/* Blue glow orb */}
       <div
         className="absolute rounded-full blur-3xl"
