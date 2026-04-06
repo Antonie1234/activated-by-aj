@@ -292,21 +292,22 @@ export default function About() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-tl-2xl" style={{ minHeight: '480px' }}>
+            <div>
               <video
                 autoPlay
-                loop
                 muted
+                loop
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: 'center center' }}
+                style={{
+                  width: '100%',
+                  maxHeight: '480px',
+                  objectFit: 'cover',
+                  borderRadius: '12px',
+                  display: 'block',
+                }}
               >
                 <source src="/tennismontage.mp4" type="video/mp4" />
               </video>
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.3) 0%, transparent 50%)' }}
-              />
             </div>
           </div>
         </div>
