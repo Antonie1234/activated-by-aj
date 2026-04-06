@@ -165,9 +165,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
             {[
-              { stat: '5+', label: 'Sports Coached' },
-              { stat: '10+', label: 'Five-Star Reviews' },
-              { stat: 'Global', label: 'Network' },
+              { stat: '7', label: 'Sports Coached' },
+              { stat: '50+', label: 'Sessions Delivered' },
+              { stat: 'Sydney', label: 'Based In' },
               { stat: 'All Levels', label: 'Welcome' },
             ].map((item, i, arr) => (
               <div

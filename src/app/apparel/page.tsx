@@ -11,8 +11,10 @@ export default function Apparel() {
     e.preventDefault();
     if (!email) return;
     setLoading(true);
-    // Placeholder — will integrate Resend/Supabase
-    await new Promise((r) => setTimeout(r, 800));
+    window.open(
+      `mailto:activatedbookingsbyaj@gmail.com?subject=Apparel%20Waitlist&body=Add%20me%20to%20the%20Activated%20Apparel%20waitlist%3A%20${encodeURIComponent(email)}`
+    );
+    await new Promise((r) => setTimeout(r, 400));
     setSubmitted(true);
     setLoading(false);
   };

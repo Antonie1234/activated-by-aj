@@ -12,8 +12,8 @@ const navLinks = [
   { href: '/pricing', label: 'Pricing' },
   { href: '/testimonials', label: 'Testimonials' },
   { href: '/faq', label: 'FAQ' },
-  { href: '/apparel', label: 'Apparel' },
-  { href: '/web-design', label: 'Web Design' },
+  { href: '/apparel', label: 'Apparel', badge: 'Soon' },
+  { href: '/web-design', label: 'Digital Services' },
   { href: '/contact', label: "Let's Activate" },
 ];
 
@@ -57,7 +57,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-3 py-2 text-sm font-medium transition-colors rounded ${
+              className={`px-3 py-2 text-sm font-medium transition-colors rounded inline-flex items-center gap-1.5 ${
                 pathname === link.href
                   ? 'text-white'
                   : 'text-gray-400 hover:text-white'
@@ -69,6 +69,14 @@ export default function Navbar() {
               }
             >
               {link.label}
+              {'badge' in link && (
+                <span
+                  className="text-xs font-bold uppercase tracking-wide px-1.5 py-0.5 rounded"
+                  style={{ background: 'rgba(240,180,41,0.15)', color: 'var(--brand-gold)', fontSize: '9px' }}
+                >
+                  {link.badge}
+                </span>
+              )}
             </Link>
           ))}
           <Link href="/contact" className="btn-primary ml-4 text-xs">
@@ -109,7 +117,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`px-4 py-3 text-sm font-medium rounded transition-colors ${
+              className={`px-4 py-3 text-sm font-medium rounded transition-colors inline-flex items-center gap-2 ${
                 pathname === link.href
                   ? 'font-bold'
                   : 'text-gray-300 hover:text-white'
@@ -121,6 +129,14 @@ export default function Navbar() {
               }
             >
               {link.label}
+              {'badge' in link && (
+                <span
+                  className="text-xs font-bold uppercase tracking-wide px-1.5 py-0.5 rounded"
+                  style={{ background: 'rgba(240,180,41,0.15)', color: 'var(--brand-gold)', fontSize: '9px' }}
+                >
+                  {link.badge}
+                </span>
+              )}
             </Link>
           ))}
         </nav>
