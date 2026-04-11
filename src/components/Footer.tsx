@@ -32,7 +32,7 @@ export default function Footer() {
               <AJLogo height={36} />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Premium coaching, web design and lifestyle services — based in Sydney, Australia.
+              Premium coaching, web design and lifestyle services — activating the world one sport at a time.
             </p>
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               <a
@@ -125,12 +125,12 @@ export default function Footer() {
               <li>
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Website</p>
                 <a
-                  href="https://activated-by-aj.vercel.app"
+                  href="https://activatedbyaj.co.za"
                   className="text-white text-sm hover:opacity-80 transition-opacity"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  activated-by-aj.vercel.app
+                  activatedbyaj.co.za
                 </a>
               </li>
             </ul>

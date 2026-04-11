@@ -120,8 +120,9 @@ export default function About() {
                   that the way you move your body directly shapes how you show up in life.
                 </p>
                 <p>
-                  That insight became the foundation of Activated by AJ — a coaching brand
-                  built around one simple belief:{' '}
+                  That insight became the foundation of{' '}
+                  <span className="text-white font-semibold">Activated by AJ (Pty) Ltd</span>{' '}
+                  (Reg: 2026/297939/07) — a coaching brand built around one simple belief:{' '}
                   <span className="text-white font-semibold">when you activate your body, you activate your life.</span>
                 </p>
                 <p>
@@ -139,6 +140,15 @@ export default function About() {
                   Former ITF ranked tennis player and national top 50 in South Africa — AJ
                   brings competitive experience and professional coaching credentials to every
                   session.
+                </p>
+                <p>
+                  Beyond coaching, Activated by AJ operates as a{' '}
+                  <span className="text-white font-semibold">padel facility broker</span> —
+                  identifying premium facility opportunities, connecting investors with
+                  world-class infrastructure, and bringing padel and racquet sport ecosystems
+                  to market. This work is backed by{' '}
+                  <span className="text-white font-semibold">MindSpring Padel</span>, official
+                  infrastructure partner of Padel Australia.
                 </p>
               </div>
 

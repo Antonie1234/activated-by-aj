@@ -139,7 +139,7 @@ export default function Home() {
               className="w-1.5 h-1.5 rounded-full animate-pulse"
               style={{ background: 'var(--brand-gold)' }}
             />
-            Racquet Sport · Lifestyle · Performance
+            Padel · Racquet Sport · Lifestyle · Performance
           </div>
 
           <h1
@@ -152,7 +152,7 @@ export default function Home() {
           </h1>
 
           <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            Tennis coaching, fitness &amp; strength training, and beach sports performance. Your Vibe Activates Your Tribe.
+            Padel. Racquet Sport. Lifestyle. Performance. — Your Vibe Activates Your Tribe.
           </p>
 
         </div>
@@ -167,7 +167,7 @@ export default function Home() {
             {[
               { stat: '7', label: 'Sports Coached' },
               { stat: '50+', label: 'Sessions Delivered' },
-              { stat: 'Sydney', label: 'Based In' },
+              { stat: 'Est. 2026', label: 'Founded' },
               { stat: 'All Levels', label: 'Welcome' },
             ].map((item, i, arr) => (
               <div
@@ -277,6 +277,30 @@ export default function Home() {
               View Pricing
             </Link>
           </div>
+        </div>
+      </section>
+
+      <GoldDivider />
+
+      {/* ── WHAT WE ARE BUILDING ── */}
+      <section className="section-padding" style={{ background: 'var(--background)' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+            The Vision
+          </p>
+          <div className="gold-divider mx-auto mb-6" />
+          <h2 className="text-4xl sm:text-5xl font-black mb-8" style={{ letterSpacing: '-0.02em', color: 'var(--brand-gold)' }}>
+            WHAT WE ARE BUILDING
+          </h2>
+          <p className="text-gray-400 text-lg leading-relaxed mb-10">
+            Activated by AJ is more than a coaching brand. We are building a padel and racquet sport lifestyle ecosystem —
+            identifying premium facility opportunities, connecting investors, and bringing world-class padel infrastructure
+            to market through our broker model. Backed by{' '}
+            <span className="text-white font-semibold">MindSpring Padel</span>, official infrastructure partner of Padel Australia.
+          </p>
+          <Link href="/about" className="btn-gold">
+            Learn More About the Vision
+          </Link>
         </div>
       </section>
 
@@ -447,7 +471,7 @@ export default function Home() {
             READY TO GET ACTIVATED?
           </h2>
           <p className="text-blue-100 mb-8 text-lg">
-            Book your first session today.
+            Ready to get Activated? Let&apos;s build something together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-gold">
