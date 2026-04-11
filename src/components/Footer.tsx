@@ -32,7 +32,7 @@ export default function Footer() {
               <AJLogo height={36} />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Coaching. Vision. Padel. — Originating, connecting, and activating the future of racquet sport.
+              Coaching. Vision. Padel. Originating, connecting, and activating the future of racquet sport.
             </p>
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               <a

@@ -26,7 +26,7 @@ const steps = [
   {
     num: '04',
     title: 'STRUCTURE',
-    desc: 'A formal agreement is signed. Success fee, equity stake, or hybrid — defined upfront. Activated earns from the deal and the brand.',
+    desc: 'A formal agreement is signed. Success fee, equity stake, or hybrid. Defined upfront. Activated earns from the deal and the brand.',
   },
   {
     num: '05',
@@ -279,7 +279,7 @@ export default function InvestorPathway() {
               </h3>
               <ul className="space-y-4">
                 {[
-                  'A fully developed concept — not just an idea',
+                  'A fully developed concept, not just an idea',
                   'The Activated brand operating your facility',
                   'First-mover positioning in Australia\'s fastest growing sport',
                   'Access to the Activated investor network across multiple deals',

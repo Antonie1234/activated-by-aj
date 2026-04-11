@@ -59,7 +59,7 @@ const steps = [
     number: '02',
     title: 'Proposal',
     description:
-      'I put together a clear proposal with scope, timeline, and pricing — no surprises.',
+      'I put together a clear proposal with scope, timeline, and pricing. No surprises.',
   },
   {
     number: '03',
@@ -77,7 +77,7 @@ const steps = [
     number: '05',
     title: 'Launch',
     description:
-      'Your site goes live on a custom domain — fast, secure, and ready for visitors.',
+      'Your site goes live on a custom domain. Fast, secure, and ready for visitors.',
   },
 ];
 
@@ -133,7 +133,7 @@ export default function WebDesignPage() {
             style={{ color: 'rgba(255,255,255,0.65)' }}
           >
             I design and build custom websites for small businesses, personal brands and
-            startups — using the same tech stack as top companies.
+            startups, using the same tech stack as top companies.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -174,7 +174,7 @@ export default function WebDesignPage() {
               CHOOSE YOUR PACKAGE
             </h2>
             <p className="mt-4 text-gray-400 max-w-xl mx-auto">
-              Every site is custom-built — no templates, no shortcuts.
+              Every site is custom-built. No templates, no shortcuts.
             </p>
           </div>
 

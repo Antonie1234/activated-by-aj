@@ -101,7 +101,7 @@ const services = [
     title: 'Tennis Coaching',
     tagline: 'Master the court. Dominate the game.',
     description:
-      'One-on-one and group sessions for all ages and levels. Technique, footwork, match strategy and mental game — built around you.',
+      'One-on-one and group sessions for all ages and levels. Technique, footwork, match strategy and mental game, built around you.',
     details: [
       'Private & group sessions',
       'All ages & skill levels',
@@ -211,7 +211,7 @@ const services = [
     title: 'Programs & Plans',
     tagline: 'Structure. Progression. Results.',
     description:
-      'Custom workout programs, recovery plans and nutrition guidance you can follow anywhere — designed to keep you progressing on your own schedule.',
+      'Custom workout programs, recovery plans and nutrition guidance you can follow anywhere, designed to keep you progressing on your own schedule.',
     details: [
       'Custom workout programs',
       'Recovery & mobility plans',
@@ -367,7 +367,7 @@ export default function Services() {
           </h2>
           <p className="text-gray-400 leading-relaxed mb-10">
             Not sure which service is right for you? Reach out and AJ will help you figure out
-            the best path forward — whether that&apos;s tennis, strength training, beach sports,
+            the best path forward, whether that&apos;s tennis, strength training, beach sports,
             or a combination of all.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

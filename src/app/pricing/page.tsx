@@ -179,7 +179,7 @@ export default function Pricing() {
               </div>
               <h3 className="font-black text-white text-lg mb-2">Monthly Coaching Packages</h3>
               <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
-                Structured monthly programmes combining lessons, fitness, and accountability — tailored to your goals.
+                Structured monthly programmes combining lessons, fitness, and accountability, tailored to your goals.
               </p>
               <div className="flex items-baseline gap-2">
                 <span className="text-xl font-black text-white">Pricing on Application</span>

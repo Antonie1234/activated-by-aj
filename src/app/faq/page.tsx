@@ -6,7 +6,7 @@ import GoldDivider from '@/components/GoldDivider';
 const faqs = [
   {
     q: 'What sports and activities do you coach?',
-    a: 'I coach tennis, padel, pickleball, beach tennis, and general fitness and conditioning. Sessions are available for all levels — from complete beginners to competitive players.',
+    a: 'I coach tennis, padel, pickleball, beach tennis, and general fitness and conditioning. Sessions are available for all levels, from complete beginners to competitive players.',
   },
   {
     q: 'Where are sessions held?',
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: 'Do you offer group sessions?',
-    a: 'Yes — I offer both private one-on-one sessions and small group sessions for 2, 3 and 4 players. Check the Pricing page for full details.',
+    a: 'Yes, I offer both private one-on-one sessions and small group sessions for 2, 3 and 4 players. Check the Pricing page for full details.',
   },
   {
     q: 'What is the difference between termly and pay-as-you-go pricing?',
@@ -26,11 +26,11 @@ const faqs = [
   },
   {
     q: 'Do you offer fitness and conditioning programs?',
-    a: 'Yes — I offer custom fitness and diet programs from $100 as a one-off, as well as monthly coaching packages tailored to your specific goals.',
+    a: 'Yes, I offer custom fitness and diet programs from $100 as a one-off, as well as monthly coaching packages tailored to your specific goals.',
   },
   {
     q: 'What level do I need to be to train with you?',
-    a: 'All levels welcome — from complete beginners picking up a racquet for the first time, to experienced players looking to sharpen their competitive edge.',
+    a: 'All levels welcome, from complete beginners picking up a racquet for the first time, to experienced players looking to sharpen their competitive edge.',
   },
   {
     q: 'What is your cancellation policy?',
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: 'What should I bring to a session?',
-    a: 'Comfortable sports clothing, a water bottle, and your racquet if you have one. Equipment can be provided if needed — just let me know when booking.',
+    a: 'Comfortable sports clothing, a water bottle, and your racquet if you have one. Equipment can be provided if needed, just let me know when booking.',
   },
 ];
 
@@ -124,7 +124,7 @@ export default function FAQ() {
             STILL HAVE QUESTIONS?
           </h2>
           <p className="text-gray-400 mb-8 leading-relaxed">
-            Let&apos;s chat — I&apos;ll get back to you within 24 hours.
+            Let&apos;s chat and I&apos;ll get back to you within 24 hours.
           </p>
           <a
             href="https://wa.me/61459575625"

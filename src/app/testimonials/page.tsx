@@ -12,7 +12,7 @@ const testimonials = [
     service: 'Tennis Coaching',
     filter: 'Tennis',
     quote:
-      "Training with AJ has been a game-changer for my tennis journey. From day one, he recognised my strengths and weaknesses and crafted a lesson plan tailored specifically to my goals. Every session is intense, focused, and designed to push me beyond what I thought I was capable of. AJ doesn't settle for mediocrity — he challenges me to dig deeper, work harder, and play smarter. Thanks to his dedication and personalised approach, I've seen dramatic improvements in my technique, endurance, and mental toughness. I couldn't ask for a better mentor on and off the court!",
+      "Training with AJ has been a game-changer for my tennis journey. From day one, he recognised my strengths and weaknesses and crafted a lesson plan tailored specifically to my goals. Every session is intense, focused, and designed to push me beyond what I thought I was capable of. AJ doesn't settle for mediocrity. He challenges me to dig deeper, work harder, and play smarter. Thanks to his dedication and personalised approach, I've seen dramatic improvements in my technique, endurance, and mental toughness. I couldn't ask for a better mentor on and off the court!",
     rating: 5,
   },
   {
@@ -21,7 +21,7 @@ const testimonials = [
     service: 'Tennis Coaching',
     filter: 'Tennis',
     quote:
-      "I started lessons with AJ as a complete beginner — barely able to hold a rally. Over just one term the progress has been nothing short of incredible. AJ has a sharp eye for individual strengths and weaknesses and tailored his coaching to my specific habits. I now rally consistently and with confidence. Highly recommend for players at any level.",
+      "I started lessons with AJ as a complete beginner, barely able to hold a rally. Over just one term the progress has been nothing short of incredible. AJ has a sharp eye for individual strengths and weaknesses and tailored his coaching to my specific habits. I now rally consistently and with confidence. Highly recommend for players at any level.",
     rating: 5,
   },
   {
@@ -59,7 +59,7 @@ const testimonials = [
     service: 'Padel Coaching',
     filter: 'Padel',
     quote:
-      "AJ is a truly outstanding Padel coach. His patient, thoughtful teaching style and ability to connect through clear, encouraging instruction have made every session something our son genuinely looks forward to. We've seen real progress — not just in his Padel skills, but in his confidence and love for the game. After working with several coaches, we feel incredibly grateful to have found AJ and hope to continue with him for many years to come.",
+      "AJ is a truly outstanding Padel coach. His patient, thoughtful teaching style and ability to connect through clear, encouraging instruction have made every session something our son genuinely looks forward to. We've seen real progress, not just in his Padel skills, but in his confidence and love for the game. After working with several coaches, we feel incredibly grateful to have found AJ and hope to continue with him for many years to come.",
     rating: 5,
   },
   {
@@ -135,7 +135,7 @@ const testimonials = [
     service: 'Beach Tennis',
     filter: 'Beach Tennis',
     quote:
-      "I've had the opportunity to take both group and private Beach Tennis lessons with AJ, and I can confidently say he's one of the most insightful and detail-oriented coaches I've worked with. His experience clearly shows in the way he breaks down not just technique, but also the tactical side of the game. What sets him apart is how he connects technical observations with tactical understanding — his feedback goes beyond just how to hit a shot, he explains why certain decisions on court matter. Who knows, maybe one day I'll finally beat him in his own Beat the Coach drill!",
+      "I've had the opportunity to take both group and private Beach Tennis lessons with AJ, and I can confidently say he's one of the most insightful and detail-oriented coaches I've worked with. His experience clearly shows in the way he breaks down not just technique, but also the tactical side of the game. What sets him apart is how he connects technical observations with tactical understanding. His feedback goes beyond just how to hit a shot, he explains why certain decisions on court matter. Who knows, maybe one day I'll finally beat him in his own Beat the Coach drill!",
     rating: 5,
   },
   {

@@ -13,7 +13,7 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Activated by AJ | Racquet Sport & Lifestyle",
   description:
-    "Turn your energy into purpose. Tennis coaching, fitness & strength training, and movement & beach sports with AJ — based in Willoughby, Sydney.",
+    "Turn your energy into purpose. Tennis coaching, fitness & strength training, and movement & beach sports with AJ, based in Willoughby, Sydney.",
   keywords: [
     "personal trainer Sydney",
     "tennis coach Sydney",

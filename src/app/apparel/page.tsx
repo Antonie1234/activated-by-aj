@@ -102,7 +102,7 @@ export default function Apparel() {
                 </button>
               </div>
               <p className="text-gray-600 text-xs mt-3">
-                No spam. Just the drop date — we promise.
+                No spam. Just the drop date, we promise.
               </p>
             </form>
           ) : (

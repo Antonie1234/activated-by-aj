@@ -98,7 +98,7 @@ const services = [
   {
     Icon: ProgramsIcon,
     title: 'Programs & Plans',
-    description: 'Custom workout programs, recovery plans and nutrition guidance — designed to keep you progressing.',
+    description: 'Custom workout programs, recovery plans and nutrition guidance, designed to keep you progressing.',
     href: '/services#programs',
   },
 ];
@@ -216,7 +216,7 @@ export default function Home() {
                 COACHING THAT <span className="gold-text">ACTIVATES</span> YOU
               </h2>
               <p className="text-gray-400 leading-relaxed mb-8">
-                Activated by AJ is more than a coaching brand — it&apos;s a movement. We activate your full potential across tennis, padel, pickleball, beach sports and fitness. Discipline. Energy. Purpose. Let&apos;s build something.
+                Activated by AJ is more than a coaching brand. It&apos;s a movement. We activate your full potential across tennis, padel, pickleball, beach sports and fitness. Discipline. Energy. Purpose. Let&apos;s build something.
               </p>
               <Link href="/about" className="btn-primary">
                 More About AJ
@@ -354,7 +354,7 @@ export default function Home() {
                 name: 'Henry Leung',
                 initials: 'HL',
                 service: 'Tennis Coaching',
-                quote: "AJ doesn't settle for mediocrity — he challenges me to dig deeper, work harder, and play smarter. I've seen dramatic improvements in my technique, endurance, and mental toughness.",
+                quote: "AJ doesn't settle for mediocrity. He challenges me to dig deeper, work harder, and play smarter. I've seen dramatic improvements in my technique, endurance, and mental toughness.",
               },
               {
                 name: 'Sharlene Robbins',
@@ -433,7 +433,7 @@ export default function Home() {
               ACTIVATED PARTNERS
             </h2>
             <p className="mt-4 text-gray-400 max-w-xl mx-auto">
-              People I trust and work alongside — extending the Activated network beyond sport.
+              People I trust and work alongside, extending the Activated network beyond sport.
             </p>
           </div>
 
@@ -503,7 +503,7 @@ export default function Home() {
                   <div className="gold-divider mb-5" />
 
                   <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                    Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN — a registered nurse bringing wellness directly to your home, hotel or office.
+                    Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN, a registered nurse bringing wellness directly to your home, hotel or office.
                   </p>
 
                   <div>

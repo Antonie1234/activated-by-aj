@@ -15,7 +15,7 @@ const credentials = [
   {
     num: '03',
     title: 'Beach Sports',
-    detail: 'Specialised in beach tennis, volleyball and outdoor movement — training that\'s fun, functional and high energy.',
+    detail: 'Specialised in beach tennis, volleyball and outdoor movement. Training that\'s fun, functional and high energy.',
   },
   {
     num: '04',
@@ -28,7 +28,7 @@ const values = [
   { label: 'Energy', description: 'Every session is charged with intent and drive.' },
   { label: 'Purpose', description: 'Training is always connected to your bigger goals.' },
   { label: 'Results', description: 'Progress you can see, feel, and measure.' },
-  { label: 'Community', description: "You're not just a client — you're part of the movement." },
+  { label: 'Community', description: "You're not just a client. You're part of the movement." },
 ];
 
 export default function About() {
@@ -121,7 +121,7 @@ export default function About() {
                 </p>
                 <p>
                   With expertise across tennis, padel, pickleball and beach sports, AJ brings
-                  a truly holistic approach to coaching. Every session is built around you —
+                  a truly holistic approach to coaching. Every session is built around you,
                   your goals, your game, your lifestyle.
                 </p>
                 <p>
@@ -208,7 +208,7 @@ export default function About() {
             {[
               {
                 title: 'Technique First',
-                body: 'Great results start with great foundations. Before speed, power or tactics — I build the technical base that everything else grows from. Solid technique is the shortcut to long-term improvement.',
+                body: 'Great results start with great foundations. Before speed, power or tactics, I build the technical base that everything else grows from. Solid technique is the shortcut to long-term improvement.',
                 svg: (
                   <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="26" cy="26" r="22" /><circle cx="26" cy="26" r="14" /><circle cx="26" cy="26" r="6" />
@@ -219,7 +219,7 @@ export default function About() {
               },
               {
                 title: 'Mindset Matters',
-                body: "Your body follows your mind. I coach the mental game as hard as the physical — confidence, focus and resilience are skills you can train. A strong mindset is what separates players when the score is close.",
+                body: "Your body follows your mind. I coach the mental game as hard as the physical. Confidence, focus and resilience are skills you can train. A strong mindset is what separates players when the score is close.",
                 svg: (
                   <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M26 44 C26 44 10 38 10 24 C10 16 16 10 22 10 C23.5 10 25 10.5 26 11.5 C27 10.5 28.5 10 30 10 C36 10 42 16 42 24 C42 38 26 44 26 44Z" />
@@ -231,7 +231,7 @@ export default function About() {
               },
               {
                 title: 'Progress Over Perfection',
-                body: "I don't chase perfect. I chase better. Consistent forward movement beats waiting for the ideal moment every time. Every session, every rep, every rally — we are building something bigger than yesterday.",
+                body: "I don't chase perfect. I chase better. Consistent forward movement beats waiting for the ideal moment every time. Every session, every rep, every rally. We are building something bigger than yesterday.",
                 svg: (
                   <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="6" y="34" width="8" height="12" rx="1.5" /><rect x="20" y="24" width="8" height="22" rx="1.5" /><rect x="34" y="12" width="8" height="34" rx="1.5" />
