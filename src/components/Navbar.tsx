@@ -10,9 +10,7 @@ const navLinks = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/testimonials', label: 'Testimonials' },
   { href: '/faq', label: 'FAQ' },
-  { href: '/apparel', label: 'Apparel', badge: 'Soon' },
   { href: '/web-design', label: 'Digital Services' },
   { href: '/contact', label: "Let's Activate" },
 ];
@@ -69,14 +67,6 @@ export default function Navbar() {
               }
             >
               {link.label}
-              {'badge' in link && (
-                <span
-                  className="text-xs font-bold uppercase tracking-wide px-1.5 py-0.5 rounded"
-                  style={{ background: 'rgba(240,180,41,0.15)', color: 'var(--brand-gold)', fontSize: '9px' }}
-                >
-                  {link.badge}
-                </span>
-              )}
             </Link>
           ))}
           <Link href="/contact" className="btn-primary ml-4 text-xs">
@@ -129,14 +119,6 @@ export default function Navbar() {
               }
             >
               {link.label}
-              {'badge' in link && (
-                <span
-                  className="text-xs font-bold uppercase tracking-wide px-1.5 py-0.5 rounded"
-                  style={{ background: 'rgba(240,180,41,0.15)', color: 'var(--brand-gold)', fontSize: '9px' }}
-                >
-                  {link.badge}
-                </span>
-              )}
             </Link>
           ))}
         </nav>

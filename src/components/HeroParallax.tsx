@@ -35,6 +35,7 @@ export default function HeroParallax() {
       {/* Video background */}
       <video
         autoPlay muted loop playsInline
+        poster="/aj-photo.jpg"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ opacity: 0.45 }}
       >

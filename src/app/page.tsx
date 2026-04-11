@@ -153,7 +153,7 @@ export default function Home() {
           </h1>
 
           <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            Padel. Racquet Sport. Lifestyle. Performance. — Your Vibe Activates Your Tribe.
+            Your Vibe Activates Your Tribe.
           </p>
 
         </div>
@@ -173,10 +173,7 @@ export default function Home() {
             ].map((item, i, arr) => (
               <div
                 key={item.label}
-                className="text-center py-4 px-4"
-                style={{
-                  borderRight: i < arr.length - 1 ? '1px solid var(--border)' : 'none',
-                }}
+                className={`text-center py-4 px-4 ${i < arr.length - 1 ? 'md:border-r md:border-[var(--border)]' : ''}`}
               >
                 <p className="text-3xl sm:text-4xl font-black mb-2" style={{ color: 'var(--brand-gold)' }}>
                   {item.stat}
@@ -335,9 +332,9 @@ export default function Home() {
                 quote: "AJ is incredibly patient and explains things clearly. His drills are challenging but fun, and he always tailors the lesson to enhance my progress. I'm now addicted to Pickleball!",
               },
               {
-                name: 'Callum',
-                initials: 'C',
-                service: 'Fitness & Conditioning',
+                name: 'C.B.',
+                initials: 'CB',
+                service: 'Performance Client',
                 quote: "Over just one term, the progress has been nothing short of incredible. My strength, endurance and confidence have all improved dramatically. Highly recommend for anyone at any level.",
               },
             ].map((t) => (
@@ -412,7 +409,7 @@ export default function Home() {
           <div className="flex justify-center">
             {/* Premium editorial card */}
             <div
-              className="relative w-full max-w-2xl rounded-2xl overflow-visible"
+              className="relative w-full max-w-2xl rounded-2xl overflow-visible transition-all duration-300 hover:shadow-[0_8px_64px_rgba(0,0,0,0.6),0_0_32px_rgba(201,168,76,0.15),0_0_0_1px_rgba(201,168,76,0.5)]"
               style={{
                 background: '#0D1B2A',
                 border: '1px solid rgba(201,168,76,0.3)',
@@ -423,15 +420,15 @@ export default function Home() {
 
                 {/* ── LEFT: photo ── */}
                 <div
-                  className="relative shrink-0 sm:-ml-6 sm:-my-6 z-10"
-                  style={{ width: '200px', minHeight: '300px' }}
+                  className="relative shrink-0 w-full sm:w-[200px] sm:-ml-6 sm:-my-6 z-10"
+                  style={{ minHeight: '260px' }}
                 >
                   <div
                     className="relative h-full rounded-xl overflow-hidden"
                     style={{
                       border: '2px solid #C9A84C',
                       boxShadow: '0 4px 24px rgba(201,168,76,0.2)',
-                      minHeight: '300px',
+                      minHeight: '260px',
                     }}
                   >
                     <Image
@@ -473,6 +470,7 @@ export default function Home() {
                   </p>
 
                   <div className="gold-divider mb-5" />
+
 
                   <p className="text-gray-400 text-sm leading-relaxed mb-8">
                     Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN — a registered nurse bringing wellness directly to your home, hotel or office.
