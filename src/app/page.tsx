@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import HeroParallax from '@/components/HeroParallax';
 import GoldDivider from '@/components/GoldDivider';
 
@@ -409,50 +410,92 @@ export default function Home() {
           </div>
 
           <div className="flex justify-center">
+            {/* Premium editorial card */}
             <div
-              className="card max-w-lg w-full"
+              className="relative w-full max-w-2xl rounded-2xl overflow-visible"
               style={{
-                background: 'var(--surface-2)',
-                border: '1px solid rgba(240,180,41,0.25)',
-                padding: '2rem',
+                background: '#0D1B2A',
+                border: '1px solid rgba(201,168,76,0.3)',
+                boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.08)',
               }}
             >
-              {/* Partner tag */}
-              <div className="mb-4">
-                <span
-                  className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                  style={{
-                    background: 'rgba(240,180,41,0.12)',
-                    color: 'var(--brand-gold)',
-                    border: '1px solid rgba(240,180,41,0.25)',
-                  }}
+              <div className="flex flex-col sm:flex-row items-stretch">
+
+                {/* ── LEFT: photo ── */}
+                <div
+                  className="relative shrink-0 sm:-ml-6 sm:-my-6 z-10"
+                  style={{ width: '200px', minHeight: '300px' }}
                 >
-                  Partner
-                </span>
+                  <div
+                    className="relative h-full rounded-xl overflow-hidden"
+                    style={{
+                      border: '2px solid #C9A84C',
+                      boxShadow: '0 4px 24px rgba(201,168,76,0.2)',
+                      minHeight: '300px',
+                    }}
+                  >
+                    <Image
+                      src="/lauren-seated.jpg"
+                      alt="Lauren Beckage BSN RN"
+                      fill
+                      style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                      sizes="200px"
+                    />
+                    {/* subtle gold overlay at bottom */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-16"
+                      style={{ background: 'linear-gradient(to top, rgba(13,27,42,0.6), transparent)' }}
+                    />
+                  </div>
+                </div>
+
+                {/* ── RIGHT: content ── */}
+                <div className="flex flex-col justify-center px-8 py-8">
+                  {/* Partner label */}
+                  <div className="mb-4">
+                    <span
+                      className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                      style={{
+                        color: '#C9A84C',
+                        border: '1px solid rgba(201,168,76,0.4)',
+                        background: 'rgba(201,168,76,0.08)',
+                      }}
+                    >
+                      Activated Partner
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-black text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
+                    Lauren IV
+                  </h3>
+                  <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
+                    Mobile IV Therapy · Austin, Texas
+                  </p>
+
+                  <div className="gold-divider mb-5" />
+
+                  <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                    Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN — a registered nurse bringing wellness directly to your home, hotel or office.
+                  </p>
+
+                  <div>
+                    <a
+                      href="https://lauren-iv.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full transition-all duration-200 hover:bg-[#C9A84C] hover:text-[#0D1B2A]"
+                      style={{
+                        color: '#C9A84C',
+                        border: '2px solid #C9A84C',
+                        background: 'transparent',
+                      }}
+                    >
+                      Visit Lauren IV →
+                    </a>
+                  </div>
+                </div>
+
               </div>
-
-              <h3 className="text-2xl font-black text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
-                Lauren IV
-              </h3>
-              <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--brand-gold)' }}>
-                Mobile IV Therapy · Austin, Texas
-              </p>
-
-              <div className="gold-divider mb-5" />
-
-              <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN — a registered nurse bringing wellness directly to your home, hotel or office.
-              </p>
-
-              <a
-                href="https://lauren-iv.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold text-sm"
-                style={{ display: 'inline-block' }}
-              >
-                Visit Lauren IV →
-              </a>
             </div>
           </div>
         </div>
