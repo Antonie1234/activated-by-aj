@@ -32,20 +32,6 @@ export default function HeroParallax() {
       className="absolute inset-0 w-full pointer-events-none"
       style={{ top: '-10%', height: '120%', willChange: 'transform' }}
     >
-      {/* Video background */}
-      <video
-        autoPlay muted loop playsInline
-        poster="/aj-photo.jpg"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ opacity: 0.45 }}
-      >
-        <source src="/hero-bg-aj.mp4" type="video/mp4" />
-        <source src="/hero-bg.mp4" type="video/mp4" />
-      </video>
-
-      {/* Dark overlay */}
-      <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.58)' }} />
-
       {/* Grain texture */}
       <div className="grain-overlay" />
 

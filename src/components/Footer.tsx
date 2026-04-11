@@ -11,7 +11,7 @@ const navLinks = [
   { href: '/testimonials', label: 'Testimonials' },
   { href: '/faq', label: 'FAQ' },
   { href: '/apparel', label: 'Apparel' },
-  { href: '/web-design', label: 'Digital Services' },
+  { href: '/investor-pathway', label: 'Investor Pathway' },
   { href: '/contact', label: "Let's Activate" },
 ];
 
@@ -32,7 +32,7 @@ export default function Footer() {
               <AJLogo height={36} />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Premium coaching, web design and lifestyle services — activating the world one sport at a time.
+              Coaching. Vision. Padel. — Originating, connecting, and activating the future of racquet sport.
             </p>
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               <a

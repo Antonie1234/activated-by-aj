@@ -120,12 +120,6 @@ export default function About() {
                   that the way you move your body directly shapes how you show up in life.
                 </p>
                 <p>
-                  That insight became the foundation of{' '}
-                  <span className="text-white font-semibold">Activated by AJ (Pty) Ltd</span>{' '}
-                  (Reg: 2026/297939/07) — a coaching brand built around one simple belief:{' '}
-                  <span className="text-white font-semibold">when you activate your body, you activate your life.</span>
-                </p>
-                <p>
                   With expertise across tennis, padel, pickleball and beach sports, AJ brings
                   a truly holistic approach to coaching. Every session is built around you —
                   your goals, your game, your lifestyle.
@@ -135,20 +129,6 @@ export default function About() {
                   waiting to be unlocked. Whether you are picking up a racket for the first
                   time or pushing toward peak performance, AJ meets you where you are and
                   pushes you further than you thought possible.
-                </p>
-                <p>
-                  Former ITF ranked tennis player and national top 50 in South Africa — AJ
-                  brings competitive experience and professional coaching credentials to every
-                  session.
-                </p>
-                <p>
-                  Beyond coaching, Activated by AJ operates as a{' '}
-                  <span className="text-white font-semibold">padel facility broker</span> —
-                  identifying premium facility opportunities, connecting investors with
-                  world-class infrastructure, and bringing padel and racquet sport ecosystems
-                  to market. This work is backed by{' '}
-                  <span className="text-white font-semibold">MindSpring Padel</span>, official
-                  infrastructure partner of Padel Australia.
                 </p>
               </div>
 

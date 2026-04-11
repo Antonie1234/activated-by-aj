@@ -112,6 +112,22 @@ export default function Home() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{ background: 'var(--background)' }}
       >
+        {/* Full-screen background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/aj-photo.jpg"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.45, zIndex: 0 }}
+        >
+          <source src="/hero-bg-aj.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.58)', zIndex: 1 }} />
+
         {/* Parallax background with animated shapes */}
         <HeroParallax />
 
@@ -120,10 +136,10 @@ export default function Home() {
           viewBox="18 8 24 24"
           xmlns="http://www.w3.org/2000/svg"
           className="absolute pointer-events-none"
-          style={{ width: '70vmin', height: '70vmin', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.30 }}
+          style={{ width: '70vmin', height: '70vmin', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.22, zIndex: 2 }}
           aria-hidden="true"
         >
-          <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#D4A843" />
+          <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#C9A84C" />
           <polygon points="24,26 36,26 34,20 26,20" fill="#0a0a0a" />
         </svg>
 
@@ -280,24 +296,39 @@ export default function Home() {
 
       <GoldDivider />
 
-      {/* ── WHAT WE ARE BUILDING ── */}
-      <section className="section-padding" style={{ background: 'var(--background)' }}>
+      {/* ── THE MODEL ── */}
+      <section className="section-padding" style={{ background: '#0D1B2A' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
-            The Vision
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
+            The Model
           </p>
-          <div className="gold-divider mx-auto mb-6" />
-          <h2 className="text-4xl sm:text-5xl font-black mb-8" style={{ letterSpacing: '-0.02em', color: 'var(--brand-gold)' }}>
-            WHAT WE ARE BUILDING
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 text-white"
+            style={{ letterSpacing: '-0.03em', lineHeight: 1.05 }}
+          >
+            WE ORIGINATE.<br />WE CONNECT.<br />WE ACTIVATE.
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed mb-10">
-            Activated by AJ is more than a coaching brand. We are building a padel and racquet sport lifestyle ecosystem —
-            identifying premium facility opportunities, connecting investors, and bringing world-class padel infrastructure
-            to market through our broker model. Backed by{' '}
-            <span className="text-white font-semibold">MindSpring Padel</span>, official infrastructure partner of Padel Australia.
+          <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-3xl mx-auto">
+            Activated by AJ is a sports facility concept broker and lifestyle brand. We identify premium padel opportunities,
+            develop the full concept, connect the right investors, structure the deal, and brand every facility we create.
           </p>
-          <Link href="/about" className="btn-gold">
-            Learn More About the Vision
+
+          {/* Pillars */}
+          <div className="flex flex-wrap justify-center items-center gap-3 mb-10">
+            {['Identify', 'Develop', 'Connect', 'Structure', 'Activate'].map((pillar, i, arr) => (
+              <span key={pillar} className="flex items-center gap-3">
+                <span className="text-sm font-black uppercase tracking-widest" style={{ color: 'var(--brand-gold)' }}>
+                  {pillar}
+                </span>
+                {i < arr.length - 1 && (
+                  <span className="text-sm font-bold" style={{ color: 'rgba(201,168,76,0.4)' }}>·</span>
+                )}
+              </span>
+            ))}
+          </div>
+
+          <Link href="/investor-pathway" className="btn-gold">
+            Explore the Investor Pathway
           </Link>
         </div>
       </section>
@@ -470,7 +501,6 @@ export default function Home() {
                   </p>
 
                   <div className="gold-divider mb-5" />
-
 
                   <p className="text-gray-400 text-sm leading-relaxed mb-8">
                     Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN — a registered nurse bringing wellness directly to your home, hotel or office.
