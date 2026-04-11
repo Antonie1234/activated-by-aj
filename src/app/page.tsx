@@ -167,7 +167,7 @@ export default function Home() {
             {[
               { stat: '7', label: 'Sports Coached' },
               { stat: '50+', label: 'Sessions Delivered' },
-              { stat: 'Est. 2026', label: 'Founded' },
+              { stat: '4', label: 'Countries Coached' },
               { stat: 'All Levels', label: 'Welcome' },
             ].map((item, i, arr) => (
               <div
