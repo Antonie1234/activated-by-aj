@@ -72,7 +72,7 @@ const ProgramsIcon = () => (
 
 const services = [
   {
-    photo: '/aj-tennis.jpg',
+    photo: 'https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Tennis Coaching',
     description: 'One-on-one and group tennis sessions for all levels. Technique, strategy, footwork and mental game.',
     href: '/services#tennis',
