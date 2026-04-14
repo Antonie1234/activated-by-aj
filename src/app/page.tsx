@@ -119,8 +119,7 @@ export default function Home() {
           loop
           playsInline
           poster="/aj-photo.jpg"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ opacity: 0.45, zIndex: 0 }}
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, opacity: 0.45 }}
         >
           <source src="/hero-bg-aj.mp4" type="video/mp4" />
         </video>
