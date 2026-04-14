@@ -286,7 +286,7 @@ export default function Pricing() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-gold">Book Now</Link>
             <a
-              href="https://wa.me/61459575625"
+              href="https://wa.me/27713325218"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"

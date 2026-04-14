@@ -36,7 +36,7 @@ export default function Footer() {
             </p>
             <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
               <a
-                href="https://wa.me/61459575625"
+                href="https://wa.me/27713325218"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-gold text-xs px-4 py-2 text-center"
@@ -94,12 +94,12 @@ export default function Footer() {
               <li>
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">WhatsApp</p>
                 <a
-                  href="https://wa.me/61459575625"
+                  href="https://wa.me/27713325218"
                   className="text-white text-sm hover:opacity-80 transition-opacity"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  +61 459 575 625
+                  +27 71 332 5218
                 </a>
               </li>
               <li>

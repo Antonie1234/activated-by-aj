@@ -248,7 +248,7 @@ export default function WebDesignPage() {
           </div>
 
           <p className="text-center text-sm text-gray-500 mt-8">
-            Prices in USD. Need something custom?{' '}
+            Need something custom?{' '}
             <a
               href="mailto:activatedbookingsbyaj@gmail.com"
               className="underline"

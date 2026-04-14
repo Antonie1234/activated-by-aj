@@ -7,8 +7,8 @@ const contactMethods = [
   {
     icon: '💬',
     label: 'WhatsApp',
-    value: '+61 459 575 625',
-    href: 'https://wa.me/61459575625',
+    value: '+27 71 332 5218',
+    href: 'https://wa.me/27713325218',
     cta: 'Message AJ',
     color: 'var(--brand-gold)',
   },
@@ -27,14 +27,6 @@ const contactMethods = [
     href: 'https://www.instagram.com/activatedbyaj_',
     cta: 'Follow AJ',
     color: 'var(--brand-gold)',
-  },
-  {
-    icon: '📍',
-    label: 'Location',
-    value: 'Willoughby, Sydney, Australia',
-    href: null,
-    cta: null,
-    color: 'var(--brand-blue-light)',
   },
 ];
 
@@ -268,7 +260,7 @@ export default function Contact() {
                     In the meantime, feel free to WhatsApp directly for the fastest response.
                   </p>
                   <a
-                    href="https://wa.me/61459575625"
+                    href="https://wa.me/27713325218"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-gold mt-8 inline-block"

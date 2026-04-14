@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     q: 'Where are sessions held?',
-    a: "I'm based in Willoughby, Sydney. Sessions are held at local courts and outdoor spaces across the Northern Beaches and North Shore area.",
+    a: "Sessions are held at a location that suits you — local courts, parks, and outdoor spaces. Just let me know your area when booking and we'll find something convenient.",
   },
   {
     q: 'How do I book a session?',
@@ -127,7 +127,7 @@ export default function FAQ() {
             Let&apos;s chat and I&apos;ll get back to you within 24 hours.
           </p>
           <a
-            href="https://wa.me/61459575625"
+            href="https://wa.me/27713325218"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-gold"

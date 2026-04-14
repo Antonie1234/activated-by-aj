@@ -72,31 +72,31 @@ const ProgramsIcon = () => (
 
 const services = [
   {
-    Icon: TennisIcon,
+    photo: '/aj-tennis.jpg',
     title: 'Tennis Coaching',
     description: 'One-on-one and group tennis sessions for all levels. Technique, strategy, footwork and mental game.',
     href: '/services#tennis',
   },
   {
-    Icon: PadelIcon,
+    photo: '/aj-pickleball2.jpg',
     title: 'Padel & Pickleball',
     description: 'Advanced coaching in both Padel and Pickleball. Technical skills, tactics and competitive play for all levels.',
     href: '/services#padel',
   },
   {
-    Icon: FitnessIcon,
+    photo: 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Fitness & Conditioning',
     description: 'Personalised strength, conditioning and bodyweight programs designed around your goals and lifestyle.',
     href: '/services#fitness',
   },
   {
-    Icon: MovementIcon,
+    photo: '/aj-beach.jpg',
     title: 'Movement & Beach Sports',
     description: 'Dynamic outdoor training combining functional movement, beach tennis, volleyball and agility.',
     href: '/services#movement',
   },
   {
-    Icon: ProgramsIcon,
+    photo: 'https://images.pexels.com/photos/4397840/pexels-photo-4397840.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Programs & Plans',
     description: 'Custom workout programs, recovery plans and nutrition guidance, designed to keep you progressing.',
     href: '/services#programs',
@@ -261,26 +261,32 @@ export default function Home() {
             {services.map((service) => (
               <Link key={service.title} href={service.href} className="block group">
                 <div
-                  className="card card-gold p-8 h-full flex flex-col"
+                  className="card card-gold h-full flex flex-col overflow-hidden"
                   style={{ background: 'var(--surface-2)' }}
                 >
-                  <div className="mb-5" style={{ color: 'var(--brand-gold)' }}>
-                    <service.Icon />
+                  <div className="w-full h-48 overflow-hidden">
+                    <img
+                      src={service.photo}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                  <h3
-                    className="text-lg font-black uppercase mb-3 tracking-tight group-hover:text-yellow-400 transition-colors"
-                    style={{ letterSpacing: '-0.01em', color: 'white' }}
-                  >
-                    {service.title}
-                  </h3>
-                  <div className="blue-divider mb-4" />
-                  <p className="text-gray-400 text-sm leading-relaxed flex-1">{service.description}</p>
-                  <p
-                    className="mt-6 text-xs font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-block"
-                    style={{ color: 'var(--brand-blue-light)' }}
-                  >
-                    Learn More →
-                  </p>
+                  <div className="p-8 flex flex-col flex-1">
+                    <h3
+                      className="text-lg font-black uppercase mb-3 tracking-tight group-hover:text-yellow-400 transition-colors"
+                      style={{ letterSpacing: '-0.01em', color: 'white' }}
+                    >
+                      {service.title}
+                    </h3>
+                    <div className="blue-divider mb-4" />
+                    <p className="text-gray-400 text-sm leading-relaxed flex-1">{service.description}</p>
+                    <p
+                      className="mt-6 text-xs font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-block"
+                      style={{ color: 'var(--brand-blue-light)' }}
+                    >
+                      Learn More →
+                    </p>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -321,7 +327,7 @@ export default function Home() {
                   {pillar}
                 </span>
                 {i < arr.length - 1 && (
-                  <span className="text-sm font-bold" style={{ color: 'rgba(201,168,76,0.4)' }}>·</span>
+                  <span className="text-sm font-bold" style={{ color: 'rgba(201,168,76,0.4)' }}> · </span>
                 )}
               </span>
             ))}
@@ -511,14 +517,10 @@ export default function Home() {
                       href="https://lauren-iv.vercel.app"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full transition-all duration-200 hover:bg-[#C9A84C] hover:text-[#0D1B2A]"
-                      style={{
-                        color: '#C9A84C',
-                        border: '2px solid #C9A84C',
-                        background: 'transparent',
-                      }}
+                      className="btn-outline"
+                      style={{ borderColor: '#C9A84C', color: '#C9A84C' }}
                     >
-                      Visit Lauren IV →
+                      Visit Lauren IV
                     </a>
                   </div>
                 </div>
@@ -549,7 +551,7 @@ export default function Home() {
               Book Now
             </Link>
             <a
-              href="https://wa.me/61459575625"
+              href="https://wa.me/27713325218"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline"

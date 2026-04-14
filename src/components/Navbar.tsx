@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/pricing', label: 'Pricing' },
   { href: '/faq', label: 'FAQ' },
   { href: '/investor-pathway', label: 'Investor Pathway' },
+  { href: '/web-design', label: 'Digital Services' },
   { href: '/contact', label: "Let's Activate" },
 ];
 
