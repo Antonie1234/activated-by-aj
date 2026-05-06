@@ -182,7 +182,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
             {[
               { stat: '7', label: 'Sports Coached' },
-              { stat: '50+', label: 'Sessions Delivered' },
+              { stat: '10 Years', label: 'Coaching Experience' },
               { stat: '4', label: 'Countries Coached' },
               { stat: 'All Levels', label: 'Welcome' },
             ].map((item, i, arr) => (
@@ -215,7 +215,7 @@ export default function Home() {
                 COACHING THAT <span className="gold-text">ACTIVATES</span> YOU
               </h2>
               <p className="text-gray-400 leading-relaxed mb-8">
-                Activated by AJ is more than a coaching brand. It&apos;s a movement. We activate your full potential across tennis, padel, pickleball, beach sports and fitness. Discipline. Energy. Purpose. Let&apos;s build something.
+                Activated by AJ is more than a coaching brand. It&apos;s a movement built around one standard of excellence. I activate your full potential across tennis, padel, pickleball, beach sports and fitness. Discipline. Energy. Purpose. Let&apos;s build something.
               </p>
               <Link href="/about" className="btn-primary">
                 More About AJ
