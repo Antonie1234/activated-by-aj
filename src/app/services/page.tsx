@@ -165,7 +165,7 @@ const services = [
       'Private & group sessions',
       'All levels welcome',
     ],
-    image: '/beach-tennis.jpg',
+    image: '/aj-beach-tennis.jpg',
     imageAlt: 'Beach sport training',
     accentColor: 'var(--brand-blue-light)',
   },
