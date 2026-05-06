@@ -337,6 +337,20 @@ export default function Services() {
                     ))}
                   </ul>
 
+                  {service.id === 'programs' && (
+                    <div className="mb-6">
+                      <a
+                        href="/Activated_by_AJ_Starter_Plan.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-outline text-xs"
+                        style={{ borderColor: 'var(--brand-gold)', color: 'var(--brand-gold)' }}
+                      >
+                        Download Free Starter Plan
+                      </a>
+                    </div>
+                  )}
+
                   <div className="flex flex-wrap gap-3">
                     <Link href="/contact" className="btn-gold text-xs">
                       Book Now
