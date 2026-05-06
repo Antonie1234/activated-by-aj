@@ -7,9 +7,9 @@ const contactMethods = [
   {
     icon: '💬',
     label: 'WhatsApp',
-    value: '+27 71 332 5218',
+    value: '',
     href: 'https://wa.me/27713325218',
-    cta: 'Message AJ',
+    cta: 'Message AJ on WhatsApp',
     color: 'var(--brand-gold)',
   },
   {
@@ -108,7 +108,7 @@ export default function Contact() {
                       >
                         {method.label}
                       </p>
-                      <p className="text-white text-sm font-medium break-all">{method.value}</p>
+                      {method.value && <p className="text-white text-sm font-medium break-all">{method.value}</p>}
                       {method.href && method.cta && (
                         <a
                           href={method.href}

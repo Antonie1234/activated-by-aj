@@ -99,7 +99,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  +27 71 332 5218
+                  Message on WhatsApp
                 </a>
               </li>
               <li>
