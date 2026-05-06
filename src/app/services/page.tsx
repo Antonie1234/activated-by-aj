@@ -283,18 +283,6 @@ export default function Services() {
                       background: 'linear-gradient(135deg, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.2) 100%)',
                     }}
                   />
-                  {/* Icon badge in corner */}
-                  <div
-                    className="absolute top-5 left-5 w-14 h-14 rounded-xl flex items-center justify-center"
-                    style={{
-                      background: 'rgba(10,10,10,0.75)',
-                      backdropFilter: 'blur(8px)',
-                      border: '1px solid rgba(240,180,41,0.3)',
-                      color: 'var(--brand-gold)',
-                    }}
-                  >
-                    <service.Icon />
-                  </div>
                 </div>
 
                 {/* ── Text column ── */}
