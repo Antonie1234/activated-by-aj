@@ -513,6 +513,14 @@ export default function Home() {
               }}
             >
               <div className="flex flex-col justify-center px-8 py-8 h-full">
+                {/* Logo */}
+                <div className="mb-6">
+                  <img
+                    src="https://reflectmotion.com/logo.png"
+                    alt="Reflect Motion"
+                    style={{ height: 36, width: 'auto', objectFit: 'contain' }}
+                  />
+                </div>
                 <div className="mb-4">
                   <span
                     className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
@@ -525,19 +533,24 @@ export default function Home() {
                   Reflect Motion
                 </h3>
                 <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
-                  AI Sports Performance Platform
+                  AI-Powered Movement Analysis
                 </p>
                 <div className="gold-divider mb-5" />
-                <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                  Reflect Motion is an AI-powered sports performance platform built to analyse movement, track athlete development and deliver personalised coaching insights. Currently in development.
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                  Reflect Motion uses AI computer vision to analyse your movement in real time, score every rep, and deliver personalised coaching feedback. Built for athletes, coaches, and anyone serious about performance.
+                </p>
+                <p className="text-xs font-bold uppercase tracking-widest mb-8" style={{ color: '#C9A84C' }}>
+                  Coach Code: MPTYSA
                 </p>
                 <div>
-                  <span
-                    className="btn-outline text-xs"
-                    style={{ borderColor: '#C9A84C', color: '#C9A84C', cursor: 'default', opacity: 0.65 }}
+                  <a
+                    href="https://reflectmotion.com/signup"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-gold"
                   >
-                    Coming Soon
-                  </span>
+                    Get Started Free
+                  </a>
                 </div>
               </div>
             </div>
