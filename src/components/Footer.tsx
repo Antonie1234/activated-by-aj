@@ -92,17 +92,6 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               <li>
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">WhatsApp</p>
-                <a
-                  href="https://wa.me/27713325218"
-                  className="text-white text-sm hover:opacity-80 transition-opacity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Message on WhatsApp
-                </a>
-              </li>
-              <li>
                 <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Email</p>
                 <a
                   href="mailto:activatedbookingsbyaj@gmail.com"

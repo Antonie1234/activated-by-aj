@@ -326,7 +326,7 @@ export default function Home() {
                   {pillar}
                 </span>
                 {i < arr.length - 1 && (
-                  <span className="text-sm font-bold" style={{ color: 'rgba(201,168,76,0.4)' }}> · </span>
+                  <span className="text-sm font-bold" style={{ color: 'rgba(255,255,255,0.5)' }}> · </span>
                 )}
               </span>
             ))}
@@ -442,75 +442,52 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex justify-center">
-            {/* Premium editorial card */}
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {/* ── Lauren IV card ── */}
             <div
-              className="relative w-full max-w-2xl rounded-2xl overflow-visible transition-all duration-300 hover:shadow-[0_8px_64px_rgba(0,0,0,0.6),0_0_32px_rgba(201,168,76,0.15),0_0_0_1px_rgba(201,168,76,0.5)]"
+              className="relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_8px_64px_rgba(0,0,0,0.6),0_0_32px_rgba(201,168,76,0.15),0_0_0_1px_rgba(201,168,76,0.5)]"
               style={{
                 background: '#0D1B2A',
                 border: '1px solid rgba(201,168,76,0.3)',
                 boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.08)',
               }}
             >
-              <div className="flex flex-col sm:flex-row items-stretch">
-
-                {/* ── LEFT: photo ── */}
-                <div
-                  className="relative shrink-0 w-full sm:w-[200px] sm:-ml-6 sm:-my-6 z-10"
-                  style={{ minHeight: '260px' }}
-                >
+              <div className="flex flex-col sm:flex-row items-stretch h-full">
+                {/* photo */}
+                <div className="relative shrink-0 w-full sm:w-[180px]" style={{ minHeight: '240px' }}>
+                  <Image
+                    src="/lauren-seated.jpg"
+                    alt="Lauren Beckage BSN RN"
+                    fill
+                    style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                    sizes="180px"
+                  />
                   <div
-                    className="relative h-full rounded-xl overflow-hidden"
-                    style={{
-                      border: '2px solid #C9A84C',
-                      boxShadow: '0 4px 24px rgba(201,168,76,0.2)',
-                      minHeight: '260px',
-                    }}
-                  >
-                    <Image
-                      src="/lauren-seated.jpg"
-                      alt="Lauren Beckage BSN RN"
-                      fill
-                      style={{ objectFit: 'cover', objectPosition: 'top center' }}
-                      sizes="200px"
-                    />
-                    {/* subtle gold overlay at bottom */}
-                    <div
-                      className="absolute bottom-0 left-0 right-0 h-16"
-                      style={{ background: 'linear-gradient(to top, rgba(13,27,42,0.6), transparent)' }}
-                    />
-                  </div>
+                    className="absolute bottom-0 left-0 right-0 h-16"
+                    style={{ background: 'linear-gradient(to top, rgba(13,27,42,0.6), transparent)' }}
+                  />
                 </div>
-
-                {/* ── RIGHT: content ── */}
-                <div className="flex flex-col justify-center px-8 py-8">
-                  {/* Partner label */}
+                {/* content */}
+                <div className="flex flex-col justify-center px-7 py-7">
                   <div className="mb-4">
                     <span
                       className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                      style={{
-                        color: '#C9A84C',
-                        border: '1px solid rgba(201,168,76,0.4)',
-                        background: 'rgba(201,168,76,0.08)',
-                      }}
+                      style={{ color: '#C9A84C', border: '1px solid rgba(201,168,76,0.4)', background: 'rgba(201,168,76,0.08)' }}
                     >
                       Activated Partner
                     </span>
                   </div>
-
                   <h3 className="text-2xl font-black text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
                     Lauren IV
                   </h3>
                   <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
                     Mobile IV Therapy · Austin, Texas
                   </p>
-
                   <div className="gold-divider mb-5" />
-
                   <p className="text-gray-400 text-sm leading-relaxed mb-8">
                     Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN, a registered nurse bringing wellness directly to your home, hotel or office.
                   </p>
-
                   <div>
                     <a
                       href="https://lauren-iv.vercel.app"
@@ -523,9 +500,48 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
-
               </div>
             </div>
+
+            {/* ── Reflect Motion card ── */}
+            <div
+              className="relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_8px_64px_rgba(0,0,0,0.6),0_0_32px_rgba(201,168,76,0.15),0_0_0_1px_rgba(201,168,76,0.5)]"
+              style={{
+                background: '#0D1B2A',
+                border: '1px solid rgba(201,168,76,0.3)',
+                boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.08)',
+              }}
+            >
+              <div className="flex flex-col justify-center px-8 py-8 h-full">
+                <div className="mb-4">
+                  <span
+                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                    style={{ color: '#C9A84C', border: '1px solid rgba(201,168,76,0.4)', background: 'rgba(201,168,76,0.08)' }}
+                  >
+                    Activated Partner
+                  </span>
+                </div>
+                <h3 className="text-2xl font-black text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
+                  Reflect Motion
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
+                  AI Sports Performance Platform
+                </p>
+                <div className="gold-divider mb-5" />
+                <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                  Reflect Motion is an AI-powered sports performance platform built to analyse movement, track athlete development and deliver personalised coaching insights. Currently in development.
+                </p>
+                <div>
+                  <span
+                    className="btn-outline text-xs"
+                    style={{ borderColor: '#C9A84C', color: '#C9A84C', cursor: 'default', opacity: 0.65 }}
+                  >
+                    Coming Soon
+                  </span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -543,7 +559,7 @@ export default function Home() {
             READY TO GET ACTIVATED?
           </h2>
           <p className="text-blue-100 mb-8 text-lg">
-            Ready to get Activated? Let&apos;s build something together.
+            Book a session, explore the investor pathway, or just start a conversation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-gold">

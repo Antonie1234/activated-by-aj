@@ -13,18 +13,20 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Activated by AJ | Racquet Sport & Lifestyle",
   description:
-    "Turn your energy into purpose. Tennis coaching, fitness & strength training, and movement & beach sports with AJ, based in Willoughby, Sydney.",
+    "Turn your energy into purpose. Premium tennis coaching, padel, pickleball, beach sports and fitness with AJ. Your Vibe Activates Your Tribe.",
   keywords: [
-    "personal trainer Sydney",
-    "tennis coach Sydney",
-    "fitness coach Willoughby",
-    "beach sports training Sydney",
+    "tennis coach",
+    "padel coaching",
+    "pickleball coach",
+    "beach tennis",
+    "fitness coach",
+    "racquet sport",
     "Activated by AJ",
   ],
   openGraph: {
     title: "Activated by AJ",
     description: "Turn your energy into purpose.",
-    url: "https://activatedbyaj.com",
+    url: "https://activatedbyaj.co.za",
     siteName: "Activated by AJ",
     locale: "en_AU",
     type: "website",
