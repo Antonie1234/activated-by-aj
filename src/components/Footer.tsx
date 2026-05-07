@@ -3,78 +3,51 @@
 import Link from 'next/link';
 import AJLogo from './AJLogo';
 
-const navLinks = [
+const quickLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/pricing', label: 'Pricing' },
-  { href: '/testimonials', label: 'Testimonials' },
   { href: '/faq', label: 'FAQ' },
-  { href: '/apparel', label: 'Apparel' },
   { href: '/investor-pathway', label: 'Investor Pathway' },
+  { href: '/web-design', label: 'Digital Services' },
   { href: '/contact', label: "Let's Activate" },
+];
+
+const serviceLinks = [
+  { href: '/services#tennis', label: 'Tennis Coaching' },
+  { href: '/services#padel', label: 'Padel & Pickleball' },
+  { href: '/services#fitness', label: 'Fitness & Conditioning' },
+  { href: '/services#movement', label: 'Movement & Beach Sports' },
+  { href: '/services#programs', label: 'Programs & Plans' },
+  { href: '/web-design', label: 'Web Design' },
 ];
 
 export default function Footer() {
   return (
-    <footer
-      style={{
-        background: '#080808',
-        borderTop: '1px solid rgba(42,42,42,0.8)',
-      }}
-    >
+    <footer style={{ background: '#0D1B2A', borderTop: '1px solid rgba(201,168,76,0.15)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
-          {/* Brand */}
-          <div>
-            <div className="mb-4">
+          {/* Column 1 — Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="mb-5">
               <AJLogo height={36} />
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Coaching. Vision. Padel. Originating, connecting, and activating the future of racquet sport.
             </p>
-            <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-              <a
-                href="https://wa.me/27713325218"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold text-xs px-4 py-2 text-center"
-              >
-                WhatsApp
-              </a>
-              <a
-                href="mailto:activatedbookingsbyaj@gmail.com"
-                className="btn-outline text-xs px-4 py-2 text-center"
-              >
-                Email
-              </a>
-              <a
-                href="https://www.instagram.com/activatedbyaj_"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline text-xs px-4 py-2 text-center"
-              >
-                Instagram
-              </a>
-            </div>
           </div>
 
-          {/* Navigate */}
+          {/* Column 2 — Quick Links */}
           <div>
-            <h3
-              className="text-xs font-bold uppercase tracking-widest mb-6"
-              style={{ color: 'var(--brand-blue-light)' }}
-            >
-              Navigate
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
+              Quick Links
             </h3>
             <ul className="space-y-3">
-              {navLinks.map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 text-sm hover:text-white transition-colors"
-                  >
+                  <Link href={link.href} className="text-gray-400 text-sm hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -82,56 +55,66 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Get In Touch */}
+          {/* Column 3 — Our Services */}
           <div>
-            <h3
-              className="text-xs font-bold uppercase tracking-widest mb-6"
-              style={{ color: 'var(--brand-blue-light)' }}
-            >
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
+              Our Services
+            </h3>
+            <ul className="space-y-3">
+              {serviceLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-gray-400 text-sm hover:text-white transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4 — Get In Touch */}
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
               Get In Touch
             </h3>
-            <ul className="space-y-4">
-              <li>
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Email</p>
-                <a
-                  href="mailto:activatedbookingsbyaj@gmail.com"
-                  className="text-white text-sm hover:opacity-80 transition-opacity break-all"
-                >
-                  activatedbookingsbyaj@gmail.com
-                </a>
-              </li>
-              <li>
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Instagram</p>
-                <a
-                  href="https://www.instagram.com/activatedbyaj_"
-                  className="text-white text-sm hover:opacity-80 transition-opacity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  @activatedbyaj_
-                </a>
-              </li>
-              <li>
-                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Website</p>
-                <a
-                  href="https://activatedbyaj.co.za"
-                  className="text-white text-sm hover:opacity-80 transition-opacity"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  activatedbyaj.co.za
-                </a>
-              </li>
-            </ul>
+            <div className="flex flex-col gap-3">
+              <a
+                href="https://wa.me/27713325218"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold text-xs px-4 py-2 text-center"
+              >
+                WhatsApp AJ
+              </a>
+              <a
+                href="mailto:activatedbookingsbyaj@gmail.com"
+                className="text-gray-400 text-sm hover:text-white transition-colors break-all"
+              >
+                activatedbookingsbyaj@gmail.com
+              </a>
+              <a
+                href="https://www.instagram.com/activatedbyaj_"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 text-sm hover:text-white transition-colors"
+              >
+                @activatedbyaj_
+              </a>
+            </div>
           </div>
 
         </div>
 
+        {/* Bottom bar */}
         <div
           className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-600"
-          style={{ borderTop: '1px solid var(--border)' }}
+          style={{ borderTop: '1px solid rgba(201,168,76,0.15)' }}
         >
-          <p>© {new Date().getFullYear()} Activated by AJ. All rights reserved.</p>
+          <p>© 2026 Activated by AJ. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="/reviews" className="hover:text-gray-400 transition-colors">Leave a Review</a>
+            <a href="/privacy-policy" className="hover:text-gray-400 transition-colors">Privacy Policy</a>
+            <a href="/terms-of-service" className="hover:text-gray-400 transition-colors">Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>

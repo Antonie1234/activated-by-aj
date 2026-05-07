@@ -27,7 +27,6 @@ export default function Pricing() {
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
             Investment
           </p>
-          <div className="gold-divider mx-auto mb-6" />
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
             PRICING
           </h1>
@@ -46,7 +45,6 @@ export default function Pricing() {
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
               Rates
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2 className="text-3xl font-black text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
               PRIVATE LESSON RATES
             </h2>
@@ -119,7 +117,6 @@ export default function Pricing() {
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
               More Options
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2 className="text-3xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
               PROGRAMS &amp; PACKAGES
             </h2>
@@ -210,7 +207,6 @@ export default function Pricing() {
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
             All Sessions Include
           </p>
-          <div className="gold-divider mx-auto mb-6" />
           <h2 className="text-3xl font-black text-white mb-10" style={{ letterSpacing: '-0.02em' }}>
             YOU ALWAYS GET THE BEST
           </h2>

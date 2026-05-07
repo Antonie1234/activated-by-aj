@@ -51,7 +51,6 @@ export default function About() {
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
             Who I Am
           </p>
-          <div className="gold-divider mb-6" />
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
             MEET <span className="gold-text">AJ</span>
           </h1>
@@ -109,7 +108,6 @@ export default function About() {
               <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
                 The Story
               </p>
-              <div className="gold-divider mb-6" />
               <h2 className="text-3xl font-black text-white mb-8" style={{ letterSpacing: '-0.02em' }}>
                 MORE THAN A COACH
               </h2>
@@ -162,7 +160,6 @@ export default function About() {
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
               Expertise
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2 className="text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
               WHAT I BRING
             </h2>
@@ -198,7 +195,6 @@ export default function About() {
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
               How I Coach
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2 className="text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
               MY COACHING PHILOSOPHY
             </h2>
@@ -264,7 +260,6 @@ export default function About() {
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
               What Drives Me
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2 className="text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
               MY VALUES
             </h2>

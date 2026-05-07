@@ -219,7 +219,7 @@ const services = [
       'Remote & self-guided options',
       'Regular check-ins & plan updates',
     ],
-    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80',
+    image: 'https://images.pexels.com/photos/4397840/pexels-photo-4397840.jpeg?auto=compress&cs=tinysrgb&w=900',
     imageAlt: 'Training plan and notebook',
     accentColor: 'var(--brand-gold)',
   },
@@ -241,7 +241,6 @@ export default function Services() {
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
             What I Offer
           </p>
-          <div className="gold-divider mx-auto mb-6" />
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
             SERVICES
           </h1>
@@ -363,7 +362,6 @@ export default function Services() {
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
             Not Sure Where to Start?
           </p>
-          <div className="gold-divider mx-auto mb-6" />
           <h2 className="text-3xl font-black text-white mb-6" style={{ letterSpacing: '-0.02em' }}>
             LET&apos;S FIND YOUR FIT
           </h2>

@@ -221,7 +221,6 @@ export default function Testimonials() {
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
             Real Results
           </p>
-          <div className="gold-divider mx-auto mb-6" />
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
             TESTIMONIALS
           </h1>

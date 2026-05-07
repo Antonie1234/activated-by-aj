@@ -71,7 +71,6 @@ export default function Contact() {
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
             Get Started
           </p>
-          <div className="gold-divider mb-6" />
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
             LET&apos;S <span className="gold-text">ACTIVATE</span>
           </h1>

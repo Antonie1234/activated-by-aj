@@ -117,7 +117,6 @@ export default function WebDesignPage() {
           >
             Web Design Services
           </p>
-          <div className="gold-divider mx-auto mb-8" />
 
           <h1
             className="text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-none"
@@ -166,7 +165,6 @@ export default function WebDesignPage() {
             >
               Packages &amp; Pricing
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2
               className="text-4xl sm:text-5xl font-black text-white"
               style={{ letterSpacing: '-0.02em' }}
@@ -276,7 +274,6 @@ export default function WebDesignPage() {
             >
               The Process
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2
               className="text-4xl sm:text-5xl font-black text-white"
               style={{ letterSpacing: '-0.02em' }}

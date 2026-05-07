@@ -72,7 +72,7 @@ const ProgramsIcon = () => (
 
 const services = [
   {
-    photo: 'https://images.pexels.com/photos/209977/pexels-photo-209977.jpeg?auto=compress&cs=tinysrgb&w=600',
+    photo: 'https://images.pexels.com/photos/34015717/pexels-photo-34015717.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Tennis Coaching',
     description: 'One-on-one and group tennis sessions for all levels. Technique, strategy, footwork and mental game.',
     href: '/services#tennis',
@@ -210,7 +210,6 @@ export default function Home() {
               <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
                 Meet AJ
               </p>
-              <div className="gold-divider mb-6" />
               <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6" style={{ letterSpacing: '-0.02em' }}>
                 COACHING THAT <span className="gold-text">ACTIVATES</span> YOU
               </h2>
@@ -347,7 +346,6 @@ export default function Home() {
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
               Real Results
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
               WHAT CLIENTS SAY
             </h2>
@@ -433,7 +431,6 @@ export default function Home() {
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
               Trusted Network
             </p>
-            <div className="gold-divider mx-auto mb-6" />
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
               ACTIVATED PARTNERS
             </h2>
@@ -484,7 +481,6 @@ export default function Home() {
                   <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
                     Mobile IV Therapy · Austin, Texas
                   </p>
-                  <div className="gold-divider mb-5" />
                   <p className="text-gray-400 text-sm leading-relaxed mb-8">
                     Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN, a registered nurse bringing wellness directly to your home, hotel or office.
                   </p>
@@ -535,7 +531,6 @@ export default function Home() {
                 <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
                   AI-Powered Movement Analysis
                 </p>
-                <div className="gold-divider mb-5" />
                 <p className="text-gray-400 text-sm leading-relaxed mb-4">
                   Reflect Motion uses AI computer vision to analyse your movement in real time, score every rep, and deliver personalised coaching feedback. Built for athletes, coaches, and anyone serious about performance.
                 </p>
