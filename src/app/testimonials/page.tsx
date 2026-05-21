@@ -270,10 +270,12 @@ export default function Testimonials() {
             <p className="text-center text-gray-500 py-12">No testimonials for this filter yet.</p>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filtered.map((t) => (
+              {filtered.map((t, i) => (
                 <div
                   key={`${t.name}-${t.filter}`}
                   className="card card-gold flex flex-col overflow-hidden"
+                  data-animate="fade-up"
+                  data-animate-delay={String((i % 3) * 100)}
                   style={{ background: 'var(--surface)' }}
                 >
                   {/* Gold top accent line */}
@@ -330,7 +332,7 @@ export default function Testimonials() {
 
       {/* ── CTA ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
           <div className="text-5xl mb-6" style={{ color: 'var(--brand-gold)' }}>⚡</div>
           <h2 className="text-3xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
             READY TO WRITE YOUR OWN STORY?

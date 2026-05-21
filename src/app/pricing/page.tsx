@@ -27,7 +27,7 @@ export default function Pricing() {
           className="absolute top-20 right-0 w-80 h-80 opacity-10 blur-3xl pointer-events-none rounded-full"
           style={{ background: 'var(--brand-gold)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Investment
           </p>
@@ -45,7 +45,7 @@ export default function Pricing() {
       {/* ── PRIVATE LESSON RATES ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
+          <div className="text-center mb-10" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               Rates
             </p>
@@ -58,7 +58,7 @@ export default function Pricing() {
           </div>
 
           {/* Rate table — desktop */}
-          <div className="hidden sm:block rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
+          <div className="hidden sm:block rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }} data-animate="fade-up">
             <div
               className="grid grid-cols-4 px-6 py-4 text-xs font-bold uppercase tracking-widest"
               style={{ background: 'var(--surface-2)', color: 'var(--brand-gold)' }}
@@ -117,7 +117,7 @@ export default function Pricing() {
       {/* ── PROGRAMS & PACKAGES ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10">
+          <div className="text-center mb-10" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               More Options
             </p>
@@ -130,6 +130,7 @@ export default function Pricing() {
             {/* Fitness & Diet Programs */}
             <div
               className="card card-gold p-8 flex flex-col"
+              data-animate="slide-left"
               style={{ background: 'var(--background)', border: '1px solid var(--border)' }}
             >
               <div
@@ -156,6 +157,7 @@ export default function Pricing() {
             {/* Monthly Coaching Packages — Popular */}
             <div
               className="card p-8 flex flex-col relative overflow-hidden"
+              data-animate="slide-right"
               style={{
                 background: 'var(--surface-2)',
                 border: '2px solid var(--brand-gold)',
@@ -208,7 +210,7 @@ export default function Pricing() {
       {/* ── WHAT'S COVERED ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }} data-animate="fade-up">
             All Sessions Include
           </p>
           <h2 className="text-3xl font-black text-white mb-10" style={{ letterSpacing: '-0.02em' }}>
@@ -218,6 +220,7 @@ export default function Pricing() {
             {[
               {
                 label: 'Goal-Focused',
+
                 detail: 'Every session is built around your specific targets',
                 svg: (
                   <svg width="28" height="28" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -250,11 +253,13 @@ export default function Pricing() {
                   </svg>
                 ),
               },
-            ].map((item) => (
+            ].map((item, i) => (
               <div
                 key={item.label}
                 className="card card-gold p-6 flex flex-col items-center text-center"
                 style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
+                data-animate="fade-up"
+                data-animate-delay={String(i * 120)}
               >
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"

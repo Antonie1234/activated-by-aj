@@ -72,7 +72,7 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
 
             {/* Photo */}
-            <div className="md:sticky md:top-28">
+            <div className="md:sticky md:top-28" data-animate="slide-left">
               <div
                 className="rounded-2xl overflow-hidden"
                 style={{ border: '1px solid rgba(240,180,41,0.2)' }}
@@ -108,7 +108,7 @@ export default function About() {
             </div>
 
             {/* Bio content */}
-            <div>
+            <div data-animate="slide-right">
               <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
                 The Story
               </p>
@@ -160,7 +160,7 @@ export default function About() {
           </svg>
         </div>
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
-          <div className="text-center mb-14">
+          <div className="text-center mb-14" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               Expertise
             </p>
@@ -169,8 +169,8 @@ export default function About() {
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {credentials.map((cred) => (
-              <div key={cred.title} className="card card-gold p-6 flex flex-col" style={{ background: 'var(--surface)' }}>
+            {credentials.map((cred, i) => (
+              <div key={cred.title} className="card card-gold p-6 flex flex-col" style={{ background: 'var(--surface)' }} data-animate="fade-up" data-animate-delay={String(i * 100)}>
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm mb-5 flex-shrink-0"
                   style={{
@@ -195,7 +195,7 @@ export default function About() {
       {/* ── COACHING PHILOSOPHY ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-14" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               How I Coach
             </p>
@@ -239,10 +239,12 @@ export default function About() {
                   </svg>
                 ),
               },
-            ].map((pillar) => (
+            ].map((pillar, i) => (
               <div
                 key={pillar.title}
                 className="card card-gold flex flex-col items-center text-center p-8"
+                data-animate="fade-up"
+                data-animate-delay={String(i * 120)}
                 style={{ background: 'var(--background)', border: '1px solid var(--border)' }}
               >
                 <div className="mb-6" style={{ color: 'var(--brand-gold)' }}>{pillar.svg}</div>
@@ -261,7 +263,7 @@ export default function About() {
       <section className="relative overflow-hidden" style={{ background: '#000' }}>
         <LogoWatermark size={580} opacity={0.08} />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-0" style={{ zIndex: 1 }}>
-          <div className="text-center mb-10">
+          <div className="text-center mb-10" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               What Drives Me
             </p>
@@ -271,7 +273,7 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-start">
-            <div className="flex flex-col justify-start gap-7 py-8 pr-0 md:pr-10">
+            <div className="flex flex-col justify-start gap-7 py-8 pr-0 md:pr-10" data-animate="slide-left">
               {values.map((v) => (
                 <div key={v.label} className="flex gap-4 items-start">
                   <div
@@ -291,7 +293,7 @@ export default function About() {
               </div>
             </div>
 
-            <div>
+            <div data-animate="slide-right">
               <video
                 autoPlay
                 muted

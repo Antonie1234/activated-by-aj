@@ -114,7 +114,7 @@ export default function WebDesignPage() {
           }}
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6" data-animate="fade-up">
           <p
             className="text-xs font-bold uppercase tracking-widest mb-4"
             style={{ color: 'var(--brand-gold)' }}
@@ -162,7 +162,7 @@ export default function WebDesignPage() {
         style={{ background: 'var(--surface)' }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-14" data-animate="fade-up">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-3"
               style={{ color: 'var(--brand-gold)' }}
@@ -181,10 +181,12 @@ export default function WebDesignPage() {
           </div>
 
           <div className="grid sm:grid-cols-3 gap-6">
-            {packages.map((pkg) => (
+            {packages.map((pkg, i) => (
               <div
                 key={pkg.name}
                 className="card relative flex flex-col"
+                data-animate="fade-up"
+                data-animate-delay={String(i * 120)}
                 style={{
                   background: 'var(--surface-2)',
                   border: pkg.popular
@@ -271,7 +273,7 @@ export default function WebDesignPage() {
         style={{ background: 'var(--background)' }}
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-14" data-animate="fade-up">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-3"
               style={{ color: 'var(--brand-gold)' }}
@@ -294,6 +296,8 @@ export default function WebDesignPage() {
               <div
                 key={step.number}
                 className="flex items-start gap-6 card"
+                data-animate="fade-up"
+                data-animate-delay={String(i * 80)}
                 style={{
                   background: 'var(--surface)',
                   border: '1px solid var(--border)',

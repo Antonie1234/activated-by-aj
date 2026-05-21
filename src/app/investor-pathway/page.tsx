@@ -114,7 +114,7 @@ export default function InvestorPathway() {
       {/* ── FIVE STEP PROCESS ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-14" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               How It Works
             </p>
@@ -129,6 +129,8 @@ export default function InvestorPathway() {
               <div
                 key={step.num}
                 className="flex-1 flex flex-col items-center text-center px-6 py-8 relative"
+                data-animate="fade-up"
+                data-animate-delay={String(i * 100)}
                 style={{
                   background: 'var(--surface)',
                   borderTop: '1px solid var(--border)',
@@ -192,7 +194,7 @@ export default function InvestorPathway() {
       <section className="section-padding relative overflow-hidden" style={{ background: '#0D1B2A' }}>
         <LogoWatermark size={600} opacity={0.07} />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
-          <div className="text-center mb-14">
+          <div className="text-center mb-14" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               The Business
             </p>
@@ -202,10 +204,12 @@ export default function InvestorPathway() {
           </div>
 
           <div className="grid sm:grid-cols-3 gap-6">
-            {revenueStreams.map((stream) => (
+            {revenueStreams.map((stream, i) => (
               <div
                 key={stream.title}
                 className="flex flex-col p-8 rounded-2xl"
+                data-animate="fade-up"
+                data-animate-delay={String(i * 120)}
                 style={
                   stream.highlight
                     ? {
@@ -341,7 +345,7 @@ export default function InvestorPathway() {
       {/* ── WHAT YOU GET ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
+          <div className="text-center mb-14" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               The Opportunity
             </p>
@@ -355,6 +359,7 @@ export default function InvestorPathway() {
             <div
               className="p-8 rounded-2xl"
               style={{ background: '#0D1B2A', border: '1px solid rgba(201,168,76,0.2)' }}
+              data-animate="slide-left"
             >
               <div className="mb-6">
                 <span
@@ -391,6 +396,7 @@ export default function InvestorPathway() {
             <div
               className="p-8 rounded-2xl"
               style={{ background: '#0D1B2A', border: '1px solid rgba(201,168,76,0.2)' }}
+              data-animate="slide-right"
             >
               <div className="mb-6">
                 <span

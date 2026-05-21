@@ -217,7 +217,7 @@ input, textarea, select {
 }
 
 input:focus, textarea:focus, select:focus {
-  border-color: var(--brand-blue);
+  border-color: var(--brand-gold);
 }
 
 input::placeholder, textarea::placeholder {
@@ -323,6 +323,6 @@ input::placeholder, textarea::placeholder {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--brand-blue);
+  background: var(--brand-gold);
   border-radius: 3px;
 }

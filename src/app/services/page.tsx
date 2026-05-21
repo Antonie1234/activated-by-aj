@@ -240,7 +240,7 @@ export default function Services() {
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-60 opacity-10 blur-3xl pointer-events-none"
           style={{ background: 'rgba(201,168,76,0.1)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             What I Offer
           </p>
@@ -270,7 +270,7 @@ export default function Services() {
               <div className={`grid md:grid-cols-2 gap-10 lg:gap-16 items-center ${!imageLeft ? 'md:[&>*:first-child]:order-2' : ''}`}>
 
                 {/* ── Image column ── */}
-                <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 320 }}>
+                <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 320 }} data-animate={imageLeft ? 'slide-left' : 'slide-right'}>
                   <img
                     src={service.image}
                     alt={service.imageAlt}
@@ -288,7 +288,7 @@ export default function Services() {
                 </div>
 
                 {/* ── Text column ── */}
-                <div>
+                <div data-animate={imageLeft ? 'slide-right' : 'slide-left'}>
                   <p
                     className="text-xs font-bold uppercase tracking-widest mb-3"
                     style={{ color: service.accentColor }}
@@ -361,7 +361,7 @@ export default function Services() {
 
       {/* ── CTA ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Not Sure Where to Start?
           </p>
