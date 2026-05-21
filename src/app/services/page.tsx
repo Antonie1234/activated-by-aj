@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 /* ── Gold SVG Icons ── */
 const TennisIcon = () => (
@@ -130,7 +131,7 @@ const services = [
     image: '/padel-court.jpg',
     imageAlt: 'Padel court and racket',
     imgStyle: { width: '100%', height: '400px', objectFit: 'cover' as const, borderRadius: '8px' },
-    accentColor: 'var(--brand-blue-light)',
+    accentColor: 'var(--brand-gold)',
   },
   {
     id: 'pickleball',
@@ -167,7 +168,7 @@ const services = [
     ],
     image: '/aj-beach-tennis.jpg',
     imageAlt: 'Beach sport training',
-    accentColor: 'var(--brand-blue-light)',
+    accentColor: 'var(--brand-gold)',
   },
   {
     id: 'fitness',
@@ -203,7 +204,7 @@ const services = [
     ],
     image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Outdoor movement training',
-    accentColor: 'var(--brand-blue-light)',
+    accentColor: 'var(--brand-gold)',
   },
   {
     id: 'programs',
@@ -228,6 +229,8 @@ const services = [
 export default function Services() {
   return (
     <>
+      <ScrollAnimations />
+
       {/* ── HERO ── */}
       <section
         className="relative pt-36 pb-20 overflow-hidden"
@@ -235,10 +238,10 @@ export default function Services() {
       >
         <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-60 opacity-10 blur-3xl pointer-events-none"
-          style={{ background: 'var(--brand-blue)' }}
+          style={{ background: 'rgba(201,168,76,0.1)' }}
         />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             What I Offer
           </p>
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
@@ -359,7 +362,7 @@ export default function Services() {
       {/* ── CTA ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Not Sure Where to Start?
           </p>
           <h2 className="text-3xl font-black text-white mb-6" style={{ letterSpacing: '-0.02em' }}>

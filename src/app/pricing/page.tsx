@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 const lessonRates = [
   { duration: '30 mins', players: '1 player',  termly: '$65',          payg: '$70' },
@@ -14,6 +15,8 @@ const lessonRates = [
 export default function Pricing() {
   return (
     <>
+      <ScrollAnimations />
+
       {/* ── HERO ── */}
       <section
         className="relative pt-36 pb-20 overflow-hidden"
@@ -24,7 +27,7 @@ export default function Pricing() {
           style={{ background: 'var(--brand-gold)' }}
         />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Investment
           </p>
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
@@ -42,7 +45,7 @@ export default function Pricing() {
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               Rates
             </p>
             <h2 className="text-3xl font-black text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
@@ -57,7 +60,7 @@ export default function Pricing() {
           <div className="hidden sm:block rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
             <div
               className="grid grid-cols-4 px-6 py-4 text-xs font-bold uppercase tracking-widest"
-              style={{ background: 'var(--surface-2)', color: 'var(--brand-blue-light)' }}
+              style={{ background: 'var(--surface-2)', color: 'var(--brand-gold)' }}
             >
               <span>Duration</span>
               <span>Players</span>
@@ -114,7 +117,7 @@ export default function Pricing() {
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               More Options
             </p>
             <h2 className="text-3xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -204,7 +207,7 @@ export default function Pricing() {
       {/* ── WHAT'S COVERED ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             All Sessions Include
           </p>
           <h2 className="text-3xl font-black text-white mb-10" style={{ letterSpacing: '-0.02em' }}>
@@ -273,12 +276,12 @@ export default function Pricing() {
       <GoldDivider />
 
       {/* ── CTA ── */}
-      <section style={{ background: 'linear-gradient(135deg, var(--brand-blue) 0%, #0d4fa8 100%)' }}>
+      <section style={{ background: '#0D1B2A', borderTop: '2px solid #C9A84C' }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center">
           <h2 className="text-3xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
             READY TO INVEST IN YOURSELF?
           </h2>
-          <p className="text-blue-100 mb-8">Get in touch and lock in your first session.</p>
+          <p className="text-gray-300 mb-8">Get in touch and lock in your first session.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-gold">Book Now</Link>
             <a

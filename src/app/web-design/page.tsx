@@ -1,4 +1,5 @@
 import GoldDivider from '@/components/GoldDivider';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 export const metadata = {
   title: 'Web Design Services | Activated by AJ',
@@ -84,6 +85,8 @@ const steps = [
 export default function WebDesignPage() {
   return (
     <main>
+      <ScrollAnimations />
+
       {/* ── HERO ── */}
       <section
         className="relative flex items-center justify-center text-center overflow-hidden"
@@ -113,7 +116,7 @@ export default function WebDesignPage() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
           <p
             className="text-xs font-bold uppercase tracking-widest mb-4"
-            style={{ color: 'var(--brand-blue-light)' }}
+            style={{ color: 'var(--brand-gold)' }}
           >
             Web Design Services
           </p>
@@ -161,7 +164,7 @@ export default function WebDesignPage() {
           <div className="text-center mb-14">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-3"
-              style={{ color: 'var(--brand-blue-light)' }}
+              style={{ color: 'var(--brand-gold)' }}
             >
               Packages &amp; Pricing
             </p>
@@ -203,7 +206,7 @@ export default function WebDesignPage() {
 
                 <p
                   className="text-xs font-bold uppercase tracking-widest mb-2"
-                  style={{ color: 'var(--brand-blue-light)' }}
+                  style={{ color: 'var(--brand-gold)' }}
                 >
                   {pkg.name}
                 </p>
@@ -270,7 +273,7 @@ export default function WebDesignPage() {
           <div className="text-center mb-14">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-3"
-              style={{ color: 'var(--brand-blue-light)' }}
+              style={{ color: 'var(--brand-gold)' }}
             >
               The Process
             </p>
@@ -335,14 +338,12 @@ export default function WebDesignPage() {
       {/* ── CTA ── */}
       <section
         className="section-padding text-center"
-        style={{
-          background:
-            'linear-gradient(135deg, var(--brand-blue) 0%, #0f4fa0 100%)',
-        }}
+        style={{ background: '#0D1B2A', borderTop: '2px solid #C9A84C' }}
       >
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <p
-            className="text-xs font-bold uppercase tracking-widest mb-4 text-white opacity-70"
+            className="text-xs font-bold uppercase tracking-widest mb-4"
+            style={{ color: 'var(--brand-gold)' }}
           >
             Let&apos;s Build Something Great
           </p>

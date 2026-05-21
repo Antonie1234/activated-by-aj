@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import HeroParallax from '@/components/HeroParallax';
 import GoldDivider from '@/components/GoldDivider';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
@@ -103,10 +103,19 @@ const services = [
   },
 ];
 
+const stats = [
+  { stat: '~50',     label: 'Courts Nationwide' },
+  { stat: '50,000+', label: 'Active Players' },
+  { stat: '200+',    label: 'Courts Projected' },
+  { stat: '2032',    label: 'Olympic Bid' },
+];
+
 
 export default function Home() {
   return (
     <>
+      <ScrollAnimations />
+
       {/* ── HERO ── */}
       <section
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -170,7 +179,6 @@ export default function Home() {
           <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             Your Vibe Activates Your Tribe.
           </p>
-
         </div>
       </section>
 
@@ -178,22 +186,22 @@ export default function Home() {
 
       {/* ── STATS BAR ── */}
       <section style={{ background: 'var(--surface)', borderTop: '2px solid rgba(240,180,41,0.2)', borderBottom: '1px solid var(--border)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0">
-            {[
-              { stat: '7', label: 'Sports Coached' },
-              { stat: '10 Years', label: 'Coaching Experience' },
-              { stat: '4', label: 'Countries Coached' },
-              { stat: 'All Levels', label: 'Welcome' },
-            ].map((item, i, arr) => (
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0">
+            {stats.map((item, i, arr) => (
               <div
                 key={item.label}
-                className={`text-center py-4 px-4 ${i < arr.length - 1 ? 'md:border-r md:border-[var(--border)]' : ''}`}
+                className={`text-center py-2 px-4 ${i < arr.length - 1 ? 'md:border-r md:border-[var(--border)]' : ''}`}
+                data-animate="fade-up"
+                data-animate-delay={String(i * 100)}
               >
-                <p className="text-3xl sm:text-4xl font-black mb-2" style={{ color: 'var(--brand-gold)' }}>
+                <p
+                  className="text-3xl sm:text-4xl font-black mb-1"
+                  style={{ color: 'var(--brand-gold)' }}
+                >
                   {item.stat}
                 </p>
-                <p className="text-gray-400 text-xs font-bold uppercase tracking-widest">{item.label}</p>
+                <p className="text-white text-xs font-bold uppercase tracking-widest">{item.label}</p>
               </div>
             ))}
           </div>
@@ -206,8 +214,8 @@ export default function Home() {
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+            <div data-animate="slide-left">
+              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#C9A84C' }}>
                 Meet AJ
               </p>
               <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6" style={{ letterSpacing: '-0.02em' }}>
@@ -221,7 +229,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="relative rounded-lg overflow-hidden" style={{ aspectRatio: '1 / 1' }}>
+            <div className="relative rounded-lg overflow-hidden" style={{ aspectRatio: '1 / 1' }} data-animate="slide-right">
               <img
                 src="/aj-photo.jpg"
                 alt="AJ"
@@ -234,75 +242,9 @@ export default function Home() {
 
       <GoldDivider />
 
-      {/* ── SERVICES ── */}
-      <section className="section-padding relative overflow-hidden" style={{ background: 'var(--surface)' }}>
-        {/* A power button watermark */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 0 }}>
-          <svg width="800" height="800" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.07 }}>
-            <polygon points="30,2 6,58 14,58 20,42 40,42 46,58 54,58" fill="white" />
-            <polygon points="18,36 42,36 40,28 20,28" fill="black" />
-            <path d="M 36.2,12.8 A 9,9 0 1 1 23.8,12.8" stroke="black" strokeWidth="2.2" strokeLinecap="round" fill="none" />
-            <line x1="30" y1="10.5" x2="30" y2="18" stroke="black" strokeWidth="2.2" strokeLinecap="round" />
-          </svg>
-        </div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
-              What I Offer
-            </p>
-            <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
-              SERVICES
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <Link key={service.title} href={service.href} className="block group">
-                <div
-                  className="card card-gold h-full flex flex-col overflow-hidden"
-                  style={{ background: 'var(--surface-2)' }}
-                >
-                  <div className="w-full h-48 overflow-hidden">
-                    <img
-                      src={service.photo}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-8 flex flex-col flex-1">
-                    <h3
-                      className="text-lg font-black uppercase mb-3 tracking-tight group-hover:text-yellow-400 transition-colors"
-                      style={{ letterSpacing: '-0.01em', color: 'white' }}
-                    >
-                      {service.title}
-                    </h3>
-                    <div className="blue-divider mb-4" />
-                    <p className="text-gray-400 text-sm leading-relaxed flex-1">{service.description}</p>
-                    <p
-                      className="mt-6 text-xs font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-block"
-                      style={{ color: 'var(--brand-blue-light)' }}
-                    >
-                      Learn More →
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link href="/pricing" className="btn-primary">
-              View Pricing
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <GoldDivider />
-
       {/* ── THE MODEL ── */}
       <section className="section-padding" style={{ background: '#0D1B2A' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
             The Model
           </p>
@@ -331,9 +273,75 @@ export default function Home() {
             ))}
           </div>
 
-          <Link href="/investor-pathway" className="btn-gold">
+          <Link href="/investor-pathway" className="btn-gold-outline">
             Explore the Investor Pathway
           </Link>
+        </div>
+      </section>
+
+      <GoldDivider />
+
+      {/* ── SERVICES ── */}
+      <section className="section-padding relative overflow-hidden" style={{ background: 'var(--surface)' }}>
+        {/* A power button watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 0 }}>
+          <svg width="800" height="800" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.07 }}>
+            <polygon points="30,2 6,58 14,58 20,42 40,42 46,58 54,58" fill="white" />
+            <polygon points="18,36 42,36 40,28 20,28" fill="black" />
+            <path d="M 36.2,12.8 A 9,9 0 1 1 23.8,12.8" stroke="black" strokeWidth="2.2" strokeLinecap="round" fill="none" />
+            <line x1="30" y1="10.5" x2="30" y2="18" stroke="black" strokeWidth="2.2" strokeLinecap="round" />
+          </svg>
+        </div>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
+          <div className="text-center mb-10" data-animate="fade-up">
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#C9A84C' }}>
+              What I Offer
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+              SERVICES
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service, i) => (
+              <Link key={service.title} href={service.href} className="block group" data-animate="fade-up" data-animate-delay={String(i * 100)}>
+                <div
+                  className="card card-gold h-full flex flex-col overflow-hidden"
+                  style={{ background: 'var(--surface-2)' }}
+                >
+                  <div className="w-full h-48 overflow-hidden">
+                    <img
+                      src={service.photo}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-8 flex flex-col flex-1">
+                    <h3
+                      className="text-lg font-black uppercase mb-3 tracking-tight group-hover:text-yellow-400 transition-colors"
+                      style={{ letterSpacing: '-0.01em', color: 'white' }}
+                    >
+                      {service.title}
+                    </h3>
+                    <div className="blue-divider mb-4" />
+                    <p className="text-gray-400 text-sm leading-relaxed flex-1">{service.description}</p>
+                    <p
+                      className="mt-6 text-xs font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-block"
+                      style={{ color: '#C9A84C' }}
+                    >
+                      Learn More →
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <Link href="/pricing" className="btn-primary">
+              View Pricing
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -342,8 +350,8 @@ export default function Home() {
       {/* ── TESTIMONIALS PREVIEW ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+          <div className="text-center mb-10" data-animate="fade-up">
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#C9A84C' }}>
               Real Results
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -371,11 +379,13 @@ export default function Home() {
                 service: 'Performance Client',
                 quote: "Over just one term, the progress has been nothing short of incredible. My strength, endurance and confidence have all improved dramatically. Highly recommend for anyone at any level.",
               },
-            ].map((t) => (
+            ].map((t, i) => (
               <div
                 key={t.name}
                 className="card p-8 flex flex-col"
                 style={{ background: 'var(--surface)' }}
+                data-animate="fade-up"
+                data-animate-delay={String(i * 150)}
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div
@@ -394,9 +404,9 @@ export default function Home() {
                     <div
                       className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                       style={{
-                        background: 'rgba(26,111,212,0.15)',
-                        color: 'var(--brand-blue-light)',
-                        border: '1px solid rgba(26,111,212,0.25)',
+                        background: 'rgba(201, 168, 76, 0.1)',
+                        color: '#C9A84C',
+                        border: '1px solid rgba(201, 168, 76, 0.3)',
                       }}
                     >
                       {t.service}
@@ -404,8 +414,8 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} style={{ color: 'var(--brand-gold)' }}>★</span>
+                  {Array.from({ length: 5 }).map((_, j) => (
+                    <span key={j} style={{ color: 'var(--brand-gold)' }}>★</span>
                   ))}
                 </div>
                 <div className="text-3xl mb-3" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>&ldquo;</div>
@@ -427,8 +437,8 @@ export default function Home() {
       {/* ── ACTIVATED PARTNERS ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+          <div className="text-center mb-10" data-animate="fade-up">
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#C9A84C' }}>
               Trusted Network
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -439,65 +449,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-
-            {/* ── Lauren IV card ── */}
-            <div
-              className="relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_8px_64px_rgba(0,0,0,0.6),0_0_32px_rgba(201,168,76,0.15),0_0_0_1px_rgba(201,168,76,0.5)]"
-              style={{
-                background: '#0D1B2A',
-                border: '1px solid rgba(201,168,76,0.3)',
-                boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.08)',
-              }}
-            >
-              <div className="flex flex-col sm:flex-row items-stretch h-full">
-                {/* photo */}
-                <div className="relative shrink-0 w-full sm:w-[180px]" style={{ minHeight: '240px' }}>
-                  <Image
-                    src="/lauren-seated.jpg"
-                    alt="Lauren Beckage BSN RN"
-                    fill
-                    style={{ objectFit: 'cover', objectPosition: 'top center' }}
-                    sizes="180px"
-                  />
-                  <div
-                    className="absolute bottom-0 left-0 right-0 h-16"
-                    style={{ background: 'linear-gradient(to top, rgba(13,27,42,0.6), transparent)' }}
-                  />
-                </div>
-                {/* content */}
-                <div className="flex flex-col justify-center px-7 py-7">
-                  <div className="mb-4">
-                    <span
-                      className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                      style={{ color: '#C9A84C', border: '1px solid rgba(201,168,76,0.4)', background: 'rgba(201,168,76,0.08)' }}
-                    >
-                      Activated Partner
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-black text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
-                    Lauren IV
-                  </h3>
-                  <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
-                    Mobile IV Therapy · Austin, Texas
-                  </p>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                    Looking for premium mobile IV therapy? I work alongside Lauren Beckage BSN RN, a registered nurse bringing wellness directly to your home, hotel or office.
-                  </p>
-                  <div>
-                    <a
-                      href="https://lauren-iv.vercel.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-outline"
-                      style={{ borderColor: '#C9A84C', color: '#C9A84C' }}
-                    >
-                      Visit Lauren IV
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-2xl mx-auto">
 
             {/* ── Reflect Motion card ── */}
             <div
@@ -507,6 +459,7 @@ export default function Home() {
                 border: '1px solid rgba(201,168,76,0.3)',
                 boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.08)',
               }}
+              data-animate="fade-up"
             >
               <div className="flex flex-col justify-center px-8 py-8 h-full">
                 {/* Logo */}
@@ -559,14 +512,15 @@ export default function Home() {
       {/* ── CTA BANNER ── */}
       <section
         style={{
-          background: 'linear-gradient(135deg, var(--brand-blue) 0%, #0d4fa8 100%)',
+          background: '#0D1B2A',
+          borderTop: '2px solid #C9A84C',
         }}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center" data-animate="fade-up">
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
             READY TO GET ACTIVATED?
           </h2>
-          <p className="text-blue-100 mb-8 text-lg">
+          <p className="text-gray-300 mb-8 text-lg">
             Book a session, explore the investor pathway, or just start a conversation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

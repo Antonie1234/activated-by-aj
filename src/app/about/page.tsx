@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 const credentials = [
   {
@@ -34,6 +35,8 @@ const values = [
 export default function About() {
   return (
     <>
+      <ScrollAnimations />
+
       {/* ── HERO ── */}
       <section
         className="relative pt-36 pb-20 overflow-hidden"
@@ -41,14 +44,14 @@ export default function About() {
       >
         <div
           className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
-          style={{ background: 'var(--brand-blue)' }}
+          style={{ background: 'rgba(201,168,76,0.15)' }}
         />
         <div
           className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-6 blur-3xl pointer-events-none"
           style={{ background: 'var(--brand-gold)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6" data-animate="fade-up">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Who I Am
           </p>
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
@@ -105,7 +108,7 @@ export default function About() {
 
             {/* Bio content */}
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
                 The Story
               </p>
               <h2 className="text-3xl font-black text-white mb-8" style={{ letterSpacing: '-0.02em' }}>
@@ -157,7 +160,7 @@ export default function About() {
         </div>
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               Expertise
             </p>
             <h2 className="text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -192,7 +195,7 @@ export default function About() {
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               How I Coach
             </p>
             <h2 className="text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -257,7 +260,7 @@ export default function About() {
       <section className="relative overflow-hidden" style={{ background: '#000' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-0">
           <div className="text-center mb-10">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               What Drives Me
             </p>
             <h2 className="text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>

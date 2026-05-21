@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 export const metadata = {
   title: 'Investor Pathway | Activated by AJ',
@@ -59,6 +60,8 @@ const revenueStreams = [
 export default function InvestorPathway() {
   return (
     <>
+      <ScrollAnimations />
+
       {/* ── HERO ── */}
       <section
         className="relative pt-40 pb-24 overflow-hidden"
@@ -110,7 +113,7 @@ export default function InvestorPathway() {
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               How It Works
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -248,11 +251,85 @@ export default function InvestorPathway() {
 
       <GoldDivider />
 
+      {/* ── MARKET GROWTH + MINDSPRING ── */}
+      <section className="section-padding" style={{ background: 'var(--background)' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-14" data-animate="fade-up">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
+              The Market
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+              THE MARKET IS MOVING FAST
+            </h2>
+          </div>
+
+          {/* Padel Australia growth stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {[
+              { stat: '28',      label: 'Venues Today' },
+              { stat: '40+',     label: 'By Year End' },
+              { stat: '~50',     label: 'Courts Nationwide' },
+              { stat: '50,000+', label: 'Active Players' },
+            ].map((item, i) => (
+              <div
+                key={item.label}
+                className="text-center py-6 px-4 rounded-2xl"
+                style={{ background: '#0D1B2A', border: '1px solid rgba(201,168,76,0.2)' }}
+                data-animate="fade-up"
+                data-animate-delay={String(i * 100)}
+              >
+                <p className="text-3xl sm:text-4xl font-black mb-1" style={{ color: 'var(--brand-gold)' }}>{item.stat}</p>
+                <p className="text-white text-xs font-bold uppercase tracking-widest">{item.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-center text-xs font-bold uppercase tracking-widest mb-12" style={{ color: 'rgba(201,168,76,0.5)' }}>
+            Source: Padel Australia · 28 venues operating today, 40+ projected by year end
+          </p>
+
+          {/* MindSpring financing box */}
+          <div
+            className="rounded-2xl p-8 md:p-10"
+            style={{ background: '#0D1B2A', border: '2px solid rgba(201,168,76,0.4)' }}
+            data-animate="fade-up"
+          >
+            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
+              <div className="flex-1">
+                <div className="mb-4">
+                  <span
+                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                    style={{ color: 'var(--brand-gold)', border: '1px solid rgba(201,168,76,0.4)', background: 'rgba(201,168,76,0.08)' }}
+                  >
+                    Financing Partner
+                  </span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
+                  MindSpring
+                </h3>
+                <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--brand-gold)' }}>
+                  100% Court Costs Financed
+                </p>
+                <p className="text-gray-400 leading-relaxed">
+                  Activated by AJ works with MindSpring, a specialist financing partner that funds 100% of court construction costs. No capital locked in before the deal is structured. Investors access premium padel infrastructure without the build burden — MindSpring handles it.
+                </p>
+              </div>
+              <div className="shrink-0 text-center px-8 py-6 rounded-2xl" style={{ background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.2)' }}>
+                <div className="text-5xl font-black mb-2" style={{ color: 'var(--brand-gold)' }}>100%</div>
+                <p className="text-white text-sm font-bold uppercase tracking-widest">Court Costs<br />Financed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <GoldDivider />
+
       {/* ── WHAT YOU GET ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               The Opportunity
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
