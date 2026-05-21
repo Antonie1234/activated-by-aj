@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
+import LogoWatermark from '@/components/LogoWatermark';
 
 export const metadata = {
   title: 'Investor Pathway | Activated by AJ',
@@ -67,6 +68,7 @@ export default function InvestorPathway() {
         className="relative pt-40 pb-24 overflow-hidden"
         style={{ background: '#0D1B2A' }}
       >
+        <LogoWatermark size={700} opacity={0.09} />
         {/* Gold glow orb */}
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
@@ -75,7 +77,7 @@ export default function InvestorPathway() {
             transform: 'translate(30%, -30%)',
           }}
         />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 1 }}>
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
             style={{
@@ -187,8 +189,9 @@ export default function InvestorPathway() {
       <GoldDivider />
 
       {/* ── THREE REVENUE STREAMS ── */}
-      <section className="section-padding" style={{ background: '#0D1B2A' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <section className="section-padding relative overflow-hidden" style={{ background: '#0D1B2A' }}>
+        <LogoWatermark size={600} opacity={0.07} />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-14">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               The Business
@@ -251,7 +254,7 @@ export default function InvestorPathway() {
 
       <GoldDivider />
 
-      {/* ── MARKET GROWTH + MINDSPRING ── */}
+      {/* ── MARKET GROWTH ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14" data-animate="fade-up">
@@ -263,8 +266,7 @@ export default function InvestorPathway() {
             </h2>
           </div>
 
-          {/* Padel Australia growth stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             {[
               { stat: '28',      label: 'Venues Today' },
               { stat: '40+',     label: 'By Year End' },
@@ -284,41 +286,52 @@ export default function InvestorPathway() {
             ))}
           </div>
 
-          <p className="text-center text-xs font-bold uppercase tracking-widest mb-12" style={{ color: 'rgba(201,168,76,0.5)' }}>
+          <p className="text-center text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(201,168,76,0.5)' }}>
             Source: Padel Australia · 28 venues operating today, 40+ projected by year end
           </p>
+        </div>
+      </section>
 
-          {/* MindSpring financing box */}
-          <div
-            className="rounded-2xl p-8 md:p-10"
-            style={{ background: '#0D1B2A', border: '2px solid rgba(201,168,76,0.4)' }}
-            data-animate="fade-up"
-          >
-            <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-              <div className="flex-1">
-                <div className="mb-4">
-                  <span
-                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                    style={{ color: 'var(--brand-gold)', border: '1px solid rgba(201,168,76,0.4)', background: 'rgba(201,168,76,0.08)' }}
-                  >
-                    Financing Partner
-                  </span>
+      <GoldDivider />
+
+      {/* ── WHAT ACTIVATED BRINGS ── */}
+      <section className="section-padding relative overflow-hidden" style={{ background: '#0D1B2A' }}>
+        <LogoWatermark size={620} opacity={0.08} />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
+          <div className="text-center mb-14" data-animate="fade-up">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
+              The Offer
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
+              WHAT ACTIVATED<br />BRINGS TO THE TABLE
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { num: '01', point: "First-mover positioning in Australia's fastest growing sport" },
+              { num: '02', point: 'A fully developed operating concept and brand — not just an idea' },
+              { num: '03', point: 'Local boots on the ground — site sourcing, council relationships, DA process navigation' },
+              { num: '04', point: 'A premium operating brand that transforms any venue into a destination' },
+              { num: '05', point: 'AI-integrated performance technology through Reflect Motion' },
+              { num: '06', point: 'An established investor network with international padel experience' },
+            ].map((item, i) => (
+              <div
+                key={item.num}
+                className="flex gap-5 items-start p-7 rounded-2xl"
+                style={{ background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.18)' }}
+                data-animate="fade-up"
+                data-animate-delay={String(i * 80)}
+              >
+                <div
+                  className="shrink-0 text-2xl font-black leading-none mt-0.5"
+                  style={{ color: 'var(--brand-gold)', letterSpacing: '-0.03em' }}
+                >
+                  {item.num}
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-black text-white mb-2" style={{ letterSpacing: '-0.02em' }}>
-                  MindSpring
-                </h3>
-                <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: 'var(--brand-gold)' }}>
-                  100% Court Costs Financed
-                </p>
-                <p className="text-gray-400 leading-relaxed">
-                  Activated by AJ works with MindSpring, a specialist financing partner that funds 100% of court construction costs. No capital locked in before the deal is structured. Investors access premium padel infrastructure without the build burden — MindSpring handles it.
-                </p>
+                <p className="text-gray-300 text-sm leading-relaxed">{item.point}</p>
               </div>
-              <div className="shrink-0 text-center px-8 py-6 rounded-2xl" style={{ background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.2)' }}>
-                <div className="text-5xl font-black mb-2" style={{ color: 'var(--brand-gold)' }}>100%</div>
-                <p className="text-white text-sm font-bold uppercase tracking-widest">Court Costs<br />Financed</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

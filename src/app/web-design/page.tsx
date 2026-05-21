@@ -1,5 +1,6 @@
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
+import LogoWatermark from '@/components/LogoWatermark';
 
 export const metadata = {
   title: 'Web Design Services | Activated by AJ',
@@ -337,10 +338,11 @@ export default function WebDesignPage() {
 
       {/* ── CTA ── */}
       <section
-        className="section-padding text-center"
+        className="section-padding text-center relative overflow-hidden"
         style={{ background: '#0D1B2A', borderTop: '2px solid #C9A84C' }}
       >
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+        <LogoWatermark size={500} opacity={0.07} />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <p
             className="text-xs font-bold uppercase tracking-widest mb-4"
             style={{ color: 'var(--brand-gold)' }}

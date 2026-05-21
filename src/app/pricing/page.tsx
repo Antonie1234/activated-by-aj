@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
+import LogoWatermark from '@/components/LogoWatermark';
 
 const lessonRates = [
   { duration: '30 mins', players: '1 player',  termly: '$65',          payg: '$70' },
@@ -276,8 +277,9 @@ export default function Pricing() {
       <GoldDivider />
 
       {/* ── CTA ── */}
-      <section style={{ background: '#0D1B2A', borderTop: '2px solid #C9A84C' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center">
+      <section className="relative overflow-hidden" style={{ background: '#0D1B2A', borderTop: '2px solid #C9A84C' }}>
+        <LogoWatermark size={500} opacity={0.07} />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center" style={{ zIndex: 1 }}>
           <h2 className="text-3xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
             READY TO INVEST IN YOURSELF?
           </h2>

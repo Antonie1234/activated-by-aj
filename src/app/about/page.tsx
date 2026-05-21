@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
+import LogoWatermark from '@/components/LogoWatermark';
 
 const credentials = [
   {
@@ -258,7 +259,8 @@ export default function About() {
 
       {/* ── VALUES + VIDEO ── */}
       <section className="relative overflow-hidden" style={{ background: '#000' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-0">
+        <LogoWatermark size={580} opacity={0.08} />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-0" style={{ zIndex: 1 }}>
           <div className="text-center mb-10">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               What Drives Me

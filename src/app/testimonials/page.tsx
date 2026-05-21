@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 const testimonials = [
   // Tennis
@@ -208,6 +209,8 @@ export default function Testimonials() {
 
   return (
     <>
+      <ScrollAnimations />
+
       {/* ── HERO ── */}
       <section
         className="relative pt-36 pb-20 overflow-hidden"
@@ -217,8 +220,8 @@ export default function Testimonials() {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-5 blur-3xl pointer-events-none rounded-full"
           style={{ background: 'var(--brand-gold)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Real Results
           </p>
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
@@ -246,7 +249,7 @@ export default function Testimonials() {
                     ? { background: 'var(--brand-gold)', color: '#0a0a0a', boxShadow: '0 4px 16px rgba(240,180,41,0.3)' }
                     : {
                         background: 'var(--surface)',
-                        color: 'var(--brand-blue-light)',
+                        color: 'rgba(201,168,76,0.7)',
                         border: '1px solid var(--border)',
                       }
                 }
@@ -303,9 +306,9 @@ export default function Testimonials() {
                       <div
                         className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                         style={{
-                          background: 'rgba(26,111,212,0.15)',
-                          color: 'var(--brand-blue-light)',
-                          border: '1px solid rgba(26,111,212,0.25)',
+                          background: 'rgba(201,168,76,0.1)',
+                          color: 'var(--brand-gold)',
+                          border: '1px solid rgba(201,168,76,0.25)',
                         }}
                       >
                         {t.service}

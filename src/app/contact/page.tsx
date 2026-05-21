@@ -2,23 +2,16 @@
 
 import { useState } from 'react';
 import GoldDivider from '@/components/GoldDivider';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 const contactMethods = [
-  {
-    icon: '💬',
-    label: 'WhatsApp',
-    value: '',
-    href: 'https://wa.me/27713325218',
-    cta: 'Message AJ on WhatsApp',
-    color: 'var(--brand-gold)',
-  },
   {
     icon: '✉️',
     label: 'Email',
     value: 'activatedbookingsbyaj@gmail.com',
     href: 'mailto:activatedbookingsbyaj@gmail.com',
     cta: 'Send Email',
-    color: 'var(--brand-blue-light)',
+    color: 'var(--brand-gold)',
   },
   {
     icon: '📷',
@@ -50,7 +43,6 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Placeholder — will integrate Resend/Supabase
     await new Promise((r) => setTimeout(r, 1000));
     setSubmitted(true);
     setLoading(false);
@@ -58,6 +50,8 @@ export default function Contact() {
 
   return (
     <>
+      <ScrollAnimations />
+
       {/* ── HERO ── */}
       <section
         className="relative pt-36 pb-16 overflow-hidden"
@@ -65,18 +59,17 @@ export default function Contact() {
       >
         <div
           className="absolute top-0 right-0 w-96 h-96 opacity-10 blur-3xl pointer-events-none rounded-full"
-          style={{ background: 'var(--brand-blue)' }}
+          style={{ background: 'rgba(201,168,76,0.4)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6" data-animate="fade-up">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Get Started
           </p>
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
             LET&apos;S <span className="gold-text">ACTIVATE</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
-            Ready to get moving? Reach out via the form below, WhatsApp, or email.
-            AJ will get back to you as soon as possible.
+            Ready to get moving? Reach out via the form below or email. AJ will get back to you as soon as possible.
           </p>
         </div>
       </section>
@@ -88,7 +81,7 @@ export default function Contact() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-5 gap-12">
             {/* Contact Methods */}
-            <div className="md:col-span-2 space-y-6">
+            <div className="md:col-span-2 space-y-6" data-animate="slide-left">
               <h2 className="text-xl font-black text-white mb-8" style={{ letterSpacing: '-0.01em' }}>
                 REACH OUT DIRECTLY
               </h2>
@@ -127,22 +120,21 @@ export default function Contact() {
               <div
                 className="p-5 rounded-lg mt-6"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(26,111,212,0.2) 0%, rgba(26,111,212,0.05) 100%)',
-                  border: '1px solid rgba(26,111,212,0.25)',
+                  background: 'rgba(201,168,76,0.06)',
+                  border: '1px solid rgba(201,168,76,0.2)',
                 }}
               >
-                <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--brand-blue-light)' }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--brand-gold)' }}>
                   Response Time
                 </p>
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  AJ typically responds within a few hours. For the fastest response,
-                  WhatsApp is the best way to reach him.
+                  AJ typically responds within a few hours. Fill in the form or send an email for the fastest response.
                 </p>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="md:col-span-3">
+            <div className="md:col-span-3" data-animate="slide-right">
               {!submitted ? (
                 <form
                   onSubmit={handleSubmit}
@@ -183,7 +175,7 @@ export default function Contact() {
                   <div className="grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
-                        Phone / WhatsApp
+                        Phone
                       </label>
                       <input
                         type="tel"
@@ -215,6 +207,7 @@ export default function Contact() {
                         <option value="fitness">Fitness &amp; Conditioning</option>
                         <option value="movement">Movement &amp; Outdoor</option>
                         <option value="programs">Programs &amp; Plans</option>
+                        <option value="investor">Investor Enquiry</option>
                         <option value="mixed">Multiple / Not Sure</option>
                       </select>
                     </div>
@@ -256,15 +249,12 @@ export default function Contact() {
                   </h3>
                   <p className="text-gray-400 leading-relaxed">
                     Thanks for reaching out. AJ will be in touch shortly.
-                    In the meantime, feel free to WhatsApp directly for the fastest response.
                   </p>
                   <a
-                    href="https://wa.me/27713325218"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="mailto:activatedbookingsbyaj@gmail.com"
                     className="btn-gold mt-8 inline-block"
                   >
-                    Open WhatsApp
+                    Send Another Email
                   </a>
                 </div>
               )}

@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
+import ScrollAnimations from '@/components/ScrollAnimations';
 
 const faqs = [
   {
@@ -14,7 +16,7 @@ const faqs = [
   },
   {
     q: 'How do I book a session?',
-    a: "Simply send me a message via WhatsApp or fill in the contact form on the Let's Activate page. I'll get back to you within 24 hours to confirm a time.",
+    a: "Simply fill in the contact form on the Let's Activate page or send an email. I'll get back to you within 24 hours to confirm a time.",
   },
   {
     q: 'Do you offer group sessions?',
@@ -47,6 +49,8 @@ export default function FAQ() {
 
   return (
     <>
+      <ScrollAnimations />
+
       {/* ── HERO ── */}
       <section
         className="relative pt-36 pb-20 overflow-hidden"
@@ -56,8 +60,8 @@ export default function FAQ() {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-5 blur-3xl pointer-events-none rounded-full"
           style={{ background: 'var(--brand-gold)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-blue-light)' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Got Questions?
           </p>
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
@@ -79,6 +83,8 @@ export default function FAQ() {
               <div
                 key={i}
                 className="rounded-lg overflow-hidden"
+                data-animate="fade-up"
+                data-animate-delay={String(i * 50)}
                 style={{
                   background: 'var(--surface)',
                   border: `1px solid ${openIndex === i ? 'rgba(201,168,76,0.4)' : 'var(--border)'}`,
@@ -117,7 +123,7 @@ export default function FAQ() {
 
       {/* ── CTA ── */}
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
           <div className="text-5xl mb-6" style={{ color: 'var(--brand-gold)' }}>⚡</div>
           <h2 className="text-3xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
             STILL HAVE QUESTIONS?
@@ -125,14 +131,9 @@ export default function FAQ() {
           <p className="text-gray-400 mb-8 leading-relaxed">
             Let&apos;s chat and I&apos;ll get back to you within 24 hours.
           </p>
-          <a
-            href="https://wa.me/27713325218"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-gold"
-          >
-            WhatsApp AJ
-          </a>
+          <Link href="/contact" className="btn-gold">
+            Get In Touch
+          </Link>
         </div>
       </section>
     </>

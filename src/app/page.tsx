@@ -2,6 +2,7 @@ import Link from 'next/link';
 import HeroParallax from '@/components/HeroParallax';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
+import LogoWatermark from '@/components/LogoWatermark';
 
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
@@ -182,31 +183,6 @@ export default function Home() {
         </div>
       </section>
 
-      <GoldDivider />
-
-      {/* ── STATS BAR ── */}
-      <section style={{ background: 'var(--surface)', borderTop: '2px solid rgba(240,180,41,0.2)', borderBottom: '1px solid var(--border)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-0">
-            {stats.map((item, i, arr) => (
-              <div
-                key={item.label}
-                className={`text-center py-2 px-4 ${i < arr.length - 1 ? 'md:border-r md:border-[var(--border)]' : ''}`}
-                data-animate="fade-up"
-                data-animate-delay={String(i * 100)}
-              >
-                <p
-                  className="text-3xl sm:text-4xl font-black mb-1"
-                  style={{ color: 'var(--brand-gold)' }}
-                >
-                  {item.stat}
-                </p>
-                <p className="text-white text-xs font-bold uppercase tracking-widest">{item.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <GoldDivider />
 
@@ -243,8 +219,9 @@ export default function Home() {
       <GoldDivider />
 
       {/* ── THE MODEL ── */}
-      <section className="section-padding" style={{ background: '#0D1B2A' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
+      <section className="section-padding relative overflow-hidden" style={{ background: '#0D1B2A' }}>
+        <LogoWatermark size={600} opacity={0.08} />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 1 }} data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: 'var(--brand-gold)' }}>
             The Model
           </p>
@@ -511,12 +488,11 @@ export default function Home() {
 
       {/* ── CTA BANNER ── */}
       <section
-        style={{
-          background: '#0D1B2A',
-          borderTop: '2px solid #C9A84C',
-        }}
+        className="relative overflow-hidden"
+        style={{ background: '#0D1B2A', borderTop: '2px solid #C9A84C' }}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center" data-animate="fade-up">
+        <LogoWatermark size={500} opacity={0.07} />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center" style={{ zIndex: 1 }} data-animate="fade-up">
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
             READY TO GET ACTIVATED?
           </h2>
@@ -527,14 +503,9 @@ export default function Home() {
             <Link href="/contact" className="btn-gold">
               Book Now
             </Link>
-            <a
-              href="https://wa.me/27713325218"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline"
-            >
-              WhatsApp AJ
-            </a>
+            <Link href="/investor-pathway" className="btn-outline">
+              Investor Pathway
+            </Link>
           </div>
         </div>
       </section>
