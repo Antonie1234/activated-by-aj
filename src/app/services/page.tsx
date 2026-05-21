@@ -97,24 +97,6 @@ const ProgramsIcon = () => (
 
 const services = [
   {
-    id: 'tennis',
-    Icon: TennisIcon,
-    title: 'Tennis Coaching',
-    tagline: 'Master the court. Dominate the game.',
-    description:
-      'One-on-one and group sessions for all ages and levels. Technique, footwork, match strategy and mental game, built around you.',
-    details: [
-      'Private & group sessions',
-      'All ages & skill levels',
-      'Stroke technique & footwork',
-      'Match strategy & mental game',
-      'Junior & adult programs',
-    ],
-    image: 'https://images.unsplash.com/photo-1595435742656-5272d0b3fa82?auto=format&fit=crop&w=900&q=80',
-    imageAlt: 'Tennis court with racket',
-    accentColor: 'var(--brand-gold)',
-  },
-  {
     id: 'padel',
     Icon: PadelIcon,
     title: 'Padel Coaching',
@@ -150,6 +132,24 @@ const services = [
     image: '/pickleball-court.jpg',
     imageAlt: 'Pickleball paddle and court',
     imgStyle: { width: '100%', height: '400px', objectFit: 'cover' as const, borderRadius: '8px' },
+    accentColor: 'var(--brand-gold)',
+  },
+  {
+    id: 'tennis',
+    Icon: TennisIcon,
+    title: 'Tennis Coaching',
+    tagline: 'Master the court. Dominate the game.',
+    description:
+      'One-on-one and group sessions for all ages and levels. Technique, footwork, match strategy and mental game, built around you.',
+    details: [
+      'Private & group sessions',
+      'All ages & skill levels',
+      'Stroke technique & footwork',
+      'Match strategy & mental game',
+      'Junior & adult programs',
+    ],
+    image: 'https://images.unsplash.com/photo-1595435742656-5272d0b3fa82?auto=format&fit=crop&w=900&q=80',
+    imageAlt: 'Tennis court with racket',
     accentColor: 'var(--brand-gold)',
   },
   {

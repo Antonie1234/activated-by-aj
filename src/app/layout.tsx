@@ -12,7 +12,7 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "Activated by AJ | Racquet Sport & Lifestyle",
   description:
-    "Activated by AJ — Australia's premium padel facility concept broker. We identify opportunities, connect investors, and build the Activated brand across every facility.",
+    "Activated by AJ — padel facility concept broker, premium coaching brand, and AI performance technology. We originate, connect, and activate premium padel facilities across Australia.",
   keywords: [
     "tennis coach",
     "padel coaching",

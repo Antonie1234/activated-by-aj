@@ -489,9 +489,9 @@ export default function Home() {
       {/* ── CTA BANNER ── */}
       <section
         className="relative overflow-hidden"
-        style={{ background: '#0D1B2A', borderTop: '2px solid #C9A84C' }}
+        style={{ background: '#1B3A5C', borderTop: '2px solid #C9A84C' }}
       >
-        <LogoWatermark size={500} opacity={0.07} />
+        <LogoWatermark />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center" style={{ zIndex: 1 }} data-animate="fade-up">
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
             READY TO GET ACTIVATED?
@@ -500,11 +500,11 @@ export default function Home() {
             Book a session, explore the investor pathway, or just start a conversation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-gold">
-              Book Now
+            <Link href="/investor-pathway" className="btn-gold" style={{ minWidth: 180, textAlign: 'center' }}>
+              Investor Enquiry
             </Link>
-            <Link href="/investor-pathway" className="btn-outline">
-              Investor Pathway
+            <Link href="/contact" className="btn-outline" style={{ minWidth: 180, textAlign: 'center' }}>
+              Book a Session
             </Link>
           </div>
         </div>

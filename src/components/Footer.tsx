@@ -25,21 +25,22 @@ const serviceLinks = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#0D1B2A', borderTop: '1px solid rgba(201,168,76,0.15)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+    <footer style={{ background: '#0D1B2A', borderTop: '2px solid rgba(201,168,76,0.4)' }}>
+      {/* ── Brand Banner ── */}
+      <div className="border-b" style={{ borderColor: 'rgba(201,168,76,0.15)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 text-center">
+          <AJLogo height={72} />
+          <p className="mt-4 text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(201,168,76,0.5)' }}>
+            Coaching · Vision · Padel
+          </p>
+        </div>
+      </div>
 
-          {/* Column 1 — Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="mb-5">
-              <AJLogo height={36} />
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Coaching. Vision. Padel. Originating, connecting, and activating the future of racquet sport.
-            </p>
-          </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
 
-          {/* Column 2 — Quick Links */}
+          {/* Column 1 — Quick Links */}
+
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
               Quick Links
@@ -55,7 +56,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 — Our Services */}
+          {/* Column 2 — Our Services */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
               Our Services
@@ -71,20 +72,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 — Get In Touch */}
+          {/* Column 3 — Get In Touch */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
               Get In Touch
             </h3>
             <div className="flex flex-col gap-3">
-              <a
-                href="https://wa.me/27713325218"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-gold text-xs px-4 py-2 text-center"
-              >
-                WhatsApp AJ
-              </a>
               <a
                 href="mailto:activatedbookingsbyaj@gmail.com"
                 className="text-gray-400 text-sm hover:text-white transition-colors break-all"

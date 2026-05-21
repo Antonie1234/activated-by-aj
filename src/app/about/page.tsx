@@ -51,14 +51,14 @@ export default function About() {
           className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-6 blur-3xl pointer-events-none"
           style={{ background: 'var(--brand-gold)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6" data-animate="fade-up">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Who I Am
           </p>
           <h1 className="text-5xl sm:text-7xl font-black text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
             MEET <span className="gold-text">AJ</span>
           </h1>
-          <p className="text-gray-400 text-lg sm:text-xl max-w-2xl leading-relaxed">
+          <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
             Coach. Athlete. Activator. On a mission to turn your energy into purpose.
           </p>
         </div>
@@ -259,11 +259,36 @@ export default function About() {
 
       <GoldDivider />
 
-      {/* ── VALUES + VIDEO ── */}
-      <section className="relative overflow-hidden" style={{ background: '#000' }}>
-        <LogoWatermark size={580} opacity={0.08} />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-0" style={{ zIndex: 1 }}>
-          <div className="text-center mb-10" data-animate="fade-up">
+      {/* ── VIDEO ── */}
+      <section className="section-padding" style={{ background: '#000' }}>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6" data-animate="fade-up">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{
+              width: '100%',
+              maxHeight: '520px',
+              objectFit: 'cover',
+              borderRadius: '16px',
+              display: 'block',
+              border: '1px solid rgba(201,168,76,0.2)',
+            }}
+          >
+            <source src="/tennismontage.mp4" type="video/mp4" />
+            <source src="/tennis-montage.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+
+      <GoldDivider />
+
+      {/* ── VALUES ── */}
+      <section className="relative overflow-hidden section-padding" style={{ background: '#000' }}>
+        <LogoWatermark size={700} opacity={0.1} />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
+          <div className="text-center mb-12" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               What Drives Me
             </p>
@@ -272,45 +297,25 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 items-start">
-            <div className="flex flex-col justify-start gap-7 py-8 pr-0 md:pr-10" data-animate="slide-left">
-              {values.map((v) => (
-                <div key={v.label} className="flex gap-4 items-start">
-                  <div
-                    className="w-1 rounded-full flex-shrink-0 mt-1"
-                    style={{ height: '2.5rem', background: 'linear-gradient(180deg, var(--brand-gold), transparent)' }}
-                  />
-                  <div>
-                    <h3 className="text-lg font-black mb-1" style={{ color: 'var(--brand-gold)' }}>{v.label}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed">{v.description}</p>
-                  </div>
+          <div className="flex flex-col gap-8" data-animate="fade-up">
+            {values.map((v) => (
+              <div key={v.label} className="flex gap-5 items-start">
+                <div
+                  className="w-1 rounded-full flex-shrink-0 mt-1"
+                  style={{ height: '2.5rem', background: 'linear-gradient(180deg, var(--brand-gold), transparent)' }}
+                />
+                <div>
+                  <h3 className="text-lg font-black mb-1" style={{ color: 'var(--brand-gold)' }}>{v.label}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed">{v.description}</p>
                 </div>
-              ))}
-              <div className="mt-2">
-                <Link href="/contact" className="btn-gold">
-                  Get In Touch
-                </Link>
               </div>
-            </div>
+            ))}
+          </div>
 
-            <div data-animate="slide-right">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                style={{
-                  width: '100%',
-                  maxHeight: '480px',
-                  objectFit: 'cover',
-                  borderRadius: '12px',
-                  display: 'block',
-                }}
-              >
-                <source src="/tennismontage.mp4" type="video/mp4" />
-                <source src="/tennis-montage.mp4" type="video/mp4" />
-              </video>
-            </div>
+          <div className="mt-10 text-center" data-animate="fade-up">
+            <Link href="/contact" className="btn-gold">
+              Get In Touch
+            </Link>
           </div>
         </div>
       </section>
