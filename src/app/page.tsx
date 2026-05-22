@@ -77,30 +77,43 @@ const services = [
     title: 'Tennis Coaching',
     description: 'One-on-one and group tennis sessions for all levels. Technique, strategy, footwork and mental game.',
     href: '/services#tennis',
+    external: false,
   },
   {
     photo: '/aj-pickleball2.jpg',
     title: 'Padel & Pickleball',
     description: 'Advanced coaching in both Padel and Pickleball. Technical skills, tactics and competitive play for all levels.',
     href: '/services#padel',
+    external: false,
   },
   {
     photo: 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Fitness & Conditioning',
     description: 'Personalised strength, conditioning and bodyweight programs designed around your goals and lifestyle.',
     href: '/services#fitness',
+    external: false,
   },
   {
     photo: '/aj-beach.jpg',
     title: 'Movement & Beach Sports',
     description: 'Dynamic outdoor training combining functional movement, beach tennis, volleyball and agility.',
     href: '/services#movement',
+    external: false,
   },
   {
     photo: 'https://images.pexels.com/photos/4397840/pexels-photo-4397840.jpeg?auto=compress&cs=tinysrgb&w=600',
     title: 'Programs & Plans',
     description: 'Custom workout programs, recovery plans and nutrition guidance, designed to keep you progressing.',
     href: '/services#programs',
+    external: false,
+  },
+  {
+    photo: '',
+    logoUrl: 'https://reflectmotion.com/logo.png',
+    title: 'AI Performance Tech',
+    description: 'Powered by Reflect Motion — AI movement analysis that tracks your technique, scores every rep, and delivers real-time coaching feedback.',
+    href: 'https://reflectmotion.com/signup?coach=MPTYSA',
+    external: true,
   },
 ];
 
@@ -272,19 +285,36 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, i) => (
-              <Link key={service.title} href={service.href} className="block group" data-animate="fade-up" data-animate-delay={String(i * 100)}>
+            {services.map((service, i) => {
+              const cardInner = (
                 <div
                   className="card card-gold h-full flex flex-col overflow-hidden"
                   style={{ background: 'var(--surface-2)' }}
                 >
-                  <div className="w-full h-48 overflow-hidden">
-                    <img
-                      src={service.photo}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+                  {'logoUrl' in service && service.logoUrl ? (
+                    <div
+                      className="w-full h-48 flex items-center justify-center"
+                      style={{
+                        background: '#0D1B2A',
+                        borderBottom: '1px solid rgba(201,168,76,0.15)',
+                      }}
+                    >
+                      <img
+                        src={service.logoUrl}
+                        alt={service.title}
+                        className="object-contain group-hover:scale-105 transition-transform duration-500"
+                        style={{ maxHeight: 60, maxWidth: '55%' }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-full h-48 overflow-hidden">
+                      <img
+                        src={service.photo}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  )}
                   <div className="p-8 flex flex-col flex-1">
                     <h3
                       className="text-lg font-black uppercase mb-3 tracking-tight group-hover:text-yellow-400 transition-colors"
@@ -294,22 +324,29 @@ export default function Home() {
                     </h3>
                     <div className="blue-divider mb-4" />
                     <p className="text-gray-400 text-sm leading-relaxed flex-1">{service.description}</p>
-                    <p
-                      className="mt-6 text-xs font-bold uppercase tracking-wider group-hover:translate-x-1 transition-transform inline-block"
-                      style={{ color: '#C9A84C' }}
-                    >
-                      Learn More →
-                    </p>
                   </div>
                 </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link href="/pricing" className="btn-primary">
-              View Pricing
-            </Link>
+              );
+              return service.external ? (
+                <a
+                  key={service.title}
+                  href={service.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                  data-animate="fade-up"
+                  data-animate-delay={String(i * 100)}
+                >{cardInner}</a>
+              ) : (
+                <Link
+                  key={service.title}
+                  href={service.href}
+                  className="block group"
+                  data-animate="fade-up"
+                  data-animate-delay={String(i * 100)}
+                >{cardInner}</Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -349,54 +386,53 @@ export default function Home() {
                 quote: "Over just one term, the progress has been nothing short of incredible. My strength, endurance and confidence have all improved dramatically. Highly recommend for anyone at any level.",
               },
             ].map((t, i) => (
-              <div
+              <Link
                 key={t.name}
-                className="card p-8 flex flex-col"
-                style={{ background: 'var(--surface)' }}
+                href="/testimonials"
+                className="block group"
                 data-animate="fade-up"
                 data-animate-delay={String(i * 150)}
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <div
-                    style={{
-                      width: 64, height: 64, borderRadius: '50%',
-                      background: '#0D1B2A',
-                      border: '2px solid #C9A84C',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      flexShrink: 0,
-                    }}
-                  >
-                    <span style={{ color: '#C9A84C', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
-                  </div>
-                  <div>
-                    <p className="font-bold text-white text-sm">{t.name}</p>
+                <div
+                  className="card p-8 flex flex-col h-full transition-all duration-200 group-hover:border-yellow-400/30"
+                  style={{ background: 'var(--surface)' }}
+                >
+                  <div className="flex items-center gap-4 mb-4">
                     <div
-                      className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                       style={{
-                        background: 'rgba(201, 168, 76, 0.1)',
-                        color: '#C9A84C',
-                        border: '1px solid rgba(201, 168, 76, 0.3)',
+                        width: 64, height: 64, borderRadius: '50%',
+                        background: '#0D1B2A',
+                        border: '2px solid #C9A84C',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        flexShrink: 0,
                       }}
                     >
-                      {t.service}
+                      <span style={{ color: '#C9A84C', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
+                    </div>
+                    <div>
+                      <p className="font-bold text-white text-sm">{t.name}</p>
+                      <div
+                        className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
+                        style={{
+                          background: 'rgba(201, 168, 76, 0.1)',
+                          color: '#C9A84C',
+                          border: '1px solid rgba(201, 168, 76, 0.3)',
+                        }}
+                      >
+                        {t.service}
+                      </div>
                     </div>
                   </div>
+                  <div className="flex gap-1 mb-4">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <span key={j} style={{ color: 'var(--brand-gold)' }}>★</span>
+                    ))}
+                  </div>
+                  <div className="text-3xl mb-3" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>&ldquo;</div>
+                  <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
                 </div>
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <span key={j} style={{ color: 'var(--brand-gold)' }}>★</span>
-                  ))}
-                </div>
-                <div className="text-3xl mb-3" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>&ldquo;</div>
-                <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
-              </div>
+              </Link>
             ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <Link href="/testimonials" className="btn-outline">
-              See All Reviews
-            </Link>
           </div>
         </div>
       </section>

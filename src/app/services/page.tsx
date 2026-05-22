@@ -255,6 +255,38 @@ export default function Services() {
 
       <GoldDivider />
 
+      {/* ── SERVICE QUICK NAV ── */}
+      <section style={{ background: 'var(--surface)', padding: '1.25rem 0' }}>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {services.map((service) => (
+              <a
+                key={service.id}
+                href={`#${service.id}`}
+                className="group flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200"
+                style={{
+                  background: 'var(--background)',
+                  border: '1px solid var(--border)',
+                }}
+              >
+                <div
+                  className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-200"
+                  style={{ background: 'rgba(201,168,76,0.1)', color: 'var(--brand-gold)' }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="2,6 10,6 7.5,3" />
+                    <polyline points="10,6 7.5,9" />
+                  </svg>
+                </div>
+                <span className="text-xs font-bold text-gray-400 group-hover:text-white transition-colors leading-tight">{service.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <GoldDivider />
+
       {/* ── SERVICE SECTIONS ── */}
       {services.map((service, index) => {
         const imageLeft = index % 2 === 0;
