@@ -114,7 +114,7 @@ export default function Navbar() {
               }`}
               style={
                 pathname === link.href
-                  ? { color: 'var(--brand-gold)', background: 'rgba(200,169,81,0.1)' }
+                  ? { color: 'var(--brand-gold)', background: 'rgba(74,127,165,0.1)' }
                   : {}
               }
             >

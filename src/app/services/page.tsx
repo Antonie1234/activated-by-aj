@@ -317,9 +317,9 @@ export default function Services() {
                         <span
                           className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
                           style={{
-                            background: `rgba(200,169,81,0.12)`,
+                            background: `rgba(74,127,165,0.12)`,
                             color: 'var(--brand-gold)',
-                            border: '1px solid rgba(200,169,81,0.25)',
+                            border: '1px solid rgba(74,127,165,0.25)',
                           }}
                         >
                           ✓

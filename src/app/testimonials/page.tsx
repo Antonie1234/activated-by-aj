@@ -249,7 +249,7 @@ export default function Testimonials() {
                     ? { background: 'var(--brand-gold)', color: '#0a0a0a', boxShadow: '0 4px 16px rgba(232,244,253,0.3)' }
                     : {
                         background: 'var(--surface)',
-                        color: 'rgba(200,169,81,0.7)',
+                        color: 'rgba(74,127,165,0.7)',
                         border: '1px solid var(--border)',
                       }
                 }
@@ -308,9 +308,9 @@ export default function Testimonials() {
                       <div
                         className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                         style={{
-                          background: 'rgba(200,169,81,0.15)',
+                          background: 'rgba(74,127,165,0.15)',
                           color: 'var(--brand-gold)',
-                          border: '1px solid rgba(200,169,81,0.35)',
+                          border: '1px solid rgba(74,127,165,0.35)',
                         }}
                       >
                         {t.service}

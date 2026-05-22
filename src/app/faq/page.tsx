@@ -87,7 +87,7 @@ export default function FAQ() {
                 data-animate-delay={String(i * 50)}
                 style={{
                   background: 'var(--surface)',
-                  border: `1px solid ${openIndex === i ? 'rgba(200,169,81,0.4)' : 'var(--border)'}`,
+                  border: `1px solid ${openIndex === i ? 'rgba(74,127,165,0.4)' : 'var(--border)'}`,
                   transition: 'border-color 0.2s ease',
                 }}
               >
@@ -99,7 +99,7 @@ export default function FAQ() {
                   <span
                     className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-sm font-black transition-transform duration-200"
                     style={{
-                      background: openIndex === i ? 'var(--brand-gold)' : 'rgba(200,169,81,0.15)',
+                      background: openIndex === i ? 'var(--brand-gold)' : 'rgba(74,127,165,0.15)',
                       color: openIndex === i ? '#000' : 'var(--brand-gold)',
                       transform: openIndex === i ? 'rotate(45deg)' : 'rotate(0deg)',
                     }}

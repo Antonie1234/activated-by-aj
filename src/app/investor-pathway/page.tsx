@@ -89,8 +89,8 @@ export default function InvestorPathway() {
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
             style={{
-              background: 'rgba(200,169,81,0.12)',
-              border: '1px solid rgba(200,169,81,0.3)',
+              background: 'rgba(74,127,165,0.12)',
+              border: '1px solid rgba(74,127,165,0.3)',
               color: 'var(--brand-gold)',
             }}
           >
@@ -225,7 +225,7 @@ export default function InvestorPathway() {
                       style={
                         stream.highlight
                           ? { background: 'rgba(0,0,0,0.15)', color: '#0D1B2A' }
-                          : { background: 'rgba(200,169,81,0.15)', color: 'var(--brand-gold)', border: '1px solid rgba(200,169,81,0.35)' }
+                          : { background: 'rgba(74,127,165,0.15)', color: 'var(--brand-gold)', border: '1px solid rgba(74,127,165,0.35)' }
                       }
                     >
                       {stream.label}
@@ -233,7 +233,7 @@ export default function InvestorPathway() {
                     {stream.sublabel && (
                       <span
                         className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                        style={{ background: 'rgba(200,169,81,0.1)', color: 'rgba(200,169,81,0.8)', border: '1px solid rgba(200,169,81,0.25)' }}
+                        style={{ background: 'rgba(74,127,165,0.1)', color: 'rgba(74,127,165,0.8)', border: '1px solid rgba(74,127,165,0.25)' }}
                       >
                         {stream.sublabel}
                       </span>

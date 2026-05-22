@@ -6,12 +6,12 @@
   --brand-blue: #1a6fd4;
   --brand-blue-light: #3b8fe8;
   /* ── Two-tone accent system ── */
-  --brand-gold: #C8A951;          /* warm gold — CTAs, stars, labels, numbers */
-  --brand-gold-light: #D4BC6E;    /* lighter gold for gradients */
+  --brand-gold: #4A7FA5;          /* marble blue — CTAs, stars, labels, numbers */
+  --brand-gold-light: #6A9EC0;    /* lighter blue for gradients */
   --brand-platinum: #E8F4FD;      /* cool platinum — dividers, borders, structure */
   --brand-platinum-light: #F5FBFE;
   /* Semantic aliases */
-  --color-gold: #C8A951;
+  --color-gold: #4A7FA5;
   --color-platinum: #E8F4FD;
   --color-navy: #0D1B2A;
   --color-black: #000000;
@@ -90,8 +90,8 @@ p.text-xs {
 
 /* Button styles */
 .btn-primary {
-  background: #C8A951;
-  color: #0D1B2A;
+  background: #4A7FA5;
+  color: #FFFFFF;
   font-weight: 700;
   padding: 0.875rem 2rem;
   border-radius: 8px;
@@ -107,13 +107,13 @@ p.text-xs {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(200, 169, 81, 0.45);
+  box-shadow: 0 8px 24px rgba(74, 127, 165, 0.45);
   filter: brightness(1.06);
 }
 
 .btn-gold {
-  background: #C8A951;
-  color: #0D1B2A;
+  background: #4A7FA5;
+  color: #FFFFFF;
   font-weight: 700;
   padding: 0.875rem 2rem;
   border-radius: 8px;
@@ -129,7 +129,7 @@ p.text-xs {
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(200, 169, 81, 0.45);
+  box-shadow: 0 8px 24px rgba(74, 127, 165, 0.45);
   filter: brightness(1.06);
 }
 
@@ -150,11 +150,11 @@ p.text-xs {
 }
 
 .btn-gold-outline:hover {
-  background: rgba(200, 169, 81, 0.1);
-  border-color: #C8A951;
-  color: #C8A951;
+  background: rgba(74, 127, 165, 0.1);
+  border-color: #4A7FA5;
+  color: #4A7FA5;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(200, 169, 81, 0.25);
+  box-shadow: 0 8px 24px rgba(74, 127, 165, 0.25);
 }
 
 .btn-outline {
@@ -174,10 +174,10 @@ p.text-xs {
 }
 
 .btn-outline:hover {
-  border-color: #C8A951;
-  color: #C8A951;
+  border-color: #4A7FA5;
+  color: #4A7FA5;
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(200, 169, 81, 0.2);
+  box-shadow: 0 4px 16px rgba(74, 127, 165, 0.2);
   filter: brightness(1.06);
 }
 

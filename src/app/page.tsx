@@ -153,7 +153,7 @@ export default function Home() {
           style={{ width: '70vmin', height: '70vmin', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.22, zIndex: 2 }}
           aria-hidden="true"
         >
-          <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#C8A951" />
+          <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#4A7FA5" />
           <polygon points="24,26 36,26 34,20 26,20" fill="#0a0a0a" />
         </svg>
 
@@ -161,8 +161,8 @@ export default function Home() {
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
             style={{
-              background: 'rgba(200,169,81,0.12)',
-              border: '1px solid rgba(200,169,81,0.3)',
+              background: 'rgba(74,127,165,0.12)',
+              border: '1px solid rgba(74,127,165,0.3)',
               color: 'var(--brand-gold)',
             }}
           >
@@ -415,9 +415,9 @@ export default function Home() {
                       <div
                         className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                         style={{
-                          background: 'rgba(200,169,81,0.15)',
+                          background: 'rgba(74,127,165,0.15)',
                           color: 'var(--brand-gold)',
-                          border: '1px solid rgba(200,169,81,0.35)',
+                          border: '1px solid rgba(74,127,165,0.35)',
                         }}
                       >
                         {t.service}
@@ -491,8 +491,8 @@ export default function Home() {
                     className="text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
                     style={{
                       color: 'var(--brand-gold)',
-                      border: '1px solid rgba(200,169,81,0.3)',
-                      background: 'rgba(200,169,81,0.08)',
+                      border: '1px solid rgba(74,127,165,0.3)',
+                      background: 'rgba(74,127,165,0.08)',
                     }}
                   >
                     Activated Partner
@@ -521,33 +521,6 @@ export default function Home() {
                   Reflect Motion uses AI computer vision to analyse your movement in real time, score every rep, and deliver personalised coaching feedback. Built for athletes, coaches, and anyone serious about performance.
                 </p>
 
-                {/* Coach Code — monospace techy badge */}
-                <div
-                  className="mb-8 px-6 py-3 rounded-lg"
-                  style={{
-                    background: 'rgba(4,8,14,0.8)',
-                    border: '1px solid rgba(232,244,253,0.1)',
-                  }}
-                >
-                  <p
-                    className="text-gray-600 uppercase tracking-widest mb-1"
-                    style={{ fontSize: '0.65rem' }}
-                  >
-                    Coach Code
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
-                      color: 'var(--brand-gold)',
-                      fontSize: '1.05rem',
-                      letterSpacing: '0.28em',
-                      fontWeight: 700,
-                    }}
-                  >
-                    MPTYSA
-                  </p>
-                </div>
-
                 {/* Full-width CTA button */}
                 <a
                   href="https://www.reflectmotion.com"
@@ -556,7 +529,7 @@ export default function Home() {
                   className="btn-gold"
                   style={{ display: 'block', width: '100%', textAlign: 'center' }}
                 >
-                  Get Started Free
+                  SEE IT IN ACTION
                 </a>
               </div>
             </div>

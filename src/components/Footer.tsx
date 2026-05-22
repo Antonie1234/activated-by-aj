@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Column 2 — Quick Links */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C8A951' }}>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#4A7FA5' }}>
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -58,7 +58,7 @@ export default function Footer() {
           {/* Column 3 — Our Services */}
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C8A951' }}>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#4A7FA5' }}>
               Our Services
             </h3>
             <ul className="space-y-3">
@@ -74,7 +74,7 @@ export default function Footer() {
 
           {/* Column 4 — Get In Touch */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C8A951' }}>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#4A7FA5' }}>
               Get In Touch
             </h3>
             <div className="flex flex-col gap-3">
