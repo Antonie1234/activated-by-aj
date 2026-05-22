@@ -3,29 +3,6 @@ import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
 
-const credentials = [
-  {
-    num: '01',
-    title: 'Tennis Coach',
-    detail: 'Certified tennis coach with 10+ years experience coaching all ages and skill levels, from beginners to competitive players.',
-  },
-  {
-    num: '02',
-    title: 'Padel & Pickleball Coach',
-    detail: 'Advanced certified in both Padel and Pickleball, bringing technical expertise and a competitive edge to every session.',
-  },
-  {
-    num: '03',
-    title: 'Beach Sports',
-    detail: 'Specialised in beach tennis, volleyball and outdoor movement. Training that\'s fun, functional and high energy.',
-  },
-  {
-    num: '04',
-    title: 'Fitness & Conditioning',
-    detail: 'Evidence-based strength, conditioning and bodyweight programming built around your goals and lifestyle.',
-  },
-];
-
 const values = [
   { label: 'Energy', description: 'Every session is charged with intent and drive.' },
   { label: 'Purpose', description: 'Training is always connected to your bigger goals.' },
@@ -87,10 +64,10 @@ export default function About() {
               {/* Quick stats below photo */}
               <div className="grid grid-cols-4 gap-0 mt-6 rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
                 {[
-                  { value: '10+', label: 'Years' },
-                  { value: '4', label: 'Countries' },
-                  { value: '5', label: 'Sports' },
-                  { value: 'All', label: 'Levels' },
+                  { value: '10+',          label: 'Years Coaching' },
+                  { value: '4',            label: 'Sports Qualified' },
+                  { value: 'ITF Top 800',  label: 'World Ranking' },
+                  { value: '4',            label: 'Countries Coached' },
                 ].map((stat, i, arr) => (
                   <div
                     key={stat.label}
@@ -100,7 +77,7 @@ export default function About() {
                       borderRight: i < arr.length - 1 ? '1px solid var(--border)' : 'none',
                     }}
                   >
-                    <div className="text-xl font-black mb-0.5" style={{ color: 'var(--brand-gold)' }}>{stat.value}</div>
+                    <div className="font-black mb-0.5 leading-tight" style={{ color: 'var(--brand-gold)', fontSize: stat.value.length > 4 ? '0.75rem' : '1.25rem' }}>{stat.value}</div>
                     <div className="text-gray-500 text-xs uppercase tracking-wider">{stat.label}</div>
                   </div>
                 ))}
@@ -116,21 +93,14 @@ export default function About() {
                 MORE THAN A COACH
               </h2>
               <div className="space-y-5 text-gray-400 leading-relaxed">
-                <p>AJ is more than a coach. He&apos;s a catalyst.</p>
                 <p>
-                  Growing up with a deep passion for sport and movement, he discovered early
-                  that the way you move your body directly shapes how you show up in life.
+                  Former ITF Top 800-ranked player and internationally qualified coach across tennis, padel, pickleball, beach tennis and fitness.
                 </p>
                 <p>
-                  With expertise across tennis, padel, pickleball and beach sports, AJ brings
-                  a truly holistic approach to coaching. Every session is built around you,
-                  your goals, your game, your lifestyle.
+                  Over a decade of elite coaching experience across South Africa, Thailand, the United States and beyond.
                 </p>
                 <p>
-                  What drives AJ is simple. He believes every person has untapped potential
-                  waiting to be unlocked. Whether you are picking up a racket for the first
-                  time or pushing toward peak performance, AJ meets you where you are and
-                  pushes you further than you thought possible.
+                  AJ doesn&apos;t just coach sport — he builds athletes, brands, and ecosystems around performance.
                 </p>
               </div>
 
@@ -147,48 +117,6 @@ export default function About() {
         </div>
       </section>
 
-      <GoldDivider />
-
-      {/* ── CREDENTIALS ── */}
-      <section className="section-padding relative overflow-hidden" style={{ background: 'var(--background)' }}>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 0 }}>
-          <svg width="580" height="580" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ opacity: 0.07 }}>
-            <polygon points="30,2 6,58 14,58 20,42 40,42 46,58 54,58" fill="white" />
-            <polygon points="18,36 42,36 40,28 20,28" fill="black" />
-            <path d="M 36.2,12.8 A 9,9 0 1 1 23.8,12.8" stroke="black" strokeWidth="2.2" strokeLinecap="round" fill="none" />
-            <line x1="30" y1="10.5" x2="30" y2="18" stroke="black" strokeWidth="2.2" strokeLinecap="round" />
-          </svg>
-        </div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
-          <div className="text-center mb-14" data-animate="fade-up">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
-              Expertise
-            </p>
-            <h2 className="text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
-              WHAT I BRING
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {credentials.map((cred, i) => (
-              <div key={cred.title} className="card card-gold p-6 flex flex-col" style={{ background: 'var(--surface)' }} data-animate="fade-up" data-animate-delay={String(i * 100)}>
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm mb-5 flex-shrink-0"
-                  style={{
-                    background: 'rgba(240,180,41,0.12)',
-                    color: 'var(--brand-gold)',
-                    border: '1px solid rgba(240,180,41,0.25)',
-                  }}
-                >
-                  {cred.num}
-                </div>
-                <h3 className="text-sm font-black uppercase text-white mb-2 tracking-tight">{cred.title}</h3>
-                <div className="blue-divider mb-3" />
-                <p className="text-gray-400 text-sm leading-relaxed flex-1">{cred.detail}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <GoldDivider />
 
