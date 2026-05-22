@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
@@ -261,10 +262,11 @@ export default function Services() {
         const sectionBg = index % 2 === 0 ? 'var(--background)' : 'var(--surface)';
 
         return (
+          <React.Fragment key={service.id}>
+            {index > 0 && <GoldDivider />}
           <section
-            key={service.id}
             id={service.id}
-            style={{ background: sectionBg, borderTop: '1px solid var(--border)' }}
+            style={{ background: sectionBg }}
           >
             <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
               <div className={`grid md:grid-cols-2 gap-10 lg:gap-16 items-center ${!imageLeft ? 'md:[&>*:first-child]:order-2' : ''}`}>
@@ -354,6 +356,7 @@ export default function Services() {
               </div>
             </div>
           </section>
+          </React.Fragment>
         );
       })}
 
