@@ -259,63 +259,62 @@ export default function About() {
 
       <GoldDivider />
 
-      {/* ── VIDEO ── */}
-      <section className="section-padding" style={{ background: '#000' }}>
-        <div className="max-w-5xl mx-auto px-4 sm:px-6" data-animate="fade-up">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{
-              width: '100%',
-              maxHeight: '520px',
-              objectFit: 'cover',
-              borderRadius: '16px',
-              display: 'block',
-              border: '1px solid rgba(201,168,76,0.2)',
-            }}
-          >
-            <source src="/tennismontage.mp4" type="video/mp4" />
-            <source src="/tennis-montage.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </section>
-
-      <GoldDivider />
-
-      {/* ── VALUES ── */}
+      {/* ── VALUES + VIDEO ── */}
       <section className="relative overflow-hidden section-padding" style={{ background: '#000' }}>
         <LogoWatermark size={700} opacity={0.1} />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
-          <div className="text-center mb-12" data-animate="fade-up">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
-              What Drives Me
-            </p>
-            <h2 className="text-4xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
-              MY VALUES
-            </h2>
-          </div>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          <div className="flex flex-col gap-8" data-animate="fade-up">
-            {values.map((v) => (
-              <div key={v.label} className="flex gap-5 items-start">
-                <div
-                  className="w-1 rounded-full flex-shrink-0 mt-1"
-                  style={{ height: '2.5rem', background: 'linear-gradient(180deg, var(--brand-gold), transparent)' }}
-                />
-                <div>
-                  <h3 className="text-lg font-black mb-1" style={{ color: 'var(--brand-gold)' }}>{v.label}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{v.description}</p>
-                </div>
+            {/* LEFT — Values */}
+            <div data-animate="slide-left">
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
+                What Drives Me
+              </p>
+              <h2 className="text-4xl font-black text-white mb-10" style={{ letterSpacing: '-0.02em' }}>
+                MY VALUES
+              </h2>
+              <div className="flex flex-col gap-7">
+                {values.map((v) => (
+                  <div key={v.label} className="flex gap-5 items-start">
+                    <div
+                      className="w-1 rounded-full flex-shrink-0 mt-1"
+                      style={{ height: '2.5rem', background: 'linear-gradient(180deg, var(--brand-gold), transparent)' }}
+                    />
+                    <div>
+                      <h3 className="text-lg font-black mb-1" style={{ color: 'var(--brand-gold)' }}>{v.label}</h3>
+                      <p className="text-gray-400 text-sm leading-relaxed">{v.description}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+              <div className="mt-10">
+                <Link href="/contact" className="btn-gold">
+                  Get In Touch
+                </Link>
+              </div>
+            </div>
 
-          <div className="mt-10 text-center" data-animate="fade-up">
-            <Link href="/contact" className="btn-gold">
-              Get In Touch
-            </Link>
+            {/* RIGHT — Video */}
+            <div data-animate="slide-right">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={{
+                  width: '100%',
+                  maxHeight: '520px',
+                  objectFit: 'cover',
+                  borderRadius: '16px',
+                  display: 'block',
+                  border: '1px solid rgba(201,168,76,0.2)',
+                }}
+              >
+                <source src="/tennismontage.mp4" type="video/mp4" />
+                <source src="/tennis-montage.mp4" type="video/mp4" />
+              </video>
+            </div>
+
           </div>
         </div>
       </section>

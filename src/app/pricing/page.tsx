@@ -243,7 +243,7 @@ export default function Pricing() {
               },
               {
                 label: 'Direct Access',
-                detail: 'WhatsApp AJ directly for questions between sessions',
+                detail: 'Message AJ directly for questions between sessions',
                 svg: (
                   <svg width="28" height="28" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M44 32C44 33.06 43.79 34.08 43.37 35.03C42.95 35.98 42.36 36.85 41.62 37.57C40.33 38.8 38.87 39.42 37.32 39.42C36.12 39.42 34.83 39.1 33.47 38.46L26 42L28.54 34.53C27.9 33.17 27.58 31.88 27.58 30.68C27.58 29.13 28.2 27.67 29.43 26.38C30.66 25.09 32.13 24.5 33.5 24.5" />
@@ -282,7 +282,7 @@ export default function Pricing() {
       <GoldDivider />
 
       {/* ── CTA ── */}
-      <section className="relative overflow-hidden" style={{ background: '#1B3A5C', borderTop: '2px solid #C9A84C' }}>
+      <section className="relative overflow-hidden" style={{ background: '#0A1628', borderTop: '2px solid #C9A84C' }}>
         <LogoWatermark size={500} opacity={0.07} />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center" style={{ zIndex: 1 }}>
           <h2 className="text-3xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
@@ -290,15 +290,8 @@ export default function Pricing() {
           </h2>
           <p className="text-gray-300 mb-8">Get in touch and lock in your first session.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-gold">Book Now</Link>
-            <a
-              href="https://wa.me/27713325218"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline"
-            >
-              WhatsApp AJ
-            </a>
+            <Link href="/contact" className="btn-gold" style={{ minWidth: 180, textAlign: 'center' }}>Book Now</Link>
+            <Link href="/investor-pathway" className="btn-outline" style={{ minWidth: 180, textAlign: 'center' }}>Investor Pathway</Link>
           </div>
         </div>
       </section>

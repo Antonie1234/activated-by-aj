@@ -343,7 +343,7 @@ export default function WebDesignPage() {
       {/* ── CTA ── */}
       <section
         className="section-padding text-center relative overflow-hidden"
-        style={{ background: '#0D1B2A', borderTop: '2px solid #C9A84C' }}
+        style={{ background: '#0A1628', borderTop: '2px solid #C9A84C' }}
       >
         <LogoWatermark size={500} opacity={0.07} />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>

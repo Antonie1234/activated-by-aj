@@ -481,7 +481,7 @@ export default function Home() {
       {/* ── CTA BANNER ── */}
       <section
         className="relative overflow-hidden"
-        style={{ background: '#1B3A5C', borderTop: '2px solid #C9A84C' }}
+        style={{ background: '#0A1628', borderTop: '2px solid #C9A84C' }}
       >
         <LogoWatermark />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center" style={{ zIndex: 1 }} data-animate="fade-up">

@@ -26,21 +26,35 @@ const serviceLinks = [
 export default function Footer() {
   return (
     <footer style={{ background: '#0D1B2A', borderTop: '2px solid rgba(201,168,76,0.4)' }}>
-      {/* ── Brand Banner ── */}
-      <div className="border-b" style={{ borderColor: 'rgba(201,168,76,0.15)' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 text-center">
+      {/* ── Brand CTA Banner ── */}
+      <div className="border-b" style={{ borderColor: 'rgba(201,168,76,0.15)', background: '#0A1628' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-14 text-center">
           <AJLogo height={72} />
-          <p className="mt-4 text-xs font-bold uppercase tracking-widest" style={{ color: 'rgba(201,168,76,0.5)' }}>
-            Coaching · Vision · Padel
+          <p className="mt-5 text-base text-gray-300 leading-relaxed" style={{ fontStyle: 'italic' }}>
+            Your Vibe Activates Your Tribe.
           </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="btn-gold" style={{ minWidth: 160, textAlign: 'center' }}>
+              Book Now
+            </Link>
+            <Link href="/investor-pathway" className="btn-outline" style={{ minWidth: 160, textAlign: 'center' }}>
+              Investor Pathway
+            </Link>
+          </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
-          {/* Column 1 — Quick Links */}
+          {/* Column 1 — Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Originating, connecting, and activating the future of racquet sport.
+            </p>
+          </div>
 
+          {/* Column 2 — Quick Links */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
               Quick Links
@@ -56,7 +70,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2 — Our Services */}
+          {/* Column 3 — Our Services */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
               Our Services
@@ -72,7 +86,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 — Get In Touch */}
+          {/* Column 4 — Get In Touch */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
               Get In Touch
