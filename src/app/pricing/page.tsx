@@ -128,78 +128,75 @@ export default function Pricing() {
 
           <div className="grid sm:grid-cols-2 gap-6">
             {/* Fitness & Diet Programs */}
-            <div
-              className="card card-gold p-8 flex flex-col"
+            <Link
+              href="/contact"
+              className="block group"
               data-animate="slide-left"
-              style={{ background: 'var(--background)', border: '1px solid var(--border)' }}
             >
               <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-                style={{ background: 'rgba(240,180,41,0.12)', border: '1px solid rgba(240,180,41,0.25)' }}
+                className="card card-gold p-8 flex flex-col h-full transition-all duration-200 group-hover:scale-[1.02] group-hover:shadow-[0_0_24px_rgba(201,168,76,0.2)]"
+                style={{ background: 'var(--background)', border: '1px solid var(--border)' }}
               >
-                <svg width="20" height="20" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--brand-gold)' }}>
-                  <rect x="2" y="17" width="5" height="10" rx="1.5" /><rect x="7" y="19" width="4" height="6" rx="1" />
-                  <line x1="11" y1="22" x2="33" y2="22" /><rect x="33" y="19" width="4" height="6" rx="1" />
-                  <rect x="37" y="17" width="5" height="10" rx="1.5" /><rect x="0" y="15" width="3" height="14" rx="1.5" />
-                  <rect x="41" y="15" width="3" height="14" rx="1.5" />
-                </svg>
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
+                  style={{ background: 'rgba(240,180,41,0.12)', border: '1px solid rgba(240,180,41,0.25)' }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--brand-gold)' }}>
+                    <rect x="2" y="17" width="5" height="10" rx="1.5" /><rect x="7" y="19" width="4" height="6" rx="1" />
+                    <line x1="11" y1="22" x2="33" y2="22" /><rect x="33" y="19" width="4" height="6" rx="1" />
+                    <rect x="37" y="17" width="5" height="10" rx="1.5" /><rect x="0" y="15" width="3" height="14" rx="1.5" />
+                    <rect x="41" y="15" width="3" height="14" rx="1.5" />
+                  </svg>
+                </div>
+                <h3 className="font-black text-white text-lg mb-2">Custom Fitness &amp; Diet Programs</h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+                  Receive a fully personalised fitness and nutrition plan built around your goals, lifestyle, and sport.
+                </p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-black" style={{ color: 'var(--brand-gold)' }}>From $100</span>
+                  <span className="text-gray-400 text-sm">one-off</span>
+                </div>
               </div>
-              <h3 className="font-black text-white text-lg mb-2">Custom Fitness &amp; Diet Programs</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
-                Receive a fully personalised fitness and nutrition plan built around your goals, lifestyle, and sport.
-              </p>
-              <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-black" style={{ color: 'var(--brand-gold)' }}>From $100</span>
-                <span className="text-gray-400 text-sm">one-off</span>
-              </div>
-            </div>
+            </Link>
 
             {/* Monthly Coaching Packages — Popular */}
-            <div
-              className="card p-8 flex flex-col relative overflow-hidden"
+            <Link
+              href="/contact"
+              className="block group"
               data-animate="slide-right"
-              style={{
-                background: 'var(--surface-2)',
-                border: '2px solid var(--brand-gold)',
-              }}
             >
-              {/* Popular badge */}
               <div
-                className="absolute top-5 right-5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
-                style={{ background: 'var(--brand-gold)', color: '#0a0a0a' }}
+                className="card p-8 flex flex-col relative overflow-hidden h-full transition-all duration-200 group-hover:scale-[1.02] group-hover:shadow-[0_0_32px_rgba(201,168,76,0.3)]"
+                style={{
+                  background: 'var(--surface-2)',
+                  border: '2px solid var(--brand-gold)',
+                }}
               >
-                Popular
+                {/* Popular badge */}
+                <div
+                  className="absolute top-5 right-5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
+                  style={{ background: 'var(--brand-gold)', color: '#0a0a0a' }}
+                >
+                  Popular
+                </div>
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
+                  style={{ background: 'rgba(240,180,41,0.15)', border: '1px solid rgba(240,180,41,0.3)' }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--brand-gold)' }}>
+                    <rect x="8" y="8" width="28" height="34" rx="3" /><rect x="16" y="4" width="12" height="8" rx="2" />
+                    <line x1="14" y1="20" x2="30" y2="20" /><line x1="14" y1="26" x2="30" y2="26" />
+                    <line x1="14" y1="32" x2="24" y2="32" /><polyline points="14,17 16,19 20,15" />
+                  </svg>
+                </div>
+                <h3 className="font-black text-white text-lg mb-2">Monthly Coaching Packages</h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
+                  Structured monthly programmes combining lessons, fitness, and accountability, tailored to your goals.
+                </p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xl font-black text-white">Pricing on Application</span>
+                </div>
               </div>
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-                style={{ background: 'rgba(240,180,41,0.15)', border: '1px solid rgba(240,180,41,0.3)' }}
-              >
-                <svg width="20" height="20" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--brand-gold)' }}>
-                  <rect x="8" y="8" width="28" height="34" rx="3" /><rect x="16" y="4" width="12" height="8" rx="2" />
-                  <line x1="14" y1="20" x2="30" y2="20" /><line x1="14" y1="26" x2="30" y2="26" />
-                  <line x1="14" y1="32" x2="24" y2="32" /><polyline points="14,17 16,19 20,15" />
-                </svg>
-              </div>
-              <h3 className="font-black text-white text-lg mb-2">Monthly Coaching Packages</h3>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
-                Structured monthly programmes combining lessons, fitness, and accountability, tailored to your goals.
-              </p>
-              <div className="flex items-baseline gap-2">
-                <span className="text-xl font-black text-white">Pricing on Application</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom note */}
-          <div
-            className="mt-10 p-6 rounded-2xl text-center"
-            style={{ background: 'var(--background)', border: '1px solid var(--border)' }}
-          >
-            <p className="text-gray-300 mb-4">
-              Not sure which option suits you? Get in touch and we&apos;ll find the right fit.
-            </p>
-            <Link href="/contact" className="btn-gold">
-              Book Now
             </Link>
           </div>
         </div>
