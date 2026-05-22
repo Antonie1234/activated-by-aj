@@ -249,6 +249,20 @@ input::placeholder, textarea::placeholder {
 .animate-float-fast   { animation: float-fast    4s  ease-in-out infinite; }
 .animate-drift        { animation: drift         13s ease-in-out infinite; }
 
+/* Hero pulse ring — used on About page */
+@keyframes hero-pulse-ring {
+  0%   { transform: translate(-50%, -50%) scale(0.85); opacity: 0.12; }
+  60%  { transform: translate(-50%, -50%) scale(1.4);  opacity: 0.04; }
+  100% { transform: translate(-50%, -50%) scale(1.65); opacity: 0; }
+}
+.hero-pulse-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(74, 158, 191, 0.18);
+  pointer-events: none;
+  animation: hero-pulse-ring 5s ease-in-out infinite;
+}
+
 /* Gold glow section divider */
 .glow-divider {
   height: 1px;

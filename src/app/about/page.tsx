@@ -18,17 +18,28 @@ export default function About() {
       {/* ── HERO ── */}
       <section
         className="relative pt-36 pb-20 overflow-hidden"
-        style={{ background: 'var(--background)' }}
+        style={{ background: '#0D1B2A' }}
       >
+        {/* Radial glow — centred behind logo */}
         <div
-          className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 blur-3xl pointer-events-none"
-          style={{ background: 'rgba(201,168,76,0.15)' }}
+          className="absolute pointer-events-none"
+          style={{
+            top: '50%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 640, height: 640,
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(74,158,191,0.09) 0%, transparent 68%)',
+          }}
         />
+        {/* Pulse ring */}
         <div
-          className="absolute bottom-0 left-0 w-64 h-64 rounded-full opacity-6 blur-3xl pointer-events-none"
-          style={{ background: 'var(--brand-gold)' }}
+          className="hero-pulse-ring"
+          style={{ top: '50%', left: '50%', width: 520, height: 520 }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
+        {/* Logo watermark */}
+        <LogoWatermark size={460} opacity={0.06} />
+        {/* Text content */}
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 1 }} data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Who I Am
           </p>
