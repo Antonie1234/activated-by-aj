@@ -104,14 +104,6 @@ const services = [
   },
 ];
 
-const stats = [
-  { stat: '~50',     label: 'Courts Nationwide' },
-  { stat: '50,000+', label: 'Active Players' },
-  { stat: '200+',    label: 'Courts Projected' },
-  { stat: '2032',    label: 'Olympic Bid' },
-];
-
-
 export default function Home() {
   return (
     <>
