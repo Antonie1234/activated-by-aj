@@ -105,8 +105,8 @@ export default function About() {
           <div className="grid sm:grid-cols-3 gap-8">
             {[
               {
-                title: 'Technique First',
-                body: 'Great results start with great foundations. Before speed, power or tactics, I build the technical base that everything else grows from. Solid technique is the shortcut to long-term improvement.',
+                title: 'Movement First',
+                body: 'Every great result starts with how you move. Before technique, before tactics — vision training and movement patterns are the foundation. Get the movement right and everything else follows.',
                 svg: (
                   <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="26" cy="26" r="22" /><circle cx="26" cy="26" r="14" /><circle cx="26" cy="26" r="6" />
@@ -116,8 +116,8 @@ export default function About() {
                 ),
               },
               {
-                title: 'Mindset Matters',
-                body: "Your body follows your mind. I coach the mental game as hard as the physical. Confidence, focus and resilience are skills you can train. A strong mindset is what separates players when the score is close.",
+                title: 'Vision Over Reaction',
+                body: "The best players don't react — they read. Training the eyes and anticipation before the body moves is what separates good from elite. Vision is the skill most coaches skip.",
                 svg: (
                   <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M26 44 C26 44 10 38 10 24 C10 16 16 10 22 10 C23.5 10 25 10.5 26 11.5 C27 10.5 28.5 10 30 10 C36 10 42 16 42 24 C42 38 26 44 26 44Z" />
@@ -129,7 +129,7 @@ export default function About() {
               },
               {
                 title: 'Progress Over Perfection',
-                body: "I don't chase perfect. I chase better. Consistent forward movement beats waiting for the ideal moment every time. Every session, every rep, every rally. We are building something bigger than yesterday.",
+                body: "Perfection stalls. Progress builds. Every session is about moving forward — one rep, one pattern, one mindset shift at a time. The compound effect of consistent improvement is unstoppable.",
                 svg: (
                   <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="6" y="34" width="8" height="12" rx="1.5" /><rect x="20" y="24" width="8" height="22" rx="1.5" /><rect x="34" y="12" width="8" height="34" rx="1.5" />

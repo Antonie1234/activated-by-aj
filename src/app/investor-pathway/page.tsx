@@ -259,22 +259,17 @@ export default function InvestorPathway() {
                 >
                   {stream.body}
                 </p>
+                {stream.highlight && (
+                  <Link
+                    href="/contact"
+                    className="mt-6 block w-full text-center py-3 rounded-xl font-black uppercase tracking-widest text-sm transition-opacity duration-200 hover:opacity-75"
+                    style={{ background: '#000000', color: 'white' }}
+                  >
+                    Serious Inquiries Only
+                  </Link>
+                )}
               </div>
             ))}
-          </div>
-
-          {/* ── SERIOUS INQUIRIES ── */}
-          <div className="text-center mt-14">
-            <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#4A9EBF', letterSpacing: '0.15em' }}>
-              Serious Inquiries Only
-            </p>
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm transition-all duration-200 hover:opacity-90"
-              style={{ background: 'var(--brand-gold)', color: '#0D1B2A' }}
-            >
-              Submit an Inquiry
-            </Link>
           </div>
         </div>
       </section>
