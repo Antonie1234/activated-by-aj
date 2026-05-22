@@ -61,27 +61,6 @@ export default function About() {
                   style={{ maxHeight: '520px', objectPosition: 'top' }}
                 />
               </div>
-              {/* Quick stats below photo */}
-              <div className="grid grid-cols-4 gap-0 mt-6 rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }}>
-                {[
-                  { value: '10+',          label: 'Years Coaching' },
-                  { value: '4',            label: 'Sports Qualified' },
-                  { value: 'ITF Top 800',  label: 'World Ranking' },
-                  { value: '4',            label: 'Countries Coached' },
-                ].map((stat, i, arr) => (
-                  <div
-                    key={stat.label}
-                    className="py-4 text-center"
-                    style={{
-                      background: 'var(--surface-2)',
-                      borderRight: i < arr.length - 1 ? '1px solid var(--border)' : 'none',
-                    }}
-                  >
-                    <div className="font-black mb-0.5 leading-tight" style={{ color: 'var(--brand-gold)', fontSize: stat.value.length > 4 ? '0.75rem' : '1.25rem' }}>{stat.value}</div>
-                    <div className="text-gray-500 text-xs uppercase tracking-wider">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Bio content */}
@@ -94,23 +73,14 @@ export default function About() {
               </h2>
               <div className="space-y-5 text-gray-400 leading-relaxed">
                 <p>
-                  Former ITF Top 800-ranked player and internationally qualified coach across tennis, padel, pickleball, beach tennis and fitness.
+                  Former ITF Top 800-ranked player and internationally qualified coach across tennis, padel, pickleball, beach tennis and fitness. Over a decade of elite coaching experience across South Africa, Thailand, the United States and beyond.
                 </p>
                 <p>
-                  Over a decade of elite coaching experience across South Africa, Thailand, the United States and beyond.
+                  Before coaching was a career, it was a way of life. Growing up competing on the national circuit in South Africa, representing at Junior Davis Cup level, and training in professional squads — the standard was always high. That competitive foundation is what every client gets access to.
                 </p>
                 <p>
-                  AJ doesn&apos;t just coach sport — he builds athletes, brands, and ecosystems around performance.
+                  Off the court, AJ is building something bigger. Activated by AJ is a premium racquet sport brand and facility development platform. Reflect Motion is the AI performance technology layer powering it. The vision is a fully integrated sports ecosystem — and it&apos;s already in motion.
                 </p>
-              </div>
-
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link href="/contact" className="btn-gold">
-                  Work With AJ
-                </Link>
-                <Link href="/services" className="btn-outline">
-                  See Services
-                </Link>
               </div>
             </div>
           </div>

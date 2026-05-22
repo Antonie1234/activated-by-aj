@@ -262,43 +262,18 @@ export default function InvestorPathway() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-
-      <GoldDivider />
-
-      {/* ── CTA ── */}
-      <section className="section-padding" style={{ background: 'var(--brand-gold)' }}>
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h2
-            className="text-4xl sm:text-5xl font-black mb-4"
-            style={{ color: '#0D1B2A', letterSpacing: '-0.02em' }}
-          >
-            Serious enquiries only.
-          </h2>
-          <p className="text-lg mb-10 max-w-xl mx-auto leading-relaxed" style={{ color: 'rgba(13,27,42,0.7)' }}>
-            All conversations handled under strict confidentiality. Concept overviews, business plans, and working group
-            details available upon request.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* ── SERIOUS INQUIRIES ── */}
+          <div className="text-center mt-14">
+            <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#4A9EBF', letterSpacing: '0.15em' }}>
+              Serious Inquiries Only
+            </p>
             <Link
               href="/contact"
-              className="px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm transition-all duration-200 hover:opacity-90"
-              style={{ background: '#0D1B2A', color: 'var(--brand-gold)' }}
+              className="inline-block px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm transition-all duration-200 hover:opacity-90"
+              style={{ background: 'var(--brand-gold)', color: '#0D1B2A' }}
             >
-              Submit an Enquiry
-            </Link>
-            <Link
-              href="/about"
-              className="px-8 py-4 rounded-full font-black uppercase tracking-widest text-sm transition-all duration-200 hover:bg-[#0D1B2A] hover:text-[var(--brand-gold)]"
-              style={{
-                background: 'transparent',
-                color: '#0D1B2A',
-                border: '2px solid #0D1B2A',
-              }}
-            >
-              About AJ
+              Submit an Inquiry
             </Link>
           </div>
         </div>
