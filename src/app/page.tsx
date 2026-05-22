@@ -321,14 +321,13 @@ export default function Home() {
                       />
                     </div>
                   )}
-                  <div className="p-8 flex flex-col flex-1">
+                  <div className="p-6 flex flex-col flex-1">
                     <h3
-                      className="text-lg font-black uppercase mb-3 tracking-tight transition-colors"
+                      className="text-base font-black uppercase mb-2 tracking-tight transition-colors"
                       style={{ letterSpacing: '-0.01em', color: 'white' }}
                     >
                       {service.title}
                     </h3>
-                    <div className="blue-divider mb-4" />
                     <p className="text-gray-400 text-sm leading-relaxed flex-1">{service.description}</p>
                   </div>
                 </div>
@@ -434,7 +433,6 @@ export default function Home() {
                       <span key={j} style={{ color: 'var(--brand-gold)' }}>★</span>
                     ))}
                   </div>
-                  <div className="text-3xl mb-3" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>&ldquo;</div>
                   <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
                 </div>
               </Link>
@@ -446,8 +444,16 @@ export default function Home() {
       <GoldDivider />
 
       {/* ── ACTIVATED PARTNERS ── */}
-      <section className="section-padding" style={{ background: 'var(--surface)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <section className="section-padding relative overflow-hidden" style={{ background: '#0D1B2A' }}>
+        {/* Dot-grid tech pattern */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(232,244,253,0.045) 1px, transparent 1px)',
+            backgroundSize: '28px 28px',
+          }}
+        />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-10" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8F4FD' }}>
               Trusted Network
@@ -460,57 +466,102 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-md mx-auto">
 
             {/* ── Reflect Motion card ── */}
             <div
-              className="relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_8px_64px_rgba(0,0,0,0.6),0_0_32px_rgba(232,244,253,0.15),0_0_0_1px_rgba(232,244,253,0.5)]"
+              className="relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_12px_64px_rgba(0,0,0,0.7),0_0_32px_rgba(232,244,253,0.08)]"
               style={{
-                background: '#0D1B2A',
-                border: '1px solid rgba(232,244,253,0.3)',
-                boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(232,244,253,0.08)',
+                background: '#070F18',
+                border: '1px solid rgba(232,244,253,0.15)',
               }}
               data-animate="fade-up"
             >
-              <div className="flex flex-col justify-center px-8 py-8 h-full">
-                {/* Logo */}
-                <div className="mb-6">
-                  <img
-                    src="https://reflectmotion.com/logo.png"
-                    alt="Reflect Motion"
-                    style={{ height: 36, width: 'auto', objectFit: 'contain' }}
-                  />
-                </div>
-                <div className="mb-4">
+              {/* Radial glow centred behind logo area */}
+              <div
+                className="absolute top-0 left-1/2 pointer-events-none"
+                style={{
+                  width: 360,
+                  height: 260,
+                  transform: 'translateX(-50%)',
+                  background: 'radial-gradient(circle, rgba(232,244,253,0.05) 0%, transparent 70%)',
+                }}
+              />
+
+              <div className="relative flex flex-col items-center text-center px-8 py-10" style={{ zIndex: 1 }}>
+                {/* Activated Partner badge */}
+                <div className="mb-7">
                   <span
-                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                    style={{ color: '#E8F4FD', border: '1px solid rgba(232,244,253,0.4)', background: 'rgba(232,244,253,0.08)' }}
+                    className="text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
+                    style={{
+                      color: '#E8F4FD',
+                      border: '1px solid rgba(232,244,253,0.25)',
+                      background: 'rgba(232,244,253,0.05)',
+                    }}
                   >
                     Activated Partner
                   </span>
                 </div>
-                <h3 className="text-2xl font-black text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
-                  Reflect Motion
-                </h3>
-                <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#E8F4FD' }}>
+
+                {/* Logo — larger, centred */}
+                <div className="mb-5">
+                  <img
+                    src="https://reflectmotion.com/logo.png"
+                    alt="Reflect Motion"
+                    style={{ height: 56, width: 'auto', objectFit: 'contain' }}
+                  />
+                </div>
+
+                {/* Subtitle */}
+                <p
+                  className="text-xs font-bold uppercase tracking-widest mb-6"
+                  style={{ color: 'var(--brand-gold)', letterSpacing: '0.12em' }}
+                >
                   AI-Powered Movement Analysis
                 </p>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+
+                {/* Description */}
+                <p className="text-gray-400 text-sm leading-relaxed mb-7">
                   Reflect Motion uses AI computer vision to analyse your movement in real time, score every rep, and deliver personalised coaching feedback. Built for athletes, coaches, and anyone serious about performance.
                 </p>
-                <p className="text-xs font-bold uppercase tracking-widest mb-8" style={{ color: '#E8F4FD' }}>
-                  Coach Code: MPTYSA
-                </p>
-                <div>
-                  <a
-                    href="https://www.reflectmotion.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-gold"
+
+                {/* Coach Code — monospace techy badge */}
+                <div
+                  className="mb-8 px-6 py-3 rounded-lg"
+                  style={{
+                    background: 'rgba(4,8,14,0.8)',
+                    border: '1px solid rgba(232,244,253,0.1)',
+                  }}
+                >
+                  <p
+                    className="text-gray-600 uppercase tracking-widest mb-1"
+                    style={{ fontSize: '0.65rem' }}
                   >
-                    Get Started Free
-                  </a>
+                    Coach Code
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+                      color: '#E8F4FD',
+                      fontSize: '1.05rem',
+                      letterSpacing: '0.28em',
+                      fontWeight: 700,
+                    }}
+                  >
+                    MPTYSA
+                  </p>
                 </div>
+
+                {/* Full-width CTA button */}
+                <a
+                  href="https://www.reflectmotion.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-gold"
+                  style={{ display: 'block', width: '100%', textAlign: 'center' }}
+                >
+                  Get Started Free
+                </a>
               </div>
             </div>
 

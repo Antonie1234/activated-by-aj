@@ -337,6 +337,32 @@ input::placeholder, textarea::placeholder {
   transform: translateX(36px);
 }
 
+/* ── Mobile: universal centre-align ── */
+@media (max-width: 767px) {
+  section {
+    text-align: center;
+  }
+  /* Keep form fields left-aligned for readability */
+  section input,
+  section textarea,
+  section select {
+    text-align: left;
+  }
+  /* Centre all flex containers except FAQ-style justify-between toggles */
+  section .flex:not(.justify-between) {
+    justify-content: center;
+  }
+  /* Stack left-icon + text flex rows vertically (about values, investor pathway steps) */
+  section .flex.items-start.gap-5 {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Hide narrow vertical accent bars on mobile */
+  section .flex.items-start.gap-5 > .w-1 {
+    display: none;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

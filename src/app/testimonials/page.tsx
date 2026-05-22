@@ -318,8 +318,7 @@ export default function Testimonials() {
                     </div>
                   </div>
                   <StarRating count={t.rating} />
-                  <div className="text-3xl mt-4 mb-3" style={{ color: 'var(--brand-gold)', opacity: 0.5 }}>&ldquo;</div>
-                  <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
+                  <p className="mt-4 text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
                   </div>
                 </div>
               ))}
