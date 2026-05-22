@@ -249,7 +249,7 @@ export default function Testimonials() {
                     ? { background: 'var(--brand-gold)', color: '#0a0a0a', boxShadow: '0 4px 16px rgba(232,244,253,0.3)' }
                     : {
                         background: 'var(--surface)',
-                        color: 'rgba(232,244,253,0.7)',
+                        color: 'rgba(200,169,81,0.7)',
                         border: '1px solid var(--border)',
                       }
                 }
@@ -295,12 +295,12 @@ export default function Testimonials() {
                         style={{
                           width: 64, height: 64, borderRadius: '50%',
                           background: '#0D1B2A',
-                          border: '2px solid #E8F4FD',
+                          border: '2px solid var(--brand-gold)',
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
                           flexShrink: 0,
                         }}
                       >
-                        <span style={{ color: '#E8F4FD', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
+                        <span style={{ color: 'var(--brand-gold)', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
                       </div>
                     )}
                     <div>
@@ -308,9 +308,9 @@ export default function Testimonials() {
                       <div
                         className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                         style={{
-                          background: 'rgba(232,244,253,0.1)',
+                          background: 'rgba(200,169,81,0.15)',
                           color: 'var(--brand-gold)',
-                          border: '1px solid rgba(232,244,253,0.25)',
+                          border: '1px solid rgba(200,169,81,0.35)',
                         }}
                       >
                         {t.service}

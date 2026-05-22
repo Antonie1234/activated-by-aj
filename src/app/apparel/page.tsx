@@ -47,8 +47,8 @@ export default function Apparel() {
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
             style={{
-              background: 'rgba(232,244,253,0.12)',
-              border: '1px solid rgba(232,244,253,0.3)',
+              background: 'rgba(200,169,81,0.12)',
+              border: '1px solid rgba(200,169,81,0.3)',
               color: 'var(--brand-gold)',
             }}
           >
@@ -109,8 +109,8 @@ export default function Apparel() {
             <div
               className="max-w-md mx-auto p-6 rounded-lg text-center"
               style={{
-                background: 'rgba(232,244,253,0.1)',
-                border: '1px solid rgba(232,244,253,0.25)',
+                background: 'rgba(200,169,81,0.1)',
+                border: '1px solid rgba(200,169,81,0.25)',
               }}
             >
               <div className="text-3xl mb-3">🔥</div>

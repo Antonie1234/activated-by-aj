@@ -139,7 +139,7 @@ export default function Pricing() {
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-                  style={{ background: 'rgba(232,244,253,0.12)', border: '1px solid rgba(232,244,253,0.25)' }}
+                  style={{ background: 'rgba(200,169,81,0.12)', border: '1px solid rgba(200,169,81,0.25)' }}
                 >
                   <svg width="20" height="20" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--brand-gold)' }}>
                     <rect x="2" y="17" width="5" height="10" rx="1.5" /><rect x="7" y="19" width="4" height="6" rx="1" />
@@ -181,7 +181,7 @@ export default function Pricing() {
                 </div>
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
-                  style={{ background: 'rgba(232,244,253,0.15)', border: '1px solid rgba(232,244,253,0.3)' }}
+                  style={{ background: 'rgba(200,169,81,0.15)', border: '1px solid rgba(200,169,81,0.3)' }}
                 >
                   <svg width="20" height="20" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--brand-gold)' }}>
                     <rect x="8" y="8" width="28" height="34" rx="3" /><rect x="16" y="4" width="12" height="8" rx="2" />
@@ -261,8 +261,8 @@ export default function Pricing() {
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
                   style={{
-                    background: 'rgba(232,244,253,0.10)',
-                    border: '1px solid rgba(232,244,253,0.2)',
+                    background: 'rgba(200,169,81,0.10)',
+                    border: '1px solid rgba(200,169,81,0.2)',
                     color: 'var(--brand-gold)',
                   }}
                 >

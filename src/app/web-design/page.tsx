@@ -229,7 +229,7 @@ export default function WebDesignPage() {
                       <span
                         className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 text-xs font-bold"
                         style={{
-                          background: 'rgba(232,244,253,0.15)',
+                          background: 'rgba(200,169,81,0.15)',
                           color: 'var(--brand-gold)',
                         }}
                       >
@@ -308,9 +308,9 @@ export default function WebDesignPage() {
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-black text-sm"
                   style={{
-                    background: 'rgba(232,244,253,0.12)',
+                    background: 'rgba(200,169,81,0.12)',
                     color: 'var(--brand-gold)',
-                    border: '1px solid rgba(232,244,253,0.3)',
+                    border: '1px solid rgba(200,169,81,0.3)',
                   }}
                 >
                   {step.number}
@@ -324,7 +324,7 @@ export default function WebDesignPage() {
                     {i < steps.length - 1 && (
                       <span
                         className="text-xs hidden sm:inline"
-                        style={{ color: 'rgba(232,244,253,0.4)' }}
+                        style={{ color: 'rgba(200,169,81,0.5)' }}
                       >
                         →
                       </span>

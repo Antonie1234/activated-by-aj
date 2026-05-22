@@ -153,7 +153,7 @@ export default function Home() {
           style={{ width: '70vmin', height: '70vmin', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.22, zIndex: 2 }}
           aria-hidden="true"
         >
-          <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#E8F4FD" />
+          <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#C8A951" />
           <polygon points="24,26 36,26 34,20 26,20" fill="#0a0a0a" />
         </svg>
 
@@ -161,21 +161,17 @@ export default function Home() {
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
             style={{
-              background: 'rgba(232,244,253,0.1)',
-              border: '1px solid rgba(232,244,253,0.25)',
+              background: 'rgba(200,169,81,0.12)',
+              border: '1px solid rgba(200,169,81,0.3)',
               color: 'var(--brand-gold)',
             }}
           >
-            <span
-              className="w-1.5 h-1.5 rounded-full animate-pulse"
-              style={{ background: 'var(--brand-gold)' }}
-            />
             <span style={{ fontSize: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>Padel</span>
-            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', opacity: 0.6 }}>·</span>
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit' }}>·</span>
             <span style={{ fontSize: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>Racquet Sport</span>
-            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', opacity: 0.6 }}>·</span>
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit' }}>·</span>
             <span style={{ fontSize: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>Lifestyle</span>
-            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', opacity: 0.6 }}>·</span>
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit' }}>·</span>
             <span style={{ fontSize: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>Performance</span>
           </div>
 
@@ -188,7 +184,7 @@ export default function Home() {
             <span className="text-white block">INTO PURPOSE</span>
           </h1>
 
-          <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="hero-tagline max-w-2xl mx-auto mb-10 leading-relaxed">
             Your Vibe Activates Your Tribe.
           </p>
         </div>
@@ -202,7 +198,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div data-animate="slide-left">
-              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8F4FD' }}>
+              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
                 Meet AJ
               </p>
               <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6" style={{ letterSpacing: '-0.02em' }}>
@@ -282,7 +278,7 @@ export default function Home() {
         </div>
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-10" data-animate="fade-up">
-            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8F4FD' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
               What I Offer
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -362,7 +358,7 @@ export default function Home() {
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10" data-animate="fade-up">
-            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8F4FD' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
               Real Results
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -407,21 +403,21 @@ export default function Home() {
                       style={{
                         width: 64, height: 64, borderRadius: '50%',
                         background: '#0D1B2A',
-                        border: '2px solid #E8F4FD',
+                        border: '2px solid var(--brand-gold)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         flexShrink: 0,
                       }}
                     >
-                      <span style={{ color: '#E8F4FD', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
+                      <span style={{ color: 'var(--brand-gold)', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
                     </div>
                     <div>
                       <p className="font-bold text-white text-sm">{t.name}</p>
                       <div
                         className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                         style={{
-                          background: 'rgba(232, 244, 253, 0.1)',
-                          color: '#E8F4FD',
-                          border: '1px solid rgba(232, 244, 253, 0.3)',
+                          background: 'rgba(200,169,81,0.15)',
+                          color: 'var(--brand-gold)',
+                          border: '1px solid rgba(200,169,81,0.35)',
                         }}
                       >
                         {t.service}
@@ -455,7 +451,7 @@ export default function Home() {
         />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-10" data-animate="fade-up">
-            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8F4FD' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
               Trusted Network
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -494,9 +490,9 @@ export default function Home() {
                   <span
                     className="text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
                     style={{
-                      color: '#E8F4FD',
-                      border: '1px solid rgba(232,244,253,0.25)',
-                      background: 'rgba(232,244,253,0.05)',
+                      color: 'var(--brand-gold)',
+                      border: '1px solid rgba(200,169,81,0.3)',
+                      background: 'rgba(200,169,81,0.08)',
                     }}
                   >
                     Activated Partner
@@ -542,7 +538,7 @@ export default function Home() {
                   <p
                     style={{
                       fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
-                      color: '#E8F4FD',
+                      color: 'var(--brand-gold)',
                       fontSize: '1.05rem',
                       letterSpacing: '0.28em',
                       fontWeight: 700,

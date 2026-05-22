@@ -89,8 +89,8 @@ export default function InvestorPathway() {
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
             style={{
-              background: 'rgba(232,244,253,0.1)',
-              border: '1px solid rgba(232,244,253,0.3)',
+              background: 'rgba(200,169,81,0.12)',
+              border: '1px solid rgba(200,169,81,0.3)',
               color: 'var(--brand-gold)',
             }}
           >
@@ -156,7 +156,6 @@ export default function InvestorPathway() {
                   {step.num}
                 </div>
                 <h3 className="text-base font-black text-white mb-3 uppercase tracking-widest">{step.title}</h3>
-                <div className="w-6 h-0.5 mb-3 mx-auto" style={{ background: 'var(--brand-gold)' }} />
                 <p className="text-gray-400 !text-lg leading-relaxed">{step.desc}</p>
 
                 {/* Connector arrow */}
@@ -226,7 +225,7 @@ export default function InvestorPathway() {
                       style={
                         stream.highlight
                           ? { background: 'rgba(0,0,0,0.15)', color: '#0D1B2A' }
-                          : { background: 'rgba(232,244,253,0.1)', color: 'var(--brand-gold)', border: '1px solid rgba(232,244,253,0.3)' }
+                          : { background: 'rgba(200,169,81,0.15)', color: 'var(--brand-gold)', border: '1px solid rgba(200,169,81,0.35)' }
                       }
                     >
                       {stream.label}
@@ -234,7 +233,7 @@ export default function InvestorPathway() {
                     {stream.sublabel && (
                       <span
                         className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                        style={{ background: 'rgba(232,244,253,0.06)', color: 'rgba(232,244,253,0.65)', border: '1px solid rgba(232,244,253,0.2)' }}
+                        style={{ background: 'rgba(200,169,81,0.1)', color: 'rgba(200,169,81,0.8)', border: '1px solid rgba(200,169,81,0.25)' }}
                       >
                         {stream.sublabel}
                       </span>

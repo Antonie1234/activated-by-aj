@@ -5,8 +5,16 @@
   --foreground: #ffffff;
   --brand-blue: #1a6fd4;
   --brand-blue-light: #3b8fe8;
-  --brand-gold: #E8F4FD;
-  --brand-gold-light: #F5FBFE;
+  /* ── Two-tone accent system ── */
+  --brand-gold: #C8A951;          /* warm gold — CTAs, stars, labels, numbers */
+  --brand-gold-light: #D4BC6E;    /* lighter gold for gradients */
+  --brand-platinum: #E8F4FD;      /* cool platinum — dividers, borders, structure */
+  --brand-platinum-light: #F5FBFE;
+  /* Semantic aliases */
+  --color-gold: #C8A951;
+  --color-platinum: #E8F4FD;
+  --color-navy: #0D1B2A;
+  --color-black: #000000;
   --surface: #111111;
   --surface-2: #1a1a1a;
   --border: #2a2a2a;
@@ -67,9 +75,22 @@ p.text-xs {
   background-clip: text;
 }
 
+/* Hero tagline sizing — overrides global p rule */
+.hero-tagline {
+  font-size: 1.375rem !important; /* 22px mobile */
+  font-weight: 600 !important;
+  color: white !important;
+  opacity: 1 !important;
+}
+@media (min-width: 640px) {
+  .hero-tagline {
+    font-size: 1.75rem !important; /* 28px desktop */
+  }
+}
+
 /* Button styles */
 .btn-primary {
-  background: #E8F4FD;
+  background: #C8A951;
   color: #0D1B2A;
   font-weight: 700;
   padding: 0.875rem 2rem;
@@ -86,12 +107,12 @@ p.text-xs {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(232, 244, 253, 0.3);
-  filter: brightness(1.05);
+  box-shadow: 0 8px 24px rgba(200, 169, 81, 0.45);
+  filter: brightness(1.06);
 }
 
 .btn-gold {
-  background: #E8F4FD;
+  background: #C8A951;
   color: #0D1B2A;
   font-weight: 700;
   padding: 0.875rem 2rem;
@@ -108,8 +129,8 @@ p.text-xs {
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(232, 244, 253, 0.3);
-  filter: brightness(1.05);
+  box-shadow: 0 8px 24px rgba(200, 169, 81, 0.45);
+  filter: brightness(1.06);
 }
 
 .btn-gold-outline {
@@ -129,9 +150,11 @@ p.text-xs {
 }
 
 .btn-gold-outline:hover {
-  background: rgba(232, 244, 253, 0.1);
+  background: rgba(200, 169, 81, 0.1);
+  border-color: #C8A951;
+  color: #C8A951;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(232, 244, 253, 0.2);
+  box-shadow: 0 8px 24px rgba(200, 169, 81, 0.25);
 }
 
 .btn-outline {
@@ -151,11 +174,11 @@ p.text-xs {
 }
 
 .btn-outline:hover {
-  border-color: #E8F4FD;
-  color: #E8F4FD;
+  border-color: #C8A951;
+  color: #C8A951;
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(232, 244, 253, 0.15);
-  filter: brightness(1.05);
+  box-shadow: 0 4px 16px rgba(200, 169, 81, 0.2);
+  filter: brightness(1.06);
 }
 
 /* Section styles */

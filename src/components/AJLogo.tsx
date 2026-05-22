@@ -6,12 +6,12 @@ export default function AJLogo({ height = 40 }: { height?: number }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Activated by AJ"
-      style={{ filter: 'drop-shadow(0 0 8px rgba(232,244,253,0.3))' }}
+      style={{ filter: 'drop-shadow(0 0 8px rgba(200,169,81,0.4))' }}
     >
       {/* "A" mark */}
       <polygon
         points="18,32 26,32 30,20 34,32 42,32 30,8"
-        fill="#E8F4FD"
+        fill="#C8A951"
       />
       <polygon
         points="24,26 36,26 34,20 26,20"
@@ -37,7 +37,7 @@ export default function AJLogo({ height = 40 }: { height?: number }) {
         fontWeight="700"
         fontSize="9"
         letterSpacing="3"
-        fill="#E8F4FD"
+        fill="#C8A951"
       >
         BY AJ
       </text>
