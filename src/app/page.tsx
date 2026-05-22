@@ -512,31 +512,6 @@ export default function Home() {
         </div>
       </section>
 
-      <GoldDivider />
-
-      {/* ── CTA BANNER ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: '#0A1628', borderTop: '2px solid #C9A84C' }}
-      >
-        <LogoWatermark />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center" style={{ zIndex: 1 }} data-animate="fade-up">
-          <h2 className="text-3xl sm:text-4xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-            READY TO GET ACTIVATED?
-          </h2>
-          <p className="text-gray-300 mb-8 text-lg">
-            Book a session, explore the investor pathway, or just start a conversation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/investor-pathway" className="btn-gold" style={{ minWidth: 180, textAlign: 'center' }}>
-              Investor Enquiry
-            </Link>
-            <Link href="/contact" className="btn-outline" style={{ minWidth: 180, textAlign: 'center' }}>
-              Book a Session
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
