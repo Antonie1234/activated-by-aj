@@ -112,7 +112,7 @@ const services = [
     logoUrl: 'https://reflectmotion.com/logo.png',
     title: 'AI Performance Tech',
     description: 'Powered by Reflect Motion — AI movement analysis that tracks your technique, scores every rep, and delivers real-time coaching feedback.',
-    href: 'https://reflectmotion.com/signup?coach=MPTYSA',
+    href: 'https://www.reflectmotion.com',
     external: true,
   },
 ];
@@ -497,7 +497,7 @@ export default function Home() {
                 </p>
                 <div>
                   <a
-                    href="https://reflectmotion.com/signup"
+                    href="https://www.reflectmotion.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-gold"

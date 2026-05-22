@@ -279,7 +279,7 @@ export default function Pricing() {
       <GoldDivider />
 
       {/* ── CTA ── */}
-      <section className="relative overflow-hidden" style={{ background: '#0A1628', borderTop: '2px solid #C9A84C' }}>
+      <section className="relative overflow-hidden" style={{ background: '#0A1628' }}>
         <LogoWatermark size={500} opacity={0.07} />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center" style={{ zIndex: 1 }}>
           <h2 className="text-3xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
