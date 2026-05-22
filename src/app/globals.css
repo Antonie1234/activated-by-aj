@@ -35,6 +35,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ── Global body text size ── */
+p {
+  font-size: 1.0625rem !important; /* 17px */
+}
+p.text-xs {
+  font-size: 0.8125rem !important; /* 13px — keeps small labels distinctly small */
+}
+
 /* Utility classes */
 .brand-blue { color: var(--brand-blue); }
 .brand-gold { color: var(--brand-gold); }

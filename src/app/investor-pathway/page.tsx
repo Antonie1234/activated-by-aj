@@ -155,9 +155,9 @@ export default function InvestorPathway() {
                 >
                   {step.num}
                 </div>
-                <h3 className="text-sm font-black text-white mb-3 uppercase tracking-widest">{step.title}</h3>
+                <h3 className="text-base font-black text-white mb-3 uppercase tracking-widest">{step.title}</h3>
                 <div className="w-6 h-0.5 mb-3 mx-auto" style={{ background: 'var(--brand-gold)' }} />
-                <p className="text-gray-400 text-xs leading-relaxed">{step.desc}</p>
+                <p className="text-gray-400 !text-lg leading-relaxed">{step.desc}</p>
 
                 {/* Connector arrow */}
                 {i < steps.length - 1 && (
@@ -187,8 +187,8 @@ export default function InvestorPathway() {
                   {step.num}
                 </div>
                 <div>
-                  <h3 className="text-sm font-black text-white mb-2 uppercase tracking-widest">{step.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{step.desc}</p>
+                  <h3 className="text-base font-black text-white mb-2 uppercase tracking-widest">{step.title}</h3>
+                  <p className="text-gray-400 !text-lg leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             ))}
