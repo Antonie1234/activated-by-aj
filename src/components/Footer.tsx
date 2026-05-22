@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Column 2 — Quick Links */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#E8F4FD' }}>
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -58,7 +58,7 @@ export default function Footer() {
           {/* Column 3 — Our Services */}
 
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#E8F4FD' }}>
               Our Services
             </h3>
             <ul className="space-y-3">
@@ -74,7 +74,7 @@ export default function Footer() {
 
           {/* Column 4 — Get In Touch */}
           <div>
-            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#C9A84C' }}>
+            <h3 className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#E8F4FD' }}>
               Get In Touch
             </h3>
             <div className="flex flex-col gap-3">
@@ -100,7 +100,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div
           className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-600"
-          style={{ borderTop: '1px solid rgba(201,168,76,0.15)' }}
+          style={{ borderTop: '1px solid rgba(232,244,253,0.12)' }}
         >
           <p>© 2026 Activated by AJ. All rights reserved.</p>
           <div className="flex gap-6">

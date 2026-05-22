@@ -28,7 +28,7 @@ export default function About() {
             transform: 'translate(-50%, -50%)',
             width: 640, height: 640,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(74,158,191,0.09) 0%, transparent 68%)',
+            background: 'radial-gradient(circle, rgba(232,244,253,0.07) 0%, transparent 68%)',
           }}
         />
         {/* Pulse ring */}
@@ -63,7 +63,7 @@ export default function About() {
             <div className="md:sticky md:top-28" data-animate="slide-left">
               <div
                 className="rounded-2xl overflow-hidden"
-                style={{ border: '1px solid rgba(240,180,41,0.2)' }}
+                style={{ border: '1px solid rgba(232,244,253,0.2)' }}
               >
                 <img
                   src="/aj-pickleball.jpg"
@@ -216,7 +216,7 @@ export default function About() {
                   objectFit: 'cover',
                   borderRadius: '16px',
                   display: 'block',
-                  border: '1px solid rgba(201,168,76,0.2)',
+                  border: '1px solid rgba(232,244,253,0.2)',
                 }}
               >
                 <source src="/tennismontage.mp4" type="video/mp4" />

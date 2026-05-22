@@ -12,7 +12,7 @@ export default function LogoWatermark({ size = 800, opacity = 0.12 }: { size?: n
         style={{ opacity }}
         aria-hidden="true"
       >
-        <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#C9A84C" />
+        <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#E8F4FD" />
         <polygon points="24,26 36,26 34,20 26,20" fill="#0a0a0a" />
       </svg>
     </div>

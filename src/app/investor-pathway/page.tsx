@@ -81,7 +81,7 @@ export default function InvestorPathway() {
         <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
           style={{
-            background: 'radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(232,244,253,0.08) 0%, transparent 70%)',
             transform: 'translate(30%, -30%)',
           }}
         />
@@ -89,8 +89,8 @@ export default function InvestorPathway() {
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
             style={{
-              background: 'rgba(201,168,76,0.1)',
-              border: '1px solid rgba(201,168,76,0.3)',
+              background: 'rgba(232,244,253,0.1)',
+              border: '1px solid rgba(232,244,253,0.3)',
               color: 'var(--brand-gold)',
             }}
           >
@@ -213,10 +213,10 @@ export default function InvestorPathway() {
 
           <div className="grid sm:grid-cols-3 gap-6">
             {revenueStreams.map((stream, i) => {
-              const cardClass = `flex flex-col p-8 rounded-2xl${stream.href ? ' transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(201,168,76,0.2)]' : ''}`;
+              const cardClass = `flex flex-col p-8 rounded-2xl${stream.href ? ' transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(232,244,253,0.2)]' : ''}`;
               const cardStyle = stream.highlight
                 ? { background: 'var(--brand-gold)', border: '2px solid var(--brand-gold)' }
-                : { background: 'rgba(13,27,42,0.8)', border: '1px solid rgba(201,168,76,0.3)', cursor: stream.href ? 'pointer' as const : undefined };
+                : { background: 'rgba(13,27,42,0.8)', border: '1px solid rgba(232,244,253,0.3)', cursor: stream.href ? 'pointer' as const : undefined };
 
               const inner = (
                 <>
@@ -226,7 +226,7 @@ export default function InvestorPathway() {
                       style={
                         stream.highlight
                           ? { background: 'rgba(0,0,0,0.15)', color: '#0D1B2A' }
-                          : { background: 'rgba(201,168,76,0.1)', color: 'var(--brand-gold)', border: '1px solid rgba(201,168,76,0.3)' }
+                          : { background: 'rgba(232,244,253,0.1)', color: 'var(--brand-gold)', border: '1px solid rgba(232,244,253,0.3)' }
                       }
                     >
                       {stream.label}
@@ -234,7 +234,7 @@ export default function InvestorPathway() {
                     {stream.sublabel && (
                       <span
                         className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                        style={{ background: 'rgba(201,168,76,0.06)', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.2)' }}
+                        style={{ background: 'rgba(232,244,253,0.06)', color: 'rgba(232,244,253,0.65)', border: '1px solid rgba(232,244,253,0.2)' }}
                       >
                         {stream.sublabel}
                       </span>

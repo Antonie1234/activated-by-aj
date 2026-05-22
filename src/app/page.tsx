@@ -153,7 +153,7 @@ export default function Home() {
           style={{ width: '70vmin', height: '70vmin', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', opacity: 0.22, zIndex: 2 }}
           aria-hidden="true"
         >
-          <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#C9A84C" />
+          <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#E8F4FD" />
           <polygon points="24,26 36,26 34,20 26,20" fill="#0a0a0a" />
         </svg>
 
@@ -161,8 +161,8 @@ export default function Home() {
           <div
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-8"
             style={{
-              background: 'rgba(240,180,41,0.12)',
-              border: '1px solid rgba(240,180,41,0.25)',
+              background: 'rgba(232,244,253,0.1)',
+              border: '1px solid rgba(232,244,253,0.25)',
               color: 'var(--brand-gold)',
             }}
           >
@@ -170,7 +170,13 @@ export default function Home() {
               className="w-1.5 h-1.5 rounded-full animate-pulse"
               style={{ background: 'var(--brand-gold)' }}
             />
-            Padel · Racquet Sport · Lifestyle · Performance
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>Padel</span>
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', opacity: 0.6 }}>·</span>
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>Racquet Sport</span>
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', opacity: 0.6 }}>·</span>
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>Lifestyle</span>
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', opacity: 0.6 }}>·</span>
+            <span style={{ fontSize: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>Performance</span>
           </div>
 
           <h1
@@ -196,7 +202,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div data-animate="slide-left">
-              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#C9A84C' }}>
+              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8F4FD' }}>
                 Meet AJ
               </p>
               <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight mb-6" style={{ letterSpacing: '-0.02em' }}>
@@ -276,7 +282,7 @@ export default function Home() {
         </div>
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-10" data-animate="fade-up">
-            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#C9A84C' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8F4FD' }}>
               What I Offer
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -296,7 +302,7 @@ export default function Home() {
                       className="w-full h-48 flex items-center justify-center"
                       style={{
                         background: '#0D1B2A',
-                        borderBottom: '1px solid rgba(201,168,76,0.15)',
+                        borderBottom: '1px solid rgba(232,244,253,0.15)',
                       }}
                     >
                       <img
@@ -317,7 +323,7 @@ export default function Home() {
                   )}
                   <div className="p-8 flex flex-col flex-1">
                     <h3
-                      className="text-lg font-black uppercase mb-3 tracking-tight group-hover:text-yellow-400 transition-colors"
+                      className="text-lg font-black uppercase mb-3 tracking-tight transition-colors"
                       style={{ letterSpacing: '-0.01em', color: 'white' }}
                     >
                       {service.title}
@@ -357,7 +363,7 @@ export default function Home() {
       <section className="section-padding" style={{ background: 'var(--background)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10" data-animate="fade-up">
-            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#C9A84C' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8F4FD' }}>
               Real Results
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -394,7 +400,7 @@ export default function Home() {
                 data-animate-delay={String(i * 150)}
               >
                 <div
-                  className="card p-8 flex flex-col h-full transition-all duration-200 group-hover:border-yellow-400/30"
+                  className="card p-8 flex flex-col h-full transition-all duration-200"
                   style={{ background: 'var(--surface)' }}
                 >
                   <div className="flex items-center gap-4 mb-4">
@@ -402,21 +408,21 @@ export default function Home() {
                       style={{
                         width: 64, height: 64, borderRadius: '50%',
                         background: '#0D1B2A',
-                        border: '2px solid #C9A84C',
+                        border: '2px solid #E8F4FD',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         flexShrink: 0,
                       }}
                     >
-                      <span style={{ color: '#C9A84C', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
+                      <span style={{ color: '#E8F4FD', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
                     </div>
                     <div>
                       <p className="font-bold text-white text-sm">{t.name}</p>
                       <div
                         className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                         style={{
-                          background: 'rgba(201, 168, 76, 0.1)',
-                          color: '#C9A84C',
-                          border: '1px solid rgba(201, 168, 76, 0.3)',
+                          background: 'rgba(232, 244, 253, 0.1)',
+                          color: '#E8F4FD',
+                          border: '1px solid rgba(232, 244, 253, 0.3)',
                         }}
                       >
                         {t.service}
@@ -443,7 +449,7 @@ export default function Home() {
       <section className="section-padding" style={{ background: 'var(--surface)' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10" data-animate="fade-up">
-            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#C9A84C' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: '#E8F4FD' }}>
               Trusted Network
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
@@ -458,11 +464,11 @@ export default function Home() {
 
             {/* ── Reflect Motion card ── */}
             <div
-              className="relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_8px_64px_rgba(0,0,0,0.6),0_0_32px_rgba(201,168,76,0.15),0_0_0_1px_rgba(201,168,76,0.5)]"
+              className="relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-[0_8px_64px_rgba(0,0,0,0.6),0_0_32px_rgba(232,244,253,0.15),0_0_0_1px_rgba(232,244,253,0.5)]"
               style={{
                 background: '#0D1B2A',
-                border: '1px solid rgba(201,168,76,0.3)',
-                boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.08)',
+                border: '1px solid rgba(232,244,253,0.3)',
+                boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(232,244,253,0.08)',
               }}
               data-animate="fade-up"
             >
@@ -478,7 +484,7 @@ export default function Home() {
                 <div className="mb-4">
                   <span
                     className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                    style={{ color: '#C9A84C', border: '1px solid rgba(201,168,76,0.4)', background: 'rgba(201,168,76,0.08)' }}
+                    style={{ color: '#E8F4FD', border: '1px solid rgba(232,244,253,0.4)', background: 'rgba(232,244,253,0.08)' }}
                   >
                     Activated Partner
                   </span>
@@ -486,13 +492,13 @@ export default function Home() {
                 <h3 className="text-2xl font-black text-white mb-1" style={{ letterSpacing: '-0.02em' }}>
                   Reflect Motion
                 </h3>
-                <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#C9A84C' }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: '#E8F4FD' }}>
                   AI-Powered Movement Analysis
                 </p>
                 <p className="text-gray-400 text-sm leading-relaxed mb-4">
                   Reflect Motion uses AI computer vision to analyse your movement in real time, score every rep, and deliver personalised coaching feedback. Built for athletes, coaches, and anyone serious about performance.
                 </p>
-                <p className="text-xs font-bold uppercase tracking-widest mb-8" style={{ color: '#C9A84C' }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-8" style={{ color: '#E8F4FD' }}>
                   Coach Code: MPTYSA
                 </p>
                 <div>

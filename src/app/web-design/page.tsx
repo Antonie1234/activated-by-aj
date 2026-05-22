@@ -94,7 +94,7 @@ export default function WebDesignPage() {
         style={{
           minHeight: '80vh',
           background:
-            'linear-gradient(160deg, #0a0a0a 60%, rgba(201,168,76,0.06) 100%)',
+            'linear-gradient(160deg, #0a0a0a 60%, rgba(232,244,253,0.06) 100%)',
           paddingTop: '7rem',
           paddingBottom: '5rem',
         }}
@@ -107,7 +107,7 @@ export default function WebDesignPage() {
             width: 520,
             height: 520,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(240,180,41,0.12) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(232,244,253,0.12) 0%, transparent 70%)',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
@@ -229,7 +229,7 @@ export default function WebDesignPage() {
                       <span
                         className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 text-xs font-bold"
                         style={{
-                          background: 'rgba(240,180,41,0.15)',
+                          background: 'rgba(232,244,253,0.15)',
                           color: 'var(--brand-gold)',
                         }}
                       >
@@ -308,9 +308,9 @@ export default function WebDesignPage() {
                 <div
                   className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-black text-sm"
                   style={{
-                    background: 'rgba(240,180,41,0.12)',
+                    background: 'rgba(232,244,253,0.12)',
                     color: 'var(--brand-gold)',
-                    border: '1px solid rgba(240,180,41,0.3)',
+                    border: '1px solid rgba(232,244,253,0.3)',
                   }}
                 >
                   {step.number}
@@ -324,7 +324,7 @@ export default function WebDesignPage() {
                     {i < steps.length - 1 && (
                       <span
                         className="text-xs hidden sm:inline"
-                        style={{ color: 'rgba(240,180,41,0.4)' }}
+                        style={{ color: 'rgba(232,244,253,0.4)' }}
                       >
                         →
                       </span>

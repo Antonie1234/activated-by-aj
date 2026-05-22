@@ -246,10 +246,10 @@ export default function Testimonials() {
                 className="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200"
                 style={
                   activeFilter === f
-                    ? { background: 'var(--brand-gold)', color: '#0a0a0a', boxShadow: '0 4px 16px rgba(240,180,41,0.3)' }
+                    ? { background: 'var(--brand-gold)', color: '#0a0a0a', boxShadow: '0 4px 16px rgba(232,244,253,0.3)' }
                     : {
                         background: 'var(--surface)',
-                        color: 'rgba(201,168,76,0.7)',
+                        color: 'rgba(232,244,253,0.7)',
                         border: '1px solid var(--border)',
                       }
                 }
@@ -295,12 +295,12 @@ export default function Testimonials() {
                         style={{
                           width: 64, height: 64, borderRadius: '50%',
                           background: '#0D1B2A',
-                          border: '2px solid #C9A84C',
+                          border: '2px solid #E8F4FD',
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
                           flexShrink: 0,
                         }}
                       >
-                        <span style={{ color: '#C9A84C', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
+                        <span style={{ color: '#E8F4FD', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
                       </div>
                     )}
                     <div>
@@ -308,9 +308,9 @@ export default function Testimonials() {
                       <div
                         className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                         style={{
-                          background: 'rgba(201,168,76,0.1)',
+                          background: 'rgba(232,244,253,0.1)',
                           color: 'var(--brand-gold)',
-                          border: '1px solid rgba(201,168,76,0.25)',
+                          border: '1px solid rgba(232,244,253,0.25)',
                         }}
                       >
                         {t.service}

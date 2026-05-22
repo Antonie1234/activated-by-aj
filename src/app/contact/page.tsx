@@ -59,7 +59,7 @@ export default function Contact() {
       >
         <div
           className="absolute top-0 right-0 w-96 h-96 opacity-10 blur-3xl pointer-events-none rounded-full"
-          style={{ background: 'rgba(201,168,76,0.4)' }}
+          style={{ background: 'rgba(232,244,253,0.4)' }}
         />
         <div className="max-w-4xl mx-auto px-4 sm:px-6" data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
@@ -120,8 +120,8 @@ export default function Contact() {
               <div
                 className="p-5 rounded-lg mt-6"
                 style={{
-                  background: 'rgba(201,168,76,0.06)',
-                  border: '1px solid rgba(201,168,76,0.2)',
+                  background: 'rgba(232,244,253,0.06)',
+                  border: '1px solid rgba(232,244,253,0.2)',
                 }}
               >
                 <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--brand-gold)' }}>

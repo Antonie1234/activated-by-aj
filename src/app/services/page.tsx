@@ -239,7 +239,7 @@ export default function Services() {
       >
         <div
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-60 opacity-10 blur-3xl pointer-events-none"
-          style={{ background: 'rgba(201,168,76,0.1)' }}
+          style={{ background: 'rgba(232,244,253,0.1)' }}
         />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
@@ -317,9 +317,9 @@ export default function Services() {
                         <span
                           className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
                           style={{
-                            background: `rgba(240,180,41,0.12)`,
+                            background: `rgba(232,244,253,0.12)`,
                             color: 'var(--brand-gold)',
-                            border: '1px solid rgba(240,180,41,0.25)',
+                            border: '1px solid rgba(232,244,253,0.25)',
                           }}
                         >
                           ✓
