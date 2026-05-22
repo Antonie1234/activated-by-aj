@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: "Turn your energy into purpose.",
     url: "https://activatedbyaj.co.za",
     siteName: "Activated by AJ",
-    locale: "en_AU",
+    locale: "en_US",
     type: "website",
   },
 };

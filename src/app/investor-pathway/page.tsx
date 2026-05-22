@@ -6,7 +6,7 @@ import LogoWatermark from '@/components/LogoWatermark';
 export const metadata = {
   title: 'Investor Pathway | Activated by AJ',
   description:
-    'Activated by AJ originates padel facility concepts, connects the right investors, and activates world-class facilities across Australia.',
+    'Activated by AJ originates padel facility concepts, connects the right investors, and activates world-class facilities.',
 };
 
 const steps = [
@@ -33,7 +33,7 @@ const steps = [
   {
     num: '05',
     title: 'ACTIVATE',
-    desc: 'The facility opens under the Activated brand. Coaching, community, and technology all operating under one identity. AJ earns ongoing.',
+    desc: 'The facility opens under the Activated brand. Coaching, community, and technology all operating under one identity.',
   },
 ];
 
@@ -41,7 +41,7 @@ const revenueStreams = [
   {
     title: 'COACHING BRAND',
     label: 'Live Now',
-    body: 'Already live. Premium coaching and lifestyle brand in Sydney. The existing client base underpins every investor conversation.',
+    body: 'Already live. Premium coaching and lifestyle brand delivering tennis, padel, pickleball, beach tennis, fitness and conditioning. A proven operating model with real clients — the foundation every facility is built on.',
     highlight: false,
   },
   {
@@ -51,9 +51,10 @@ const revenueStreams = [
     highlight: true,
   },
   {
-    title: 'AI TECH PLATFORM',
+    title: 'AI PERFORMANCE TECHNOLOGY',
     label: 'In Development',
-    body: 'In development. An AI coaching and performance platform built under the Activated brand. Plugs into every facility as a standard operating system.',
+    sublabel: 'Powered by Reflect Motion',
+    body: 'In partnership with Reflect Motion, every Activated facility runs AI-powered movement analysis as its standard performance layer — built to scale across every court we activate.',
     highlight: false,
   },
 ];
@@ -102,7 +103,7 @@ export default function InvestorPathway() {
           </h1>
 
           <p className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed">
-            Padel is Australia&apos;s fastest growing racquet sport. Fewer than 50 courts exist for 50,000+ active players.
+            Padel is the fastest growing racquet sport in the world. Fewer than 50 courts exist for 50,000+ active players.
             Activated by AJ originates the concept, connects the capital, and activates the facility.
             We don&apos;t build. We make the right things happen.
           </p>
@@ -222,7 +223,7 @@ export default function InvestorPathway() {
                       }
                 }
               >
-                <div className="mb-6">
+                <div className="mb-6 flex flex-wrap gap-2 items-center">
                   <span
                     className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
                     style={
@@ -233,6 +234,14 @@ export default function InvestorPathway() {
                   >
                     {stream.label}
                   </span>
+                  {'sublabel' in stream && stream.sublabel && (
+                    <span
+                      className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                      style={{ background: 'rgba(201,168,76,0.06)', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.2)' }}
+                    >
+                      {stream.sublabel}
+                    </span>
+                  )}
                 </div>
                 <h3
                   className="text-xl font-black mb-4 tracking-tight"
@@ -296,49 +305,6 @@ export default function InvestorPathway() {
         </div>
       </section>
 
-      <GoldDivider />
-
-      {/* ── WHAT ACTIVATED BRINGS ── */}
-      <section className="section-padding relative overflow-hidden" style={{ background: '#0D1B2A' }}>
-        <LogoWatermark size={620} opacity={0.08} />
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
-          <div className="text-center mb-14" data-animate="fade-up">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
-              The Offer
-            </p>
-            <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
-              WHAT ACTIVATED<br />BRINGS TO THE TABLE
-            </h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { num: '01', point: "First-mover positioning in Australia's fastest growing sport" },
-              { num: '02', point: 'A fully developed operating concept and brand — not just an idea' },
-              { num: '03', point: 'Local boots on the ground — site sourcing, council relationships, DA process navigation' },
-              { num: '04', point: 'A premium operating brand that transforms any venue into a destination' },
-              { num: '05', point: 'AI-integrated performance technology through Reflect Motion' },
-              { num: '06', point: 'An established investor network with international padel experience' },
-            ].map((item, i) => (
-              <div
-                key={item.num}
-                className="flex gap-5 items-start p-7 rounded-2xl"
-                style={{ background: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.18)' }}
-                data-animate="fade-up"
-                data-animate-delay={String(i * 80)}
-              >
-                <div
-                  className="shrink-0 text-2xl font-black leading-none mt-0.5"
-                  style={{ color: 'var(--brand-gold)', letterSpacing: '-0.03em' }}
-                >
-                  {item.num}
-                </div>
-                <p className="text-gray-300 text-sm leading-relaxed">{item.point}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <GoldDivider />
 
@@ -376,7 +342,7 @@ export default function InvestorPathway() {
                 {[
                   'A fully developed concept, not just an idea',
                   'The Activated brand operating your facility',
-                  'First-mover positioning in Australia\'s fastest growing sport',
+                  'First-mover positioning in the fastest growing racquet sport',
                   'Access to the Activated investor network across multiple deals',
                 ].map((point) => (
                   <li key={point} className="flex items-start gap-3">

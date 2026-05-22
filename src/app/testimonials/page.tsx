@@ -87,7 +87,7 @@ const testimonials = [
     service: 'Padel Coaching',
     filter: 'Padel',
     quote:
-      "Best padel coaching in Sydney. AJ knows the game inside out and explains it so clearly.",
+      "Best padel coaching around. AJ knows the game inside out and explains it so clearly.",
     rating: 5,
   },
   // Pickleball
