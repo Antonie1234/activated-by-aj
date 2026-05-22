@@ -37,12 +37,17 @@ const steps = [
   },
 ];
 
-const revenueStreams = [
+const revenueStreams: {
+  title: string; label: string; body: string; highlight: boolean;
+  sublabel?: string; href?: string; external?: boolean;
+}[] = [
   {
     title: 'COACHING BRAND',
     label: 'Live Now',
     body: 'Already live. Premium coaching and lifestyle brand delivering tennis, padel, pickleball, beach tennis, fitness and conditioning. A proven operating model with real clients — the foundation every facility is built on.',
     highlight: false,
+    href: '/services',
+    external: false,
   },
   {
     title: 'CONCEPT BROKER',
@@ -56,6 +61,8 @@ const revenueStreams = [
     sublabel: 'Powered by Reflect Motion',
     body: 'In partnership with Reflect Motion, every Activated facility runs AI-powered movement analysis as its standard performance layer — built to scale across every court we activate.',
     highlight: false,
+    href: 'https://www.reflectmotion.com',
+    external: true,
   },
 ];
 
@@ -205,71 +212,83 @@ export default function InvestorPathway() {
           </div>
 
           <div className="grid sm:grid-cols-3 gap-6">
-            {revenueStreams.map((stream, i) => (
-              <div
-                key={stream.title}
-                className="flex flex-col p-8 rounded-2xl"
-                data-animate="fade-up"
-                data-animate-delay={String(i * 120)}
-                style={
-                  stream.highlight
-                    ? {
-                        background: 'var(--brand-gold)',
-                        border: '2px solid var(--brand-gold)',
-                      }
-                    : {
-                        background: 'rgba(13,27,42,0.8)',
-                        border: '1px solid rgba(201,168,76,0.3)',
-                      }
-                }
-              >
-                <div className="mb-6 flex flex-wrap gap-2 items-center">
-                  <span
-                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                    style={
-                      stream.highlight
-                        ? { background: 'rgba(0,0,0,0.15)', color: '#0D1B2A' }
-                        : { background: 'rgba(201,168,76,0.1)', color: 'var(--brand-gold)', border: '1px solid rgba(201,168,76,0.3)' }
-                    }
-                  >
-                    {stream.label}
-                  </span>
-                  {'sublabel' in stream && stream.sublabel && (
+            {revenueStreams.map((stream, i) => {
+              const cardClass = `flex flex-col p-8 rounded-2xl${stream.href ? ' transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(201,168,76,0.2)]' : ''}`;
+              const cardStyle = stream.highlight
+                ? { background: 'var(--brand-gold)', border: '2px solid var(--brand-gold)' }
+                : { background: 'rgba(13,27,42,0.8)', border: '1px solid rgba(201,168,76,0.3)', cursor: stream.href ? 'pointer' as const : undefined };
+
+              const inner = (
+                <>
+                  <div className="mb-6 flex flex-wrap gap-2 items-center justify-center">
                     <span
                       className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                      style={{ background: 'rgba(201,168,76,0.06)', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.2)' }}
+                      style={
+                        stream.highlight
+                          ? { background: 'rgba(0,0,0,0.15)', color: '#0D1B2A' }
+                          : { background: 'rgba(201,168,76,0.1)', color: 'var(--brand-gold)', border: '1px solid rgba(201,168,76,0.3)' }
+                      }
                     >
-                      {stream.sublabel}
+                      {stream.label}
                     </span>
-                  )}
-                </div>
-                <h3
-                  className="text-xl font-black mb-4 tracking-tight"
-                  style={{ color: stream.highlight ? '#0D1B2A' : 'white', letterSpacing: '-0.01em' }}
-                >
-                  {stream.title}
-                </h3>
-                <div
-                  className="w-8 h-0.5 mb-4"
-                  style={{ background: stream.highlight ? 'rgba(13,27,42,0.4)' : 'var(--brand-gold)' }}
-                />
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: stream.highlight ? 'rgba(13,27,42,0.75)' : 'rgba(255,255,255,0.6)' }}
-                >
-                  {stream.body}
-                </p>
-                {stream.highlight && (
-                  <Link
-                    href="/contact"
-                    className="mt-6 block w-full text-center py-3 rounded-xl font-black uppercase tracking-widest text-sm transition-opacity duration-200 hover:opacity-75"
-                    style={{ background: '#000000', color: 'white' }}
+                    {stream.sublabel && (
+                      <span
+                        className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                        style={{ background: 'rgba(201,168,76,0.06)', color: 'rgba(201,168,76,0.65)', border: '1px solid rgba(201,168,76,0.2)' }}
+                      >
+                        {stream.sublabel}
+                      </span>
+                    )}
+                  </div>
+                  <h3
+                    className="text-xl font-black mb-4 tracking-tight text-center"
+                    style={{ color: stream.highlight ? '#0D1B2A' : 'white', letterSpacing: '-0.01em' }}
                   >
-                    Serious Inquiries Only
+                    {stream.title}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed text-center flex-1"
+                    style={{ color: stream.highlight ? 'rgba(13,27,42,0.75)' : 'rgba(255,255,255,0.6)' }}
+                  >
+                    {stream.body}
+                  </p>
+                  {stream.highlight && (
+                    <Link
+                      href="/contact"
+                      className="mt-6 block w-full text-center py-3 rounded-xl font-black uppercase tracking-widest text-sm transition-opacity duration-200 hover:opacity-75"
+                      style={{ background: '#000000', color: 'white' }}
+                    >
+                      Serious Inquiries Only
+                    </Link>
+                  )}
+                </>
+              );
+
+              if (stream.href && stream.external) {
+                return (
+                  <a key={stream.title} href={stream.href} target="_blank" rel="noopener noreferrer"
+                    className={cardClass} style={cardStyle}
+                    data-animate="fade-up" data-animate-delay={String(i * 120)}>
+                    {inner}
+                  </a>
+                );
+              }
+              if (stream.href && !stream.external) {
+                return (
+                  <Link key={stream.title} href={stream.href}
+                    className={cardClass} style={cardStyle}
+                    data-animate="fade-up" data-animate-delay={String(i * 120)}>
+                    {inner}
                   </Link>
-                )}
-              </div>
-            ))}
+                );
+              }
+              return (
+                <div key={stream.title} className={cardClass} style={cardStyle}
+                  data-animate="fade-up" data-animate-delay={String(i * 120)}>
+                  {inner}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
