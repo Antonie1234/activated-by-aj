@@ -23,6 +23,11 @@ export const metadata: Metadata = {
     "racquet sport",
     "Activated by AJ",
   ],
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: "Activated by AJ",
     description: "Turn your energy into purpose.",
