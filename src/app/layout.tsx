@@ -24,7 +24,10 @@ export const metadata: Metadata = {
     "Activated by AJ",
   ],
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/icon-192.png', sizes: '192x192' },
+    ],
     shortcut: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
@@ -46,6 +49,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geist.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Activated by AJ",
+              "url": "https://activatedbyaj.co.za",
+              "logo": "https://activatedbyaj.co.za/logo.png",
+            }),
+          }}
+        />
         <Navbar />
         <main>{children}</main>
         <GoldDivider />
