@@ -9,36 +9,53 @@ interface Props {
 }
 
 /**
- * Loads the Reflect Motion logo from their live URL.
- * Falls back to a branded "RM" text badge if the image fails to load.
+ * Displays the locally-saved Reflect Motion logo.
+ * Falls back to a styled "REFLECT MOTION" text treatment if the file is unavailable.
  */
-export default function ReflectMotionLogo({ height = 56, maxWidth = '55%', className = '' }: Props) {
+export default function ReflectMotionLogo({ height = 56, maxWidth = '70%', className = '' }: Props) {
   const [failed, setFailed] = useState(false);
 
   if (failed) {
     return (
       <div
         style={{
-          height,
           display: 'inline-flex',
+          flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          color: 'var(--brand-gold)',
-          fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
-          fontWeight: 700,
-          fontSize: Math.round(height * 0.45),
-          letterSpacing: '0.15em',
-          opacity: 0.85,
+          gap: 2,
         }}
       >
-        RM
+        <span
+          style={{
+            color: '#ffffff',
+            fontWeight: 900,
+            fontSize: Math.round(height * 0.32),
+            letterSpacing: '0.18em',
+            textShadow: '0 0 18px rgba(74,127,165,0.7)',
+            lineHeight: 1,
+          }}
+        >
+          REFLECT
+        </span>
+        <span
+          style={{
+            color: 'var(--brand-gold)',
+            fontWeight: 700,
+            fontSize: Math.round(height * 0.22),
+            letterSpacing: '0.28em',
+            lineHeight: 1,
+          }}
+        >
+          MOTION
+        </span>
       </div>
     );
   }
 
   return (
     <img
-      src="https://reflectmotion.com/logo.png"
+      src="/reflect-motion-logo.png"
       alt="Reflect Motion"
       className={className}
       onError={() => setFailed(true)}
