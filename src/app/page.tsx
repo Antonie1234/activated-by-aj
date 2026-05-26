@@ -177,6 +177,22 @@ export default function Home() {
             <span style={{ fontSize: 'inherit', lineHeight: 'inherit', letterSpacing: 'inherit' }}>Performance</span>
           </div>
 
+          {/* Faint radial white glow behind heading */}
+          <div
+            aria-hidden
+            className="absolute pointer-events-none"
+            style={{
+              width: 680,
+              height: 340,
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              borderRadius: '50%',
+              background: 'radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 70%)',
+              zIndex: -1,
+            }}
+          />
+
           <h1
             className="text-5xl sm:text-7xl lg:text-8xl font-black leading-none mb-6"
             style={{ letterSpacing: '-0.03em' }}
@@ -363,6 +379,20 @@ export default function Home() {
       {/* ── TESTIMONIALS PREVIEW ── */}
       <section className="section-padding relative overflow-hidden" style={{ background: 'var(--background)' }}>
         <LogoWatermark size={700} opacity={0.05} />
+        {/* Faint radial white glow behind section heading */}
+        <div
+          aria-hidden
+          className="absolute pointer-events-none"
+          style={{
+            width: 560,
+            height: 200,
+            top: '4rem',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            borderRadius: '50%',
+            background: 'radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 70%)',
+          }}
+        />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-10" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
@@ -447,7 +477,10 @@ export default function Home() {
       <GoldDivider />
 
       {/* ── ACTIVATED PARTNERS ── */}
-      <section className="section-padding relative overflow-hidden" style={{ background: '#0D1B2A' }}>
+      <section
+        className="relative overflow-hidden"
+        style={{ background: '#0D1B2A', paddingTop: '60px', paddingBottom: '60px' }}
+      >
         {/* Dot-grid tech pattern */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -456,16 +489,62 @@ export default function Home() {
             backgroundSize: '28px 28px',
           }}
         />
-        <LogoWatermark size={600} opacity={0.04} />
+
+        {/* Steel-blue section background glow — absolutely positioned, no layout impact */}
+        <div
+          aria-hidden
+          className="pointer-events-none"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <div
+            style={{
+              width: 800,
+              height: 800,
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(74,127,165,0.045) 0%, transparent 65%)',
+              flexShrink: 0,
+            }}
+          />
+        </div>
+
+        {/* Pulsing white glow — position entirely inline so it never enters normal flow */}
+        <div
+          aria-hidden
+          className="animate-partners-glow"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: 560,
+            height: 560,
+            borderRadius: '50%',
+            pointerEvents: 'none',
+            background: 'radial-gradient(circle, rgba(232,244,253,0.09) 0%, transparent 65%)',
+          }}
+        />
+
+        {/* Static light rays — all absolute, zero layout impact */}
+        <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(135deg, rgba(232,244,253,0.03) 0%, transparent 55%)' }} />
+        <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(250deg, rgba(232,244,253,0.025) 0%, transparent 50%)' }} />
+        <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(30deg, rgba(232,244,253,0.02) 0%, transparent 45%)' }} />
+
+        {/* A mark watermark — large & prominent, absolute so it never affects height */}
+        <LogoWatermark size={580} opacity={0.08} />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
-          <div className="text-center mb-10" data-animate="fade-up">
+          <div className="text-center mb-6" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
               Trusted Network
             </p>
             <h2 className="text-4xl sm:text-5xl font-black text-white" style={{ letterSpacing: '-0.02em' }}>
               ACTIVATED PARTNERS
             </h2>
-            <p className="mt-4 text-gray-400 max-w-xl mx-auto">
+            <p className="mt-3 text-gray-400 max-w-xl mx-auto">
               People I trust and work alongside, extending the Activated network beyond sport.
             </p>
           </div>
@@ -492,9 +571,9 @@ export default function Home() {
                 }}
               />
 
-              <div className="relative flex flex-col items-center text-center px-8 py-10" style={{ zIndex: 1 }}>
+              <div className="relative flex flex-col items-center text-center px-8 py-8" style={{ zIndex: 1 }}>
                 {/* Activated Partner badge */}
-                <div className="mb-7">
+                <div className="mb-5">
                   <span
                     className="text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full"
                     style={{
@@ -508,20 +587,20 @@ export default function Home() {
                 </div>
 
                 {/* Logo — larger, centred */}
-                <div className="mb-5">
+                <div className="mb-4">
                   <ReflectMotionLogo height={56} />
                 </div>
 
                 {/* Subtitle */}
                 <p
-                  className="text-xs font-bold uppercase tracking-widest mb-6"
+                  className="text-xs font-bold uppercase tracking-widest mb-4"
                   style={{ color: 'var(--brand-gold)', letterSpacing: '0.12em' }}
                 >
                   AI-Powered Movement Analysis
                 </p>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed mb-7">
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
                   Reflect Motion uses AI computer vision to analyse your movement in real time, score every rep, and deliver personalised coaching feedback. Built for athletes, coaches, and anyone serious about performance.
                 </p>
 

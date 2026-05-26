@@ -294,6 +294,16 @@ input::placeholder, textarea::placeholder {
   animation: hero-pulse-ring 5s ease-in-out infinite;
 }
 
+/* Partners section — pulsing glow animation */
+@keyframes partners-glow-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1.0);  opacity: 0.08; }
+  50%       { transform: translate(-50%, -50%) scale(1.08); opacity: 0.14; }
+}
+/* NOTE: position/top/left are set inline in JSX — this class is animation-only */
+.animate-partners-glow {
+  animation: partners-glow-pulse 4.5s ease-in-out infinite;
+}
+
 /* Platinum glow section divider */
 .glow-divider {
   height: 1px;
