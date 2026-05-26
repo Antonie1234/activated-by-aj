@@ -4,6 +4,19 @@ import { useState } from 'react';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 
+// Strip HTML tags to prevent XSS from input values
+function stripHtml(str: string): string {
+  return str.replace(/<[^>]*>/g, '');
+}
+
+// RFC-5322-inspired email validation
+function isValidEmail(email: string): boolean {
+  return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+}
+
+const RATE_LIMIT_KEY = 'aj_contact_last_submit';
+const RATE_LIMIT_MS = 60_000; // 60 seconds
+
 const contactMethods = [
   {
     icon: '✉️',
@@ -31,19 +44,54 @@ export default function Contact() {
     service: '',
     message: '',
   });
+  // Honeypot — invisible to real users, bots fill it automatically
+  const [honeypot, setHoneypot] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [emailError, setEmailError] = useState('');
+  const [rateLimitError, setRateLimitError] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    // Strip HTML tags on every keystroke to prevent injection
+    const cleaned = stripHtml(e.target.value);
+    setForm({ ...form, [e.target.name]: cleaned });
+    if (e.target.name === 'email') setEmailError('');
+    if (rateLimitError) setRateLimitError('');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Honeypot check — silently drop if a bot filled the hidden field
+    if (honeypot) return;
+
+    // Client-side rate limiting via localStorage
+    const lastSubmit = localStorage.getItem(RATE_LIMIT_KEY);
+    if (lastSubmit && Date.now() - parseInt(lastSubmit, 10) < RATE_LIMIT_MS) {
+      setRateLimitError('Please wait before submitting again.');
+      return;
+    }
+
+    // Email format validation
+    if (!isValidEmail(form.email.trim())) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+
+    // Final sanitise — trim all fields before sending
+    const _sanitised = {
+      name: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim(),
+      service: form.service.trim(),
+      message: form.message.trim(),
+    };
+
     setLoading(true);
     await new Promise((r) => setTimeout(r, 1000));
+    localStorage.setItem(RATE_LIMIT_KEY, String(Date.now()));
     setSubmitted(true);
     setLoading(false);
   };
@@ -144,6 +192,29 @@ export default function Contact() {
                   <h2 className="text-xl font-black text-white mb-8" style={{ letterSpacing: '-0.01em' }}>
                     SEND A MESSAGE
                   </h2>
+
+                  {/* Honeypot field — visually hidden, real users never see or interact with it */}
+                  <input
+                    type="text"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    style={{
+                      position: 'absolute',
+                      opacity: 0,
+                      height: 0,
+                      width: 0,
+                      border: 'none',
+                      padding: 0,
+                      margin: 0,
+                      overflow: 'hidden',
+                      pointerEvents: 'none',
+                    }}
+                  />
+
                   <div className="grid sm:grid-cols-2 gap-4 mb-4">
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
@@ -156,6 +227,7 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="John Smith"
                         required
+                        maxLength={100}
                       />
                     </div>
                     <div>
@@ -169,7 +241,12 @@ export default function Contact() {
                         onChange={handleChange}
                         placeholder="john@example.com"
                         required
+                        maxLength={150}
+                        style={emailError ? { borderColor: '#ef4444' } : {}}
                       />
+                      {emailError && (
+                        <p className="text-xs mt-1" style={{ color: '#ef4444' }}>{emailError}</p>
+                      )}
                     </div>
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4 mb-4">
@@ -183,6 +260,7 @@ export default function Contact() {
                         value={form.phone}
                         onChange={handleChange}
                         placeholder="+61 4XX XXX XXX"
+                        maxLength={20}
                       />
                     </div>
                     <div>
@@ -223,9 +301,20 @@ export default function Contact() {
                       placeholder="Tell AJ a bit about your goals, current fitness level, and when you'd like to start..."
                       rows={5}
                       required
+                      maxLength={2000}
                       style={{ resize: 'vertical' }}
                     />
+                    <p className="text-gray-600 text-xs mt-1 text-right">
+                      {form.message.length}/2000
+                    </p>
                   </div>
+
+                  {rateLimitError && (
+                    <p className="text-sm mb-4 text-center" style={{ color: '#f59e0b' }}>
+                      {rateLimitError}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
                     disabled={loading}
