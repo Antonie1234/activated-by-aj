@@ -115,8 +115,9 @@ export default function Pricing() {
       <GoldDivider />
 
       {/* ── PROGRAMS & PACKAGES ── */}
-      <section className="section-padding" style={{ background: 'var(--surface)' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+      <section className="section-padding relative overflow-hidden" style={{ background: 'var(--surface)' }}>
+        <LogoWatermark size={600} opacity={0.05} />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-10" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
               More Options

@@ -107,7 +107,7 @@ export default function WebDesignPage() {
             width: 520,
             height: 520,
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(232,244,253,0.12) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(232,244,253,0.22) 0%, transparent 70%)',
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',

@@ -193,7 +193,7 @@ function StarRating({ count }: { count: number }) {
   return (
     <div className="flex gap-1">
       {Array.from({ length: count }).map((_, i) => (
-        <span key={i} style={{ color: 'var(--brand-gold)' }}>★</span>
+        <span key={i} style={{ color: '#C8A951' }}>★</span>
       ))}
     </div>
   );

@@ -4,6 +4,7 @@ import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
 import ReflectMotionLogo from '@/components/ReflectMotionLogo';
+import StatsCounter from '@/components/StatsCounter';
 
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
@@ -226,6 +227,11 @@ export default function Home() {
 
       <GoldDivider />
 
+      {/* ── STATS COUNTER ── */}
+      <StatsCounter />
+
+      <GoldDivider />
+
       {/* ── THE MODEL ── */}
       <section className="section-padding relative overflow-hidden" style={{ background: '#0D1B2A' }}>
         <LogoWatermark size={600} opacity={0.08} />
@@ -355,8 +361,9 @@ export default function Home() {
       <GoldDivider />
 
       {/* ── TESTIMONIALS PREVIEW ── */}
-      <section className="section-padding" style={{ background: 'var(--background)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+      <section className="section-padding relative overflow-hidden" style={{ background: 'var(--background)' }}>
+        <LogoWatermark size={700} opacity={0.05} />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-10" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
               Real Results
@@ -426,7 +433,7 @@ export default function Home() {
                   </div>
                   <div className="flex gap-1 mb-4">
                     {Array.from({ length: 5 }).map((_, j) => (
-                      <span key={j} style={{ color: 'var(--brand-gold)' }}>★</span>
+                      <span key={j} style={{ color: '#C8A951' }}>★</span>
                     ))}
                   </div>
                   <p className="text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
@@ -449,6 +456,7 @@ export default function Home() {
             backgroundSize: '28px 28px',
           }}
         />
+        <LogoWatermark size={600} opacity={0.04} />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6" style={{ zIndex: 1 }}>
           <div className="text-center mb-10" data-animate="fade-up">
             <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--brand-gold)' }}>
