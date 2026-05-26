@@ -50,6 +50,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.pexels.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'reflectmotion.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.reflectmotion.com',
+      },
     ],
   },
   async headers() {

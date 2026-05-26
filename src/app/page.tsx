@@ -3,6 +3,7 @@ import HeroParallax from '@/components/HeroParallax';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
+import ReflectMotionLogo from '@/components/ReflectMotionLogo';
 
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
@@ -301,11 +302,10 @@ export default function Home() {
                         borderBottom: '1px solid rgba(232,244,253,0.15)',
                       }}
                     >
-                      <img
-                        src={service.logoUrl}
-                        alt={service.title}
-                        className="object-contain group-hover:scale-105 transition-transform duration-500"
-                        style={{ maxHeight: 60, maxWidth: '55%' }}
+                      <ReflectMotionLogo
+                        height={60}
+                        maxWidth="55%"
+                        className="group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                   ) : (
@@ -501,11 +501,7 @@ export default function Home() {
 
                 {/* Logo — larger, centred */}
                 <div className="mb-5">
-                  <img
-                    src="https://reflectmotion.com/logo.png"
-                    alt="Reflect Motion"
-                    style={{ height: 56, width: 'auto', objectFit: 'contain' }}
-                  />
+                  <ReflectMotionLogo height={56} />
                 </div>
 
                 {/* Subtitle */}
