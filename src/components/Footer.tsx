@@ -30,7 +30,7 @@ export default function Footer() {
 
           {/* Column 1 — Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="mb-5">
+            <div className="mb-5 animate-footer-logo">
               <AJLogo height={52} />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">

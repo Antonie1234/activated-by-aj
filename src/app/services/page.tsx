@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
+import LogoWatermark from '@/components/LogoWatermark';
 
 /* ── Gold SVG Icons ── */
 const TennisIcon = () => (
@@ -241,7 +242,21 @@ export default function Services() {
           className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-60 opacity-10 blur-3xl pointer-events-none"
           style={{ background: 'rgba(232,244,253,0.1)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
+        {/* Pulsing glow — same pattern as Partners section */}
+        <div
+          className="animate-partners-glow pointer-events-none"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: 500,
+            height: 500,
+            borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(232,244,253,0.10) 0%, transparent 70%)',
+          }}
+        />
+        <LogoWatermark size={620} opacity={0.07} />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 1 }} data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             What I Offer
           </p>

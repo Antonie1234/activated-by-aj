@@ -27,7 +27,8 @@ export default function Pricing() {
           className="absolute top-20 right-0 w-80 h-80 opacity-10 blur-3xl pointer-events-none rounded-full"
           style={{ background: 'var(--brand-gold)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
+        <LogoWatermark size={600} opacity={0.05} />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 1 }} data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Investment
           </p>

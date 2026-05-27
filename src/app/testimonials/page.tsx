@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
+import LogoWatermark from '@/components/LogoWatermark';
 
 const testimonials = [
   // Tennis
@@ -220,7 +221,8 @@ export default function Testimonials() {
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] opacity-5 blur-3xl pointer-events-none rounded-full"
           style={{ background: 'var(--brand-gold)' }}
         />
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center" data-animate="fade-up">
+        <LogoWatermark size={600} opacity={0.05} />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center" style={{ zIndex: 1 }} data-animate="fade-up">
           <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--brand-gold)' }}>
             Real Results
           </p>

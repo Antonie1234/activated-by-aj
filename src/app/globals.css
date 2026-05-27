@@ -304,6 +304,37 @@ input::placeholder, textarea::placeholder {
   animation: partners-glow-pulse 4.5s ease-in-out infinite;
 }
 
+/* Footer A logo — subtle scale + glow pulse */
+@keyframes footer-logo-pulse {
+  0%, 100% { transform: scale(1.0);  filter: drop-shadow(0 0 8px rgba(74,127,165,0.4)); }
+  50%       { transform: scale(1.04); filter: drop-shadow(0 0 18px rgba(74,127,165,0.75)); }
+}
+.animate-footer-logo {
+  display: inline-block;
+  animation: footer-logo-pulse 4s ease-in-out infinite;
+}
+
+/* Contact page — social icon links */
+.contact-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(74,127,165,0.12);
+  border: 1px solid rgba(74,127,165,0.3);
+  color: var(--brand-gold);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.contact-social-icon:hover {
+  background: rgba(74,127,165,0.25);
+  border-color: var(--brand-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(74,127,165,0.3);
+}
+
 /* Platinum glow section divider */
 .glow-divider {
   height: 1px;

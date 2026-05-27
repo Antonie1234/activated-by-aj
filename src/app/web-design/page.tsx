@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
@@ -11,7 +12,6 @@ export const metadata = {
 const packages = [
   {
     name: 'Starter',
-    price: '$800',
     description: 'Everything you need to get online fast.',
     features: [
       '3 pages',
@@ -20,11 +20,9 @@ const packages = [
       'Live deployment',
     ],
     popular: false,
-    cta: 'Get Started',
   },
   {
     name: 'Professional',
-    price: '$1,500',
     description: 'A complete web presence for growing brands.',
     features: [
       '6 pages',
@@ -33,11 +31,9 @@ const packages = [
       '30-day support',
     ],
     popular: true,
-    cta: 'Most Popular',
   },
   {
     name: 'Premium',
-    price: '$2,400+',
     description: 'Advanced builds with no limits.',
     features: [
       'Unlimited pages',
@@ -46,40 +42,6 @@ const packages = [
       '60-day support',
     ],
     popular: false,
-    cta: "Let's Talk",
-  },
-];
-
-const steps = [
-  {
-    number: '01',
-    title: 'Discovery Call',
-    description:
-      'We hop on a call so I can learn about your brand, goals, and what you need from your website.',
-  },
-  {
-    number: '02',
-    title: 'Proposal',
-    description:
-      'I put together a clear proposal with scope, timeline, and pricing. No surprises.',
-  },
-  {
-    number: '03',
-    title: 'Build',
-    description:
-      'I design and develop your site from scratch using the same tech stack as top companies.',
-  },
-  {
-    number: '04',
-    title: 'Review',
-    description:
-      "You review every page and request any tweaks. We refine until it's exactly right.",
-  },
-  {
-    number: '05',
-    title: 'Launch',
-    description:
-      'Your site goes live on a custom domain. Fast, secure, and ready for visitors.',
   },
 ];
 
@@ -113,6 +75,7 @@ export default function WebDesignPage() {
             transform: 'translate(-50%, -50%)',
           }}
         />
+        <LogoWatermark size={600} opacity={0.06} />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6" data-animate="fade-up">
           <p
@@ -167,7 +130,7 @@ export default function WebDesignPage() {
               className="text-xs font-bold uppercase tracking-widest mb-3"
               style={{ color: 'var(--brand-gold)' }}
             >
-              Packages &amp; Pricing
+              Packages
             </p>
             <h2
               className="text-4xl sm:text-5xl font-black text-white"
@@ -214,11 +177,8 @@ export default function WebDesignPage() {
                   {pkg.name}
                 </p>
 
-                <p
-                  className="text-4xl font-black mb-1"
-                  style={{ color: 'var(--brand-gold)', letterSpacing: '-0.02em' }}
-                >
-                  {pkg.price}
+                <p className="text-sm italic mb-1" style={{ color: 'rgba(74,127,165,0.75)' }}>
+                  Get in touch for a custom quote
                 </p>
 
                 <p className="text-sm text-gray-400 mb-6">{pkg.description}</p>
@@ -260,87 +220,13 @@ export default function WebDesignPage() {
             >
               Email me
             </a>{' '}
-            and we'll build something tailored.
+            and we&apos;ll build something tailored.
           </p>
-        </div>
-      </section>
 
-      <GoldDivider />
-
-      {/* ── HOW IT WORKS ── */}
-      <section
-        className="section-padding"
-        style={{ background: 'var(--background)' }}
-      >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-14" data-animate="fade-up">
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-3"
-              style={{ color: 'var(--brand-gold)' }}
-            >
-              The Process
-            </p>
-            <h2
-              className="text-4xl sm:text-5xl font-black text-white"
-              style={{ letterSpacing: '-0.02em' }}
-            >
-              HOW IT WORKS
-            </h2>
-            <p className="mt-4 text-gray-400 max-w-xl mx-auto">
-              A simple, transparent process from first contact to launch day.
-            </p>
-          </div>
-
-          {/* Vertical timeline */}
-          <div className="relative">
-            {/* The line — runs down behind all the circles */}
-            <div
-              aria-hidden
-              className="absolute pointer-events-none"
-              style={{
-                left: '1.25rem',
-                top: '1.25rem',
-                bottom: '1.25rem',
-                width: 2,
-                transform: 'translateX(-50%)',
-                background: 'linear-gradient(to bottom, #4A7FA5 0%, rgba(74,127,165,0.15) 100%)',
-              }}
-            />
-
-            <div className="flex flex-col gap-8">
-              {steps.map((step, i) => (
-                <div
-                  key={step.number}
-                  className="relative flex items-start"
-                  style={{ paddingLeft: '3.5rem' }}
-                  data-animate="fade-up"
-                  data-animate-delay={String(i * 80)}
-                >
-                  {/* Numbered circle — sits on the timeline line */}
-                  <div
-                    className="absolute flex items-center justify-center font-black text-xs"
-                    style={{
-                      left: 0,
-                      top: 0,
-                      width: '2.5rem',
-                      height: '2.5rem',
-                      borderRadius: '50%',
-                      background: 'var(--background)',
-                      color: '#4A7FA5',
-                      border: '2px solid #4A7FA5',
-                    }}
-                  >
-                    {step.number}
-                  </div>
-
-                  {/* Content */}
-                  <div style={{ paddingTop: '0.3rem' }}>
-                    <h3 className="font-bold text-white text-lg mb-1">{step.title}</h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="text-center mt-10">
+            <Link href="/contact" className="btn-gold">
+              START A PROJECT
+            </Link>
           </div>
         </div>
       </section>
