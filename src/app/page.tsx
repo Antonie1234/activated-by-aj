@@ -212,7 +212,7 @@ export default function Home() {
       <GoldDivider />
 
       {/* ── ABOUT TEASER ── */}
-      <section className="section-padding" style={{ background: 'var(--background)' }}>
+      <section className="section-padding" style={{ background: '#0D1B2A' }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div data-animate="slide-left">
@@ -230,12 +230,53 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="relative rounded-lg overflow-hidden" style={{ aspectRatio: '1 / 1' }} data-animate="slide-right">
-              <img
-                src="/aj-photo.jpg"
-                alt="AJ"
-                className="w-full h-full object-cover"
-              />
+            {/* Wrapper keeps watermark + card together */}
+            <div className="relative" data-animate="slide-right">
+
+              {/* A logo watermark — centered behind card, peeks around edges */}
+              <div
+                aria-hidden
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: '130%',
+                  height: '130%',
+                  zIndex: 0,
+                  pointerEvents: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <svg
+                  viewBox="18 8 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ width: '100%', height: '100%', opacity: 0.06 }}
+                  aria-hidden="true"
+                >
+                  <polygon points="18,32 26,32 30,20 34,32 42,32 30,8" fill="#4A7FA5" />
+                  <polygon points="24,26 36,26 34,20 26,20" fill="#0D1B2A" />
+                </svg>
+              </div>
+
+              {/* Video card — swap src inside <source> when new footage is ready */}
+              <div
+                className="relative rounded-lg overflow-hidden"
+                style={{ aspectRatio: '1 / 1', zIndex: 1 }}
+              >
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                >
+                  <source src="/hero-bg-aj.mp4" type="video/mp4" />
+                </video>
+              </div>
+
             </div>
           </div>
         </div>
