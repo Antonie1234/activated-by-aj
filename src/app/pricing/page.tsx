@@ -4,13 +4,13 @@ import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
 
 const lessonRates = [
-  { duration: '30 mins', players: '1 player',  termly: '$65',          payg: '$70' },
-  { duration: '45 mins', players: '1 player',  termly: '$85',          payg: '$90' },
-  { duration: '45 mins', players: '2 players', termly: '$47 / person', payg: '$51 / person' },
-  { duration: '60 mins', players: '1 player',  termly: '$110',         payg: '$115' },
-  { duration: '60 mins', players: '2 players', termly: '$60 / person', payg: '$65 / person' },
-  { duration: '60 mins', players: '3 players', termly: '$45 / person', payg: '$50 / person' },
-  { duration: '60 mins', players: '4 players', termly: '$40 / person', payg: '$45 / person' },
+  { duration: '30 mins', players: '1 player' },
+  { duration: '45 mins', players: '1 player' },
+  { duration: '45 mins', players: '2 players' },
+  { duration: '60 mins', players: '1 player' },
+  { duration: '60 mins', players: '2 players' },
+  { duration: '60 mins', players: '3 players' },
+  { duration: '60 mins', players: '4 players' },
 ];
 
 export default function Pricing() {
@@ -35,7 +35,7 @@ export default function Pricing() {
             PRICING
           </h1>
           <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
-            Straightforward pricing. No lock-in contracts. Just great coaching.
+            No lock-in contracts. Sessions available across all sports. Contact us for current rates.
           </p>
         </div>
       </section>
@@ -60,18 +60,17 @@ export default function Pricing() {
           {/* Rate table — desktop */}
           <div className="hidden sm:block rounded-2xl overflow-hidden" style={{ border: '1px solid var(--border)' }} data-animate="fade-up">
             <div
-              className="grid grid-cols-4 px-6 py-4 text-xs font-bold uppercase tracking-widest"
+              className="grid grid-cols-3 px-6 py-4 text-xs font-bold uppercase tracking-widest"
               style={{ background: 'var(--surface-2)', color: 'var(--brand-gold)' }}
             >
               <span>Duration</span>
               <span>Players</span>
-              <span>Termly</span>
-              <span>Pay As You Go</span>
+              <span>Rate</span>
             </div>
             {lessonRates.map((row, i) => (
               <div
                 key={i}
-                className="grid grid-cols-4 px-6 py-4 items-center transition-colors duration-150"
+                className="grid grid-cols-3 px-6 py-4 items-center transition-colors duration-150"
                 style={{
                   background: i % 2 === 0 ? 'var(--surface)' : 'var(--background)',
                   borderTop: '1px solid var(--border)',
@@ -79,8 +78,7 @@ export default function Pricing() {
               >
                 <span className="font-bold text-white text-sm">{row.duration}</span>
                 <span className="text-gray-400 text-sm">{row.players}</span>
-                <span className="font-bold text-sm" style={{ color: 'var(--brand-gold)' }}>{row.termly}</span>
-                <span className="text-gray-300 text-sm">{row.payg}</span>
+                <span className="font-bold text-sm" style={{ color: 'var(--brand-gold)' }}>Contact for Rates</span>
               </div>
             ))}
           </div>
@@ -93,18 +91,9 @@ export default function Pricing() {
                 className="rounded-2xl p-4"
                 style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}
               >
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center justify-between">
                   <span className="font-black text-white text-sm">{row.duration} · {row.players}</span>
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Termly</p>
-                    <p className="font-bold text-sm" style={{ color: 'var(--brand-gold)' }}>{row.termly}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Pay As You Go</p>
-                    <p className="text-gray-300 text-sm">{row.payg}</p>
-                  </div>
+                  <span className="font-bold text-xs" style={{ color: 'var(--brand-gold)' }}>Contact for Rates</span>
                 </div>
               </div>
             ))}
@@ -154,8 +143,7 @@ export default function Pricing() {
                   Receive a fully personalised fitness and nutrition plan built around your goals, lifestyle, and sport.
                 </p>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-black" style={{ color: 'var(--brand-gold)' }}>From $100</span>
-                  <span className="text-gray-400 text-sm">one-off</span>
+                  <span className="text-lg font-black text-white">Pricing on Application</span>
                 </div>
               </div>
             </Link>
@@ -284,11 +272,11 @@ export default function Pricing() {
         <LogoWatermark size={500} opacity={0.07} />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center" style={{ zIndex: 1 }}>
           <h2 className="text-3xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-            READY TO INVEST IN YOURSELF?
+            GET IN TOUCH
           </h2>
-          <p className="text-gray-300 mb-8">Get in touch and lock in your first session.</p>
+          <p className="text-gray-300 mb-8">Get in touch to discuss the right option for you.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-gold" style={{ minWidth: 180, textAlign: 'center' }}>Book Now</Link>
+            <Link href="/contact" className="btn-gold" style={{ minWidth: 180, textAlign: 'center' }}>Contact Us</Link>
             <Link href="/investor-pathway" className="btn-outline" style={{ minWidth: 180, textAlign: 'center' }}>Investor Pathway</Link>
           </div>
         </div>

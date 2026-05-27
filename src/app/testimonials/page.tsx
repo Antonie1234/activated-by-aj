@@ -343,8 +343,8 @@ export default function Testimonials() {
             <Link href="/contact" className="btn-gold">
               Book Your Session
             </Link>
-            <Link href="/pricing" className="btn-outline">
-              View Pricing
+            <Link href="/contact" className="btn-outline">
+              Get In Touch
             </Link>
           </div>
         </div>

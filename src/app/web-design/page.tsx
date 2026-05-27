@@ -291,49 +291,56 @@ export default function WebDesignPage() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-6">
-            {steps.map((step, i) => (
-              <div
-                key={step.number}
-                className="flex items-start gap-6 card"
-                data-animate="fade-up"
-                data-animate-delay={String(i * 80)}
-                style={{
-                  background: 'var(--surface)',
-                  border: '1px solid var(--border)',
-                  padding: '1.75rem',
-                }}
-              >
-                {/* Step number */}
-                <div
-                  className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-black text-sm"
-                  style={{
-                    background: 'rgba(74,127,165,0.12)',
-                    color: 'var(--brand-gold)',
-                    border: '1px solid rgba(74,127,165,0.3)',
-                  }}
-                >
-                  {step.number}
-                </div>
+          {/* Vertical timeline */}
+          <div className="relative">
+            {/* The line — runs down behind all the circles */}
+            <div
+              aria-hidden
+              className="absolute pointer-events-none"
+              style={{
+                left: '1.25rem',
+                top: '1.25rem',
+                bottom: '1.25rem',
+                width: 2,
+                transform: 'translateX(-50%)',
+                background: 'linear-gradient(to bottom, #4A7FA5 0%, rgba(74,127,165,0.15) 100%)',
+              }}
+            />
 
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-1">
-                    <h3 className="font-bold text-white text-lg">{step.title}</h3>
-                    {/* connector arrow for all but last */}
-                    {i < steps.length - 1 && (
-                      <span
-                        className="text-xs hidden sm:inline"
-                        style={{ color: 'rgba(74,127,165,0.5)' }}
-                      >
-                        →
-                      </span>
-                    )}
+            <div className="flex flex-col gap-8">
+              {steps.map((step, i) => (
+                <div
+                  key={step.number}
+                  className="relative flex items-start"
+                  style={{ paddingLeft: '3.5rem' }}
+                  data-animate="fade-up"
+                  data-animate-delay={String(i * 80)}
+                >
+                  {/* Numbered circle — sits on the timeline line */}
+                  <div
+                    className="absolute flex items-center justify-center font-black text-xs"
+                    style={{
+                      left: 0,
+                      top: 0,
+                      width: '2.5rem',
+                      height: '2.5rem',
+                      borderRadius: '50%',
+                      background: 'var(--background)',
+                      color: '#4A7FA5',
+                      border: '2px solid #4A7FA5',
+                    }}
+                  >
+                    {step.number}
                   </div>
-                  <p className="text-sm text-gray-400 leading-relaxed">{step.description}</p>
+
+                  {/* Content */}
+                  <div style={{ paddingTop: '0.3rem' }}>
+                    <h3 className="font-bold text-white text-lg mb-1">{step.title}</h3>
+                    <p className="text-sm text-gray-400 leading-relaxed">{step.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -364,7 +371,8 @@ export default function WebDesignPage() {
           </p>
           <a
             href="mailto:activatedbookingsbyaj@gmail.com"
-            className="btn-gold text-base"
+            className="btn-gold text-sm sm:text-base"
+            style={{ wordBreak: 'break-all' }}
           >
             activatedbookingsbyaj@gmail.com
           </a>

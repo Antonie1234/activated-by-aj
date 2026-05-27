@@ -297,10 +297,6 @@ export default function Services() {
                   >
                     {service.tagline}
                   </p>
-                  <div
-                    className="w-10 h-0.5 mb-5"
-                    style={{ background: service.accentColor }}
-                  />
                   <h2
                     className="text-3xl sm:text-4xl font-black text-white mb-4"
                     style={{ letterSpacing: '-0.02em' }}
@@ -311,13 +307,13 @@ export default function Services() {
                     {service.description}
                   </p>
 
-                  <ul className="space-y-3 mb-10">
+                  <ul className="space-y-2 mb-10 text-left">
                     {service.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-3 text-sm text-gray-300">
+                      <li key={detail} className="flex items-center gap-3 text-sm text-gray-300">
                         <span
-                          className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                          className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold"
                           style={{
-                            background: `rgba(74,127,165,0.12)`,
+                            background: 'rgba(74,127,165,0.12)',
                             color: 'var(--brand-gold)',
                             border: '1px solid rgba(74,127,165,0.25)',
                           }}
@@ -347,8 +343,8 @@ export default function Services() {
                     <Link href="/contact" className="btn-gold text-xs">
                       Book Now
                     </Link>
-                    <Link href="/pricing" className="btn-outline text-xs">
-                      View Pricing
+                    <Link href="/contact" className="btn-outline text-xs">
+                      Get In Touch
                     </Link>
                   </div>
                 </div>
@@ -380,8 +376,8 @@ export default function Services() {
             <Link href="/contact" className="btn-gold">
               Chat with AJ
             </Link>
-            <Link href="/pricing" className="btn-outline">
-              See Pricing
+            <Link href="/contact" className="btn-outline">
+              Get In Touch
             </Link>
           </div>
         </div>

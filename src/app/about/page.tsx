@@ -4,10 +4,9 @@ import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
 
 const values = [
-  { label: 'Energy', description: 'Every session is charged with intent and drive.' },
-  { label: 'Purpose', description: 'Training is always connected to your bigger goals.' },
-  { label: 'Results', description: 'Progress you can see, feel, and measure.' },
-  { label: 'Community', description: "You're not just a client. You're part of the movement." },
+  { label: 'Energy',   description: 'Every session is charged with intent and drive.' },
+  { label: 'Respect',  description: 'For the game, for the process, for every client.' },
+  { label: 'Purpose',  description: 'Training is always connected to your bigger goals.' },
 ];
 
 export default function About() {
@@ -158,7 +157,6 @@ export default function About() {
               >
                 <div className="mb-6" style={{ color: 'var(--brand-gold)' }}>{pillar.svg}</div>
                 <h3 className="text-lg font-black text-white mb-3 uppercase tracking-tight">{pillar.title}</h3>
-                <div className="w-8 h-0.5 mb-4 mx-auto" style={{ background: 'var(--brand-gold)' }} />
                 <p className="text-gray-400 text-sm leading-relaxed">{pillar.body}</p>
               </div>
             ))}
