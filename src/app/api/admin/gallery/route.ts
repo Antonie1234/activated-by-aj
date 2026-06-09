@@ -24,7 +24,7 @@ const DEFAULT_ORDER: Record<string, string[]> = {
   Tennis:          ['/gallery/tennis-4.jpg', '/gallery/tennis-1.jpg', '/gallery/tennis-3.jpg', '/gallery/tennis-2.jpg', '/gallery/tennis-5.jpg', '/gallery/video-3.mov'],
   Padel:           ['/gallery/padel-3.jpg',  '/gallery/padel-1.jpg',  '/gallery/padel-2.jpg',  '/gallery/padel-4.jpg',  '/gallery/video-2.mov'],
   'Beach Sports':  ['/gallery/beach-2.jpg',  '/gallery/beach-1.jpg',  '/gallery/video-4.mov',  '/gallery/video-5.mov'],
-  'Reflect Motion':['/gallery/tennis-3.jpg', '/gallery/tennis-6.jpg', '/gallery/video-1.mp4',  '/gallery/tennis-4.jpg'],
+  'Reflect Motion': [], // managed entirely via admin uploads
 };
 
 async function readOrder(): Promise<Record<string, string[]>> {

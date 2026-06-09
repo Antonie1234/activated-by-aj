@@ -58,7 +58,7 @@ const DEFAULT_ORDER: Record<Tab, string[]> = {
   Tennis:          ['/gallery/tennis-4.jpg', '/gallery/tennis-1.jpg', '/gallery/tennis-3.jpg', '/gallery/tennis-2.jpg', '/gallery/tennis-5.jpg', '/gallery/video-3.mov'],
   Padel:           ['/gallery/padel-3.jpg',  '/gallery/padel-1.jpg',  '/gallery/padel-2.jpg',  '/gallery/padel-4.jpg',  '/gallery/video-2.mov'],
   'Beach Sports':  ['/gallery/beach-2.jpg',  '/gallery/beach-1.jpg',  '/gallery/video-4.mov',  '/gallery/video-5.mov'],
-  'Reflect Motion':['/gallery/tennis-3.jpg', '/gallery/tennis-6.jpg', '/gallery/video-1.mp4',  '/gallery/tennis-4.jpg'],
+  'Reflect Motion': [], // managed entirely via admin gallery
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -142,7 +142,7 @@ export default function WorldOfActivated() {
         {/* ── SECTION HEADER ──────────────────────────────────────────────── */}
         <div className="text-center mb-12">
           <p style={{
-            color: '#C8A951',
+            color: '#4A7FA5',
             fontSize: '11px',
             letterSpacing: '3px',
             textTransform: 'uppercase',
@@ -199,7 +199,28 @@ export default function WorldOfActivated() {
           ))}
         </div>
 
-        {/* ── MEDIA GRID (bento) ──────────────────────────────────────────── */}
+        {/* ── MEDIA GRID (bento) or EMPTY STATE ──────────────────────────── */}
+        {tiles.length === 0 ? (
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: '200px',
+            padding: '48px 24px',
+            borderRadius: '8px',
+            border: '1px solid rgba(74,127,165,0.15)',
+          }}>
+            <p style={{
+              color: '#4A7FA5',
+              fontStyle: 'italic',
+              textAlign: 'center',
+              fontSize: '15px',
+              lineHeight: 1.6,
+            }}>
+              Coming soon — check back for Reflect Motion content.
+            </p>
+          </div>
+        ) : (
         <div style={{ overflowX: 'auto' }}>
           <div
             style={{
@@ -238,37 +259,23 @@ export default function WorldOfActivated() {
                     className="group-hover:scale-[1.02]"
                   />
                 ) : (
-                  /* ── Video tile: dark bg + circular play button ── */
-                  <div
+                  /* ── Video tile: autoplays muted+looped in tile; click → lightbox with sound ── */
+                  <video
+                    key={tile.src}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    src={tile.src}
                     style={{
                       position: 'absolute',
                       inset: 0,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
                     }}
-                  >
-                    <div
-                      className="group-hover:scale-110"
-                      style={{
-                        width: '48px',
-                        height: '48px',
-                        borderRadius: '50%',
-                        background: 'rgba(255,255,255,0.92)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.45)',
-                        transition: 'transform 150ms ease, box-shadow 150ms ease',
-                        flexShrink: 0,
-                      }}
-                    >
-                      {/* Gold triangle */}
-                      <svg width="16" height="18" viewBox="0 0 16 18" fill="#C8A951" aria-hidden="true">
-                        <polygon points="2,1 15,9 2,17" />
-                      </svg>
-                    </div>
-                  </div>
+                  />
                 )}
 
                 {/* Overlay label (Reflect Motion + any overlay-tagged tile) */}
@@ -305,6 +312,7 @@ export default function WorldOfActivated() {
             ))}
           </div>
         </div>
+        )} {/* end empty-state / grid conditional */}
 
       </div>
 

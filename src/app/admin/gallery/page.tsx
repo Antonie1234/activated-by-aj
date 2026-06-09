@@ -11,7 +11,7 @@ const DEFAULT_ORDER: Record<Tab, string[]> = {
   Tennis:          ['/gallery/tennis-4.jpg', '/gallery/tennis-1.jpg', '/gallery/tennis-3.jpg', '/gallery/tennis-2.jpg', '/gallery/tennis-5.jpg', '/gallery/video-3.mov'],
   Padel:           ['/gallery/padel-3.jpg',  '/gallery/padel-1.jpg',  '/gallery/padel-2.jpg',  '/gallery/padel-4.jpg',  '/gallery/video-2.mov'],
   'Beach Sports':  ['/gallery/beach-2.jpg',  '/gallery/beach-1.jpg',  '/gallery/video-4.mov',  '/gallery/video-5.mov'],
-  'Reflect Motion':['/gallery/tennis-3.jpg', '/gallery/tennis-6.jpg', '/gallery/video-1.mp4',  '/gallery/tennis-4.jpg'],
+  'Reflect Motion': [], // managed entirely via admin uploads
 };
 
 const CORRECT_PASSWORD = 'activated2026';
@@ -282,6 +282,22 @@ export default function AdminGallery() {
             </button>
           ))}
         </div>
+
+        {/* Reflect Motion info note */}
+        {tab === 'Reflect Motion' && (
+          <div style={{
+            padding: '14px 18px',
+            borderRadius: '8px',
+            marginBottom: '20px',
+            background: 'rgba(74,127,165,0.08)',
+            border: '1px solid rgba(74,127,165,0.25)',
+            color: '#4A7FA5',
+            fontSize: '13px',
+            lineHeight: 1.55,
+          }}>
+            Upload your Reflect Motion photos and videos here — they will appear on the site automatically.
+          </div>
+        )}
 
         {/* Upload button */}
         <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
