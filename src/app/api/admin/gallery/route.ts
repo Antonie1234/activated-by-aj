@@ -16,6 +16,7 @@ const ORDER_FILE   = path.join(GALLERY_DIR, 'gallery-order.json');
 const TAB_PREFIX: Record<string, string> = {
   Tennis:          'tennis-',
   Padel:           'padel-',
+  Pickleball:      'pickleball-',
   'Beach Sports':  'beach-',
   'Reflect Motion':'reflect-',
 };
@@ -23,8 +24,9 @@ const TAB_PREFIX: Record<string, string> = {
 const DEFAULT_ORDER: Record<string, string[]> = {
   Tennis:          ['/gallery/tennis-4.jpg', '/gallery/tennis-1.jpg', '/gallery/tennis-3.jpg', '/gallery/tennis-2.jpg', '/gallery/tennis-5.jpg', '/gallery/video-3.mov'],
   Padel:           ['/gallery/padel-3.jpg',  '/gallery/padel-1.jpg',  '/gallery/padel-2.jpg',  '/gallery/padel-4.jpg',  '/gallery/video-2.mov'],
+  Pickleball:      [],
   'Beach Sports':  ['/gallery/beach-2.jpg',  '/gallery/beach-1.jpg',  '/gallery/video-4.mov',  '/gallery/video-5.mov'],
-  'Reflect Motion': [], // managed entirely via admin uploads
+  'Reflect Motion': [],
 };
 
 async function readOrder(): Promise<Record<string, string[]>> {

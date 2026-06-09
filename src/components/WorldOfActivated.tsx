@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-const TABS = ['Tennis', 'Padel', 'Beach Sports', 'Reflect Motion'] as const;
+const TABS = ['Tennis', 'Padel', 'Pickleball', 'Beach Sports', 'Reflect Motion'] as const;
 type Tab = (typeof TABS)[number];
 
 type MediaTile = {
@@ -38,6 +38,13 @@ const TEMPLATES: Record<Tab, Array<Omit<MediaTile, 'src' | 'type'>>> = {
     { colSpan: 7,  rowSpan: 1, colStart: 6,  rowStart: 2 },
     { colSpan: 12, rowSpan: 1, colStart: 1,  rowStart: 3 }, // video row
   ],
+  Pickleball: [
+    { colSpan: 5,  rowSpan: 2, colStart: 1,  rowStart: 1 },
+    { colSpan: 4,  rowSpan: 1, colStart: 6,  rowStart: 1 },
+    { colSpan: 3,  rowSpan: 1, colStart: 10, rowStart: 1 },
+    { colSpan: 7,  rowSpan: 1, colStart: 6,  rowStart: 2 },
+    { colSpan: 12, rowSpan: 1, colStart: 1,  rowStart: 3 }, // video row
+  ],
   'Beach Sports': [
     { colSpan: 5,  rowSpan: 2, colStart: 1,  rowStart: 1 },
     { colSpan: 7,  rowSpan: 2, colStart: 6,  rowStart: 1 },
@@ -57,6 +64,7 @@ const TEMPLATES: Record<Tab, Array<Omit<MediaTile, 'src' | 'type'>>> = {
 const DEFAULT_ORDER: Record<Tab, string[]> = {
   Tennis:          ['/gallery/tennis-4.jpg', '/gallery/tennis-1.jpg', '/gallery/tennis-3.jpg', '/gallery/tennis-2.jpg', '/gallery/tennis-5.jpg', '/gallery/video-3.mov'],
   Padel:           ['/gallery/padel-3.jpg',  '/gallery/padel-1.jpg',  '/gallery/padel-2.jpg',  '/gallery/padel-4.jpg',  '/gallery/video-2.mov'],
+  Pickleball:      [], // managed via admin gallery
   'Beach Sports':  ['/gallery/beach-2.jpg',  '/gallery/beach-1.jpg',  '/gallery/video-4.mov',  '/gallery/video-5.mov'],
   'Reflect Motion': [], // managed entirely via admin gallery
 };
@@ -74,6 +82,20 @@ function buildTiles(tab: Tab, files: string[]): MediaTile[] {
     src:  files[i],
     type: isVideo(files[i]) ? 'video' : 'photo',
   }));
+}
+
+/**
+ * Compute explicit per-row heights for the CSS grid.
+ * Photo rows → 190px. Any row that contains a video tile → 400px.
+ * This lets video tiles show the full frame without cropping.
+ */
+function getGridRows(tiles: MediaTile[]): string {
+  if (tiles.length === 0) return '190px';
+  const maxRow = Math.max(...tiles.map((t) => t.rowStart + t.rowSpan - 1));
+  return Array.from({ length: maxRow }, (_, row) => {
+    const hasVideo = tiles.some((t) => t.rowStart === row + 1 && t.type === 'video');
+    return hasVideo ? '400px' : '190px';
+  }).join(' ');
 }
 
 // Default grids (rendered immediately; updated by gallery-order.json after mount)
@@ -105,8 +127,7 @@ export default function WorldOfActivated() {
       .catch(() => { /* gallery-order.json absent — keep defaults */ });
   }, []);
 
-  const tiles   = grids[tab];
-  const maxRow  = tiles.length > 0 ? Math.max(...tiles.map((t) => t.rowStart + t.rowSpan - 1)) : 2;
+  const tiles = grids[tab];
 
   // ── Tab switch: 200 ms crossfade ───────────────────────────────────────────
   const switchTab = (next: Tab) => {
@@ -160,8 +181,6 @@ export default function WorldOfActivated() {
           }}>
             Sport. Energy. Movement.
           </h2>
-          {/* Steel blue — per spec */}
-          <div style={{ width: '36px', height: '2px', background: '#4A7FA5', margin: '0 auto' }} />
         </div>
 
         {/* ── SPORT TABS ──────────────────────────────────────────────────── */}
@@ -226,7 +245,7 @@ export default function WorldOfActivated() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(12, 1fr)',
-              gridTemplateRows: `repeat(${maxRow}, 190px)`,
+              gridTemplateRows: getGridRows(tiles),
               gap: '6px',
               minWidth: '560px',
               opacity: gridVisible ? 1 : 0,
@@ -245,7 +264,7 @@ export default function WorldOfActivated() {
                   overflow:     'hidden',
                   borderRadius: '4px',
                   cursor:       'pointer',
-                  background:   tile.type === 'video' ? 'linear-gradient(135deg, #0a0f1a 0%, #0d1b2a 100%)' : undefined,
+                  background:   tile.type === 'video' ? '#0D1B2A' : undefined,
                 }}
               >
                 {tile.type === 'photo' ? (
@@ -272,8 +291,9 @@ export default function WorldOfActivated() {
                       inset: 0,
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover',
+                      objectFit: 'contain',
                       display: 'block',
+                      background: '#0D1B2A', // navy fills letterbox bars
                     }}
                   />
                 )}

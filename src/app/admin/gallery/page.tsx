@@ -4,12 +4,13 @@ import { useState, useEffect, useRef } from 'react';
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const TABS = ['Tennis', 'Padel', 'Beach Sports', 'Reflect Motion'] as const;
+const TABS = ['Tennis', 'Padel', 'Pickleball', 'Beach Sports', 'Reflect Motion'] as const;
 type Tab = (typeof TABS)[number];
 
 const DEFAULT_ORDER: Record<Tab, string[]> = {
   Tennis:          ['/gallery/tennis-4.jpg', '/gallery/tennis-1.jpg', '/gallery/tennis-3.jpg', '/gallery/tennis-2.jpg', '/gallery/tennis-5.jpg', '/gallery/video-3.mov'],
   Padel:           ['/gallery/padel-3.jpg',  '/gallery/padel-1.jpg',  '/gallery/padel-2.jpg',  '/gallery/padel-4.jpg',  '/gallery/video-2.mov'],
+  Pickleball:      [],
   'Beach Sports':  ['/gallery/beach-2.jpg',  '/gallery/beach-1.jpg',  '/gallery/video-4.mov',  '/gallery/video-5.mov'],
   'Reflect Motion': [], // managed entirely via admin uploads
 };
@@ -283,8 +284,8 @@ export default function AdminGallery() {
           ))}
         </div>
 
-        {/* Reflect Motion info note */}
-        {tab === 'Reflect Motion' && (
+        {/* Pickleball / Reflect Motion info note */}
+        {(tab === 'Pickleball' || tab === 'Reflect Motion') && (
           <div style={{
             padding: '14px 18px',
             borderRadius: '8px',
@@ -295,7 +296,9 @@ export default function AdminGallery() {
             fontSize: '13px',
             lineHeight: 1.55,
           }}>
-            Upload your Reflect Motion photos and videos here — they will appear on the site automatically.
+            {tab === 'Pickleball'
+              ? 'Upload your Pickleball photos and videos here — they will appear on the site automatically.'
+              : 'Upload your Reflect Motion photos and videos here — they will appear on the site automatically.'}
           </div>
         )}
 
