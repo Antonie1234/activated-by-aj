@@ -5,6 +5,7 @@ import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
 import ReflectMotionLogo from '@/components/ReflectMotionLogo';
 import StatsCounter from '@/components/StatsCounter';
+import WorldOfActivated from '@/components/WorldOfActivated';
 
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
@@ -373,6 +374,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <GoldDivider />
+
+      {/* ── WORLD OF ACTIVATED ── */}
+      <WorldOfActivated />
 
       <GoldDivider />
 
