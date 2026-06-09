@@ -34,7 +34,7 @@ export default function Footer() {
               <AJLogo height={52} />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Originating, connecting, and activating the future of racquet sport.
+              Activating the future of sport and AI technology.
             </p>
           </div>
 
