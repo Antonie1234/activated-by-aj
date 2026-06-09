@@ -1,10 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
+
+// Maps review form sport → testimonial display fields
+const SPORT_TO_SERVICE: Record<string, string> = {
+  Tennis:         'Tennis Coaching',
+  Padel:          'Padel Coaching',
+  Pickleball:     'Pickleball Coaching',
+  'Beach Sports': 'Beach Tennis',
+  Fitness:        'Fitness & Conditioning',
+  Other:          'Coaching',
+};
+const SPORT_TO_FILTER: Record<string, string> = {
+  Tennis:         'Tennis',
+  Padel:          'Padel',
+  Pickleball:     'Pickleball',
+  'Beach Sports': 'Beach Tennis',
+  Fitness:        'Fitness',
+  Other:          '',
+};
 
 const testimonials = [
   // Tennis
@@ -202,11 +220,33 @@ function StarRating({ count }: { count: number }) {
 
 export default function Testimonials() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [approved, setApproved] = useState<typeof testimonials>([]);
+
+  // Fetch approved community reviews and merge with hardcoded ones
+  useEffect(() => {
+    fetch('/api/reviews/approved')
+      .then((r) => r.json())
+      .then((data: { name: string; sport: string; rating: number; message: string }[]) => {
+        setApproved(
+          data.map((r) => ({
+            name:     r.name,
+            initials: r.name.split(' ').map((n) => n[0] ?? '').join('').slice(0, 2).toUpperCase(),
+            service:  SPORT_TO_SERVICE[r.sport] ?? 'Coaching',
+            filter:   SPORT_TO_FILTER[r.sport]  ?? '',
+            quote:    r.message,
+            rating:   r.rating,
+          }))
+        );
+      })
+      .catch(() => { /* silently ignore — hardcoded reviews still display */ });
+  }, []);
+
+  const allTestimonials = [...testimonials, ...approved];
 
   const filtered =
     activeFilter === 'All'
-      ? testimonials
-      : testimonials.filter((t) => t.filter === activeFilter);
+      ? allTestimonials
+      : allTestimonials.filter((t) => t.filter === activeFilter);
 
   return (
     <>
