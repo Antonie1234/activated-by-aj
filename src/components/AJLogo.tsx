@@ -5,7 +5,7 @@ export default function AJLogo({ height = 40 }: { height?: number }) {
       viewBox="0 0 148 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      aria-label="Activated by AJ"
+      aria-label="Activated"
       style={{ filter: 'drop-shadow(0 0 8px rgba(74,127,165,0.4))' }}
     >
       {/* "A" mark */}
@@ -21,25 +21,15 @@ export default function AJLogo({ height = 40 }: { height?: number }) {
       {/* Wordmark */}
       <text
         x="50"
-        y="27"
+        y="25"
         fontFamily="Arial, sans-serif"
         fontWeight="900"
         fontSize="14"
         letterSpacing="0.5"
         fill="white"
+        dominantBaseline="middle"
       >
         ACTIVATED
-      </text>
-      <text
-        x="50"
-        y="38"
-        fontFamily="Arial, sans-serif"
-        fontWeight="700"
-        fontSize="9"
-        letterSpacing="3"
-        fill="#4A7FA5"
-      >
-        BY AJ
       </text>
     </svg>
   );

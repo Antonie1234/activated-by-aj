@@ -4,7 +4,7 @@ import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
 
 export const metadata = {
-  title: 'Web Design Services | Activated by AJ',
+  title: 'Web Design Services | Activated',
   description:
     'Premium custom websites built for small businesses, personal brands and startups. Starter, Professional and Premium packages available.',
 };

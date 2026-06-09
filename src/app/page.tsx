@@ -223,7 +223,7 @@ export default function Home() {
                 COACHING THAT <span className="gold-text">ACTIVATES</span> YOU
               </h2>
               <p className="text-gray-400 leading-relaxed mb-8">
-                Activated by AJ is more than a coaching brand. It&apos;s a movement built around one standard of excellence. I activate your full potential across tennis, padel, pickleball, beach sports and fitness. Discipline. Energy. Purpose. Let&apos;s build something.
+                Activated is more than a coaching brand. It&apos;s a movement built around one standard of excellence. I activate your full potential across tennis, padel, pickleball, beach sports and fitness. Discipline. Energy. Purpose. Let&apos;s build something.
               </p>
               <Link href="/about" className="btn-primary">
                 More About AJ
@@ -262,7 +262,7 @@ export default function Home() {
             WE ORIGINATE.<br />WE CONNECT.<br />WE ACTIVATE.
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-3xl mx-auto">
-            Activated by AJ is a sports facility concept broker and lifestyle brand. We identify premium padel opportunities,
+            Activated is a sports facility concept broker and lifestyle brand. We identify premium padel opportunities,
             develop the full concept, connect the right investors, structure the deal, and brand every facility we create.
           </p>
 

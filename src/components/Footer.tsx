@@ -101,7 +101,7 @@ export default function Footer() {
           className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-600"
           style={{ borderTop: '1px solid rgba(232,244,253,0.12)' }}
         >
-          <p>© 2026 Activated by AJ. All rights reserved.</p>
+          <p>© 2026 Activated. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="/reviews" className="hover:text-gray-400 transition-colors">Leave a Review</a>
             <a href="/privacy-policy" className="hover:text-gray-400 transition-colors">Privacy Policy</a>

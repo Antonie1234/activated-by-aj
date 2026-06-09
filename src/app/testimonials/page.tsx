@@ -230,7 +230,7 @@ export default function Testimonials() {
             TESTIMONIALS
           </h1>
           <p className="text-gray-400 text-lg max-w-xl mx-auto leading-relaxed">
-            Don&apos;t just take our word for it. Here&apos;s what the Activated by AJ community has to say.
+            Don&apos;t just take our word for it. Here&apos;s what the Activated community has to say.
           </p>
         </div>
       </section>
@@ -339,7 +339,7 @@ export default function Testimonials() {
             READY TO WRITE YOUR OWN STORY?
           </h2>
           <p className="text-gray-400 mb-8 leading-relaxed">
-            Join the Activated by AJ community and start your transformation today.
+            Join the Activated community and start your transformation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="btn-gold">

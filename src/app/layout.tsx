@@ -11,9 +11,9 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Activated by AJ | Racquet Sport & Lifestyle",
+  title: "Activated | Racquet Sport & Lifestyle",
   description:
-    "Activated by AJ — premium racquet sport coaching, padel facility development, and AI performance technology. Your Vibe Activates Your Tribe.",
+    "Activated — premium racquet sport coaching, padel facility development, and AI performance technology. Your Vibe Activates Your Tribe.",
   keywords: [
     "tennis coach",
     "padel coaching",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "beach tennis",
     "fitness coach",
     "racquet sport",
-    "Activated by AJ",
+    "Activated",
   ],
   icons: {
     icon: [
@@ -32,10 +32,10 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: "Activated by AJ",
+    title: "Activated",
     description: "Turn your energy into purpose.",
     url: "https://activatedbyaj.co.za",
-    siteName: "Activated by AJ",
+    siteName: "Activated",
     locale: "en_US",
     type: "website",
   },
@@ -55,7 +55,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Activated by AJ",
+              "name": "Activated",
               "url": "https://activatedbyaj.co.za",
               "logo": "https://activatedbyaj.co.za/logo.png",
             }),

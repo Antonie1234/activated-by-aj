@@ -70,7 +70,7 @@ export default function Apparel() {
           </h1>
 
           <p className="text-gray-400 text-lg sm:text-xl max-w-xl mx-auto mb-12 leading-relaxed">
-            The Activated by AJ apparel range is dropping soon. Drop your email below to be first to know.
+            The Activated apparel range is dropping soon. Drop your email below to be first to know.
           </p>
 
           {/* Email sign-up */}

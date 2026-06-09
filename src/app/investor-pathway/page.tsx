@@ -3,9 +3,9 @@ import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
 
 export const metadata = {
-  title: 'Investor Pathway | Activated by AJ',
+  title: 'Investor Pathway | Activated',
   description:
-    'Activated by AJ originates padel facility concepts, connects the right investors, and activates world-class facilities.',
+    'Activated originates padel facility concepts, connects the right investors, and activates world-class facilities.',
 };
 
 

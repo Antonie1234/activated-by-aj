@@ -89,7 +89,7 @@ export default function About() {
                   Before coaching was a career, it was a way of life. Growing up competing on the national circuit in South Africa, representing at Junior Davis Cup level, and training in professional squads — the standard was always high. That competitive foundation is what every client gets access to.
                 </p>
                 <p>
-                  Off the court, AJ is building something bigger. Activated by AJ is a premium racquet sport brand and facility development platform. Reflect Motion is the AI performance technology layer powering it. The vision is a fully integrated sports ecosystem — and it&apos;s already in motion.
+                  Off the court, AJ is building something bigger. Activated is a premium racquet sport brand and facility development platform. Reflect Motion is the AI performance technology layer powering it. The vision is a fully integrated sports ecosystem — and it&apos;s already in motion.
                 </p>
               </div>
             </div>
