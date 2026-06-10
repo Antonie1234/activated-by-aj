@@ -1,7 +1,7 @@
 /**
  * POST /api/admin/gallery/order
- * Body: { tab: string, order: string[] }
- * Saves the new file order for one tab into gallery-order.json.
+ * Body: { mediaType: 'photo' | 'video', sport: string, order: string[] }
+ * Saves the reordered file list for one sport into gallery-order.json.
  */
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
@@ -14,18 +14,21 @@ const ORDER_FILE  = path.join(GALLERY_DIR, 'gallery-order.json');
 
 export async function POST(req: NextRequest) {
   try {
-    const { tab, order } = await req.json() as { tab: string; order: string[] };
+    const { mediaType, sport, order } = await req.json() as {
+      mediaType: 'photo' | 'video'; sport: string; order: string[];
+    };
 
-    if (!tab || !Array.isArray(order)) {
+    if (!mediaType || !sport || !Array.isArray(order)) {
       return NextResponse.json({ error: 'Invalid payload.' }, { status: 400 });
     }
 
-    let current: Record<string, string[]> = {};
-    try {
-      current = JSON.parse(await fs.readFile(ORDER_FILE, 'utf-8'));
-    } catch { /* file not yet created */ }
+    let current: { photos?: Record<string, string[]>; videos?: Record<string, string[]> } = {};
+    try { current = JSON.parse(await fs.readFile(ORDER_FILE, 'utf-8')); } catch { /* first run */ }
 
-    current[tab] = order;
+    const bucket = mediaType === 'photo' ? 'photos' : 'videos';
+    if (!current[bucket]) current[bucket] = {};
+    current[bucket]![sport] = order;
+
     await fs.mkdir(GALLERY_DIR, { recursive: true });
     await fs.writeFile(ORDER_FILE, JSON.stringify(current, null, 2), 'utf-8');
 
