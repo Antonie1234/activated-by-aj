@@ -100,10 +100,7 @@ interface MediaGridProps {
   loading: boolean;
   acceptExt: string;
   uploadLabel: string;
-  mediaType: 'photo' | 'video';
-  sport: string;
-  sportKey: string;
-  onUpload: (file: File) => void;
+  onUpload: (files: File[]) => void;
   onDelete: (src: string) => void;
   onReorder: (newFiles: string[]) => void;
 }
@@ -129,8 +126,23 @@ function MediaGrid({ files, loading, acceptExt, uploadLabel, onUpload, onDelete,
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           {uploadLabel}
         </button>
-        <input ref={fileRef} type="file" accept={acceptExt} onChange={(e) => { const f = e.target.files?.[0]; if (f) { onUpload(f); if (fileRef.current) fileRef.current.value = ''; }}} style={{ display: 'none' }} />
-        <span style={{ color: 'rgba(232,244,253,0.28)', fontSize: '12px' }}>{acceptExt.replace(/\./g, '').replace(/,/g, ' · ')}</span>
+        <input
+          ref={fileRef}
+          type="file"
+          accept={acceptExt}
+          multiple
+          onChange={(e) => {
+            const fl = e.target.files;
+            if (fl && fl.length > 0) {
+              onUpload(Array.from(fl));
+              if (fileRef.current) fileRef.current.value = '';
+            }
+          }}
+          style={{ display: 'none' }}
+        />
+        <span style={{ color: 'rgba(232,244,253,0.28)', fontSize: '12px' }}>
+          {acceptExt.replace(/\./g, '').replace(/,/g, ' · ')} — select multiple files at once
+        </span>
       </div>
 
       {files.length === 0 ? (
@@ -160,21 +172,19 @@ function MediaGrid({ files, loading, acceptExt, uploadLabel, onUpload, onDelete,
   );
 }
 
-// ─── PHOTOS TAB ───────────────────────────────────────────────────────────────
+// ─── PHOTOS TAB (accepts photos AND videos — videos become grid play tiles) ───
 const PHOTO_SPORTS = ['Tennis', 'Padel', 'Pickleball', 'Beach Sports', 'Reflect Motion'] as const;
 type PhotoSport = (typeof PHOTO_SPORTS)[number];
 const PHOTO_KEY: Record<PhotoSport, string> = {
   Tennis: 'tennis', Padel: 'padel', Pickleball: 'pickleball', 'Beach Sports': 'beach', 'Reflect Motion': 'reflect',
 };
-const DEFAULT_PHOTOS: Record<PhotoSport, string[]> = {
-  Tennis: ['/gallery/tennis-4.jpg','/gallery/tennis-1.jpg','/gallery/tennis-3.jpg','/gallery/tennis-2.jpg','/gallery/tennis-5.jpg'],
-  Padel:  ['/gallery/padel-3.jpg', '/gallery/padel-1.jpg', '/gallery/padel-2.jpg', '/gallery/padel-4.jpg'],
-  Pickleball: [], 'Beach Sports': ['/gallery/beach-2.jpg','/gallery/beach-1.jpg'], 'Reflect Motion': [],
+const EMPTY_PHOTOS: Record<PhotoSport, string[]> = {
+  Tennis: [], Padel: [], Pickleball: [], 'Beach Sports': [], 'Reflect Motion': [],
 };
 
 function PhotosTab() {
   const [sport,   setSport]   = useState<PhotoSport>('Tennis');
-  const [order,   setOrder]   = useState<Record<PhotoSport, string[]>>(DEFAULT_PHOTOS);
+  const [order,   setOrder]   = useState<Record<PhotoSport, string[]>>(EMPTY_PHOTOS);
   const [loading, setLoading] = useState(false);
   const [msg,     setMsg]     = useState<{ text: string; ok: boolean } | null>(null);
 
@@ -189,18 +199,24 @@ function PhotosTab() {
   const files    = order[sport] ?? [];
   const sportKey = PHOTO_KEY[sport];
 
-  const handleUpload = async (file: File) => {
-    const fd = new FormData(); fd.append('file', file); fd.append('tab', sport); fd.append('mediaType', 'photo');
+  const handleUpload = async (selected: File[]) => {
+    const fd = new FormData();
+    for (const f of selected) fd.append('files', f);
+    fd.append('tab', sport);
+    fd.append('mediaType', 'photo');
+
     setLoading(true); setMsg(null);
     try {
-      const d = await (await fetch('/api/admin/gallery/upload', { method: 'POST', body: fd })).json() as { success?: boolean; src?: string; error?: string };
-      if (d.success && d.src) { setOrder(p => ({ ...p, [sport]: [...p[sport], d.src!] })); setMsg({ text: '✓ Uploaded.', ok: true }); }
-      else setMsg({ text: d.error ?? 'Upload failed.', ok: false });
+      const d = await (await fetch('/api/admin/gallery/upload', { method: 'POST', body: fd })).json() as { success?: boolean; srcs?: string[]; error?: string };
+      if (d.success && d.srcs) {
+        setOrder(p => ({ ...p, [sport]: [...p[sport], ...d.srcs!] }));
+        setMsg({ text: `✓ Uploaded ${d.srcs.length} file${d.srcs.length !== 1 ? 's' : ''}.`, ok: true });
+      } else setMsg({ text: d.error ?? 'Upload failed.', ok: false });
     } catch { setMsg({ text: 'Upload failed.', ok: false }); } finally { setLoading(false); }
   };
 
   const handleDelete = async (src: string) => {
-    if (!confirm(`Delete "${basename(src)}"?`)) return;
+    if (!confirm(`Delete "${basename(src)}"? This permanently removes the file.`)) return;
     setLoading(true); setMsg(null);
     try {
       const d = await (await fetch('/api/admin/gallery/delete', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ file: src, sport: sportKey, mediaType: 'photo' }) })).json() as { success?: boolean };
@@ -220,82 +236,10 @@ function PhotosTab() {
     <>
       <Flash msg={msg} />
       <SubTabBar tabs={PHOTO_SPORTS} active={sport} onChange={s => { setSport(s); setMsg(null); }} />
-      {(sport === 'Pickleball' || sport === 'Reflect Motion') && (
-        <div style={{ padding: '10px 14px', borderRadius: S.radius, marginBottom: '18px', background: 'rgba(74,127,165,0.08)', border: '1px solid rgba(74,127,165,0.18)', color: S.blue, fontSize: '13px' }}>
-          Upload {sport} photos here — they will appear on the site automatically.
-        </div>
-      )}
-      <MediaGrid files={files} loading={loading} acceptExt=".jpg,.jpeg,.png" uploadLabel={`Upload to ${sport}`}
-        mediaType="photo" sport={sport} sportKey={sportKey}
-        onUpload={handleUpload} onDelete={handleDelete} onReorder={handleReorder} />
-    </>
-  );
-}
-
-// ─── VIDEOS TAB ───────────────────────────────────────────────────────────────
-const VIDEO_SPORTS = ['General', 'Tennis', 'Padel', 'Pickleball', 'Beach Sports'] as const;
-type VideoSport = (typeof VIDEO_SPORTS)[number];
-const VIDEO_KEY: Record<VideoSport, string> = {
-  General: 'general', Tennis: 'tennis', Padel: 'padel', Pickleball: 'pickleball', 'Beach Sports': 'beach',
-};
-const DEFAULT_VIDEOS_ORDER: Record<VideoSport, string[]> = {
-  General: ['/gallery/video-1.mp4','/gallery/video-2.mov','/gallery/video-3.mov','/gallery/video-4.mov','/gallery/video-5.mov','/gallery/video-6.mov'],
-  Tennis: [], Padel: [], Pickleball: [], 'Beach Sports': [],
-};
-
-function VideosTab() {
-  const [sport,   setSport]   = useState<VideoSport>('General');
-  const [order,   setOrder]   = useState<Record<VideoSport, string[]>>(DEFAULT_VIDEOS_ORDER);
-  const [loading, setLoading] = useState(false);
-  const [msg,     setMsg]     = useState<{ text: string; ok: boolean } | null>(null);
-
-  useEffect(() => {
-    fetch('/api/admin/gallery').then(r => r.json()).then((d: { videos?: Record<string, string[]> }) => {
-      if (d.videos) setOrder(prev => VIDEO_SPORTS.reduce((acc, s) => { acc[s] = d.videos![VIDEO_KEY[s]] ?? prev[s]; return acc; }, { ...prev }));
-    }).catch(() => {});
-  }, []);
-
-  useEffect(() => { if (msg) { const t = setTimeout(() => setMsg(null), 3000); return () => clearTimeout(t); } }, [msg]);
-
-  const files    = order[sport] ?? [];
-  const sportKey = VIDEO_KEY[sport];
-
-  const handleUpload = async (file: File) => {
-    const fd = new FormData(); fd.append('file', file); fd.append('tab', sport); fd.append('mediaType', 'video');
-    setLoading(true); setMsg(null);
-    try {
-      const d = await (await fetch('/api/admin/gallery/upload', { method: 'POST', body: fd })).json() as { success?: boolean; src?: string; error?: string };
-      if (d.success && d.src) { setOrder(p => ({ ...p, [sport]: [...p[sport], d.src!] })); setMsg({ text: '✓ Uploaded.', ok: true }); }
-      else setMsg({ text: d.error ?? 'Upload failed.', ok: false });
-    } catch { setMsg({ text: 'Upload failed.', ok: false }); } finally { setLoading(false); }
-  };
-
-  const handleDelete = async (src: string) => {
-    if (!confirm(`Delete "${basename(src)}"?`)) return;
-    setLoading(true); setMsg(null);
-    try {
-      const d = await (await fetch('/api/admin/gallery/delete', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ file: src, sport: sportKey, mediaType: 'video' }) })).json() as { success?: boolean };
-      if (d.success) { setOrder(p => ({ ...p, [sport]: p[sport].filter(f => f !== src) })); setMsg({ text: '✓ Deleted.', ok: true }); }
-    } catch { setMsg({ text: 'Delete failed.', ok: false }); } finally { setLoading(false); }
-  };
-
-  const handleReorder = async (newFiles: string[]) => {
-    setOrder(p => ({ ...p, [sport]: newFiles }));
-    try {
-      await fetch('/api/admin/gallery/order', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mediaType: 'video', sport: sportKey, order: newFiles }) });
-      setMsg({ text: '✓ Order saved.', ok: true });
-    } catch { setMsg({ text: 'Order save failed.', ok: false }); }
-  };
-
-  return (
-    <>
-      <Flash msg={msg} />
-      <div style={{ padding: '10px 14px', borderRadius: S.radius, marginBottom: '18px', background: 'rgba(74,127,165,0.08)', border: '1px solid rgba(74,127,165,0.18)', color: S.blue, fontSize: '13px' }}>
-        All videos here feed the public Highlights reel — each card shows its sport as a badge. Use <strong>General</strong> for clips that don&apos;t belong to one sport.
+      <div style={{ padding: '10px 14px', borderRadius: S.radius, marginBottom: '18px', background: 'rgba(74,127,165,0.08)', border: '1px solid rgba(74,127,165,0.18)', color: S.blue, fontSize: '13px', lineHeight: 1.5 }}>
+        Photos and videos uploaded here appear in the {sport} grid on the site. Videos show as play-button tiles. The first item is the large hero tile.
       </div>
-      <SubTabBar tabs={VIDEO_SPORTS} active={sport} onChange={s => { setSport(s); setMsg(null); }} />
-      <MediaGrid files={files} loading={loading} acceptExt=".mp4,.mov" uploadLabel={`Upload to ${sport}`}
-        mediaType="video" sport={sport} sportKey={sportKey}
+      <MediaGrid files={files} loading={loading} acceptExt=".jpg,.jpeg,.png,.mp4,.mov" uploadLabel={`Upload to ${sport}`}
         onUpload={handleUpload} onDelete={handleDelete} onReorder={handleReorder} />
     </>
   );
@@ -352,7 +296,7 @@ function ReviewsTab() {
               {[1,2,3,4,5].map(s => <span key={s} style={{ color: s <= r.rating ? S.gold : 'rgba(74,127,165,0.25)', fontSize: '14px' }}>★</span>)}
               <span style={{ color: 'rgba(232,244,253,0.3)', fontSize: '11px', marginLeft: '8px', alignSelf: 'center' }}>{fmt(r.submittedAt)}</span>
             </div>
-            <p style={{ color: 'rgba(232,244,253,0.65)', fontSize: '13px', lineHeight: 1.55, marginBottom: '14px' }}>"{r.message}"</p>
+            <p style={{ color: 'rgba(232,244,253,0.65)', fontSize: '13px', lineHeight: 1.55, marginBottom: '14px' }}>&ldquo;{r.message}&rdquo;</p>
             <div style={{ display: 'flex', gap: '8px' }}>
               <button onClick={() => handleAction(r.id, 'approve')} disabled={!!acting}
                 style={{ background: S.blue, color: '#fff', border: 'none', borderRadius: S.radius, padding: '7px 16px', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.07em', cursor: acting ? 'not-allowed' : 'pointer' }}>
@@ -506,7 +450,7 @@ function TestimonialsTab() {
                 <div style={{ display: 'flex', gap: '1px' }}>{[1,2,3,4,5].map(s => <span key={s} style={{ color: s <= t.rating ? S.gold : 'rgba(74,127,165,0.2)', fontSize: '12px' }}>★</span>)}</div>
               </div>
               <p style={{ color: 'rgba(232,244,253,0.55)', fontSize: '12px', lineHeight: 1.5, margin: 0, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
-                "{t.quote}"
+                &ldquo;{t.quote}&rdquo;
               </p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', flexShrink: 0 }}>
@@ -532,7 +476,7 @@ function TestimonialsTab() {
 }
 
 // ─── Main page ────────────────────────────────────────────────────────────────
-const MAIN_TABS = ['Photos', 'Videos', 'Reviews', 'Testimonials'] as const;
+const MAIN_TABS = ['Photos', 'Reviews', 'Testimonials'] as const;
 type MainTab = (typeof MAIN_TABS)[number];
 
 export default function AdminGallery() {
@@ -545,7 +489,7 @@ export default function AdminGallery() {
       <div style={{ marginBottom: '32px' }}>
         <p style={{ color: S.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 8px' }}>Admin</p>
         <h1 style={{ color: S.plat, fontSize: '28px', fontWeight: 900, letterSpacing: '-0.02em', margin: '0 0 4px' }}>Gallery Manager</h1>
-        <p style={{ color: 'rgba(232,244,253,0.4)', fontSize: '13px', margin: 0 }}>Manage photos, videos, reviews, and testimonials.</p>
+        <p style={{ color: 'rgba(232,244,253,0.4)', fontSize: '13px', margin: 0 }}>Manage media, reviews, and testimonials.</p>
       </div>
 
       {/* Main tab bar */}
@@ -566,7 +510,6 @@ export default function AdminGallery() {
 
       {/* Tab content */}
       {mainTab === 'Photos'       && <PhotosTab />}
-      {mainTab === 'Videos'       && <VideosTab />}
       {mainTab === 'Reviews'      && <ReviewsTab />}
       {mainTab === 'Testimonials' && <TestimonialsTab />}
     </div>

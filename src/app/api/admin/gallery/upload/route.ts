@@ -1,8 +1,11 @@
 /**
  * POST /api/admin/gallery/upload
- * Multipart: { file: File, tab: string, mediaType: 'photo' | 'video' }
- * Saves to /public/gallery/<prefix><timestamp>.<ext>
- * Appends src to gallery-order.json under photos[sport] or videos[sport].
+ * Multipart: { files: File[] (or single 'file'), tab: string, mediaType: 'photo' | 'video' }
+ * Saves each file to /public/gallery/<prefix><timestamp>-<n>.<ext>
+ * Appends all srcs to gallery-order.json under photos[sport] or videos[sport].
+ *
+ * Note: the photos bucket accepts videos too — .mp4/.mov uploaded via the admin
+ * Photos tab render as play-button tiles inside the public bento grid.
  */
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
@@ -25,47 +28,66 @@ const TAB_PREFIX: Record<string, string> = {
   beach: 'beach-', reflect: 'reflect-', general: 'video-',
 };
 
-const PHOTO_EXTS = new Set(['jpg', 'jpeg', 'png']);
+// Photos bucket accepts images AND videos (videos become grid play tiles)
+const PHOTO_EXTS = new Set(['jpg', 'jpeg', 'png', 'mp4', 'mov']);
 const VIDEO_EXTS = new Set(['mp4', 'mov']);
 
 export async function POST(req: NextRequest) {
   try {
     const formData  = await req.formData();
-    const file      = formData.get('file')      as File   | null;
     const tab       = formData.get('tab')       as string | null;
-    const mediaType = formData.get('mediaType') as string | null;
+    const mediaType = (formData.get('mediaType') as string | null) ?? 'photo';
 
-    if (!file || !tab || !mediaType) {
-      return NextResponse.json({ error: 'Missing file, tab, or mediaType.' }, { status: 400 });
+    // Accept both multi ('files') and legacy single ('file') field names
+    const files = [
+      ...formData.getAll('files'),
+      ...formData.getAll('file'),
+    ].filter((f): f is File => f instanceof File);
+
+    if (files.length === 0 || !tab) {
+      return NextResponse.json({ error: 'Missing files or tab.' }, { status: 400 });
     }
 
-    const ext     = (file.name.split('.').pop() ?? '').toLowerCase();
-    const allowed = mediaType === 'photo' ? PHOTO_EXTS : VIDEO_EXTS;
-    if (!allowed.has(ext)) {
-      return NextResponse.json({ error: `File type .${ext} is not allowed for ${mediaType}s.` }, { status: 400 });
+    const allowed = mediaType === 'video' ? VIDEO_EXTS : PHOTO_EXTS;
+
+    // Validate every file before saving any
+    for (const file of files) {
+      const ext = (file.name.split('.').pop() ?? '').toLowerCase();
+      if (!allowed.has(ext)) {
+        return NextResponse.json(
+          { error: `File type .${ext} is not allowed (${file.name}).` },
+          { status: 400 }
+        );
+      }
     }
 
     const sportKey = SPORT_KEY[tab] ?? tab.toLowerCase().replace(/\s+/g, '-');
     const prefix   = TAB_PREFIX[sportKey] ?? 'gallery-';
-    const filename = `${prefix}${Date.now()}.${ext}`;
 
     await fs.mkdir(GALLERY_DIR, { recursive: true });
-    await fs.writeFile(path.join(GALLERY_DIR, filename), Buffer.from(await file.arrayBuffer()));
 
-    const src = `/gallery/${filename}`;
+    // Save sequentially; index suffix prevents same-millisecond collisions
+    const srcs: string[] = [];
+    const stamp = Date.now();
+    for (let i = 0; i < files.length; i++) {
+      const ext      = (files[i].name.split('.').pop() ?? '').toLowerCase();
+      const filename = `${prefix}${stamp}-${i}.${ext}`;
+      await fs.writeFile(path.join(GALLERY_DIR, filename), Buffer.from(await files[i].arrayBuffer()));
+      srcs.push(`/gallery/${filename}`);
+    }
 
     // Update gallery-order.json
     let order: { photos?: Record<string, string[]>; videos?: Record<string, string[]> } = {};
     try { order = JSON.parse(await fs.readFile(ORDER_FILE, 'utf-8')); } catch { /* first run */ }
 
-    const bucket = mediaType === 'photo' ? 'photos' : 'videos';
+    const bucket = mediaType === 'video' ? 'videos' : 'photos';
     if (!order[bucket]) order[bucket] = {};
     if (!Array.isArray(order[bucket]![sportKey])) order[bucket]![sportKey] = [];
-    order[bucket]![sportKey].push(src);
+    order[bucket]![sportKey].push(...srcs);
 
     await fs.writeFile(ORDER_FILE, JSON.stringify(order, null, 2), 'utf-8');
 
-    return NextResponse.json({ success: true, src });
+    return NextResponse.json({ success: true, srcs });
   } catch (err) {
     console.error('[POST /api/admin/gallery/upload]', err);
     return NextResponse.json({ error: 'Upload failed.' }, { status: 500 });
