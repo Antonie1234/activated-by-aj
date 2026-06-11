@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
-import path from 'path';
+import { dataFile } from '@/lib/dataDir';
 
-const DATA_DIR     = path.join(process.cwd(), 'data');
-const PENDING_FILE = path.join(DATA_DIR, 'reviews-pending.json');
+export const dynamic = 'force-dynamic';
 
 interface Review {
   id: string;
@@ -25,8 +24,8 @@ function isValidEmail(email: string): boolean {
 
 async function readPending(): Promise<Review[]> {
   try {
-    const content = await fs.readFile(PENDING_FILE, 'utf-8');
-    return JSON.parse(content) as Review[];
+    const file = await dataFile('reviews-pending.json');
+    return JSON.parse(await fs.readFile(file, 'utf-8')) as Review[];
   } catch {
     return [];
   }
@@ -52,8 +51,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Your review is a little short — tell us more!' }, { status: 400 });
     }
 
-    await fs.mkdir(DATA_DIR, { recursive: true });
-
     const review: Review = {
       id: `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`,
       name,
@@ -64,13 +61,20 @@ export async function POST(req: NextRequest) {
       submittedAt: new Date().toISOString(),
     };
 
+    // dataFile() resolves a writable directory (project /data, or /tmp on
+    // serverless hosts where the project filesystem is read-only)
+    const pendingFile = await dataFile('reviews-pending.json');
     const pending = await readPending();
     pending.push(review);
-    await fs.writeFile(PENDING_FILE, JSON.stringify(pending, null, 2), 'utf-8');
+    await fs.writeFile(pendingFile, JSON.stringify(pending, null, 2), 'utf-8');
 
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error('[POST /api/reviews]', err);
-    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
+    const detail = err instanceof Error ? err.message : String(err);
+    return NextResponse.json(
+      { error: 'Something went wrong. Please try again.', detail },
+      { status: 500 }
+    );
   }
 }

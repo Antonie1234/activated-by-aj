@@ -6,6 +6,7 @@ import LogoWatermark from '@/components/LogoWatermark';
 import ReflectMotionLogo from '@/components/ReflectMotionLogo';
 import StatsCounter from '@/components/StatsCounter';
 import WorldOfActivated from '@/components/WorldOfActivated';
+import FadeInImage from '@/components/FadeInImage';
 
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
@@ -136,7 +137,9 @@ export default function Home() {
           muted
           loop
           playsInline
-          poster="/aj-photo.jpg"
+          preload="auto"
+          poster="/hero-poster.jpg"
+          {...{ fetchpriority: 'high' }}
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, opacity: 0.45 }}
         >
           <source src="/hero-bg-aj.mp4" type="video/mp4" />
@@ -236,6 +239,7 @@ export default function Home() {
                 src="/aj-photo.jpg"
                 alt="AJ"
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </div>
@@ -333,10 +337,11 @@ export default function Home() {
                     </div>
                   ) : (
                     <div className="w-full h-48 overflow-hidden">
-                      <img
+                      <FadeInImage
                         src={service.photo}
                         alt={service.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
                       />
                     </div>
                   )}

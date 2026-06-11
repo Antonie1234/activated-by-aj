@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
@@ -171,26 +172,29 @@ export default function LeaveReview() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
 
           {submitted ? (
-            /* ── SUCCESS STATE ── */
+            /* ── THANK-YOU STATE ── */
             <div
               className="p-12 rounded-2xl text-center"
               style={{ background: 'var(--surface)', border: '1px solid rgba(200,169,81,0.3)' }}
-              data-animate="fade-up"
             >
+              {/* Gold checkmark in a circle */}
               <div
                 className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6"
-                style={{ background: 'rgba(200,169,81,0.12)', border: '1px solid rgba(200,169,81,0.3)' }}
+                style={{ background: 'rgba(200,169,81,0.12)', border: '1px solid rgba(200,169,81,0.4)' }}
               >
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#C8A951" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="4,15 10,21 24,7" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-black text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
-                REVIEW SUBMITTED
+              <h2 className="text-3xl font-black mb-3" style={{ color: '#E8F4FD', letterSpacing: '-0.02em' }}>
+                Thank You!
               </h2>
-              <p className="text-gray-400 leading-relaxed max-w-md mx-auto">
-                Thank you — your review has been submitted and will appear once approved.
+              <p className="leading-relaxed max-w-md mx-auto mb-8" style={{ color: '#4A7FA5' }}>
+                Your review has been received and will appear once approved.
               </p>
+              <Link href="/" className="btn-gold">
+                Back to Home
+              </Link>
             </div>
 
           ) : (

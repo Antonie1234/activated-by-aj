@@ -17,24 +17,6 @@ interface Testimonial {
   photo?:   string;
 }
 
-// Maps review form sport → testimonial display fields (for approved reviews)
-const SPORT_TO_SERVICE: Record<string, string> = {
-  Tennis:         'Tennis Coaching',
-  Padel:          'Padel Coaching',
-  Pickleball:     'Pickleball Coaching',
-  'Beach Sports': 'Beach Tennis',
-  Fitness:        'Fitness & Conditioning',
-  Other:          'Coaching',
-};
-const SPORT_TO_FILTER: Record<string, string> = {
-  Tennis:         'Tennis',
-  Padel:          'Padel',
-  Pickleball:     'Pickleball',
-  'Beach Sports': 'Beach Tennis',
-  Fitness:        'Fitness',
-  Other:          '',
-};
-
 const filters = ['All', 'Tennis', 'Pickleball', 'Padel', 'Beach Tennis', 'Fitness'];
 
 function StarRating({ count }: { count: number }) {
@@ -50,41 +32,32 @@ function StarRating({ count }: { count: number }) {
 export default function Testimonials() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [approved,     setApproved]     = useState<Testimonial[]>([]);
+  const [gridVisible,  setGridVisible]  = useState(true);
 
-  // Managed testimonials — data/testimonials.json via admin tool
+  // Single fetch on page load — approved reviews are merged into
+  // testimonials.json at approval time, so this is the only source needed.
+  // Filtering below is pure client-side state: no further API calls.
   useEffect(() => {
     fetch('/api/testimonials')
       .then((r) => r.json())
-      .then((data: Testimonial[]) => setTestimonials(data))
-      .catch(() => { /* endpoint unavailable — page shows approved reviews only */ });
+      .then((data: Testimonial[]) => setTestimonials(Array.isArray(data) ? data : []))
+      .catch(() => { /* endpoint unavailable — empty state shows */ });
   }, []);
 
-  // Approved community reviews — feed in automatically after moderation
-  useEffect(() => {
-    fetch('/api/reviews/approved')
-      .then((r) => r.json())
-      .then((data: { name: string; sport: string; rating: number; message: string }[]) => {
-        setApproved(
-          data.map((r) => ({
-            name:     r.name,
-            initials: r.name.split(' ').map((n) => n[0] ?? '').join('').slice(0, 2).toUpperCase(),
-            service:  SPORT_TO_SERVICE[r.sport] ?? 'Coaching',
-            filter:   SPORT_TO_FILTER[r.sport]  ?? '',
-            quote:    r.message,
-            rating:   r.rating,
-          }))
-        );
-      })
-      .catch(() => { /* silently ignore */ });
-  }, []);
-
-  const allTestimonials = [...testimonials, ...approved];
+  // 200 ms crossfade between filter states
+  const switchFilter = (f: string) => {
+    if (f === activeFilter) return;
+    setGridVisible(false);
+    setTimeout(() => {
+      setActiveFilter(f);
+      setGridVisible(true);
+    }, 200);
+  };
 
   const filtered =
     activeFilter === 'All'
-      ? allTestimonials
-      : allTestimonials.filter((t) => t.filter === activeFilter);
+      ? testimonials
+      : testimonials.filter((t) => t.filter === activeFilter);
 
   return (
     <>
@@ -122,7 +95,7 @@ export default function Testimonials() {
             {filters.map((f) => (
               <button
                 key={f}
-                onClick={() => setActiveFilter(f)}
+                onClick={() => switchFilter(f)}
                 className="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-200"
                 style={
                   activeFilter === f
@@ -145,7 +118,10 @@ export default function Testimonials() {
 
       {/* ── TESTIMONIALS GRID ── */}
       <section className="section-padding" style={{ background: 'var(--background)' }}>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div
+          className="max-w-6xl mx-auto px-4 sm:px-6"
+          style={{ opacity: gridVisible ? 1 : 0, transition: 'opacity 200ms ease' }}
+        >
           {filtered.length === 0 ? (
             <p className="text-center text-gray-500 py-12">No testimonials for this filter yet.</p>
           ) : (
@@ -169,6 +145,7 @@ export default function Testimonials() {
                         alt={t.name}
                         className="rounded-full flex-shrink-0 object-cover"
                         style={{ width: 64, height: 64, objectPosition: t.name === 'Georgia' ? 'top center' : 'center' }}
+                        loading="lazy"
                       />
                     ) : (
                       <div
@@ -180,11 +157,11 @@ export default function Testimonials() {
                           flexShrink: 0,
                         }}
                       >
-                        <span style={{ color: 'var(--brand-gold)', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials}</span>
+                        <span style={{ color: 'var(--brand-gold)', fontSize: '1.2rem', fontWeight: 'bold' }}>{t.initials || 'A'}</span>
                       </div>
                     )}
                     <div>
-                      <p className="font-bold text-white text-sm">{t.name}</p>
+                      <p className="font-bold text-white text-sm">{t.name || 'Anonymous'}</p>
                       <div
                         className="inline-block mt-1 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider"
                         style={{
@@ -193,11 +170,11 @@ export default function Testimonials() {
                           border: '1px solid rgba(74,127,165,0.35)',
                         }}
                       >
-                        {t.service}
+                        {t.service || 'Coaching'}
                       </div>
                     </div>
                   </div>
-                  <StarRating count={t.rating} />
+                  <StarRating count={t.rating || 5} />
                   <p className="mt-4 text-gray-300 text-sm leading-relaxed flex-1">{t.quote}</p>
                   </div>
                 </div>

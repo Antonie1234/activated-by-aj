@@ -3,6 +3,7 @@ import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
+import FadeInImage from '@/components/FadeInImage';
 
 /* ── Gold SVG Icons ── */
 const TennisIcon = () => (
@@ -288,7 +289,7 @@ export default function Services() {
 
                 {/* ── Image column ── */}
                 <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 320 }} data-animate={imageLeft ? 'slide-left' : 'slide-right'}>
-                  <img
+                  <FadeInImage
                     src={service.image}
                     alt={service.imageAlt}
                     className="w-full h-full object-cover"

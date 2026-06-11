@@ -55,6 +55,7 @@ function Flash({ msg }: { msg: { text: string; ok: boolean } | null }) {
 // ─── Media tile card ──────────────────────────────────────────────────────────
 interface TileCardProps {
   src: string;
+  badge?: string;
   isDragging: boolean; isDragOver: boolean;
   onDelete: () => void;
   onDragStart: () => void;
@@ -62,7 +63,7 @@ interface TileCardProps {
   onDrop: () => void;
   onDragEnd: () => void;
 }
-function TileCard({ src, isDragging, isDragOver, onDelete, onDragStart, onDragOver: dov, onDrop, onDragEnd }: TileCardProps) {
+function TileCard({ src, badge, isDragging, isDragOver, onDelete, onDragStart, onDragOver: dov, onDrop, onDragEnd }: TileCardProps) {
   return (
     <div draggable onDragStart={onDragStart} onDragOver={dov} onDrop={onDrop} onDragEnd={onDragEnd}
       style={{
@@ -74,13 +75,35 @@ function TileCard({ src, isDragging, isDragOver, onDelete, onDragStart, onDragOv
       {/* Thumbnail / placeholder */}
       <div style={{ height: '100px', position: 'relative', overflow: 'hidden', background: '#0a0f1a' }}>
         {isVideo(src) ? (
-          <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
-            <svg width="16" height="18" viewBox="0 0 16 18" fill={S.gold}><polygon points="2,1 15,9 2,17" /></svg>
-            <span style={{ color: 'rgba(232,244,253,0.35)', fontSize: '9px', letterSpacing: '0.5px', textTransform: 'uppercase' }}>video</span>
-          </div>
+          <>
+            {/* Real first-frame preview — preload="metadata" loads the frame, not the file */}
+            <video
+              src={src}
+              muted
+              playsInline
+              preload="metadata"
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none' }}
+            />
+            {/* Gold play glyph over the frame */}
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(10,15,26,0.25)' }}>
+              <svg width="16" height="18" viewBox="0 0 16 18" fill={S.gold} style={{ filter: 'drop-shadow(0 1px 4px rgba(0,0,0,0.6))' }}><polygon points="2,1 15,9 2,17" /></svg>
+            </div>
+          </>
         ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        )}
+        {/* Sport badge — bottom right */}
+        {badge && (
+          <div style={{
+            position: 'absolute', bottom: '5px', right: '5px',
+            background: 'rgba(200,169,81,0.88)', borderRadius: '3px',
+            padding: '2px 6px', fontSize: '8px', fontWeight: 700,
+            color: '#0a0a0a', textTransform: 'uppercase', letterSpacing: '0.8px',
+            zIndex: 2,
+          }}>
+            {badge}
+          </div>
         )}
         {/* Drag handle */}
         <div aria-hidden style={{ position: 'absolute', top: '5px', left: '5px', background: 'rgba(0,0,0,0.5)', borderRadius: '4px', padding: '2px 5px', color: 'rgba(232,244,253,0.5)', fontSize: '12px', cursor: 'grab' }}>⠿</div>
@@ -100,11 +123,12 @@ interface MediaGridProps {
   loading: boolean;
   acceptExt: string;
   uploadLabel: string;
+  badge?: string;
   onUpload: (files: File[]) => void;
   onDelete: (src: string) => void;
   onReorder: (newFiles: string[]) => void;
 }
-function MediaGrid({ files, loading, acceptExt, uploadLabel, onUpload, onDelete, onReorder }: MediaGridProps) {
+function MediaGrid({ files, loading, acceptExt, uploadLabel, badge, onUpload, onDelete, onReorder }: MediaGridProps) {
   const [dragIdx,  setDragIdx]  = useState<number | null>(null);
   const [dragOver, setDragOver] = useState<number | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -152,7 +176,7 @@ function MediaGrid({ files, loading, acceptExt, uploadLabel, onUpload, onDelete,
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(148px, 1fr))', gap: '10px' }}>
           {files.map((src, i) => (
-            <TileCard key={src} src={src}
+            <TileCard key={src} src={src} badge={badge}
               isDragging={dragIdx === i} isDragOver={dragOver === i}
               onDelete={() => onDelete(src)}
               onDragStart={() => setDragIdx(i)}
@@ -240,6 +264,79 @@ function PhotosTab() {
         Photos and videos uploaded here appear in the {sport} grid on the site. Videos show as play-button tiles. The first item is the large hero tile.
       </div>
       <MediaGrid files={files} loading={loading} acceptExt=".jpg,.jpeg,.png,.mp4,.mov" uploadLabel={`Upload to ${sport}`}
+        onUpload={handleUpload} onDelete={handleDelete} onReorder={handleReorder} />
+    </>
+  );
+}
+
+// ─── VIDEOS TAB (stored for future use; not currently shown on the site) ─────
+const VIDEO_SPORTS = ['General', 'Tennis', 'Padel', 'Pickleball', 'Beach Sports'] as const;
+type VideoSport = (typeof VIDEO_SPORTS)[number];
+const VIDEO_KEY: Record<VideoSport, string> = {
+  General: 'general', Tennis: 'tennis', Padel: 'padel', Pickleball: 'pickleball', 'Beach Sports': 'beach',
+};
+const EMPTY_VIDEOS: Record<VideoSport, string[]> = {
+  General: [], Tennis: [], Padel: [], Pickleball: [], 'Beach Sports': [],
+};
+
+function VideosTab() {
+  const [sport,   setSport]   = useState<VideoSport>('General');
+  const [order,   setOrder]   = useState<Record<VideoSport, string[]>>(EMPTY_VIDEOS);
+  const [loading, setLoading] = useState(false);
+  const [msg,     setMsg]     = useState<{ text: string; ok: boolean } | null>(null);
+
+  useEffect(() => {
+    fetch('/api/admin/gallery').then(r => r.json()).then((d: { videos?: Record<string, string[]> }) => {
+      if (d.videos) setOrder(prev => VIDEO_SPORTS.reduce((acc, s) => { acc[s] = d.videos![VIDEO_KEY[s]] ?? prev[s]; return acc; }, { ...prev }));
+    }).catch(() => {});
+  }, []);
+
+  useEffect(() => { if (msg) { const t = setTimeout(() => setMsg(null), 3000); return () => clearTimeout(t); } }, [msg]);
+
+  const files    = order[sport] ?? [];
+  const sportKey = VIDEO_KEY[sport];
+
+  const handleUpload = async (selected: File[]) => {
+    const fd = new FormData();
+    for (const f of selected) fd.append('files', f);
+    fd.append('tab', sport);
+    fd.append('mediaType', 'video');
+
+    setLoading(true); setMsg(null);
+    try {
+      const d = await (await fetch('/api/admin/gallery/upload', { method: 'POST', body: fd })).json() as { success?: boolean; srcs?: string[]; error?: string };
+      if (d.success && d.srcs) {
+        setOrder(p => ({ ...p, [sport]: [...p[sport], ...d.srcs!] }));
+        setMsg({ text: `✓ Uploaded ${d.srcs.length} video${d.srcs.length !== 1 ? 's' : ''}.`, ok: true });
+      } else setMsg({ text: d.error ?? 'Upload failed.', ok: false });
+    } catch { setMsg({ text: 'Upload failed.', ok: false }); } finally { setLoading(false); }
+  };
+
+  const handleDelete = async (src: string) => {
+    if (!confirm(`Delete "${basename(src)}"? This permanently removes the file.`)) return;
+    setLoading(true); setMsg(null);
+    try {
+      const d = await (await fetch('/api/admin/gallery/delete', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ file: src, sport: sportKey, mediaType: 'video' }) })).json() as { success?: boolean };
+      if (d.success) { setOrder(p => ({ ...p, [sport]: p[sport].filter(f => f !== src) })); setMsg({ text: '✓ Deleted.', ok: true }); }
+    } catch { setMsg({ text: 'Delete failed.', ok: false }); } finally { setLoading(false); }
+  };
+
+  const handleReorder = async (newFiles: string[]) => {
+    setOrder(p => ({ ...p, [sport]: newFiles }));
+    try {
+      await fetch('/api/admin/gallery/order', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mediaType: 'video', sport: sportKey, order: newFiles }) });
+      setMsg({ text: '✓ Order saved.', ok: true });
+    } catch { setMsg({ text: 'Order save failed.', ok: false }); }
+  };
+
+  return (
+    <>
+      <Flash msg={msg} />
+      <SubTabBar tabs={VIDEO_SPORTS} active={sport} onChange={s => { setSport(s); setMsg(null); }} />
+      <div style={{ padding: '10px 14px', borderRadius: S.radius, marginBottom: '18px', background: 'rgba(74,127,165,0.08)', border: '1px solid rgba(74,127,165,0.18)', color: S.blue, fontSize: '13px', lineHeight: 1.5 }}>
+        Videos stored here are kept for future use and don&apos;t currently display on the public site. To show a video inside a sport&apos;s photo grid, upload it via the Photos tab instead.
+      </div>
+      <MediaGrid files={files} loading={loading} acceptExt=".mp4,.mov" uploadLabel={`Upload to ${sport}`} badge={sport}
         onUpload={handleUpload} onDelete={handleDelete} onReorder={handleReorder} />
     </>
   );
@@ -476,7 +573,7 @@ function TestimonialsTab() {
 }
 
 // ─── Main page ────────────────────────────────────────────────────────────────
-const MAIN_TABS = ['Photos', 'Reviews', 'Testimonials'] as const;
+const MAIN_TABS = ['Photos', 'Videos', 'Reviews', 'Testimonials'] as const;
 type MainTab = (typeof MAIN_TABS)[number];
 
 export default function AdminGallery() {
@@ -510,6 +607,7 @@ export default function AdminGallery() {
 
       {/* Tab content */}
       {mainTab === 'Photos'       && <PhotosTab />}
+      {mainTab === 'Videos'       && <VideosTab />}
       {mainTab === 'Reviews'      && <ReviewsTab />}
       {mainTab === 'Testimonials' && <TestimonialsTab />}
     </div>

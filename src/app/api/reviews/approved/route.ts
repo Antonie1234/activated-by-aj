@@ -1,17 +1,19 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs/promises';
-import path from 'path';
+import { dataFile } from '@/lib/dataDir';
 
 export const dynamic = 'force-dynamic';
 
-const APPROVED_FILE = path.join(process.cwd(), 'data', 'reviews-approved.json');
-
+/**
+ * Legacy archive endpoint. Approved reviews now flow directly into
+ * testimonials.json (see /api/admin/reviews); the public testimonials page
+ * reads /api/testimonials only. Kept for back-compat / debugging.
+ */
 export async function GET() {
   try {
-    const content = await fs.readFile(APPROVED_FILE, 'utf-8');
-    return NextResponse.json(JSON.parse(content));
+    const file = await dataFile('reviews-approved.json');
+    return NextResponse.json(JSON.parse(await fs.readFile(file, 'utf-8')));
   } catch {
-    // File doesn't exist yet — return empty array
     return NextResponse.json([]);
   }
 }

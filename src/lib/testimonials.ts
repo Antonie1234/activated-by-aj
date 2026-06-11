@@ -4,10 +4,7 @@
  * Seeds the file from the original hardcoded testimonials on first read.
  */
 import fs from 'fs/promises';
-import path from 'path';
-
-const DATA_DIR          = path.join(process.cwd(), 'data');
-const TESTIMONIALS_FILE = path.join(DATA_DIR, 'testimonials.json');
+import { dataFile } from './dataDir';
 
 export interface Testimonial {
   id:       string;
@@ -52,6 +49,7 @@ export const SPORT_META: Record<string, { service: string; filter: string }> = {
   Padel:           { service: 'Padel Coaching',         filter: 'Padel' },
   Pickleball:      { service: 'Pickleball Coaching',    filter: 'Pickleball' },
   'Beach Tennis':  { service: 'Beach Tennis',           filter: 'Beach Tennis' },
+  'Beach Sports':  { service: 'Beach Tennis',           filter: 'Beach Tennis' }, // review form label
   Fitness:         { service: 'Fitness & Conditioning', filter: 'Fitness' },
   Other:           { service: 'Coaching',               filter: '' },
 };
@@ -65,17 +63,17 @@ export function makeId(): string {
 }
 
 export async function readTestimonials(): Promise<Testimonial[]> {
+  const file = await dataFile('testimonials.json');
   try {
-    return JSON.parse(await fs.readFile(TESTIMONIALS_FILE, 'utf-8'));
+    return JSON.parse(await fs.readFile(file, 'utf-8'));
   } catch {
     // Seed on first run
-    await fs.mkdir(DATA_DIR, { recursive: true });
-    await fs.writeFile(TESTIMONIALS_FILE, JSON.stringify(SEED, null, 2), 'utf-8');
+    await fs.writeFile(file, JSON.stringify(SEED, null, 2), 'utf-8');
     return SEED;
   }
 }
 
 export async function writeTestimonials(data: Testimonial[]): Promise<void> {
-  await fs.mkdir(DATA_DIR, { recursive: true });
-  await fs.writeFile(TESTIMONIALS_FILE, JSON.stringify(data, null, 2), 'utf-8');
+  const file = await dataFile('testimonials.json');
+  await fs.writeFile(file, JSON.stringify(data, null, 2), 'utf-8');
 }

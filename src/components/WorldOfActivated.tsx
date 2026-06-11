@@ -33,6 +33,18 @@ function isVideo(src: string): boolean {
 }
 
 /**
+ * gallery-order.json entries should be "/gallery/<file>" but tolerate bare
+ * filenames ("tennis-1.jpg") and missing leading slashes so a hand-edited
+ * file can never produce broken image paths.
+ */
+function normalizeSrc(entry: string): string {
+  if (entry.startsWith('/gallery/')) return entry;
+  if (entry.startsWith('gallery/'))  return `/${entry}`;
+  if (entry.startsWith('/'))         return entry; // other absolute path — leave as-is
+  return `/gallery/${entry}`;
+}
+
+/**
  * Dynamic bento layout — adapts to any item count:
  *   item 1      → hero: col-span 5, row-span 2 (tall left)
  *   items 2 & 3 → col-span 4 / col-span 3 on row 1
@@ -90,7 +102,11 @@ export default function WorldOfActivated() {
       .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
       .then((order: { photos?: Record<string, string[]> }) => {
         if (order.photos) {
-          setPhotos({ ...DEFAULT_PHOTOS, ...order.photos });
+          // Normalize every entry so bare filenames still resolve to /gallery/
+          const normalized = Object.fromEntries(
+            Object.entries(order.photos).map(([k, list]) => [k, (list ?? []).map(normalizeSrc)])
+          );
+          setPhotos({ ...DEFAULT_PHOTOS, ...normalized });
         }
       })
       .catch(() => { /* gallery-order.json absent — keep defaults */ });
@@ -132,7 +148,7 @@ export default function WorldOfActivated() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* ── SECTION HEADER ──────────────────────────────────────────────── */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-animate="fade-up">
           <p style={{
             color: '#4A7FA5',
             fontSize: '11px',
@@ -152,6 +168,9 @@ export default function WorldOfActivated() {
             Sport. Energy. Movement.
           </h2>
         </div>
+
+        {/* Scroll-reveal wrapper — stable across tab/state changes */}
+        <div data-animate="fade-up" data-animate-delay="120">
 
         {/* ── SPORT TABS ──────────────────────────────────────────────────── */}
         <div
@@ -329,6 +348,8 @@ export default function WorldOfActivated() {
             })}
           </div>
         )}
+
+        </div> {/* end scroll-reveal wrapper */}
 
       </div>
 

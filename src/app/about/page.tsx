@@ -69,6 +69,7 @@ export default function About() {
                   alt="AJ"
                   className="w-full object-cover"
                   style={{ maxHeight: '520px', objectPosition: 'top' }}
+                  loading="lazy"
                 />
               </div>
             </div>

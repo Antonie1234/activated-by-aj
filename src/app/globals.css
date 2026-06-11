@@ -314,6 +314,15 @@ input::placeholder, textarea::placeholder {
   animation: footer-logo-pulse 4s ease-in-out infinite;
 }
 
+/* Page transition — every page fades in on navigation */
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.page-fade-in {
+  animation: page-fade-in 300ms ease;
+}
+
 /* Contact page — social icon links */
 .contact-social-icon {
   display: flex;

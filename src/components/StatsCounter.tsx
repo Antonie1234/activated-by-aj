@@ -79,7 +79,7 @@ export default function StatsCounter() {
       className="section-padding"
       style={{ background: '#0D1B2A' }}
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6" data-animate="fade-up">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-4">
           {stats.map((s) => (
             <StatItem key={s.label} {...s} active={active} />

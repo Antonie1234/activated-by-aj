@@ -1,7 +1,12 @@
 /**
  * Admin Reviews API
- * GET  /api/admin/reviews          → list pending reviews
- * POST /api/admin/reviews          → approve or reject a review
+ * GET  /api/admin/reviews → list pending reviews
+ * POST /api/admin/reviews → approve or reject a review
+ *
+ * On approve, the review is automatically converted into a testimonial and
+ * appended to testimonials.json, so it appears on the public /testimonials
+ * page immediately — no manual step needed. It is also archived in
+ * reviews-approved.json.
  *
  * NOTE: This endpoint has no authentication guard. It is intended for
  * internal use only and should be protected by server-level access
@@ -9,13 +14,16 @@
  */
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
-import path from 'path';
+import { dataFile } from '@/lib/dataDir';
+import {
+  SPORT_META,
+  makeInitials,
+  makeId,
+  readTestimonials,
+  writeTestimonials,
+} from '@/lib/testimonials';
 
 export const dynamic = 'force-dynamic';
-
-const DATA_DIR      = path.join(process.cwd(), 'data');
-const PENDING_FILE  = path.join(DATA_DIR, 'reviews-pending.json');
-const APPROVED_FILE = path.join(DATA_DIR, 'reviews-approved.json');
 
 interface Review {
   id: string;
@@ -28,18 +36,22 @@ interface Review {
   approvedAt?: string;
 }
 
-async function readJson(filePath: string): Promise<Review[]> {
+async function readJsonList(name: string): Promise<Review[]> {
   try {
-    const content = await fs.readFile(filePath, 'utf-8');
-    return JSON.parse(content) as Review[];
+    const file = await dataFile(name);
+    return JSON.parse(await fs.readFile(file, 'utf-8')) as Review[];
   } catch {
     return [];
   }
 }
 
+async function writeJsonList(name: string, data: Review[]): Promise<void> {
+  const file = await dataFile(name);
+  await fs.writeFile(file, JSON.stringify(data, null, 2), 'utf-8');
+}
+
 export async function GET() {
-  const pending = await readJson(PENDING_FILE);
-  return NextResponse.json(pending);
+  return NextResponse.json(await readJsonList('reviews-pending.json'));
 }
 
 export async function POST(req: NextRequest) {
@@ -50,7 +62,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid request.' }, { status: 400 });
     }
 
-    const pending = await readJson(PENDING_FILE);
+    const pending = await readJsonList('reviews-pending.json');
     const idx = pending.findIndex((r) => r.id === id);
 
     if (idx === -1) {
@@ -60,17 +72,33 @@ export async function POST(req: NextRequest) {
     const [review] = pending.splice(idx, 1);
 
     if (action === 'approve') {
-      const approved = await readJson(APPROVED_FILE);
+      // 1. Append to public testimonials — name → name, sport → filter
+      //    category, rating → stars, message → quote
+      const meta = SPORT_META[review.sport] ?? SPORT_META.Other;
+      const testimonials = await readTestimonials();
+      testimonials.push({
+        id:       makeId(),
+        name:     review.name,
+        initials: makeInitials(review.name),
+        service:  meta.service,
+        filter:   meta.filter,
+        quote:    review.message,
+        rating:   review.rating,
+      });
+      await writeTestimonials(testimonials);
+
+      // 2. Archive in reviews-approved.json
+      const approved = await readJsonList('reviews-approved.json');
       approved.push({ ...review, approvedAt: new Date().toISOString() });
-      await fs.mkdir(DATA_DIR, { recursive: true });
-      await fs.writeFile(APPROVED_FILE, JSON.stringify(approved, null, 2), 'utf-8');
+      await writeJsonList('reviews-approved.json', approved);
     }
 
-    await fs.writeFile(PENDING_FILE, JSON.stringify(pending, null, 2), 'utf-8');
+    await writeJsonList('reviews-pending.json', pending);
 
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error('[POST /api/admin/reviews]', err);
-    return NextResponse.json({ error: 'Server error.' }, { status: 500 });
+    const detail = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ error: 'Server error.', detail }, { status: 500 });
   }
 }

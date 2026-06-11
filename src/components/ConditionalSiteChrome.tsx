@@ -21,7 +21,8 @@ export default function ConditionalSiteChrome({
   return (
     <>
       {!isAdmin && <Navbar />}
-      <main>{children}</main>
+      {/* key on pathname re-mounts the wrapper on navigation, replaying the fade */}
+      <main key={pathname} className="page-fade-in">{children}</main>
       {!isAdmin && (
         <>
           <GoldDivider />
