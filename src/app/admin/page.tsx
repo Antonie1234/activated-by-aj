@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 
+// Client Component: the cards use hover event handlers, which are not allowed
+// in Server Components (this was failing `next build` and blocking deploys).
 // Auth is handled by the admin layout — this page is only visible when authenticated.
 export default function AdminDashboard() {
   const cards = [

@@ -187,7 +187,9 @@ const services = [
       'Mobility & injury prevention',
       'Progress tracking & accountability',
     ],
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80',
+    // Local placeholder (hotlink-blocked external URL replaced) — swap for a
+    // real fitness photo when AJ provides one
+    image: '/gallery/padel-1.jpg',
     imageAlt: 'Fitness and gym training',
     accentColor: 'var(--brand-gold)',
   },
