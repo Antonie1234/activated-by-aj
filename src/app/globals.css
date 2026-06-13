@@ -391,11 +391,13 @@ input::placeholder, textarea::placeholder {
 /* ── Scroll reveal animations ── */
 .js-animations [data-animate] {
   opacity: 0;
+  will-change: transform, opacity;
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .js-animations [data-animate].is-visible {
   opacity: 1;
   transform: none !important;
+  will-change: auto;
 }
 .js-animations [data-animate="fade-up"] {
   transform: translateY(32px);

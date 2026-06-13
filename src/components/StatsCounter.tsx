@@ -14,18 +14,19 @@ function useCountUp(target: number, duration = 1400, active = false) {
 
   useEffect(() => {
     if (!active) return;
+    let rafId: number;
     let startTime: number | null = null;
     const step = (timestamp: number) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(Math.floor(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
+      if (progress < 1) rafId = requestAnimationFrame(step);
       else setCount(target);
     };
-    requestAnimationFrame(step);
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
   }, [active, target, duration]);
 
   return count;
@@ -67,7 +68,7 @@ export default function StatsCounter() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }
     );
     observer.observe(el);
     return () => observer.disconnect();
