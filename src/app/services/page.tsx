@@ -294,6 +294,7 @@ export default function Services() {
                     src={service.image}
                     alt={service.imageAlt}
                     fill
+                    unoptimized
                     className="object-cover"
                     priority={index < 2}
                     sizes="(max-width: 768px) 100vw, 33vw"
