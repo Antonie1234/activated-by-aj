@@ -235,8 +235,6 @@ export default function WorldOfActivated() {
               gridTemplateColumns: isMobile ? '1fr' : 'repeat(12, 1fr)',
               gridTemplateRows: isMobile ? `repeat(${files.length}, 200px)` : `repeat(${maxRow}, 190px)`,
               gap: '6px',
-              opacity: gridVisible ? 1 : 0,
-              transition: 'opacity 200ms ease',
             }}
           >
             {files.map((src, i) => {
@@ -256,6 +254,9 @@ export default function WorldOfActivated() {
                     cursor:       'pointer',
                     border:       i === 0 ? '0.5px solid #C8A951' : undefined,
                     background:   video ? '#0a0f1a' : undefined,
+                    opacity:      gridVisible ? 1 : 0,
+                    transform:    gridVisible ? 'translateY(0)' : 'translateY(10px)',
+                    transition:   `opacity 0.4s ease ${i * 50}ms, transform 0.4s ease ${i * 50}ms`,
                   }}
                 >
                   {video ? (

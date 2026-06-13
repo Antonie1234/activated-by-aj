@@ -362,6 +362,7 @@ export default function Home() {
                   className="block group"
                   data-animate="fade-up"
                   data-animate-delay={String(i * 100)}
+                  style={{ transitionDelay: `${i * 80}ms` }}
                 >{cardInner}</a>
               ) : (
                 <Link
@@ -370,6 +371,7 @@ export default function Home() {
                   className="block group"
                   data-animate="fade-up"
                   data-animate-delay={String(i * 100)}
+                  style={{ transitionDelay: `${i * 80}ms` }}
                 >{cardInner}</Link>
               );
             })}
