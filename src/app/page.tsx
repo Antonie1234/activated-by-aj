@@ -340,7 +340,8 @@ export default async function Home() {
                     <img
                       src={service.photo}
                       alt={service.title}
-                      className="w-full h-48 object-cover"
+                      className="w-full h-48"
+                      style={{ objectFit: 'cover', objectPosition: 'center center' }}
                       loading="lazy"
                     />
                   )}
