@@ -225,6 +225,7 @@ const services = [
     ],
     image: '/programs.jpg',
     imageAlt: 'Training plan and notebook',
+    objectPosition: 'center top',
     accentColor: 'var(--brand-gold)',
   },
 ];
@@ -293,7 +294,7 @@ export default function Services() {
                     src={service.image}
                     alt={service.imageAlt}
                     className="object-cover w-full h-full"
-                    style={{ display: 'block' }}
+                    style={{ display: 'block', objectPosition: service.objectPosition || 'center center' }}
                     loading="lazy"
                     decoding="async"
                   />
