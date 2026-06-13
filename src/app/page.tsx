@@ -77,7 +77,7 @@ const ProgramsIcon = () => (
 
 const services = [
   {
-    photo: 'https://images.pexels.com/photos/34015717/pexels-photo-34015717.jpeg?auto=compress&cs=tinysrgb&w=600',
+    photo: '/tennis-court.jpg',
     title: 'Tennis Coaching',
     description: 'One-on-one and group tennis sessions for all levels. Technique, strategy, footwork and mental game.',
     href: '/services#tennis',
@@ -91,7 +91,7 @@ const services = [
     external: false,
   },
   {
-    photo: 'https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=600',
+    photo: '/fitness.jpg',
     title: 'Fitness & Conditioning',
     description: 'Personalised strength, conditioning and bodyweight programs designed around your goals and lifestyle.',
     href: '/services#fitness',
@@ -105,7 +105,7 @@ const services = [
     external: false,
   },
   {
-    photo: 'https://images.pexels.com/photos/4397840/pexels-photo-4397840.jpeg?auto=compress&cs=tinysrgb&w=600',
+    photo: '/programs.jpg',
     title: 'Programs & Plans',
     description: 'Custom workout programs, recovery plans and nutrition guidance, designed to keep you progressing.',
     href: '/services#programs',
