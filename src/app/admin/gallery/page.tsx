@@ -165,7 +165,7 @@ function MediaGrid({ files, loading, acceptExt, uploadLabel, badge, onUpload, on
           style={{ display: 'none' }}
         />
         <span style={{ color: 'rgba(232,244,253,0.28)', fontSize: '12px' }}>
-          {acceptExt.replace(/\./g, '').replace(/,/g, ' · ')} — select multiple files at once
+          jpg · png · mp4 · mov — select multiple files at once
         </span>
       </div>
 
@@ -261,9 +261,9 @@ function PhotosTab() {
       <Flash msg={msg} />
       <SubTabBar tabs={PHOTO_SPORTS} active={sport} onChange={s => { setSport(s); setMsg(null); }} />
       <div style={{ padding: '10px 14px', borderRadius: S.radius, marginBottom: '18px', background: 'rgba(74,127,165,0.08)', border: '1px solid rgba(74,127,165,0.18)', color: S.blue, fontSize: '13px', lineHeight: 1.5 }}>
-        Photos and videos uploaded here appear in the {sport} grid on the site. Videos show as play-button tiles. The first item is the large hero tile.
+        Photos and videos uploaded here appear in the {sport} grid on the site. Videos autoplay silently in the grid. The first item is the large hero tile.
       </div>
-      <MediaGrid files={files} loading={loading} acceptExt=".jpg,.jpeg,.png,.mp4,.mov" uploadLabel={`Upload to ${sport}`}
+      <MediaGrid files={files} loading={loading} acceptExt="image/jpeg,image/jpg,image/png,video/mp4,video/quicktime" uploadLabel="UPLOAD MEDIA"
         onUpload={handleUpload} onDelete={handleDelete} onReorder={handleReorder} />
     </>
   );
@@ -573,7 +573,7 @@ function TestimonialsTab() {
 }
 
 // ─── Main page ────────────────────────────────────────────────────────────────
-const MAIN_TABS = ['Photos', 'Videos', 'Reviews', 'Testimonials'] as const;
+const MAIN_TABS = ['Photos', 'Reviews', 'Testimonials'] as const;
 type MainTab = (typeof MAIN_TABS)[number];
 
 export default function AdminGallery() {
@@ -607,7 +607,6 @@ export default function AdminGallery() {
 
       {/* Tab content */}
       {mainTab === 'Photos'       && <PhotosTab />}
-      {mainTab === 'Videos'       && <VideosTab />}
       {mainTab === 'Reviews'      && <ReviewsTab />}
       {mainTab === 'Testimonials' && <TestimonialsTab />}
     </div>

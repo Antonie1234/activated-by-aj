@@ -91,6 +91,7 @@ function useIsMobile(): boolean {
 
 export default function WorldOfActivated() {
   const [photos,      setPhotos]      = useState<Record<string, string[]>>(DEFAULT_PHOTOS);
+  const [videos,      setVideos]      = useState<Record<string, string[]>>({});
   const [tab,         setTab]         = useState<Tab>('Tennis');
   const [gridVisible, setGridVisible] = useState(true);
   const [lightbox,    setLightbox]    = useState<number | null>(null);
@@ -100,19 +101,25 @@ export default function WorldOfActivated() {
   useEffect(() => {
     fetch('/gallery/gallery-order.json', { cache: 'no-store' })
       .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
-      .then((order: { photos?: Record<string, string[]> }) => {
+      .then((order: { photos?: Record<string, string[]>; videos?: Record<string, string[]> }) => {
         if (order.photos) {
-          // Normalize every entry so bare filenames still resolve to /gallery/
           const normalized = Object.fromEntries(
             Object.entries(order.photos).map(([k, list]) => [k, (list ?? []).map(normalizeSrc)])
           );
           setPhotos({ ...DEFAULT_PHOTOS, ...normalized });
         }
+        if (order.videos) {
+          const normalized = Object.fromEntries(
+            Object.entries(order.videos).map(([k, list]) => [k, (list ?? []).map(normalizeSrc)])
+          );
+          setVideos(normalized);
+        }
       })
       .catch(() => { /* gallery-order.json absent — keep defaults */ });
   }, []);
 
-  const files  = photos[TAB_KEY[tab]] ?? [];
+  const sportKey = TAB_KEY[tab];
+  const files  = [...(photos[sportKey] ?? []), ...(videos[sportKey] ?? [])];
   const slots  = layoutFor(files.length);
   const maxRow = slots.length > 0 ? Math.max(...slots.map((s) => s.rowStart + s.rowSpan - 1)) : 1;
 
@@ -260,53 +267,14 @@ export default function WorldOfActivated() {
                   }}
                 >
                   {video ? (
-                    <>
-                      {/* Video tile — first frame as thumbnail */}
-                      <video
-                        muted
-                        playsInline
-                        preload="metadata"
-                        src={src}
-                        style={{
-                          position: 'absolute',
-                          inset: 0,
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
-                          display: 'block',
-                        }}
-                      />
-                      {/* Dark overlay + play button */}
-                      <div style={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'rgba(13,27,42,0.45)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        zIndex: 2,
-                      }}>
-                        <div
-                          className="group-hover:scale-110"
-                          style={{
-                            width: '48px',
-                            height: '48px',
-                            borderRadius: '50%',
-                            background: 'rgba(255,255,255,0.92)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            boxShadow: '0 4px 20px rgba(0,0,0,0.45)',
-                            transition: 'transform 150ms ease',
-                            flexShrink: 0,
-                          }}
-                        >
-                          <svg width="16" height="18" viewBox="0 0 16 18" fill="#C8A951" aria-hidden="true">
-                            <polygon points="2,1 15,9 2,17" />
-                          </svg>
-                        </div>
-                      </div>
-                    </>
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      src={src}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
                   ) : (
                     <>
                       {/* Photo tile */}
