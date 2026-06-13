@@ -1,16 +1,32 @@
 /**
  * POST /api/admin/gallery/order
  * Body: { mediaType: 'photo' | 'video', sport: string, order: string[] }
- * Saves the reordered file list for one sport into gallery-order.json.
+ * Saves a reordered file list for one sport into gallery-order.json in Vercel Blob.
  */
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { list, put } from '@vercel/blob';
 
 export const dynamic = 'force-dynamic';
 
-const GALLERY_DIR = path.join(process.cwd(), 'public', 'gallery');
-const ORDER_FILE  = path.join(GALLERY_DIR, 'gallery-order.json');
+async function readOrder(): Promise<{ photos: Record<string, string[]>; videos: Record<string, string[]> }> {
+  try {
+    const { blobs } = await list({ prefix: 'gallery-order.json' });
+    if (blobs.length > 0) {
+      const res = await fetch(blobs[0].url, { cache: 'no-store' });
+      if (res.ok) return await res.json();
+    }
+  } catch { /* fall through */ }
+  return { photos: {}, videos: {} };
+}
+
+async function writeOrder(order: object): Promise<void> {
+  await put('gallery-order.json', JSON.stringify(order, null, 2), {
+    access: 'public',
+    addRandomSuffix: false,
+    contentType: 'application/json',
+    allowOverwrite: true,
+  });
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -22,15 +38,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid payload.' }, { status: 400 });
     }
 
-    let current: { photos?: Record<string, string[]>; videos?: Record<string, string[]> } = {};
-    try { current = JSON.parse(await fs.readFile(ORDER_FILE, 'utf-8')); } catch { /* first run */ }
-
-    const bucket = mediaType === 'photo' ? 'photos' : 'videos';
+    const current = await readOrder();
+    const bucket  = mediaType === 'photo' ? 'photos' : 'videos';
     if (!current[bucket]) current[bucket] = {};
-    current[bucket]![sport] = order;
-
-    await fs.mkdir(GALLERY_DIR, { recursive: true });
-    await fs.writeFile(ORDER_FILE, JSON.stringify(current, null, 2), 'utf-8');
+    current[bucket][sport] = order;
+    await writeOrder(current);
 
     return NextResponse.json({ success: true });
   } catch (err) {

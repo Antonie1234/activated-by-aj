@@ -1,16 +1,32 @@
 /**
  * POST /api/admin/gallery/delete
  * Body: { file: string, sport: string, mediaType: 'photo' | 'video' }
- * Deletes file from /public/gallery/ and removes from gallery-order.json.
+ * Deletes a blob from Vercel Blob storage and removes it from gallery-order.json.
  */
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { del, list, put } from '@vercel/blob';
 
 export const dynamic = 'force-dynamic';
 
-const GALLERY_DIR = path.join(process.cwd(), 'public', 'gallery');
-const ORDER_FILE  = path.join(GALLERY_DIR, 'gallery-order.json');
+async function readOrder(): Promise<{ photos: Record<string, string[]>; videos: Record<string, string[]> }> {
+  try {
+    const { blobs } = await list({ prefix: 'gallery-order.json' });
+    if (blobs.length > 0) {
+      const res = await fetch(blobs[0].url, { cache: 'no-store' });
+      if (res.ok) return await res.json();
+    }
+  } catch { /* fall through */ }
+  return { photos: {}, videos: {} };
+}
+
+async function writeOrder(order: object): Promise<void> {
+  await put('gallery-order.json', JSON.stringify(order, null, 2), {
+    access: 'public',
+    addRandomSuffix: false,
+    contentType: 'application/json',
+    allowOverwrite: true,
+  });
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -22,26 +38,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing file, sport, or mediaType.' }, { status: 400 });
     }
 
-    // Guard against path traversal
-    const resolvedFile = path.resolve(process.cwd(), 'public', file.replace(/^\//, ''));
-    if (!resolvedFile.startsWith(path.resolve(GALLERY_DIR))) {
-      return NextResponse.json({ error: 'Invalid file path.' }, { status: 400 });
+    // Delete from Vercel Blob (best-effort — file is a blob URL or local path)
+    if (file.startsWith('https://')) {
+      try { await del(file); } catch { /* already gone */ }
     }
 
-    // Delete from filesystem (best-effort)
-    try { await fs.unlink(resolvedFile); } catch { /* already gone */ }
-
-    // Remove from gallery-order.json
-    let order: { photos?: Record<string, string[]>; videos?: Record<string, string[]> } = {};
-    try { order = JSON.parse(await fs.readFile(ORDER_FILE, 'utf-8')); } catch { /* no file yet */ }
-
+    // Remove from order
+    const order = await readOrder();
     const bucket = mediaType === 'photo' ? 'photos' : 'videos';
     if (order[bucket]?.[sport]) {
-      order[bucket]![sport] = order[bucket]![sport].filter((f) => f !== file);
+      order[bucket][sport] = order[bucket][sport].filter((f) => f !== file);
     }
-
-    await fs.mkdir(GALLERY_DIR, { recursive: true });
-    await fs.writeFile(ORDER_FILE, JSON.stringify(order, null, 2), 'utf-8');
+    await writeOrder(order);
 
     return NextResponse.json({ success: true });
   } catch (err) {
