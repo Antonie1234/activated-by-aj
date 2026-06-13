@@ -6,6 +6,7 @@ import LogoWatermark from '@/components/LogoWatermark';
 import ReflectMotionLogo from '@/components/ReflectMotionLogo';
 import StatsCounter from '@/components/StatsCounter';
 import WorldOfActivated from '@/components/WorldOfActivated';
+import { readTestimonials } from '@/lib/testimonials';
 
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
@@ -120,7 +121,8 @@ const services = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const testimonialPreview = (await readTestimonials()).slice(0, 3);
   return (
     <>
       <ScrollAnimations />
@@ -414,28 +416,9 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                name: 'Henry Leung',
-                initials: 'HL',
-                service: 'Tennis Coaching',
-                quote: "AJ doesn't settle for mediocrity. He challenges me to dig deeper, work harder, and play smarter. I've seen dramatic improvements in my technique, endurance, and mental toughness.",
-              },
-              {
-                name: 'Sharlene Robbins',
-                initials: 'SR',
-                service: 'Pickleball Coaching',
-                quote: "AJ is incredibly patient and explains things clearly. His drills are challenging but fun, and he always tailors the lesson to enhance my progress. I'm now addicted to Pickleball!",
-              },
-              {
-                name: 'C.B.',
-                initials: 'CB',
-                service: 'Performance Client',
-                quote: "Over just one term, the progress has been nothing short of incredible. My strength, endurance and confidence have all improved dramatically. Highly recommend for anyone at any level.",
-              },
-            ].map((t, i) => (
+            {testimonialPreview.map((t, i) => (
               <Link
-                key={t.name}
+                key={t.id ?? t.name}
                 href="/testimonials"
                 className="block group"
                 data-animate="fade-up"
@@ -472,7 +455,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex gap-1 mb-4">
-                    {Array.from({ length: 5 }).map((_, j) => (
+                    {Array.from({ length: t.rating }).map((_, j) => (
                       <span key={j} style={{ color: '#C8A951' }}>★</span>
                     ))}
                   </div>

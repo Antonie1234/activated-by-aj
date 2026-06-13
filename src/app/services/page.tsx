@@ -293,8 +293,8 @@ export default function Services() {
                   <img
                     src={service.image}
                     alt={service.imageAlt}
-                    className="object-cover w-full h-full"
-                    style={{ display: 'block', objectPosition: service.objectPosition || 'center center' }}
+                    className="w-full h-full"
+                    style={{ objectFit: 'cover', objectPosition: service.objectPosition || 'center center' }}
                     loading="lazy"
                     decoding="async"
                   />
