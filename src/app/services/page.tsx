@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
@@ -288,12 +289,13 @@ export default function Services() {
 
                 {/* ── Image column ── */}
                 <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 320 }} data-animate={imageLeft ? 'slide-left' : 'slide-right'}>
-                  <img
+                  <Image
                     src={service.image}
                     alt={service.imageAlt}
-                    className="w-full h-full object-cover"
-                    style={service.imgStyle ?? { minHeight: 320, maxHeight: 440 }}
-                    loading="lazy"
+                    fill
+                    className="object-cover"
+                    priority={index < 2}
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   {/* Dark overlay */}
                   <div
