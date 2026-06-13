@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 
+const staticCacheHeader = {
+  key: 'Cache-Control',
+  value: 'public, max-age=31536000, immutable',
+};
+
 const securityHeaders = [
   { key: 'X-Frame-Options', value: 'DENY' },
   { key: 'X-Content-Type-Options', value: 'nosniff' },
@@ -22,6 +27,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  compress: true,
+  generateEtags: true,
   poweredByHeader: false,
   reactStrictMode: true,
   images: {
@@ -67,6 +74,11 @@ const nextConfig: NextConfig = {
         source: '/(.*)',
         headers: securityHeaders,
       },
+      { source: '/:path*.jpg',  headers: [staticCacheHeader] },
+      { source: '/:path*.jpeg', headers: [staticCacheHeader] },
+      { source: '/:path*.png',  headers: [staticCacheHeader] },
+      { source: '/:path*.webp', headers: [staticCacheHeader] },
+      { source: '/:path*.svg',  headers: [staticCacheHeader] },
     ];
   },
 };

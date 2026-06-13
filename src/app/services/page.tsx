@@ -294,6 +294,8 @@ export default function Services() {
                     alt={service.imageAlt}
                     className="object-cover w-full h-full"
                     style={{ display: 'block' }}
+                    loading="lazy"
+                    decoding="async"
                   />
                   {/* Dark overlay */}
                   <div

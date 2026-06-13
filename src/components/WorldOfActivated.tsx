@@ -285,6 +285,8 @@ export default function WorldOfActivated() {
                         sizes={isMobile ? '100vw' : `${Math.round(((slot?.colSpan ?? 4) / 12) * 1152)}px`}
                         style={{ objectFit: 'cover', transition: 'transform 150ms ease' }}
                         className="group-hover:scale-[1.02]"
+                        loading="lazy"
+                        decoding="async"
                       />
                       {/* Hover gradient + sport label */}
                       <div

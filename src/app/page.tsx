@@ -339,7 +339,7 @@ export default function Home() {
                       src={service.photo}
                       alt={service.title}
                       className="w-full h-48 object-cover"
-                      loading={i < 3 ? 'eager' : 'lazy'}
+                      loading="lazy"
                     />
                   )}
                   <div className="p-6 flex flex-col flex-1">

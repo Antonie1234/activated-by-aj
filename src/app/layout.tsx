@@ -46,6 +46,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" href="/hero-poster.jpg" as="image" fetchPriority="high" />
+      </head>
       <body className={`${geist.variable} antialiased`}>
         <script
           type="application/ld+json"
