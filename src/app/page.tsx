@@ -341,7 +341,7 @@ export default function Home() {
                         src={service.photo}
                         alt={service.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
+                        loading={i < 3 ? 'eager' : 'lazy'}
                       />
                     </div>
                   )}
