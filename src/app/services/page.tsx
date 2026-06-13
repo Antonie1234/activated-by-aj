@@ -289,7 +289,7 @@ export default function Services() {
               <div className={`grid md:grid-cols-2 gap-10 lg:gap-16 items-center ${!imageLeft ? 'md:[&>*:first-child]:order-2' : ''}`}>
 
                 {/* ── Image column ── */}
-                <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 320 }} data-animate={imageLeft ? 'slide-left' : 'slide-right'}>
+                <div className="relative rounded-2xl overflow-hidden" style={{ height: 400 }} data-animate={imageLeft ? 'slide-left' : 'slide-right'}>
                   <Image
                     src={service.image}
                     alt={service.imageAlt}
