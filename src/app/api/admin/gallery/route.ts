@@ -1,12 +1,15 @@
 /**
  * GET /api/admin/gallery
- * Reads gallery-order.json from Vercel Blob, merged with hardcoded
- * defaults so every sport key is always present.
+ * Returns gallery-order.json with new nested photos/videos structure,
+ * merged with hardcoded defaults so every key is always present.
  */
 import { NextResponse } from 'next/server';
-import { list } from '@vercel/blob';
+import fs from 'fs/promises';
+import path from 'path';
 
 export const dynamic = 'force-dynamic';
+
+const ORDER_FILE = path.join(process.cwd(), 'public', 'gallery', 'gallery-order.json');
 
 const DEFAULT: {
   photos: Record<string, string[]>;
@@ -14,29 +17,23 @@ const DEFAULT: {
 } = {
   photos: {
     tennis:     ['/gallery/tennis-4.jpg', '/gallery/tennis-1.jpg', '/gallery/tennis-3.jpg', '/gallery/tennis-2.jpg', '/gallery/tennis-5.jpg'],
-    padel:      [],
+    padel:      ['/gallery/padel-3.jpg',  '/gallery/padel-1.jpg',  '/gallery/padel-2.jpg',  '/gallery/padel-4.jpg'],
     pickleball: [],
-    beach:      ['/gallery/beach-2.jpg', '/gallery/beach-1.jpg'],
+    beach:      ['/gallery/beach-2.jpg',  '/gallery/beach-1.jpg'],
     reflect:    [],
   },
   videos: {
-    tennis: [], padel: [], pickleball: [], beach: [], general: [],
+    tennis: [], padel: [], pickleball: [], beach: [],
+    general: ['/gallery/video-1.mp4', '/gallery/video-2.mov', '/gallery/video-3.mov', '/gallery/video-4.mov', '/gallery/video-5.mov', '/gallery/video-6.mov'],
   },
 };
 
-async function readOrder(): Promise<{ photos: Record<string, string[]>; videos: Record<string, string[]> }> {
-  try {
-    const { blobs } = await list({ prefix: 'gallery-order.json' });
-    if (blobs.length > 0) {
-      const res = await fetch(blobs[0].url, { cache: 'no-store' });
-      if (res.ok) return await res.json();
-    }
-  } catch { /* fall through to empty */ }
-  return { photos: {}, videos: {} };
-}
-
 export async function GET() {
-  const saved = await readOrder();
+  let saved: typeof DEFAULT = { photos: {}, videos: {} };
+  try {
+    saved = JSON.parse(await fs.readFile(ORDER_FILE, 'utf-8'));
+  } catch { /* file not yet created — use defaults */ }
+
   return NextResponse.json({
     photos: { ...DEFAULT.photos, ...(saved.photos ?? {}) },
     videos: { ...DEFAULT.videos, ...(saved.videos ?? {}) },

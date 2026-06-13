@@ -38,10 +38,9 @@ function isVideo(src: string): boolean {
  * file can never produce broken image paths.
  */
 function normalizeSrc(entry: string): string {
-  if (entry.startsWith('https://') || entry.startsWith('http://')) return entry;
   if (entry.startsWith('/gallery/')) return entry;
   if (entry.startsWith('gallery/'))  return `/${entry}`;
-  if (entry.startsWith('/'))         return entry;
+  if (entry.startsWith('/'))         return entry; // other absolute path — leave as-is
   return `/gallery/${entry}`;
 }
 
@@ -98,25 +97,25 @@ export default function WorldOfActivated() {
   const [lightbox,    setLightbox]    = useState<number | null>(null);
   const isMobile = useIsMobile();
 
-  // ── Load gallery from API (backed by Vercel Blob) ─────────────────────────
+  // ── Load gallery-order.json (written by the admin tool) ────────────────────
   useEffect(() => {
-    fetch('/api/admin/gallery', { cache: 'no-store' })
+    fetch('/gallery/gallery-order.json', { cache: 'no-store' })
       .then((r) => { if (!r.ok) throw new Error(); return r.json(); })
       .then((order: { photos?: Record<string, string[]>; videos?: Record<string, string[]> }) => {
         if (order.photos) {
           const normalized = Object.fromEntries(
-            Object.entries(order.photos).map(([k, v]) => [k, (v ?? []).map(normalizeSrc)])
+            Object.entries(order.photos).map(([k, list]) => [k, (list ?? []).map(normalizeSrc)])
           );
           setPhotos({ ...DEFAULT_PHOTOS, ...normalized });
         }
         if (order.videos) {
           const normalized = Object.fromEntries(
-            Object.entries(order.videos).map(([k, v]) => [k, (v ?? []).map(normalizeSrc)])
+            Object.entries(order.videos).map(([k, list]) => [k, (list ?? []).map(normalizeSrc)])
           );
           setVideos(normalized);
         }
       })
-      .catch(() => { /* keep defaults */ });
+      .catch(() => { /* gallery-order.json absent — keep defaults */ });
   }, []);
 
   const sportKey = TAB_KEY[tab];

@@ -1,51 +1,44 @@
 /**
  * POST /api/admin/gallery/upload
  * Multipart: { files: File[] (or single 'file'), tab: string, mediaType: 'photo' | 'video' }
- * Uploads each file to Vercel Blob and appends blob URLs to gallery-order.json (also in Blob).
+ * Saves each file to /public/gallery/<prefix><timestamp>-<n>.<ext>
+ * Appends all srcs to gallery-order.json under photos[sport] or videos[sport].
+ *
+ * Note: the photos bucket accepts videos too — .mp4/.mov uploaded via the admin
+ * Photos tab render as play-button tiles inside the public bento grid.
  */
 import { NextRequest, NextResponse } from 'next/server';
-import { put, list } from '@vercel/blob';
+import fs from 'fs/promises';
+import path from 'path';
 
 export const dynamic = 'force-dynamic';
 
+const GALLERY_DIR = path.join(process.cwd(), 'public', 'gallery');
+const ORDER_FILE  = path.join(GALLERY_DIR, 'gallery-order.json');
+
+// Maps UI sport label → gallery-order.json key
 const SPORT_KEY: Record<string, string> = {
   Tennis: 'tennis', Padel: 'padel', Pickleball: 'pickleball',
   'Beach Sports': 'beach', 'Reflect Motion': 'reflect', General: 'general',
 };
 
+// File prefix per sport
 const TAB_PREFIX: Record<string, string> = {
   tennis: 'tennis-', padel: 'padel-', pickleball: 'pickleball-',
   beach: 'beach-', reflect: 'reflect-', general: 'video-',
 };
 
-const ALLOWED_EXTS = new Set(['jpg', 'jpeg', 'png', 'mp4', 'mov']);
-
-async function readOrder(): Promise<{ photos: Record<string, string[]>; videos: Record<string, string[]> }> {
-  try {
-    const { blobs } = await list({ prefix: 'gallery-order.json' });
-    if (blobs.length > 0) {
-      const res = await fetch(blobs[0].url, { cache: 'no-store' });
-      if (res.ok) return await res.json();
-    }
-  } catch { /* fall through to empty */ }
-  return { photos: {}, videos: {} };
-}
-
-async function writeOrder(order: object): Promise<void> {
-  await put('gallery-order.json', JSON.stringify(order, null, 2), {
-    access: 'public',
-    addRandomSuffix: false,
-    contentType: 'application/json',
-    allowOverwrite: true,
-  });
-}
+// Photos bucket accepts images AND videos (videos become grid play tiles)
+const PHOTO_EXTS = new Set(['jpg', 'jpeg', 'png', 'mp4', 'mov']);
+const VIDEO_EXTS = new Set(['mp4', 'mov']);
 
 export async function POST(req: NextRequest) {
   try {
     const formData  = await req.formData();
-    const tab       = formData.get('tab') as string | null;
+    const tab       = formData.get('tab')       as string | null;
     const mediaType = (formData.get('mediaType') as string | null) ?? 'photo';
 
+    // Accept both multi ('files') and legacy single ('file') field names
     const files = [
       ...formData.getAll('files'),
       ...formData.getAll('file'),
@@ -55,9 +48,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing files or tab.' }, { status: 400 });
     }
 
+    const allowed = mediaType === 'video' ? VIDEO_EXTS : PHOTO_EXTS;
+
+    // Validate every file before saving any
     for (const file of files) {
       const ext = (file.name.split('.').pop() ?? '').toLowerCase();
-      if (!ALLOWED_EXTS.has(ext)) {
+      if (!allowed.has(ext)) {
         return NextResponse.json(
           { error: `File type .${ext} is not allowed (${file.name}).` },
           { status: 400 }
@@ -67,22 +63,29 @@ export async function POST(req: NextRequest) {
 
     const sportKey = SPORT_KEY[tab] ?? tab.toLowerCase().replace(/\s+/g, '-');
     const prefix   = TAB_PREFIX[sportKey] ?? 'gallery-';
-    const stamp    = Date.now();
-    const srcs: string[] = [];
 
+    await fs.mkdir(GALLERY_DIR, { recursive: true });
+
+    // Save sequentially; index suffix prevents same-millisecond collisions
+    const srcs: string[] = [];
+    const stamp = Date.now();
     for (let i = 0; i < files.length; i++) {
       const ext      = (files[i].name.split('.').pop() ?? '').toLowerCase();
-      const filename = `gallery/${prefix}${stamp}-${i}.${ext}`;
-      const blob     = await put(filename, files[i], { access: 'public', addRandomSuffix: false, allowOverwrite: true });
-      srcs.push(blob.url);
+      const filename = `${prefix}${stamp}-${i}.${ext}`;
+      await fs.writeFile(path.join(GALLERY_DIR, filename), Buffer.from(await files[i].arrayBuffer()));
+      srcs.push(`/gallery/${filename}`);
     }
 
-    const order = await readOrder();
+    // Update gallery-order.json
+    let order: { photos?: Record<string, string[]>; videos?: Record<string, string[]> } = {};
+    try { order = JSON.parse(await fs.readFile(ORDER_FILE, 'utf-8')); } catch { /* first run */ }
+
     const bucket = mediaType === 'video' ? 'videos' : 'photos';
     if (!order[bucket]) order[bucket] = {};
-    if (!Array.isArray(order[bucket][sportKey])) order[bucket][sportKey] = [];
-    order[bucket][sportKey].push(...srcs);
-    await writeOrder(order);
+    if (!Array.isArray(order[bucket]![sportKey])) order[bucket]![sportKey] = [];
+    order[bucket]![sportKey].push(...srcs);
+
+    await fs.writeFile(ORDER_FILE, JSON.stringify(order, null, 2), 'utf-8');
 
     return NextResponse.json({ success: true, srcs });
   } catch (err) {
