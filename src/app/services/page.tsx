@@ -1,7 +1,6 @@
 // Force redeploy - June 2026
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
@@ -289,15 +288,12 @@ export default function Services() {
               <div className={`grid md:grid-cols-2 gap-10 lg:gap-16 items-center ${!imageLeft ? 'md:[&>*:first-child]:order-2' : ''}`}>
 
                 {/* ── Image column ── */}
-                <div className="relative rounded-2xl overflow-hidden" style={{ height: 400 }} data-animate={imageLeft ? 'slide-left' : 'slide-right'}>
-                  <Image
+                <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 320, maxHeight: 440 }} data-animate={imageLeft ? 'slide-left' : 'slide-right'}>
+                  <img
                     src={service.image}
                     alt={service.imageAlt}
-                    fill
-                    unoptimized
-                    className="object-cover"
-                    priority={index < 2}
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover w-full h-full"
+                    style={{ display: 'block' }}
                   />
                   {/* Dark overlay */}
                   <div
