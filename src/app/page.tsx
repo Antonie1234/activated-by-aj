@@ -6,7 +6,6 @@ import LogoWatermark from '@/components/LogoWatermark';
 import ReflectMotionLogo from '@/components/ReflectMotionLogo';
 import StatsCounter from '@/components/StatsCounter';
 import WorldOfActivated from '@/components/WorldOfActivated';
-import FadeInImage from '@/components/FadeInImage';
 
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
@@ -336,14 +335,12 @@ export default function Home() {
                       />
                     </div>
                   ) : (
-                    <div className="w-full h-48 overflow-hidden">
-                      <FadeInImage
-                        src={service.photo}
-                        alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading={i < 3 ? 'eager' : 'lazy'}
-                      />
-                    </div>
+                    <img
+                      src={service.photo}
+                      alt={service.title}
+                      className="w-full h-48 object-cover"
+                      loading={i < 3 ? 'eager' : 'lazy'}
+                    />
                   )}
                   <div className="p-6 flex flex-col flex-1">
                     <h3
