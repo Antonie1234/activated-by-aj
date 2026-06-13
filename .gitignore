@@ -44,3 +44,5 @@ next-env.d.ts
 public/*.mp4
 public/*.mov
 data/
+public/gallery/*.mov
+public/gallery/*.mp4
