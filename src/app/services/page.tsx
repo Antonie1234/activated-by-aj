@@ -3,7 +3,6 @@ import Link from 'next/link';
 import GoldDivider from '@/components/GoldDivider';
 import ScrollAnimations from '@/components/ScrollAnimations';
 import LogoWatermark from '@/components/LogoWatermark';
-import FadeInImage from '@/components/FadeInImage';
 
 /* ── Gold SVG Icons ── */
 const TennisIcon = () => (
@@ -187,9 +186,7 @@ const services = [
       'Mobility & injury prevention',
       'Progress tracking & accountability',
     ],
-    // Local placeholder (hotlink-blocked external URL replaced) — swap for a
-    // real fitness photo when AJ provides one
-    image: '/gallery/padel-1.jpg',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80',
     imageAlt: 'Fitness and gym training',
     accentColor: 'var(--brand-gold)',
   },
@@ -291,7 +288,7 @@ export default function Services() {
 
                 {/* ── Image column ── */}
                 <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 320 }} data-animate={imageLeft ? 'slide-left' : 'slide-right'}>
-                  <FadeInImage
+                  <img
                     src={service.image}
                     alt={service.imageAlt}
                     className="w-full h-full object-cover"
