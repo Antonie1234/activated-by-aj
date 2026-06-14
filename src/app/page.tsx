@@ -115,7 +115,7 @@ const services = [
     photo: '',
     logoUrl: 'https://reflectmotion.com/logo.png',
     title: 'AI Performance Tech',
-    description: 'Powered by Reflect Motion — AI movement analysis that tracks your technique, scores every rep, and delivers real-time coaching feedback.',
+    description: 'Powered by Reflect Motion — the AI movement analysis platform built for serious athletes and coaches. Real-time technique scoring, rep tracking, and performance insights delivered instantly. AJ is Head of Performance at Reflect Motion.',
     href: 'https://www.reflectmotion.com',
     external: true,
   },
@@ -595,7 +595,7 @@ export default async function Home() {
 
                 {/* Description */}
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                  Reflect Motion uses AI computer vision to analyse your movement in real time, score every rep, and deliver personalised coaching feedback. Built for athletes, coaches, and anyone serious about performance.
+                  Reflect Motion is the AI movement analysis platform built for serious athletes and coaches. Real-time technique scoring, rep tracking, and performance insights delivered instantly. AJ is Head of Performance at Reflect Motion.
                 </p>
 
                 {/* Full-width CTA button */}

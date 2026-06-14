@@ -9,9 +9,9 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Activated | Racquet Sport & Lifestyle",
+  title: "Activated | Sport. Energy. Movement.",
   description:
-    "Activated — premium racquet sport coaching, padel facility development, and AI performance technology. Your Vibe Activates Your Tribe.",
+    "Activated is a premium racquet sports coaching, padel venue development, and AI performance brand powered by Reflect Motion technology.",
   keywords: [
     "tennis coach",
     "padel coaching",
@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "beach tennis",
     "fitness coach",
     "racquet sport",
+    "padel venue development",
+    "AI performance",
+    "Reflect Motion",
     "Activated",
   ],
   icons: {
@@ -30,12 +33,20 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: "Activated",
-    description: "Turn your energy into purpose.",
+    title: "Activated | Sport. Energy. Movement.",
+    description: "Activated is a premium racquet sports coaching, padel venue development, and AI performance brand powered by Reflect Motion technology.",
     url: "https://activatedbyaj.co.za",
     siteName: "Activated",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "https://activatedbyaj.co.za/hero-poster.jpg",
+        width: 1280,
+        height: 720,
+        alt: "Activated — Sport. Energy. Movement.",
+      },
+    ],
   },
 };
 
