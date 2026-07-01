@@ -15,6 +15,10 @@ const S = {
 
 // ─── Shared helpers ───────────────────────────────────────────────────────────
 function isVideo(src: string) { return /\.(mp4|mov|webm|ogg)$/i.test(src); }
+// preload="metadata" alone doesn't guarantee a decoded frame in every browser
+// (Firefox in particular can leave the tile blank) — an explicit poster
+// guarantees the thumbnail always paints.
+function posterFor(src: string) { return src.replace(/\.(mp4|mov|webm|ogg)$/i, '-poster.jpg'); }
 function basename(src: string) { return src.split('/').pop() ?? src; }
 
 // ─── Sub-tab bar ──────────────────────────────────────────────────────────────
@@ -82,6 +86,8 @@ function TileCard({ src, badge, isDragging, isDragOver, onDelete, onDragStart, o
               muted
               playsInline
               preload="metadata"
+              poster={posterFor(src)}
+              className="w-full h-full object-cover"
               style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block', pointerEvents: 'none' }}
             />
             {/* Gold play glyph over the frame */}
