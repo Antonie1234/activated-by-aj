@@ -8,6 +8,11 @@ import StatsCounter from '@/components/StatsCounter';
 import WorldOfActivated from '@/components/WorldOfActivated';
 import { readTestimonials } from '@/lib/testimonials';
 
+// Without this, Next prerenders the page at build time and bakes in
+// whatever testimonials existed then — newly approved reviews wouldn't
+// show up until the next deploy.
+export const dynamic = 'force-dynamic';
+
 /* ── Shared gold SVG icons (match /services page) ── */
 const TennisIcon = () => (
   <svg width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
