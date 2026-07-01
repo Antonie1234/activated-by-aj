@@ -39,6 +39,16 @@ function posterFor(src: string): string {
   return src.replace(/\.(mp4|mov|webm|ogg)$/i, '-poster.jpg');
 }
 
+// React doesn't reliably sync the `muted` prop to the DOM property before
+// the browser's autoplay check runs, which silently blocks playback on some
+// mobile browsers and leaves a paused frame (looks like a dead play button).
+// Setting it imperatively on mount guarantees autoplay isn't blocked.
+function autoplayRef(el: HTMLVideoElement | null): void {
+  if (!el) return;
+  el.muted = true;
+  el.play().catch(() => { /* ignore — will retry once user interacts */ });
+}
+
 /**
  * gallery-order.json entries should be "/gallery/<file>" but tolerate bare
  * filenames ("tennis-1.jpg") and missing leading slashes so a hand-edited
@@ -276,12 +286,15 @@ export default function WorldOfActivated() {
                 >
                   {video ? (
                     <video
+                      ref={autoplayRef}
                       autoPlay
                       muted
                       loop
                       playsInline
+                      preload="auto"
                       src={src}
                       poster={posterFor(src)}
+                      className="w-full h-full object-cover"
                       style={
                         isMobile
                           ? { width: '100%', height: 'auto', display: 'block' }
@@ -397,10 +410,12 @@ export default function WorldOfActivated() {
               /* key forces remount (and re-autoplay) on navigation */
               <video
                 key={activeSrc}
+                ref={autoplayRef}
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 poster={posterFor(activeSrc)}
                 style={{
                   maxWidth: '90vw', maxHeight: '80vh',
