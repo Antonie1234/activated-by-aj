@@ -2,9 +2,16 @@
   "photos": {
     "tennis": [
       "/gallery/tennis-5.jpg",
-      "/gallery/tennis-1781263858619-0.jpeg"
+      "/gallery/tennis-1781263858619-0.jpeg",
+      "/gallery/tennis-1781391146625-0.mov",
+      "/gallery/tennis-1781391146625-1.mov",
+      "/gallery/tennis-1781391146625-2.mov",
+      "/gallery/tennis-1781391146625-3.mov",
+      "/gallery/tennis-1781391146625-4.jpeg"
     ],
-    "padel": [],
+    "padel": [
+      "/gallery/padel-1781391174716-0.jpeg"
+    ],
     "pickleball": [
       "/gallery/pickleball-1781329521174-0.jpg",
       "/gallery/pickleball-1781329521174-1.jpg",
@@ -14,7 +21,6 @@
       "/gallery/pickleball-1781329521174-5.jpg",
       "/gallery/pickleball-1781329521174-7.jpg",
       "/gallery/pickleball-1781332730576-0.jpeg",
-      "/gallery/pickleball-1781332730576-1.jpeg",
       "/gallery/pickleball-1781332730576-2.jpeg",
       "/gallery/pickleball-1781332730576-3.jpeg",
       "/gallery/pickleball-1781332730576-4.jpeg"
@@ -25,8 +31,7 @@
       "/gallery/beach-1781334715596-5.png",
       "/gallery/beach-1781334715596-6.png",
       "/gallery/beach-1781334715596-7.png",
-      "/gallery/beach-1781334715596-8.png",
-      "/gallery/beach-1781334715596-9.jpeg"
+      "/gallery/beach-1781334715596-8.png"
     ],
     "reflect": []
   },
