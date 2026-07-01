@@ -3,10 +3,10 @@
     "tennis": [
       "/gallery/tennis-5.jpg",
       "/gallery/tennis-1781263858619-0.jpeg",
-      "/gallery/tennis-1781391146625-0.mov",
-      "/gallery/tennis-1781391146625-1.mov",
-      "/gallery/tennis-1781391146625-2.mov",
-      "/gallery/tennis-1781391146625-3.mov",
+      "/gallery/tennis-1781391146625-0.mp4",
+      "/gallery/tennis-1781391146625-1.mp4",
+      "/gallery/tennis-1781391146625-2.mp4",
+      "/gallery/tennis-1781391146625-3.mp4",
       "/gallery/tennis-1781391146625-4.jpeg"
     ],
     "padel": [
@@ -42,11 +42,11 @@
     "beach": [],
     "general": [
       "/gallery/video-1.mp4",
-      "/gallery/video-2.mov",
-      "/gallery/video-3.mov",
-      "/gallery/video-4.mov",
-      "/gallery/video-5.mov",
-      "/gallery/video-6.mov"
+      "/gallery/video-2.mp4",
+      "/gallery/video-3.mp4",
+      "/gallery/video-4.mp4",
+      "/gallery/video-5.mp4",
+      "/gallery/video-6.mp4"
     ]
   }
 }

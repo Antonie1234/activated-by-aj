@@ -25,7 +25,7 @@ const DEFAULT: {
   },
   videos: {
     tennis: [], padel: [], pickleball: [], beach: [],
-    general: ['/gallery/video-1.mp4', '/gallery/video-2.mov', '/gallery/video-3.mov', '/gallery/video-4.mov', '/gallery/video-5.mov', '/gallery/video-6.mov'],
+    general: ['/gallery/video-1.mp4', '/gallery/video-2.mp4', '/gallery/video-3.mp4', '/gallery/video-4.mp4', '/gallery/video-5.mp4', '/gallery/video-6.mp4'],
   },
 };
 

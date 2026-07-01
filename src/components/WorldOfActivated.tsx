@@ -32,6 +32,13 @@ function isVideo(src: string): boolean {
   return /\.(mp4|mov|webm|ogg)$/i.test(src);
 }
 
+// Convention: "foo.mp4" → "foo-poster.jpg". Harmless 404 if one doesn't
+// exist yet (e.g. a freshly admin-uploaded video) — the navy tile background
+// shows through until the video itself loads.
+function posterFor(src: string): string {
+  return src.replace(/\.(mp4|mov|webm|ogg)$/i, '-poster.jpg');
+}
+
 /**
  * gallery-order.json entries should be "/gallery/<file>" but tolerate bare
  * filenames ("tennis-1.jpg") and missing leading slashes so a hand-edited
@@ -240,7 +247,7 @@ export default function WorldOfActivated() {
             style={{
               display: 'grid',
               gridTemplateColumns: isMobile ? '1fr' : 'repeat(12, 1fr)',
-              gridTemplateRows: isMobile ? `repeat(${files.length}, 200px)` : `repeat(${maxRow}, 190px)`,
+              gridTemplateRows: isMobile ? 'auto' : `repeat(${maxRow}, 190px)`,
               gap: '6px',
             }}
           >
@@ -255,12 +262,13 @@ export default function WorldOfActivated() {
                   style={{
                     gridColumn: isMobile ? 'auto' : `${slot.colStart} / span ${slot.colSpan}`,
                     gridRow:    isMobile ? 'auto' : `${slot.rowStart} / span ${slot.rowSpan}`,
+                    height:     isMobile ? (video ? 'auto' : '200px') : undefined,
                     position:     'relative',
                     overflow:     'hidden',
                     borderRadius: '4px',
                     cursor:       'pointer',
                     border:       i === 0 ? '0.5px solid #C8A951' : undefined,
-                    background:   video ? '#0a0f1a' : undefined,
+                    background:   video ? '#0D1B2A' : undefined,
                     opacity:      gridVisible ? 1 : 0,
                     transform:    gridVisible ? 'translateY(0)' : 'translateY(10px)',
                     transition:   `opacity 0.4s ease ${i * 50}ms, transform 0.4s ease ${i * 50}ms`,
@@ -273,7 +281,12 @@ export default function WorldOfActivated() {
                       loop
                       playsInline
                       src={src}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      poster={posterFor(src)}
+                      style={
+                        isMobile
+                          ? { width: '100%', height: 'auto', display: 'block' }
+                          : { width: '100%', height: '100%', objectFit: 'cover', display: 'block' }
+                      }
                     />
                   ) : (
                     <>
@@ -388,9 +401,10 @@ export default function WorldOfActivated() {
                 muted
                 loop
                 playsInline
+                poster={posterFor(activeSrc)}
                 style={{
                   maxWidth: '90vw', maxHeight: '80vh',
-                  borderRadius: '4px', display: 'block', background: '#000',
+                  borderRadius: '4px', display: 'block', background: '#0D1B2A',
                 }}
               >
                 <source src={activeSrc} />
