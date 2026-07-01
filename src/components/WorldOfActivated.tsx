@@ -135,6 +135,29 @@ export default function WorldOfActivated() {
       .catch(() => { /* gallery-order.json absent — keep defaults */ });
   }, []);
 
+  // ── Re-trigger autoplay whenever the active tab's videos (re)mount ─────────
+  useEffect(() => {
+    const videos = document.querySelectorAll<HTMLVideoElement>('.gallery-video');
+    videos.forEach((video) => {
+      video.muted = true;
+      video.play().catch(() => {});
+    });
+  }, [tab]);
+
+  // ── Initial mount: some browsers gate autoplay until just after first
+  //    paint, so retry once shortly after mount rather than only on tab
+  //    change ──────────────────────────────────────────────────────────────
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const videos = document.querySelectorAll<HTMLVideoElement>('.gallery-video');
+      videos.forEach((video) => {
+        video.muted = true;
+        video.play().catch(() => {});
+      });
+    }, 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const sportKey = TAB_KEY[tab];
   const files  = [...(photos[sportKey] ?? []), ...(videos[sportKey] ?? [])];
   const slots  = layoutFor(files.length);
@@ -294,7 +317,7 @@ export default function WorldOfActivated() {
                       preload="auto"
                       src={src}
                       poster={posterFor(src)}
-                      className="w-full h-full object-cover"
+                      className="gallery-video w-full h-full object-cover"
                       style={
                         isMobile
                           ? { width: '100%', height: 'auto', display: 'block' }
