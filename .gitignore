@@ -43,11 +43,8 @@ next-env.d.ts
 # claude
 .claude/
 
-# large video/media files
-*.mp4
-*.mov
-public/*.mp4
-public/*.mov
 data/
-public/gallery/*.mov
-public/gallery/*.mp4
+
+# unused raw video sources (compressed .mp4 versions are tracked and used)
+public/hero-bg-aj.mov
+public/tennis-montage.mov

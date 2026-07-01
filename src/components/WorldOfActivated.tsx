@@ -385,7 +385,8 @@ export default function WorldOfActivated() {
               <video
                 key={activeSrc}
                 autoPlay
-                controls
+                muted
+                loop
                 playsInline
                 style={{
                   maxWidth: '90vw', maxHeight: '80vh',
