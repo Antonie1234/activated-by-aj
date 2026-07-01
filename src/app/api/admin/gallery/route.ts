@@ -3,9 +3,10 @@
  * Returns gallery-order.json with new nested photos/videos structure,
  * merged with hardcoded defaults so every key is always present.
  */
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
+import { isAuthedRequest } from '@/lib/adminAuth';
 
 export const dynamic = 'force-dynamic';
 
@@ -28,7 +29,11 @@ const DEFAULT: {
   },
 };
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (!isAuthedRequest(req)) {
+    return NextResponse.json({ error: 'Unauthorised.' }, { status: 401 });
+  }
+
   let saved: typeof DEFAULT = { photos: {}, videos: {} };
   try {
     saved = JSON.parse(await fs.readFile(ORDER_FILE, 'utf-8'));

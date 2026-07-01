@@ -14,22 +14,27 @@ const S = {
   radius:   '6px',
 } as const;
 
-const PASSWORD = 'activated2026';
-const AUTH_KEY  = 'activated-admin-auth';
-
 // ─── Login screen ─────────────────────────────────────────────────────────────
 function LoginScreen({ onAuth }: { onAuth: () => void }) {
   const [pw,  setPw]  = useState('');
   const [err, setErr] = useState('');
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (pw === PASSWORD) {
-      sessionStorage.setItem(AUTH_KEY, 'true');
-      onAuth();
-    } else {
-      setErr('Incorrect password.');
-      setPw('');
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pw }),
+      });
+      if (res.ok) {
+        onAuth();
+      } else {
+        setErr('Incorrect password.');
+        setPw('');
+      }
+    } catch {
+      setErr('Could not reach the server. Try again.');
     }
   };
 
@@ -98,7 +103,7 @@ function LoginScreen({ onAuth }: { onAuth: () => void }) {
 }
 
 // ─── Sticky admin header ──────────────────────────────────────────────────────
-function AdminHeader() {
+function AdminHeader({ onLogout }: { onLogout: () => void }) {
   return (
     <header style={{
       position: 'sticky', top: 0, zIndex: 40,
@@ -115,15 +120,26 @@ function AdminHeader() {
       >
         ACTIVATED
       </Link>
-      <Link
-        href="/"
-        style={{
-          color: S.blue, fontSize: '13px', textDecoration: 'none',
-          display: 'flex', alignItems: 'center', gap: '5px',
-        }}
-      >
-        ← Back to site
-      </Link>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '18px' }}>
+        <button
+          onClick={onLogout}
+          style={{
+            color: S.blue, fontSize: '13px', background: 'none', border: 'none',
+            cursor: 'pointer', padding: 0,
+          }}
+        >
+          Log out
+        </button>
+        <Link
+          href="/"
+          style={{
+            color: S.blue, fontSize: '13px', textDecoration: 'none',
+            display: 'flex', alignItems: 'center', gap: '5px',
+          }}
+        >
+          ← Back to site
+        </Link>
+      </div>
     </header>
   );
 }
@@ -133,10 +149,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [authed, setAuthed] = useState<boolean | null>(null);
 
   useEffect(() => {
-    // sessionStorage is only available on the client
-    const stored = sessionStorage.getItem(AUTH_KEY);
-    setAuthed(stored === 'true');
+    fetch('/api/admin/login')
+      .then((r) => r.json())
+      .then((d: { authed?: boolean }) => setAuthed(d.authed === true))
+      .catch(() => setAuthed(false));
   }, []);
+
+  const logout = () => {
+    fetch('/api/admin/login', { method: 'DELETE' }).finally(() => setAuthed(false));
+  };
 
   // Blank navy while determining auth state (avoids hydration mismatch)
   if (authed === null) {
@@ -149,7 +170,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <div style={{ background: S.bg, minHeight: '100vh' }}>
-      <AdminHeader />
+      <AdminHeader onLogout={logout} />
       {children}
     </div>
   );

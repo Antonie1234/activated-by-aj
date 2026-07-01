@@ -6,6 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
+import { isAuthedRequest } from '@/lib/adminAuth';
 
 export const dynamic = 'force-dynamic';
 
@@ -13,6 +14,10 @@ const GALLERY_DIR = path.join(process.cwd(), 'public', 'gallery');
 const ORDER_FILE  = path.join(GALLERY_DIR, 'gallery-order.json');
 
 export async function POST(req: NextRequest) {
+  if (!isAuthedRequest(req)) {
+    return NextResponse.json({ error: 'Unauthorised.' }, { status: 401 });
+  }
+
   try {
     const { file, sport, mediaType } = await req.json() as {
       file: string; sport: string; mediaType: 'photo' | 'video';

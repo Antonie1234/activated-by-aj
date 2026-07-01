@@ -14,14 +14,22 @@ import {
   readTestimonials,
   writeTestimonials,
 } from '@/lib/testimonials';
+import { isAuthedRequest } from '@/lib/adminAuth';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (!isAuthedRequest(req)) {
+    return NextResponse.json({ error: 'Unauthorised.' }, { status: 401 });
+  }
   return NextResponse.json(await readTestimonials());
 }
 
 export async function POST(req: NextRequest) {
+  if (!isAuthedRequest(req)) {
+    return NextResponse.json({ error: 'Unauthorised.' }, { status: 401 });
+  }
+
   try {
     const { name, sport, rating, quote } = await req.json() as {
       name: string; sport: string; rating: number; quote: string;
@@ -50,6 +58,10 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PUT(req: NextRequest) {
+  if (!isAuthedRequest(req)) {
+    return NextResponse.json({ error: 'Unauthorised.' }, { status: 401 });
+  }
+
   try {
     const { id, name, sport, rating, quote } = await req.json() as {
       id: string; name: string; sport: string; rating: number; quote: string;
@@ -77,6 +89,10 @@ export async function PUT(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  if (!isAuthedRequest(req)) {
+    return NextResponse.json({ error: 'Unauthorised.' }, { status: 401 });
+  }
+
   try {
     const { id } = await req.json() as { id: string };
     if (!id) return NextResponse.json({ error: 'Missing id.' }, { status: 400 });

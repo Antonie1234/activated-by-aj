@@ -7,14 +7,11 @@
  * appended to testimonials.json, so it appears on the public /testimonials
  * page immediately — no manual step needed. It is also archived in
  * reviews-approved.json.
- *
- * NOTE: This endpoint has no authentication guard. It is intended for
- * internal use only and should be protected by server-level access
- * controls (IP allowlist / basic auth) before public deployment.
  */
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import { dataFile } from '@/lib/dataDir';
+import { isAuthedRequest } from '@/lib/adminAuth';
 import {
   SPORT_META,
   makeInitials,
@@ -50,11 +47,18 @@ async function writeJsonList(name: string, data: Review[]): Promise<void> {
   await fs.writeFile(file, JSON.stringify(data, null, 2), 'utf-8');
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (!isAuthedRequest(req)) {
+    return NextResponse.json({ error: 'Unauthorised.' }, { status: 401 });
+  }
   return NextResponse.json(await readJsonList('reviews-pending.json'));
 }
 
 export async function POST(req: NextRequest) {
+  if (!isAuthedRequest(req)) {
+    return NextResponse.json({ error: 'Unauthorised.' }, { status: 401 });
+  }
+
   try {
     const { id, action } = await req.json() as { id: string; action: 'approve' | 'reject' };
 

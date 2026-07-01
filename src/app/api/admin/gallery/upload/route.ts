@@ -10,6 +10,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
+import { isAuthedRequest } from '@/lib/adminAuth';
 
 export const dynamic = 'force-dynamic';
 
@@ -33,6 +34,10 @@ const PHOTO_EXTS = new Set(['jpg', 'jpeg', 'png', 'mp4', 'mov']);
 const VIDEO_EXTS = new Set(['mp4', 'mov']);
 
 export async function POST(req: NextRequest) {
+  if (!isAuthedRequest(req)) {
+    return NextResponse.json({ error: 'Unauthorised.' }, { status: 401 });
+  }
+
   try {
     const formData  = await req.formData();
     const tab       = formData.get('tab')       as string | null;
